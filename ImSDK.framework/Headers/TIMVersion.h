@@ -1,0 +1,5 @@
+#ifndef IMSDK_VERSION_H
+#define IMSDK_VERSION_H
+#define IMSDK_VERSION 6728
+#define TIM_IMCORE_VERSION 6729
+#endif
