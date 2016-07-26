@@ -7,27 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0472B7791D361F1700FE847E /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0472B7741D361F1700FE847E /* BaseModel.m */; };
-		0472B77A1D361F1700FE847E /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0472B7761D361F1700FE847E /* BaseTableViewController.m */; };
-		0472B77B1D361F1700FE847E /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0472B7781D361F1700FE847E /* BaseViewController.m */; };
 		123E9BB81D349FC7009B61B5 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 123E9BB71D349FC7009B61B5 /* CoreTelephony.framework */; };
 		123E9BBA1D349FDA009B61B5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 123E9BB91D349FDA009B61B5 /* SystemConfiguration.framework */; };
 		123E9BBC1D34A006009B61B5 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 123E9BBB1D34A006009B61B5 /* libc++.tbd */; };
 		123E9BBE1D34A00F009B61B5 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 123E9BBD1D34A00F009B61B5 /* libz.tbd */; };
 		123E9BC01D34A030009B61B5 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 123E9BBF1D34A030009B61B5 /* libsqlite3.tbd */; };
-		123E9BC31D34A10E009B61B5 /* RWChatManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 123E9BC21D34A10E009B61B5 /* RWChatManager.m */; };
 		1262719C1D336F7F009D44A0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1262719B1D336F7F009D44A0 /* main.m */; };
 		1262719F1D336F7F009D44A0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1262719E1D336F7F009D44A0 /* AppDelegate.m */; };
-		126271A21D336F7F009D44A0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 126271A11D336F7F009D44A0 /* ViewController.m */; };
 		126271A51D336F7F009D44A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 126271A31D336F7F009D44A0 /* Main.storyboard */; };
 		126271A71D336F7F009D44A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 126271A61D336F7F009D44A0 /* Assets.xcassets */; };
 		126271AA1D336F7F009D44A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 126271A81D336F7F009D44A0 /* LaunchScreen.storyboard */; };
 		126271B51D336F7F009D44A0 /* WritePigeonDoctorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 126271B41D336F7F009D44A0 /* WritePigeonDoctorTests.m */; };
 		126271C01D336F7F009D44A0 /* WritePigeonDoctorUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 126271BF1D336F7F009D44A0 /* WritePigeonDoctorUITests.m */; };
-		12A808FE1D360EB400C48B9F /* TLSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12A808FD1D360EB400C48B9F /* TLSSDK.framework */; };
-		12A809001D36113C00C48B9F /* IMCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12A808FF1D36113C00C48B9F /* IMCore.framework */; };
-		12ABD3881D35F7650051932F /* ImSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12ABD3871D35F7650051932F /* ImSDK.framework */; };
-		12C67C0B1D35F97300A28B51 /* IMSDKBugly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12C67C0A1D35F97300A28B51 /* IMSDKBugly.framework */; };
+		12C1AF731D4629040087ABA0 /* RWCommunityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C1AF601D4629040087ABA0 /* RWCommunityController.m */; };
+		12C1AF741D4629040087ABA0 /* RWDoctorListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C1AF641D4629040087ABA0 /* RWDoctorListController.m */; };
+		12C1AF751D4629040087ABA0 /* RWMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C1AF6A1D4629040087ABA0 /* RWMainViewController.m */; };
+		12C1AF771D4629040087ABA0 /* RWSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C1AF721D4629040087ABA0 /* RWSettingsViewController.m */; };
+		12C1AF7A1D4629D10087ABA0 /* RWMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C1AF791D4629D10087ABA0 /* RWMainTabBarController.m */; };
 		D28576077618A1630E9E807B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 75E7335217CD8786A2D3E4FC /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -49,28 +45,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0472B7731D361F1700FE847E /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
-		0472B7741D361F1700FE847E /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
-		0472B7751D361F1700FE847E /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
-		0472B7761D361F1700FE847E /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
-		0472B7771D361F1700FE847E /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
-		0472B7781D361F1700FE847E /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
-		0472B77F1D361F2400FE847E /* Macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
-		0472B7801D361F2400FE847E /* ThirdMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdMacros.h; sourceTree = "<group>"; };
 		06B0CD839B2FB4AEC160CE84 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		123E9BB71D349FC7009B61B5 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		123E9BB91D349FDA009B61B5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		123E9BBB1D34A006009B61B5 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		123E9BBD1D34A00F009B61B5 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		123E9BBF1D34A030009B61B5 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		123E9BC11D34A10E009B61B5 /* RWChatManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWChatManager.h; sourceTree = "<group>"; };
-		123E9BC21D34A10E009B61B5 /* RWChatManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWChatManager.m; sourceTree = "<group>"; };
 		126271971D336F7F009D44A0 /* WritePigeonDoctor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WritePigeonDoctor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1262719B1D336F7F009D44A0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1262719D1D336F7F009D44A0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../AppDelegate.h; sourceTree = "<group>"; };
 		1262719E1D336F7F009D44A0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../AppDelegate.m; sourceTree = "<group>"; };
-		126271A01D336F7F009D44A0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = ../ViewController.h; sourceTree = "<group>"; };
-		126271A11D336F7F009D44A0 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = ../ViewController.m; sourceTree = "<group>"; };
 		126271A41D336F7F009D44A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		126271A61D336F7F009D44A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		126271A91D336F7F009D44A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -81,10 +65,21 @@
 		126271BB1D336F7F009D44A0 /* WritePigeonDoctorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WritePigeonDoctorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		126271BF1D336F7F009D44A0 /* WritePigeonDoctorUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WritePigeonDoctorUITests.m; sourceTree = "<group>"; };
 		126271C11D336F7F009D44A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		12A808FD1D360EB400C48B9F /* TLSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TLSSDK.framework; path = ../../TLSSDK.framework; sourceTree = "<group>"; };
-		12A808FF1D36113C00C48B9F /* IMCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IMCore.framework; path = ../../IMCore.framework; sourceTree = "<group>"; };
-		12ABD3871D35F7650051932F /* ImSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImSDK.framework; path = ../../ImSDK.framework; sourceTree = "<group>"; };
-		12C67C0A1D35F97300A28B51 /* IMSDKBugly.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IMSDKBugly.framework; path = ../../IMSDKBugly.framework; sourceTree = "<group>"; };
+		12C1AF491D461DC20087ABA0 /* RWMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWMainTabBarController.h; sourceTree = "<group>"; };
+		12C1AF4A1D461DC20087ABA0 /* RWMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWMainTabBarController.m; sourceTree = "<group>"; };
+		12C1AF5F1D4629040087ABA0 /* RWCommunityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWCommunityController.h; sourceTree = "<group>"; };
+		12C1AF601D4629040087ABA0 /* RWCommunityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWCommunityController.m; sourceTree = "<group>"; };
+		12C1AF631D4629040087ABA0 /* RWDoctorListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWDoctorListController.h; sourceTree = "<group>"; };
+		12C1AF641D4629040087ABA0 /* RWDoctorListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWDoctorListController.m; sourceTree = "<group>"; };
+		12C1AF661D4629040087ABA0 /* Macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
+		12C1AF671D4629040087ABA0 /* ThirdMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdMacros.h; sourceTree = "<group>"; };
+		12C1AF691D4629040087ABA0 /* RWMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWMainViewController.h; sourceTree = "<group>"; };
+		12C1AF6A1D4629040087ABA0 /* RWMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWMainViewController.m; sourceTree = "<group>"; };
+		12C1AF6C1D4629040087ABA0 /* PublicMacro.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicMacro.pch; sourceTree = "<group>"; };
+		12C1AF711D4629040087ABA0 /* RWSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWSettingsViewController.h; sourceTree = "<group>"; };
+		12C1AF721D4629040087ABA0 /* RWSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWSettingsViewController.m; sourceTree = "<group>"; };
+		12C1AF781D4629D10087ABA0 /* RWMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWMainTabBarController.h; sourceTree = "<group>"; };
+		12C1AF791D4629D10087ABA0 /* RWMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWMainTabBarController.m; sourceTree = "<group>"; };
 		75E7335217CD8786A2D3E4FC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EF87DF12830927924691150 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,10 +94,6 @@
 				123E9BBC1D34A006009B61B5 /* libc++.tbd in Frameworks */,
 				123E9BBA1D349FDA009B61B5 /* SystemConfiguration.framework in Frameworks */,
 				123E9BB81D349FC7009B61B5 /* CoreTelephony.framework in Frameworks */,
-				12A808FE1D360EB400C48B9F /* TLSSDK.framework in Frameworks */,
-				12A809001D36113C00C48B9F /* IMCore.framework in Frameworks */,
-				12C67C0B1D35F97300A28B51 /* IMSDKBugly.framework in Frameworks */,
-				12ABD3881D35F7650051932F /* ImSDK.framework in Frameworks */,
 				D28576077618A1630E9E807B /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -124,80 +115,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0472B7721D361F1700FE847E /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				0472B7731D361F1700FE847E /* BaseModel.h */,
-				0472B7741D361F1700FE847E /* BaseModel.m */,
-				0472B7751D361F1700FE847E /* BaseTableViewController.h */,
-				0472B7761D361F1700FE847E /* BaseTableViewController.m */,
-				0472B7771D361F1700FE847E /* BaseViewController.h */,
-				0472B7781D361F1700FE847E /* BaseViewController.m */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
-		0472B77C1D361F2400FE847E /* Expand */ = {
-			isa = PBXGroup;
-			children = (
-				0472B77D1D361F2400FE847E /* Category */,
-				0472B7811D361F2400FE847E /* Macros */,
-			);
-			path = Expand;
-			sourceTree = "<group>";
-		};
-		0472B77D1D361F2400FE847E /* Category */ = {
-			isa = PBXGroup;
-			children = (
-				0472B77E1D361F2400FE847E /* Macros */,
-			);
-			path = Category;
-			sourceTree = "<group>";
-		};
-		0472B77E1D361F2400FE847E /* Macros */ = {
-			isa = PBXGroup;
-			children = (
-				0472B77F1D361F2400FE847E /* Macro.h */,
-				0472B7801D361F2400FE847E /* ThirdMacros.h */,
-			);
-			path = Macros;
-			sourceTree = "<group>";
-		};
-		0472B7811D361F2400FE847E /* Macros */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Macros;
-			sourceTree = "<group>";
-		};
-		0472B7821D361F2A00FE847E /* Resource */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resource;
-			sourceTree = "<group>";
-		};
-		0472B7831D361F3000FE847E /* Vendor */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Vendor;
-			sourceTree = "<group>";
-		};
-		0472B7841D361F3600FE847E /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
 		0472B7851D361F4200FE847E /* Other */ = {
 			isa = PBXGroup;
 			children = (
 				1262719D1D336F7F009D44A0 /* AppDelegate.h */,
 				1262719E1D336F7F009D44A0 /* AppDelegate.m */,
-				126271A01D336F7F009D44A0 /* ViewController.h */,
-				126271A11D336F7F009D44A0 /* ViewController.m */,
+				12C1AF491D461DC20087ABA0 /* RWMainTabBarController.h */,
+				12C1AF4A1D461DC20087ABA0 /* RWMainTabBarController.m */,
 				126271A31D336F7F009D44A0 /* Main.storyboard */,
 				126271A61D336F7F009D44A0 /* Assets.xcassets */,
 				126271A81D336F7F009D44A0 /* LaunchScreen.storyboard */,
@@ -210,10 +134,6 @@
 		0472B7861D361F7F00FE847E /* Framework */ = {
 			isa = PBXGroup;
 			children = (
-				12A808FF1D36113C00C48B9F /* IMCore.framework */,
-				12A808FD1D360EB400C48B9F /* TLSSDK.framework */,
-				12C67C0A1D35F97300A28B51 /* IMSDKBugly.framework */,
-				12ABD3871D35F7650051932F /* ImSDK.framework */,
 				123E9BBF1D34A030009B61B5 /* libsqlite3.tbd */,
 				123E9BBD1D34A00F009B61B5 /* libz.tbd */,
 				123E9BBB1D34A006009B61B5 /* libc++.tbd */,
@@ -222,6 +142,17 @@
 			);
 			name = Framework;
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		1236AA831D46ED1D00C65043 /* PageViews */ = {
+			isa = PBXGroup;
+			children = (
+				12C1AF681D4629040087ABA0 /* MainClass */,
+				12C1AF621D4629040087ABA0 /* DoctorClass */,
+				12C1AF5E1D4629040087ABA0 /* Community */,
+				12C1AF701D4629040087ABA0 /* Settings */,
+			);
+			name = PageViews;
 			sourceTree = "<group>";
 		};
 		1262718E1D336F7F009D44A0 = {
@@ -249,15 +180,10 @@
 		126271991D336F7F009D44A0 /* WritePigeonDoctor */ = {
 			isa = PBXGroup;
 			children = (
-				0472B7821D361F2A00FE847E /* Resource */,
-				0472B7721D361F1700FE847E /* Common */,
-				0472B77C1D361F2400FE847E /* Expand */,
-				0472B7831D361F3000FE847E /* Vendor */,
-				0472B7841D361F3600FE847E /* Classes */,
+				1236AA831D46ED1D00C65043 /* PageViews */,
+				12C1AF6D1D4629040087ABA0 /* Resource */,
 				0472B7851D361F4200FE847E /* Other */,
 				0472B7861D361F7F00FE847E /* Framework */,
-				123E9BC11D34A10E009B61B5 /* RWChatManager.h */,
-				123E9BC21D34A10E009B61B5 /* RWChatManager.m */,
 				1262719A1D336F7F009D44A0 /* Supporting Files */,
 			);
 			path = WritePigeonDoctor;
@@ -287,6 +213,86 @@
 				126271C11D336F7F009D44A0 /* Info.plist */,
 			);
 			path = WritePigeonDoctorUITests;
+			sourceTree = "<group>";
+		};
+		12C1AF5E1D4629040087ABA0 /* Community */ = {
+			isa = PBXGroup;
+			children = (
+				12C1AF5F1D4629040087ABA0 /* RWCommunityController.h */,
+				12C1AF601D4629040087ABA0 /* RWCommunityController.m */,
+			);
+			name = Community;
+			path = Classes/Community;
+			sourceTree = "<group>";
+		};
+		12C1AF611D4629040087ABA0 /* DataCenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = DataCenter;
+			path = ../DataCenter;
+			sourceTree = "<group>";
+		};
+		12C1AF621D4629040087ABA0 /* DoctorClass */ = {
+			isa = PBXGroup;
+			children = (
+				12C1AF631D4629040087ABA0 /* RWDoctorListController.h */,
+				12C1AF641D4629040087ABA0 /* RWDoctorListController.m */,
+			);
+			name = DoctorClass;
+			path = Classes/DoctorClass;
+			sourceTree = "<group>";
+		};
+		12C1AF651D4629040087ABA0 /* Macros */ = {
+			isa = PBXGroup;
+			children = (
+				12C1AF661D4629040087ABA0 /* Macro.h */,
+				12C1AF671D4629040087ABA0 /* ThirdMacros.h */,
+			);
+			name = Macros;
+			path = ../Macros;
+			sourceTree = "<group>";
+		};
+		12C1AF681D4629040087ABA0 /* MainClass */ = {
+			isa = PBXGroup;
+			children = (
+				12C1AF691D4629040087ABA0 /* RWMainViewController.h */,
+				12C1AF6A1D4629040087ABA0 /* RWMainViewController.m */,
+			);
+			name = MainClass;
+			path = Classes/MainClass;
+			sourceTree = "<group>";
+		};
+		12C1AF6B1D4629040087ABA0 /* PublicClass */ = {
+			isa = PBXGroup;
+			children = (
+				12C1AF651D4629040087ABA0 /* Macros */,
+				12C1AF6C1D4629040087ABA0 /* PublicMacro.pch */,
+				12C1AF781D4629D10087ABA0 /* RWMainTabBarController.h */,
+				12C1AF791D4629D10087ABA0 /* RWMainTabBarController.m */,
+			);
+			name = PublicClass;
+			path = ../PublicClass;
+			sourceTree = "<group>";
+		};
+		12C1AF6D1D4629040087ABA0 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				12C1AF6B1D4629040087ABA0 /* PublicClass */,
+				12C1AF611D4629040087ABA0 /* DataCenter */,
+			);
+			name = Resource;
+			path = Classes/Resource;
+			sourceTree = "<group>";
+		};
+		12C1AF701D4629040087ABA0 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				12C1AF711D4629040087ABA0 /* RWSettingsViewController.h */,
+				12C1AF721D4629040087ABA0 /* RWSettingsViewController.m */,
+			);
+			name = Settings;
+			path = Classes/Settings;
 			sourceTree = "<group>";
 		};
 		442497FD92A093AD82020936 /* Frameworks */ = {
@@ -487,13 +493,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				126271A21D336F7F009D44A0 /* ViewController.m in Sources */,
+				12C1AF741D4629040087ABA0 /* RWDoctorListController.m in Sources */,
+				12C1AF7A1D4629D10087ABA0 /* RWMainTabBarController.m in Sources */,
+				12C1AF731D4629040087ABA0 /* RWCommunityController.m in Sources */,
+				12C1AF751D4629040087ABA0 /* RWMainViewController.m in Sources */,
 				1262719F1D336F7F009D44A0 /* AppDelegate.m in Sources */,
-				123E9BC31D34A10E009B61B5 /* RWChatManager.m in Sources */,
-				0472B7791D361F1700FE847E /* BaseModel.m in Sources */,
-				0472B77A1D361F1700FE847E /* BaseTableViewController.m in Sources */,
-				0472B77B1D361F1700FE847E /* BaseViewController.m in Sources */,
 				1262719C1D336F7F009D44A0 /* main.m in Sources */,
+				12C1AF771D4629040087ABA0 /* RWSettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -639,11 +645,14 @@
 			baseConfigurationReference = 9EF87DF12830927924691150 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/WritePigeonDoctor",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/WritePigeonDoctor/Classes/PublicClass/PublicMacro.pch";
 				INFOPLIST_FILE = WritePigeonDoctor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = RyeWhiskey.WritePigeonDoctor;
@@ -656,11 +665,14 @@
 			baseConfigurationReference = 06B0CD839B2FB4AEC160CE84 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/WritePigeonDoctor",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/WritePigeonDoctor/Classes/PublicClass/PublicMacro.pch";
 				INFOPLIST_FILE = WritePigeonDoctor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = RyeWhiskey.WritePigeonDoctor;

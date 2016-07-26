@@ -1,0 +1,19 @@
+//
+//  PublicMacro.pch
+//  WritePigeonDoctor
+//
+//  Created by zhongyu on 16/7/25.
+//  Copyright © 2016年 RyeWhiskey. All rights reserved.
+//
+
+#ifndef PublicMacro_pch
+#define PublicMacro_pch
+
+#import <Masonry.h>
+#import <SVProgressHUD.h>
+
+#ifndef __WPD_MAIN_COLOR__
+#define __WPD_MAIN_COLOR__ 
+#endif
+
+#endif /* PublicMacro_pch */
