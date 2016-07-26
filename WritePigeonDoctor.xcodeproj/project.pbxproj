@@ -24,6 +24,14 @@
 		12C1AF751D4629040087ABA0 /* RWMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C1AF6A1D4629040087ABA0 /* RWMainViewController.m */; };
 		12C1AF771D4629040087ABA0 /* RWSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C1AF721D4629040087ABA0 /* RWSettingsViewController.m */; };
 		12C1AF7A1D4629D10087ABA0 /* RWMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C1AF791D4629D10087ABA0 /* RWMainTabBarController.m */; };
+		12FA40401D46F35E0084D50A /* RWWelcomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA403D1D46F35E0084D50A /* RWWelcomeController.m */; };
+		12FA40411D46F35E0084D50A /* RWWelcomeImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA403F1D46F35E0084D50A /* RWWelcomeImageCell.m */; };
+		12FA404C1D46F56E0084D50A /* RWRequsetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA40441D46F56E0084D50A /* RWRequsetManager.m */; };
+		12FA404D1D46F56E0084D50A /* RWRequsetManager+UserLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA40461D46F56E0084D50A /* RWRequsetManager+UserLogin.m */; };
+		12FA404E1D46F56E0084D50A /* RWDeployManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA40491D46F56E0084D50A /* RWDeployManager.m */; };
+		12FA404F1D46F56E0084D50A /* RWDeployManager+DateProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA404B1D46F56E0084D50A /* RWDeployManager+DateProcess.m */; };
+		12FA40571D46FD270084D50A /* RWChatManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA40561D46FD270084D50A /* RWChatManager.m */; };
+		12FA405A1D4703C50084D50A /* RWUserInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA40591D4703C50084D50A /* RWUserInformation.m */; };
 		D28576077618A1630E9E807B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 75E7335217CD8786A2D3E4FC /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -65,8 +73,6 @@
 		126271BB1D336F7F009D44A0 /* WritePigeonDoctorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WritePigeonDoctorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		126271BF1D336F7F009D44A0 /* WritePigeonDoctorUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WritePigeonDoctorUITests.m; sourceTree = "<group>"; };
 		126271C11D336F7F009D44A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		12C1AF491D461DC20087ABA0 /* RWMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWMainTabBarController.h; sourceTree = "<group>"; };
-		12C1AF4A1D461DC20087ABA0 /* RWMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWMainTabBarController.m; sourceTree = "<group>"; };
 		12C1AF5F1D4629040087ABA0 /* RWCommunityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWCommunityController.h; sourceTree = "<group>"; };
 		12C1AF601D4629040087ABA0 /* RWCommunityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWCommunityController.m; sourceTree = "<group>"; };
 		12C1AF631D4629040087ABA0 /* RWDoctorListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWDoctorListController.h; sourceTree = "<group>"; };
@@ -80,6 +86,24 @@
 		12C1AF721D4629040087ABA0 /* RWSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWSettingsViewController.m; sourceTree = "<group>"; };
 		12C1AF781D4629D10087ABA0 /* RWMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWMainTabBarController.h; sourceTree = "<group>"; };
 		12C1AF791D4629D10087ABA0 /* RWMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWMainTabBarController.m; sourceTree = "<group>"; };
+		12FA403C1D46F35E0084D50A /* RWWelcomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWWelcomeController.h; sourceTree = "<group>"; };
+		12FA403D1D46F35E0084D50A /* RWWelcomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWWelcomeController.m; sourceTree = "<group>"; };
+		12FA403E1D46F35E0084D50A /* RWWelcomeImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWWelcomeImageCell.h; sourceTree = "<group>"; };
+		12FA403F1D46F35E0084D50A /* RWWelcomeImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWWelcomeImageCell.m; sourceTree = "<group>"; };
+		12FA40421D46F56E0084D50A /* RWRequestIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWRequestIndex.h; sourceTree = "<group>"; };
+		12FA40431D46F56E0084D50A /* RWRequsetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWRequsetManager.h; sourceTree = "<group>"; };
+		12FA40441D46F56E0084D50A /* RWRequsetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWRequsetManager.m; sourceTree = "<group>"; };
+		12FA40451D46F56E0084D50A /* RWRequsetManager+UserLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RWRequsetManager+UserLogin.h"; sourceTree = "<group>"; };
+		12FA40461D46F56E0084D50A /* RWRequsetManager+UserLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RWRequsetManager+UserLogin.m"; sourceTree = "<group>"; };
+		12FA40471D46F56E0084D50A /* RWDeployIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWDeployIndex.h; sourceTree = "<group>"; };
+		12FA40481D46F56E0084D50A /* RWDeployManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWDeployManager.h; sourceTree = "<group>"; };
+		12FA40491D46F56E0084D50A /* RWDeployManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWDeployManager.m; sourceTree = "<group>"; };
+		12FA404A1D46F56E0084D50A /* RWDeployManager+DateProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RWDeployManager+DateProcess.h"; sourceTree = "<group>"; };
+		12FA404B1D46F56E0084D50A /* RWDeployManager+DateProcess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RWDeployManager+DateProcess.m"; sourceTree = "<group>"; };
+		12FA40551D46FD270084D50A /* RWChatManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWChatManager.h; sourceTree = "<group>"; };
+		12FA40561D46FD270084D50A /* RWChatManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWChatManager.m; sourceTree = "<group>"; };
+		12FA40581D4703C50084D50A /* RWUserInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWUserInformation.h; sourceTree = "<group>"; };
+		12FA40591D4703C50084D50A /* RWUserInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWUserInformation.m; sourceTree = "<group>"; };
 		75E7335217CD8786A2D3E4FC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EF87DF12830927924691150 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,8 +144,6 @@
 			children = (
 				1262719D1D336F7F009D44A0 /* AppDelegate.h */,
 				1262719E1D336F7F009D44A0 /* AppDelegate.m */,
-				12C1AF491D461DC20087ABA0 /* RWMainTabBarController.h */,
-				12C1AF4A1D461DC20087ABA0 /* RWMainTabBarController.m */,
 				126271A31D336F7F009D44A0 /* Main.storyboard */,
 				126271A61D336F7F009D44A0 /* Assets.xcassets */,
 				126271A81D336F7F009D44A0 /* LaunchScreen.storyboard */,
@@ -228,6 +250,17 @@
 		12C1AF611D4629040087ABA0 /* DataCenter */ = {
 			isa = PBXGroup;
 			children = (
+				12FA40501D46F5720084D50A /* DataBase */,
+				12FA40421D46F56E0084D50A /* RWRequestIndex.h */,
+				12FA40431D46F56E0084D50A /* RWRequsetManager.h */,
+				12FA40441D46F56E0084D50A /* RWRequsetManager.m */,
+				12FA40451D46F56E0084D50A /* RWRequsetManager+UserLogin.h */,
+				12FA40461D46F56E0084D50A /* RWRequsetManager+UserLogin.m */,
+				12FA40471D46F56E0084D50A /* RWDeployIndex.h */,
+				12FA40481D46F56E0084D50A /* RWDeployManager.h */,
+				12FA40491D46F56E0084D50A /* RWDeployManager.m */,
+				12FA404A1D46F56E0084D50A /* RWDeployManager+DateProcess.h */,
+				12FA404B1D46F56E0084D50A /* RWDeployManager+DateProcess.m */,
 			);
 			name = DataCenter;
 			path = ../DataCenter;
@@ -266,6 +299,10 @@
 		12C1AF6B1D4629040087ABA0 /* PublicClass */ = {
 			isa = PBXGroup;
 			children = (
+				12FA403C1D46F35E0084D50A /* RWWelcomeController.h */,
+				12FA403D1D46F35E0084D50A /* RWWelcomeController.m */,
+				12FA403E1D46F35E0084D50A /* RWWelcomeImageCell.h */,
+				12FA403F1D46F35E0084D50A /* RWWelcomeImageCell.m */,
 				12C1AF651D4629040087ABA0 /* Macros */,
 				12C1AF6C1D4629040087ABA0 /* PublicMacro.pch */,
 				12C1AF781D4629D10087ABA0 /* RWMainTabBarController.h */,
@@ -279,6 +316,7 @@
 			isa = PBXGroup;
 			children = (
 				12C1AF6B1D4629040087ABA0 /* PublicClass */,
+				12FA40541D46FCFA0084D50A /* ChatManager */,
 				12C1AF611D4629040087ABA0 /* DataCenter */,
 			);
 			name = Resource;
@@ -293,6 +331,24 @@
 			);
 			name = Settings;
 			path = Classes/Settings;
+			sourceTree = "<group>";
+		};
+		12FA40501D46F5720084D50A /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = DataBase;
+			sourceTree = "<group>";
+		};
+		12FA40541D46FCFA0084D50A /* ChatManager */ = {
+			isa = PBXGroup;
+			children = (
+				12FA40551D46FD270084D50A /* RWChatManager.h */,
+				12FA40561D46FD270084D50A /* RWChatManager.m */,
+				12FA40581D4703C50084D50A /* RWUserInformation.h */,
+				12FA40591D4703C50084D50A /* RWUserInformation.m */,
+			);
+			path = ChatManager;
 			sourceTree = "<group>";
 		};
 		442497FD92A093AD82020936 /* Frameworks */ = {
@@ -493,11 +549,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12FA40571D46FD270084D50A /* RWChatManager.m in Sources */,
+				12FA404C1D46F56E0084D50A /* RWRequsetManager.m in Sources */,
+				12FA404D1D46F56E0084D50A /* RWRequsetManager+UserLogin.m in Sources */,
+				12FA405A1D4703C50084D50A /* RWUserInformation.m in Sources */,
 				12C1AF741D4629040087ABA0 /* RWDoctorListController.m in Sources */,
+				12FA40401D46F35E0084D50A /* RWWelcomeController.m in Sources */,
 				12C1AF7A1D4629D10087ABA0 /* RWMainTabBarController.m in Sources */,
 				12C1AF731D4629040087ABA0 /* RWCommunityController.m in Sources */,
+				12FA40411D46F35E0084D50A /* RWWelcomeImageCell.m in Sources */,
 				12C1AF751D4629040087ABA0 /* RWMainViewController.m in Sources */,
 				1262719F1D336F7F009D44A0 /* AppDelegate.m in Sources */,
+				12FA404F1D46F56E0084D50A /* RWDeployManager+DateProcess.m in Sources */,
+				12FA404E1D46F56E0084D50A /* RWDeployManager.m in Sources */,
 				1262719C1D336F7F009D44A0 /* main.m in Sources */,
 				12C1AF771D4629040087ABA0 /* RWSettingsViewController.m in Sources */,
 			);

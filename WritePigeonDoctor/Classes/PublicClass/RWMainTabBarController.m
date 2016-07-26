@@ -7,6 +7,10 @@
 //
 
 #import "RWMainTabBarController.h"
+#import "RWMainViewController.h"
+#import "RWDoctorListController.h"
+#import "RWCommunityController.h"
+#import "RWSettingsViewController.h"
 
 @interface RWMainTabBarController ()
 
@@ -17,7 +21,6 @@
 @property (nonatomic,strong)NSArray *images;
 
 @property (nonatomic,strong)NSArray *selectImages;
-
 
 @end
 
@@ -83,27 +86,25 @@
 
 - (void)compositonViewControllers
 {
-//    
-//    RWMainViewController *main = [[RWMainViewController alloc]init];
-//    
-//    UINavigationController *mainNav = [[UINavigationController alloc]initWithRootViewController:main];
-//    
-//    RWSubjectCatalogueController *catalogue =
-//    [[RWSubjectCatalogueController alloc]init];
-//    
-//    UINavigationController *catalogueNav = [[UINavigationController alloc]initWithRootViewController:catalogue];
-//    
-//    RWInformationViewController *information = [[RWInformationViewController alloc]init];
-//    
-//    UINavigationController *notiNav = [[UINavigationController alloc]initWithRootViewController:information];
-//    
-//    RWMoreViewController *more = [[RWMoreViewController alloc]init];
-//    
-//    UINavigationController *moreNav = [[UINavigationController alloc]initWithRootViewController:more];
-//    
-//    
-//    self.viewControllers = @[mainNav,catalogueNav,notiNav,moreNav];
     
+    RWMainViewController *main = [[RWMainViewController alloc]init];
+
+    UINavigationController *mainNav = [[UINavigationController alloc]initWithRootViewController:main];
+
+    RWDoctorListController *doctor = [[RWDoctorListController alloc]init];
+    
+    UINavigationController *doctorNav = [[UINavigationController alloc]initWithRootViewController:doctor];
+    
+    RWCommunityController *community = [[RWCommunityController alloc]init];
+    
+    UINavigationController *communityNav = [[UINavigationController alloc]initWithRootViewController:community];
+    
+    RWSettingsViewController *settings = [[RWSettingsViewController alloc]init];
+    
+    UINavigationController *settingsNav = [[UINavigationController alloc]initWithRootViewController:settings];
+    
+    
+    self.viewControllers = @[mainNav,doctorNav,communityNav,settingsNav];
 }
 
 - (void)compositionButton
@@ -193,14 +194,13 @@
 
 - (void)selectWithTag:(NSInteger)tag
 {
-    UIImageView *imageItem =
-    (UIImageView *)[self.view viewWithTag:tag * 10];
+    UIImageView *imageItem = (UIImageView *)[self.view viewWithTag:tag * 10];
     
     imageItem.image = _selectImages[tag - 1];
     
     UILabel *nameLabel = [self.view viewWithTag:tag * 100];
     
-//    nameLabel.textColor = MAIN_COLOR;
+    nameLabel.textColor = __WPD_MAIN_COLOR__;
     
     self.selectedIndex = tag - 1;
 }

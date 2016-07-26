@@ -11,9 +11,11 @@
 
 #import <Masonry.h>
 #import <SVProgressHUD.h>
+#import "Macro.h"
+#import "ThirdMacros.h"
 
 #ifndef __WPD_MAIN_COLOR__
-#define __WPD_MAIN_COLOR__ 
+#define __WPD_MAIN_COLOR__ [UIColor blueColor]
 #endif
 
 #endif /* PublicMacro_pch */

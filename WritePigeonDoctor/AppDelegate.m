@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "RWMainTabBarController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [_window makeKeyAndVisible];
+    
+    RWMainTabBarController *mainTabBar = [[RWMainTabBarController alloc] init];
+    
+    _window.rootViewController = mainTabBar;
+    
     return YES;
 }
 
