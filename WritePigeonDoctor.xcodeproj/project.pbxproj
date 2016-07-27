@@ -32,6 +32,9 @@
 		12FA404F1D46F56E0084D50A /* RWDeployManager+DateProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA404B1D46F56E0084D50A /* RWDeployManager+DateProcess.m */; };
 		12FA40571D46FD270084D50A /* RWChatManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA40561D46FD270084D50A /* RWChatManager.m */; };
 		12FA405A1D4703C50084D50A /* RWUserInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA40591D4703C50084D50A /* RWUserInformation.m */; };
+		12FBCE9D1D485D8300A646DB /* RWDataModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FBCE9C1D485D8300A646DB /* RWDataModels.m */; };
+		12FBCEA01D4868F100A646DB /* RWOfficeListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FBCE9F1D4868F100A646DB /* RWOfficeListController.m */; };
+		12FBCEA31D486C7C00A646DB /* RWDoctorListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FBCEA21D486C7C00A646DB /* RWDoctorListCell.m */; };
 		D28576077618A1630E9E807B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 75E7335217CD8786A2D3E4FC /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +107,12 @@
 		12FA40561D46FD270084D50A /* RWChatManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWChatManager.m; sourceTree = "<group>"; };
 		12FA40581D4703C50084D50A /* RWUserInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWUserInformation.h; sourceTree = "<group>"; };
 		12FA40591D4703C50084D50A /* RWUserInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWUserInformation.m; sourceTree = "<group>"; };
+		12FBCE9B1D485D8300A646DB /* RWDataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWDataModels.h; sourceTree = "<group>"; };
+		12FBCE9C1D485D8300A646DB /* RWDataModels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWDataModels.m; sourceTree = "<group>"; };
+		12FBCE9E1D4868F100A646DB /* RWOfficeListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWOfficeListController.h; sourceTree = "<group>"; };
+		12FBCE9F1D4868F100A646DB /* RWOfficeListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWOfficeListController.m; sourceTree = "<group>"; };
+		12FBCEA11D486C7C00A646DB /* RWDoctorListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWDoctorListCell.h; sourceTree = "<group>"; };
+		12FBCEA21D486C7C00A646DB /* RWDoctorListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWDoctorListCell.m; sourceTree = "<group>"; };
 		75E7335217CD8786A2D3E4FC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EF87DF12830927924691150 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -269,8 +278,12 @@
 		12C1AF621D4629040087ABA0 /* DoctorClass */ = {
 			isa = PBXGroup;
 			children = (
+				12FBCE9E1D4868F100A646DB /* RWOfficeListController.h */,
+				12FBCE9F1D4868F100A646DB /* RWOfficeListController.m */,
 				12C1AF631D4629040087ABA0 /* RWDoctorListController.h */,
 				12C1AF641D4629040087ABA0 /* RWDoctorListController.m */,
+				12FBCEA11D486C7C00A646DB /* RWDoctorListCell.h */,
+				12FBCEA21D486C7C00A646DB /* RWDoctorListCell.m */,
 			);
 			name = DoctorClass;
 			path = Classes/DoctorClass;
@@ -307,6 +320,8 @@
 				12C1AF6C1D4629040087ABA0 /* PublicMacro.pch */,
 				12C1AF781D4629D10087ABA0 /* RWMainTabBarController.h */,
 				12C1AF791D4629D10087ABA0 /* RWMainTabBarController.m */,
+				12FBCE9B1D485D8300A646DB /* RWDataModels.h */,
+				12FBCE9C1D485D8300A646DB /* RWDataModels.m */,
 			);
 			name = PublicClass;
 			path = ../PublicClass;
@@ -549,10 +564,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12FBCE9D1D485D8300A646DB /* RWDataModels.m in Sources */,
 				12FA40571D46FD270084D50A /* RWChatManager.m in Sources */,
 				12FA404C1D46F56E0084D50A /* RWRequsetManager.m in Sources */,
 				12FA404D1D46F56E0084D50A /* RWRequsetManager+UserLogin.m in Sources */,
 				12FA405A1D4703C50084D50A /* RWUserInformation.m in Sources */,
+				12FBCEA31D486C7C00A646DB /* RWDoctorListCell.m in Sources */,
 				12C1AF741D4629040087ABA0 /* RWDoctorListController.m in Sources */,
 				12FA40401D46F35E0084D50A /* RWWelcomeController.m in Sources */,
 				12C1AF7A1D4629D10087ABA0 /* RWMainTabBarController.m in Sources */,
@@ -561,6 +578,7 @@
 				12C1AF751D4629040087ABA0 /* RWMainViewController.m in Sources */,
 				1262719F1D336F7F009D44A0 /* AppDelegate.m in Sources */,
 				12FA404F1D46F56E0084D50A /* RWDeployManager+DateProcess.m in Sources */,
+				12FBCEA01D4868F100A646DB /* RWOfficeListController.m in Sources */,
 				12FA404E1D46F56E0084D50A /* RWDeployManager.m in Sources */,
 				1262719C1D336F7F009D44A0 /* main.m in Sources */,
 				12C1AF771D4629040087ABA0 /* RWSettingsViewController.m in Sources */,

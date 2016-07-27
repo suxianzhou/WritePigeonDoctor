@@ -8,7 +8,7 @@
 
 #import "RWMainTabBarController.h"
 #import "RWMainViewController.h"
-#import "RWDoctorListController.h"
+#import "RWOfficeListController.h"
 #import "RWCommunityController.h"
 #import "RWSettingsViewController.h"
 
@@ -91,9 +91,9 @@
 
     UINavigationController *mainNav = [[UINavigationController alloc]initWithRootViewController:main];
 
-    RWDoctorListController *doctor = [[RWDoctorListController alloc]init];
+    RWOfficeListController *office = [[RWOfficeListController alloc]init];
     
-    UINavigationController *doctorNav = [[UINavigationController alloc]initWithRootViewController:doctor];
+    UINavigationController *officeNav = [[UINavigationController alloc]initWithRootViewController:office];
     
     RWCommunityController *community = [[RWCommunityController alloc]init];
     
@@ -104,7 +104,7 @@
     UINavigationController *settingsNav = [[UINavigationController alloc]initWithRootViewController:settings];
     
     
-    self.viewControllers = @[mainNav,doctorNav,communityNav,settingsNav];
+    self.viewControllers = @[mainNav,officeNav,communityNav,settingsNav];
 }
 
 - (void)compositionButton

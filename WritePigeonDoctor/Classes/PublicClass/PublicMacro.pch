@@ -13,6 +13,7 @@
 #import <SVProgressHUD.h>
 #import "Macro.h"
 #import "ThirdMacros.h"
+#import "RWDataModels.h"
 
 #ifndef __WPD_MAIN_COLOR__
 #define __WPD_MAIN_COLOR__ [UIColor blueColor]

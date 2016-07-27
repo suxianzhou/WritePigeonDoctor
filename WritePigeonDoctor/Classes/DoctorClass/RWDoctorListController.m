@@ -10,11 +10,36 @@
 
 @interface RWDoctorListController ()
 
+<
+    UITableViewDelegate,
+    UITableViewDataSource
+>
+
+@property (nonatomic,strong)UITableView *doctorList;
+@property (nonatomic,strong)NSArray *officeList;
+
 @end
 
 @implementation RWDoctorListController
 
-- (void)viewDidLoad {
+- (void)initViews
+{
+    _doctorList = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    [self.view addSubview:_doctorList];
+    
+    _doctorList.showsVerticalScrollIndicator = NO;
+    _doctorList.showsHorizontalScrollIndicator = NO;
+    
+    _doctorList.delegate = self;
+    _doctorList.dataSource = self;
+    
+    
+}
+
+#pragma mark - Life Cycle
+
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
@@ -23,15 +48,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

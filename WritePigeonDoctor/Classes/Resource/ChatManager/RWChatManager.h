@@ -31,7 +31,15 @@ typedef NS_ENUM(NSInteger,RWMessageType)
 
 @interface RWChatManager : NSObject
 
+<
+    EMClientDelegate,
+    EMChatManagerDelegate
+>
+
 + (instancetype)defaultManager;
+
+@property (nonatomic,strong,readonly)EMClient *client;
+@property (nonatomic,weak,readonly)id<IEMChatManager> chatManager;
 
 @property (nonatomic,strong,readonly)EMConversation *faceSession;
 @property (nonatomic,strong,readonly)NSMutableArray *allSessions;
