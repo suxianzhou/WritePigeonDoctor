@@ -97,7 +97,7 @@
 @interface RWPartitionView ()
 
 @property (nonatomic,strong)UIView *line;
-@property (nonatomic,strong)UIButton *textLabel;
+@property (nonatomic,strong)UIButton *openBtn;
 @property (nonatomic,strong)UIImageView *arrowhead;
 
 @property (nonatomic,assign)BOOL isOpen;
@@ -125,14 +125,18 @@
     
     if (self)
     {
+        _isOpen = NO;
+        
         _line = [[UIView alloc] init];
         [self addSubview:_line];
         _line.backgroundColor = [UIColor grayColor];
         
-        _textLabel = [[UIButton alloc] init];
-        [self addSubview:_textLabel];
-        [_textLabel setTitle:@"医生简介" forState:UIControlStateNormal];
-        _textLabel.backgroundColor = [UIColor clearColor];
+        _openBtn = [[UIButton alloc] init];
+        [self addSubview:_openBtn];
+        [_openBtn setTitle:@"医生简介" forState:UIControlStateNormal];
+        _openBtn.backgroundColor = [UIColor clearColor];
+        
+        
         
         _arrowhead = [[UIImageView alloc] init];
         [self addSubview:_arrowhead];
@@ -140,6 +144,11 @@
     }
     
     return self;
+}
+
+- (void)openAndClose
+{
+    
 }
 
 - (void)didMoveToSuperview
@@ -158,7 +167,7 @@
             make.centerY.equalTo(self.mas_centerY).offset(0);
         }];
         
-        [_textLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        [_openBtn mas_makeConstraints:^(MASConstraintMaker *make) {
            
             make.width.equalTo(@(40));
             make.top.equalTo(self.mas_top).offset(0);
@@ -170,7 +179,7 @@
            
             make.width.equalTo(@(self.bounds.size.height));
             make.height.equalTo(@(self.bounds.size.height));
-            make.left.equalTo(_textLabel.mas_right).offset(0);
+            make.left.equalTo(_openBtn.mas_right).offset(0);
             make.centerX.equalTo(self.mas_centerY).offset(0);
         }];
     }

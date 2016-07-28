@@ -21,11 +21,140 @@
 		126271AA1D336F7F009D44A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 126271A81D336F7F009D44A0 /* LaunchScreen.storyboard */; };
 		126271B51D336F7F009D44A0 /* WritePigeonDoctorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 126271B41D336F7F009D44A0 /* WritePigeonDoctorTests.m */; };
 		126271C01D336F7F009D44A0 /* WritePigeonDoctorUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 126271BF1D336F7F009D44A0 /* WritePigeonDoctorUITests.m */; };
-		12C1AF731D4629040087ABA0 /* RWCommunityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C1AF601D4629040087ABA0 /* RWCommunityController.m */; };
 		12C1AF741D4629040087ABA0 /* RWDoctorListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C1AF641D4629040087ABA0 /* RWDoctorListController.m */; };
 		12C1AF751D4629040087ABA0 /* RWMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C1AF6A1D4629040087ABA0 /* RWMainViewController.m */; };
 		12C1AF771D4629040087ABA0 /* RWSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C1AF721D4629040087ABA0 /* RWSettingsViewController.m */; };
 		12C1AF7A1D4629D10087ABA0 /* RWMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C1AF791D4629D10087ABA0 /* RWMainTabBarController.m */; };
+		12CC69901D4991A2007F8E17 /* RWCommunityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC683D1D4991A2007F8E17 /* RWCommunityController.m */; };
+		12CC69911D4991A2007F8E17 /* FZLanTingHei-L-GBK-M.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 12CC68411D4991A2007F8E17 /* FZLanTingHei-L-GBK-M.TTF */; };
+		12CC69921D4991A2007F8E17 /* UMCommunityStrings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 12CC68421D4991A2007F8E17 /* UMCommunityStrings.strings */; };
+		12CC69931D4991A2007F8E17 /* UMComSimpleSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 12CC68431D4991A2007F8E17 /* UMComSimpleSDKResources.bundle */; };
+		12CC69941D4991A2007F8E17 /* UMComLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68481D4991A2007F8E17 /* UMComLoginManager.m */; };
+		12CC69951D4991A2007F8E17 /* UMComSimpleLoginHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC684A1D4991A2007F8E17 /* UMComSimpleLoginHandler.m */; };
+		12CC69961D4991A2007F8E17 /* UIViewController+UMComAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC684E1D4991A2007F8E17 /* UIViewController+UMComAddition.m */; };
+		12CC69971D4991A2007F8E17 /* UMComNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68501D4991A2007F8E17 /* UMComNavigationController.m */; };
+		12CC69981D4991A2007F8E17 /* UMComViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68531D4991A2007F8E17 /* UMComViewController.m */; };
+		12CC69991D4991A2007F8E17 /* UMComActionDeleteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68571D4991A2007F8E17 /* UMComActionDeleteView.m */; };
+		12CC699A1D4991A2007F8E17 /* UMComActionPickerAddView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68591D4991A2007F8E17 /* UMComActionPickerAddView.m */; };
+		12CC699B1D4991A2007F8E17 /* UMComAddedImageCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC685B1D4991A2007F8E17 /* UMComAddedImageCellView.m */; };
+		12CC699C1D4991A2007F8E17 /* UMComAddedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC685D1D4991A2007F8E17 /* UMComAddedImageView.m */; };
+		12CC699D1D4991A2007F8E17 /* UMComBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68601D4991A2007F8E17 /* UMComBarButtonItem.m */; };
+		12CC699E1D4991A2007F8E17 /* UMComButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68621D4991A2007F8E17 /* UMComButton.m */; };
+		12CC699F1D4991A2007F8E17 /* UMComCommentEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68651D4991A2007F8E17 /* UMComCommentEditView.m */; };
+		12CC69A01D4991A2007F8E17 /* UMComCommentInput.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12CC68661D4991A2007F8E17 /* UMComCommentInput.xib */; };
+		12CC69A11D4991A2007F8E17 /* UMComSimpleCommentEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68681D4991A2007F8E17 /* UMComSimpleCommentEditView.m */; };
+		12CC69A21D4991A2007F8E17 /* UMComSimpleCommentInput.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12CC68691D4991A2007F8E17 /* UMComSimpleCommentInput.xib */; };
+		12CC69A31D4991A2007F8E17 /* UMComTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC686C1D4991A2007F8E17 /* UMComTableViewCell.m */; };
+		12CC69A41D4991A2007F8E17 /* UMComTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12CC686D1D4991A2007F8E17 /* UMComTableViewCell.xib */; };
+		12CC69A51D4991A2007F8E17 /* UMComEditTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68701D4991A2007F8E17 /* UMComEditTextView.m */; };
+		12CC69A61D4991A2007F8E17 /* UMComProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68731D4991A2007F8E17 /* UMComProgressView.m */; };
+		12CC69A71D4991A2007F8E17 /* UMComSimpleGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68751D4991A2007F8E17 /* UMComSimpleGridView.m */; };
+		12CC69A81D4991A2007F8E17 /* UMComSimpleGridViewerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68771D4991A2007F8E17 /* UMComSimpleGridViewerController.m */; };
+		12CC69A91D4991A2007F8E17 /* UMImageProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68791D4991A2007F8E17 /* UMImageProgressView.m */; };
+		12CC69AA1D4991A2007F8E17 /* UMComHorizonCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC687C1D4991A2007F8E17 /* UMComHorizonCollectionView.m */; };
+		12CC69AB1D4991A2007F8E17 /* UMComHorizonMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC687E1D4991A2007F8E17 /* UMComHorizonMenuView.m */; };
+		12CC69AC1D4991A2007F8E17 /* UMComSimpleHorizonMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68801D4991A2007F8E17 /* UMComSimpleHorizonMenuView.m */; };
+		12CC69AD1D4991A2007F8E17 /* UMComLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68831D4991A2007F8E17 /* UMComLabel.m */; };
+		12CC69AE1D4991A2007F8E17 /* UMComMedalImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68861D4991A2007F8E17 /* UMComMedalImageView.m */; };
+		12CC69AF1D4991A2007F8E17 /* UMComMenuControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68891D4991A2007F8E17 /* UMComMenuControlView.m */; };
+		12CC69B01D4991A2007F8E17 /* UMComMutiStyleTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC688C1D4991A2007F8E17 /* UMComMutiStyleTextView.m */; };
+		12CC69B11D4991A2007F8E17 /* UMComMutiText.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC688E1D4991A2007F8E17 /* UMComMutiText.m */; };
+		12CC69B21D4991A2007F8E17 /* UMComMutiTextRun.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68901D4991A2007F8E17 /* UMComMutiTextRun.m */; };
+		12CC69B31D4991A2007F8E17 /* UMComPageControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68931D4991A2007F8E17 /* UMComPageControlView.m */; };
+		12CC69B41D4991A2007F8E17 /* UMAssetsCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68961D4991A2007F8E17 /* UMAssetsCollectionCell.m */; };
+		12CC69B51D4991A2007F8E17 /* UMAssetsCollectionCheckMarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68981D4991A2007F8E17 /* UMAssetsCollectionCheckMarkView.m */; };
+		12CC69B61D4991A2007F8E17 /* UMAssetsCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC689A1D4991A2007F8E17 /* UMAssetsCollectionController.m */; };
+		12CC69B71D4991A2007F8E17 /* UMAssetsCollectionGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC689C1D4991A2007F8E17 /* UMAssetsCollectionGrid.m */; };
+		12CC69B81D4991A2007F8E17 /* UMAssetsCollectionOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC689E1D4991A2007F8E17 /* UMAssetsCollectionOverlayView.m */; };
+		12CC69B91D4991A2007F8E17 /* UMImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68A01D4991A2007F8E17 /* UMImagePickerController.m */; };
+		12CC69BA1D4991A2007F8E17 /* UMImagePickerGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68A21D4991A2007F8E17 /* UMImagePickerGroupCell.m */; };
+		12CC69BB1D4991A2007F8E17 /* UMImagePickerThumbnailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68A41D4991A2007F8E17 /* UMImagePickerThumbnailView.m */; };
+		12CC69BC1D4991A2007F8E17 /* UMComRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68A71D4991A2007F8E17 /* UMComRefreshView.m */; };
+		12CC69BD1D4991A2007F8E17 /* UMComSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68AA1D4991A2007F8E17 /* UMComSearchBar.m */; };
+		12CC69BE1D4991A2007F8E17 /* UMComSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68AD1D4991A2007F8E17 /* UMComSegmentedControl.m */; };
+		12CC69BF1D4991A2007F8E17 /* UMComGridTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68B01D4991A2007F8E17 /* UMComGridTableViewCell.m */; };
+		12CC69C01D4991A2007F8E17 /* UMComGridTableViewCellOne.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68B21D4991A2007F8E17 /* UMComGridTableViewCellOne.m */; };
+		12CC69C11D4991A2007F8E17 /* UMComiToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68B51D4991A2007F8E17 /* UMComiToast.m */; };
+		12CC69C21D4991A2007F8E17 /* UMComShowToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68B71D4991A2007F8E17 /* UMComShowToast.m */; };
+		12CC69C31D4991A2007F8E17 /* UIView+UMComAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68B91D4991A2007F8E17 /* UIView+UMComAddition.m */; };
+		12CC69C41D4991A2007F8E17 /* UMComEmojiKeyBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68BC1D4991A2007F8E17 /* UMComEmojiKeyBoardView.m */; };
+		12CC69C51D4991A2007F8E17 /* UMComEmojiPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68BE1D4991A2007F8E17 /* UMComEmojiPageView.m */; };
+		12CC69C61D4991A2007F8E17 /* UMComProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68C21D4991A2007F8E17 /* UMComProgressHUD.m */; };
+		12CC69C71D4991A2007F8E17 /* UMComStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68C51D4991A2007F8E17 /* UMComStatusView.m */; };
+		12CC69C81D4991A2007F8E17 /* UMComWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68C81D4991A2007F8E17 /* UMComWebView.m */; };
+		12CC69C91D4991A2007F8E17 /* UMComAvatarImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68CB1D4991A2007F8E17 /* UMComAvatarImageView.m */; };
+		12CC69CA1D4991A2007F8E17 /* UMComImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68CD1D4991A2007F8E17 /* UMComImageView.m */; };
+		12CC69CB1D4991A2007F8E17 /* UMComSimplicityDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68D01D4991A2007F8E17 /* UMComSimplicityDiscoverViewController.m */; };
+		12CC69CC1D4991A2007F8E17 /* UMComSimplicityFindTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68D21D4991A2007F8E17 /* UMComSimplicityFindTableViewCell.m */; };
+		12CC69CD1D4991A2007F8E17 /* UMComSimplicityFindTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12CC68D31D4991A2007F8E17 /* UMComSimplicityFindTableViewCell.xib */; };
+		12CC69CE1D4991A2007F8E17 /* UMComSimplicityUserInfoBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68D51D4991A2007F8E17 /* UMComSimplicityUserInfoBar.m */; };
+		12CC69CF1D4991A2007F8E17 /* UMComSimplicityUserInfoBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12CC68D61D4991A2007F8E17 /* UMComSimplicityUserInfoBar.xib */; };
+		12CC69D01D4991A2007F8E17 /* UINavigationBar+ChangeBackgroundColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68D91D4991A2007F8E17 /* UINavigationBar+ChangeBackgroundColor.m */; };
+		12CC69D11D4991A2007F8E17 /* UMComBriefEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68DB1D4991A2007F8E17 /* UMComBriefEditView.m */; };
+		12CC69D21D4991A2007F8E17 /* UMComBriefEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68DD1D4991A2007F8E17 /* UMComBriefEditViewController.m */; };
+		12CC69D31D4991A2007F8E17 /* UMComChangeBorderBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68DF1D4991A2007F8E17 /* UMComChangeBorderBtn.m */; };
+		12CC69D41D4991A2007F8E17 /* UMComSelectTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68E11D4991A2007F8E17 /* UMComSelectTopicCell.m */; };
+		12CC69D51D4991A2007F8E17 /* UMComSelectTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68E31D4991A2007F8E17 /* UMComSelectTopicViewController.m */; };
+		12CC69D61D4991A2007F8E17 /* UMComSelectTopicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12CC68E41D4991A2007F8E17 /* UMComSelectTopicViewController.xib */; };
+		12CC69D71D4991A2007F8E17 /* UMComFeedImageCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68E71D4991A2007F8E17 /* UMComFeedImageCollectionView.m */; };
+		12CC69D81D4991A2007F8E17 /* UMComFeedImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68E91D4991A2007F8E17 /* UMComFeedImageCollectionViewCell.m */; };
+		12CC69D91D4991A2007F8E17 /* UMComFeedImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12CC68EA1D4991A2007F8E17 /* UMComFeedImageCollectionViewCell.xib */; };
+		12CC69DA1D4991A2007F8E17 /* UMComSimpleFeedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68ED1D4991A2007F8E17 /* UMComSimpleFeedTableViewCell.m */; };
+		12CC69DB1D4991A2007F8E17 /* UMComSimpleFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12CC68EE1D4991A2007F8E17 /* UMComSimpleFeedTableViewCell.xib */; };
+		12CC69DC1D4991A2007F8E17 /* UMComSimpleFeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68F01D4991A2007F8E17 /* UMComSimpleFeedTableViewController.m */; };
+		12CC69DD1D4991A2007F8E17 /* UMComSimpleTopicFeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68F21D4991A2007F8E17 /* UMComSimpleTopicFeedTableViewController.m */; };
+		12CC69DE1D4991A2007F8E17 /* UMComFeedDetailCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68F51D4991A2007F8E17 /* UMComFeedDetailCommentCell.m */; };
+		12CC69DF1D4991A2007F8E17 /* UMComFeedDetailCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12CC68F61D4991A2007F8E17 /* UMComFeedDetailCommentCell.xib */; };
+		12CC69E01D4991A2007F8E17 /* UMComFeedDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68F81D4991A2007F8E17 /* UMComFeedDetailTableViewCell.m */; };
+		12CC69E11D4991A2007F8E17 /* UMComFeedDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12CC68F91D4991A2007F8E17 /* UMComFeedDetailTableViewCell.xib */; };
+		12CC69E21D4991A2007F8E17 /* UMComLargeImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68FB1D4991A2007F8E17 /* UMComLargeImageTableViewCell.m */; };
+		12CC69E31D4991A2007F8E17 /* UMComLargeImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12CC68FC1D4991A2007F8E17 /* UMComLargeImageTableViewCell.xib */; };
+		12CC69E41D4991A2007F8E17 /* UMComLikeButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC68FE1D4991A2007F8E17 /* UMComLikeButtonTableViewCell.m */; };
+		12CC69E51D4991A2007F8E17 /* UMComLikeButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12CC68FF1D4991A2007F8E17 /* UMComLikeButtonTableViewCell.xib */; };
+		12CC69E61D4991A2007F8E17 /* UMComSimpleFeedDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC69011D4991A2007F8E17 /* UMComSimpleFeedDetailViewController.m */; };
+		12CC69E71D4991A2007F8E17 /* UMComSimpleHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC69041D4991A2007F8E17 /* UMComSimpleHomeViewController.m */; };
+		12CC69E81D4991A2007F8E17 /* UMComSimpleAssociatedFeedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC69071D4991A2007F8E17 /* UMComSimpleAssociatedFeedTableViewCell.m */; };
+		12CC69E91D4991A2007F8E17 /* UMComSimpleAssociatedFeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12CC69081D4991A2007F8E17 /* UMComSimpleAssociatedFeedTableViewCell.xib */; };
+		12CC69EA1D4991A2007F8E17 /* UMComSimpleCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC690A1D4991A2007F8E17 /* UMComSimpleCommentViewController.m */; };
+		12CC69EB1D4991A2007F8E17 /* UMComSimpleLikeMyFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC690C1D4991A2007F8E17 /* UMComSimpleLikeMyFeedViewController.m */; };
+		12CC69EC1D4991A2007F8E17 /* UMComSimpleNoticeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC690E1D4991A2007F8E17 /* UMComSimpleNoticeTableViewController.m */; };
+		12CC69ED1D4991A2007F8E17 /* UMComSimpleNotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC69101D4991A2007F8E17 /* UMComSimpleNotificationCell.m */; };
+		12CC69EE1D4991A2007F8E17 /* UMComSimpleNotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12CC69111D4991A2007F8E17 /* UMComSimpleNotificationCell.xib */; };
+		12CC69EF1D4991A2007F8E17 /* UMComSimpleSubCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC69131D4991A2007F8E17 /* UMComSimpleSubCommentViewController.m */; };
+		12CC69F01D4991A2007F8E17 /* UMComMacroConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC69161D4991A2007F8E17 /* UMComMacroConfig.m */; };
+		12CC69F11D4991A2007F8E17 /* UMComSimpleProfileSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC69191D4991A2007F8E17 /* UMComSimpleProfileSettingController.m */; };
+		12CC69F21D4991A2007F8E17 /* UMComSimpleProfileSettingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12CC691A1D4991A2007F8E17 /* UMComSimpleProfileSettingController.xib */; };
+		12CC69F31D4991A2007F8E17 /* UMComCustomMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC691E1D4991A2007F8E17 /* UMComCustomMenuViewController.m */; };
+		12CC69F41D4991A2007F8E17 /* UMComSimplicityRequestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC69201D4991A2007F8E17 /* UMComSimplicityRequestTableViewController.m */; };
+		12CC69F51D4991A2007F8E17 /* UMComRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC69231D4991A2007F8E17 /* UMComRegisterViewController.m */; };
+		12CC69F61D4991A2007F8E17 /* UMComRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12CC69241D4991A2007F8E17 /* UMComRegisterViewController.xib */; };
+		12CC69F71D4991A2007F8E17 /* UMComSimpleLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC69261D4991A2007F8E17 /* UMComSimpleLoginViewController.m */; };
+		12CC69F81D4991A2007F8E17 /* UMComSimpleLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12CC69271D4991A2007F8E17 /* UMComSimpleLoginViewController.xib */; };
+		12CC69F91D4991A2007F8E17 /* UMComSimplicityUserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC69291D4991A2007F8E17 /* UMComSimplicityUserCenterViewController.m */; };
+		12CC69FA1D4991A2007F8E17 /* UMComSimplicityUserCenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12CC692A1D4991A2007F8E17 /* UMComSimplicityUserCenterViewController.xib */; };
+		12CC69FB1D4991A2007F8E17 /* UMComWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC692D1D4991A2007F8E17 /* UMComWebViewController.m */; };
+		12CC69FC1D4991A2007F8E17 /* UMComCommentListDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC69321D4991A2007F8E17 /* UMComCommentListDataController.m */; };
+		12CC69FD1D4991A2007F8E17 /* UMComFeedEditDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC69351D4991A2007F8E17 /* UMComFeedEditDataController.m */; };
+		12CC69FE1D4991A2007F8E17 /* UMComFeedListDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC69381D4991A2007F8E17 /* UMComFeedListDataController.m */; };
+		12CC69FF1D4991A2007F8E17 /* UMComFeedDetailDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC693B1D4991A2007F8E17 /* UMComFeedDetailDataController.m */; };
+		12CC6A001D4991A2007F8E17 /* UMComNoticeListDataController..m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC693D1D4991A2007F8E17 /* UMComNoticeListDataController..m */; };
+		12CC6A011D4991A2007F8E17 /* UMComTopicGroupDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC69411D4991A2007F8E17 /* UMComTopicGroupDataController.m */; };
+		12CC6A021D4991A2007F8E17 /* UMComTopicListDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC69431D4991A2007F8E17 /* UMComTopicListDataController.m */; };
+		12CC6A031D4991A2007F8E17 /* UMComListDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC69451D4991A2007F8E17 /* UMComListDataController.m */; };
+		12CC6A041D4991A2007F8E17 /* UMComUserCenterDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC69481D4991A2007F8E17 /* UMComUserCenterDataController.m */; };
+		12CC6A051D4991A2007F8E17 /* UMComUserListDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC694A1D4991A2007F8E17 /* UMComUserListDataController.m */; };
+		12CC6A061D4991A2007F8E17 /* UMComUserUpdateDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC694C1D4991A2007F8E17 /* UMComUserUpdateDataController.m */; };
+		12CC6A071D4991A2007F8E17 /* libUMCommunitySDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 12CC69651D4991A2007F8E17 /* libUMCommunitySDK.a */; };
+		12CC6A081D4991A2007F8E17 /* UMComConfigFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC697C1D4991A2007F8E17 /* UMComConfigFile.m */; };
+		12CC6A091D4991A2007F8E17 /* UMComConstraintCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC697E1D4991A2007F8E17 /* UMComConstraintCache.m */; };
+		12CC6A0A1D4991A2007F8E17 /* UMComErrorCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC69801D4991A2007F8E17 /* UMComErrorCode.m */; };
+		12CC6A0B1D4991A2007F8E17 /* UMComKit+Autolayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC69821D4991A2007F8E17 /* UMComKit+Autolayout.m */; };
+		12CC6A0C1D4991A2007F8E17 /* UMComKit+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC69841D4991A2007F8E17 /* UMComKit+Image.m */; };
+		12CC6A0D1D4991A2007F8E17 /* UMComKit+Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC69861D4991A2007F8E17 /* UMComKit+Runtime.m */; };
+		12CC6A0E1D4991A2007F8E17 /* UMComKit+String.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC69881D4991A2007F8E17 /* UMComKit+String.m */; };
+		12CC6A0F1D4991A2007F8E17 /* UMComKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC698A1D4991A2007F8E17 /* UMComKit.m */; };
+		12CC6A101D4991A2007F8E17 /* UMComResourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC698D1D4991A2007F8E17 /* UMComResourceManager.m */; };
+		12CC6A111D4991A2007F8E17 /* UMComTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC698F1D4991A2007F8E17 /* UMComTools.m */; };
 		12FA40401D46F35E0084D50A /* RWWelcomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA403D1D46F35E0084D50A /* RWWelcomeController.m */; };
 		12FA40411D46F35E0084D50A /* RWWelcomeImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA403F1D46F35E0084D50A /* RWWelcomeImageCell.m */; };
 		12FA404C1D46F56E0084D50A /* RWRequsetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA40441D46F56E0084D50A /* RWRequsetManager.m */; };
@@ -82,8 +211,6 @@
 		126271BB1D336F7F009D44A0 /* WritePigeonDoctorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WritePigeonDoctorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		126271BF1D336F7F009D44A0 /* WritePigeonDoctorUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WritePigeonDoctorUITests.m; sourceTree = "<group>"; };
 		126271C11D336F7F009D44A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		12C1AF5F1D4629040087ABA0 /* RWCommunityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWCommunityController.h; sourceTree = "<group>"; };
-		12C1AF601D4629040087ABA0 /* RWCommunityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWCommunityController.m; sourceTree = "<group>"; };
 		12C1AF631D4629040087ABA0 /* RWDoctorListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWDoctorListController.h; sourceTree = "<group>"; };
 		12C1AF641D4629040087ABA0 /* RWDoctorListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWDoctorListController.m; sourceTree = "<group>"; };
 		12C1AF661D4629040087ABA0 /* Macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
@@ -95,6 +222,289 @@
 		12C1AF721D4629040087ABA0 /* RWSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWSettingsViewController.m; sourceTree = "<group>"; };
 		12C1AF781D4629D10087ABA0 /* RWMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWMainTabBarController.h; sourceTree = "<group>"; };
 		12C1AF791D4629D10087ABA0 /* RWMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWMainTabBarController.m; sourceTree = "<group>"; };
+		12CC683C1D4991A2007F8E17 /* RWCommunityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWCommunityController.h; sourceTree = "<group>"; };
+		12CC683D1D4991A2007F8E17 /* RWCommunityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWCommunityController.m; sourceTree = "<group>"; };
+		12CC68411D4991A2007F8E17 /* FZLanTingHei-L-GBK-M.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FZLanTingHei-L-GBK-M.TTF"; sourceTree = "<group>"; };
+		12CC68421D4991A2007F8E17 /* UMCommunityStrings.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = UMCommunityStrings.strings; sourceTree = "<group>"; };
+		12CC68431D4991A2007F8E17 /* UMComSimpleSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMComSimpleSDKResources.bundle; sourceTree = "<group>"; };
+		12CC68461D4991A2007F8E17 /* UMComLoginDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComLoginDelegate.h; sourceTree = "<group>"; };
+		12CC68471D4991A2007F8E17 /* UMComLoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComLoginManager.h; sourceTree = "<group>"; };
+		12CC68481D4991A2007F8E17 /* UMComLoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComLoginManager.m; sourceTree = "<group>"; };
+		12CC68491D4991A2007F8E17 /* UMComSimpleLoginHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComSimpleLoginHandler.h; sourceTree = "<group>"; };
+		12CC684A1D4991A2007F8E17 /* UMComSimpleLoginHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComSimpleLoginHandler.m; sourceTree = "<group>"; };
+		12CC684D1D4991A2007F8E17 /* UIViewController+UMComAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+UMComAddition.h"; sourceTree = "<group>"; };
+		12CC684E1D4991A2007F8E17 /* UIViewController+UMComAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+UMComAddition.m"; sourceTree = "<group>"; };
+		12CC684F1D4991A2007F8E17 /* UMComNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComNavigationController.h; sourceTree = "<group>"; };
+		12CC68501D4991A2007F8E17 /* UMComNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComNavigationController.m; sourceTree = "<group>"; };
+		12CC68511D4991A2007F8E17 /* UMComScrollViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComScrollViewDelegate.h; sourceTree = "<group>"; };
+		12CC68521D4991A2007F8E17 /* UMComViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComViewController.h; sourceTree = "<group>"; };
+		12CC68531D4991A2007F8E17 /* UMComViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComViewController.m; sourceTree = "<group>"; };
+		12CC68561D4991A2007F8E17 /* UMComActionDeleteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComActionDeleteView.h; sourceTree = "<group>"; };
+		12CC68571D4991A2007F8E17 /* UMComActionDeleteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComActionDeleteView.m; sourceTree = "<group>"; };
+		12CC68581D4991A2007F8E17 /* UMComActionPickerAddView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComActionPickerAddView.h; sourceTree = "<group>"; };
+		12CC68591D4991A2007F8E17 /* UMComActionPickerAddView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComActionPickerAddView.m; sourceTree = "<group>"; };
+		12CC685A1D4991A2007F8E17 /* UMComAddedImageCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComAddedImageCellView.h; sourceTree = "<group>"; };
+		12CC685B1D4991A2007F8E17 /* UMComAddedImageCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComAddedImageCellView.m; sourceTree = "<group>"; };
+		12CC685C1D4991A2007F8E17 /* UMComAddedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComAddedImageView.h; sourceTree = "<group>"; };
+		12CC685D1D4991A2007F8E17 /* UMComAddedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComAddedImageView.m; sourceTree = "<group>"; };
+		12CC685F1D4991A2007F8E17 /* UMComBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComBarButtonItem.h; sourceTree = "<group>"; };
+		12CC68601D4991A2007F8E17 /* UMComBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComBarButtonItem.m; sourceTree = "<group>"; };
+		12CC68611D4991A2007F8E17 /* UMComButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComButton.h; sourceTree = "<group>"; };
+		12CC68621D4991A2007F8E17 /* UMComButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComButton.m; sourceTree = "<group>"; };
+		12CC68641D4991A2007F8E17 /* UMComCommentEditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComCommentEditView.h; sourceTree = "<group>"; };
+		12CC68651D4991A2007F8E17 /* UMComCommentEditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComCommentEditView.m; sourceTree = "<group>"; };
+		12CC68661D4991A2007F8E17 /* UMComCommentInput.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMComCommentInput.xib; sourceTree = "<group>"; };
+		12CC68671D4991A2007F8E17 /* UMComSimpleCommentEditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComSimpleCommentEditView.h; sourceTree = "<group>"; };
+		12CC68681D4991A2007F8E17 /* UMComSimpleCommentEditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComSimpleCommentEditView.m; sourceTree = "<group>"; };
+		12CC68691D4991A2007F8E17 /* UMComSimpleCommentInput.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMComSimpleCommentInput.xib; sourceTree = "<group>"; };
+		12CC686B1D4991A2007F8E17 /* UMComTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComTableViewCell.h; sourceTree = "<group>"; };
+		12CC686C1D4991A2007F8E17 /* UMComTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComTableViewCell.m; sourceTree = "<group>"; };
+		12CC686D1D4991A2007F8E17 /* UMComTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMComTableViewCell.xib; sourceTree = "<group>"; };
+		12CC686F1D4991A2007F8E17 /* UMComEditTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComEditTextView.h; sourceTree = "<group>"; };
+		12CC68701D4991A2007F8E17 /* UMComEditTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComEditTextView.m; sourceTree = "<group>"; };
+		12CC68721D4991A2007F8E17 /* UMComProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComProgressView.h; sourceTree = "<group>"; };
+		12CC68731D4991A2007F8E17 /* UMComProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComProgressView.m; sourceTree = "<group>"; };
+		12CC68741D4991A2007F8E17 /* UMComSimpleGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComSimpleGridView.h; sourceTree = "<group>"; };
+		12CC68751D4991A2007F8E17 /* UMComSimpleGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComSimpleGridView.m; sourceTree = "<group>"; };
+		12CC68761D4991A2007F8E17 /* UMComSimpleGridViewerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComSimpleGridViewerController.h; sourceTree = "<group>"; };
+		12CC68771D4991A2007F8E17 /* UMComSimpleGridViewerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComSimpleGridViewerController.m; sourceTree = "<group>"; };
+		12CC68781D4991A2007F8E17 /* UMImageProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMImageProgressView.h; sourceTree = "<group>"; };
+		12CC68791D4991A2007F8E17 /* UMImageProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMImageProgressView.m; sourceTree = "<group>"; };
+		12CC687B1D4991A2007F8E17 /* UMComHorizonCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComHorizonCollectionView.h; sourceTree = "<group>"; };
+		12CC687C1D4991A2007F8E17 /* UMComHorizonCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComHorizonCollectionView.m; sourceTree = "<group>"; };
+		12CC687D1D4991A2007F8E17 /* UMComHorizonMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComHorizonMenuView.h; sourceTree = "<group>"; };
+		12CC687E1D4991A2007F8E17 /* UMComHorizonMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComHorizonMenuView.m; sourceTree = "<group>"; };
+		12CC687F1D4991A2007F8E17 /* UMComSimpleHorizonMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComSimpleHorizonMenuView.h; sourceTree = "<group>"; };
+		12CC68801D4991A2007F8E17 /* UMComSimpleHorizonMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComSimpleHorizonMenuView.m; sourceTree = "<group>"; };
+		12CC68821D4991A2007F8E17 /* UMComLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComLabel.h; sourceTree = "<group>"; };
+		12CC68831D4991A2007F8E17 /* UMComLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComLabel.m; sourceTree = "<group>"; };
+		12CC68851D4991A2007F8E17 /* UMComMedalImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComMedalImageView.h; sourceTree = "<group>"; };
+		12CC68861D4991A2007F8E17 /* UMComMedalImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComMedalImageView.m; sourceTree = "<group>"; };
+		12CC68881D4991A2007F8E17 /* UMComMenuControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComMenuControlView.h; sourceTree = "<group>"; };
+		12CC68891D4991A2007F8E17 /* UMComMenuControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComMenuControlView.m; sourceTree = "<group>"; };
+		12CC688B1D4991A2007F8E17 /* UMComMutiStyleTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComMutiStyleTextView.h; sourceTree = "<group>"; };
+		12CC688C1D4991A2007F8E17 /* UMComMutiStyleTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComMutiStyleTextView.m; sourceTree = "<group>"; };
+		12CC688D1D4991A2007F8E17 /* UMComMutiText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComMutiText.h; sourceTree = "<group>"; };
+		12CC688E1D4991A2007F8E17 /* UMComMutiText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComMutiText.m; sourceTree = "<group>"; };
+		12CC688F1D4991A2007F8E17 /* UMComMutiTextRun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComMutiTextRun.h; sourceTree = "<group>"; };
+		12CC68901D4991A2007F8E17 /* UMComMutiTextRun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComMutiTextRun.m; sourceTree = "<group>"; };
+		12CC68921D4991A2007F8E17 /* UMComPageControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComPageControlView.h; sourceTree = "<group>"; };
+		12CC68931D4991A2007F8E17 /* UMComPageControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComPageControlView.m; sourceTree = "<group>"; };
+		12CC68951D4991A2007F8E17 /* UMAssetsCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMAssetsCollectionCell.h; sourceTree = "<group>"; };
+		12CC68961D4991A2007F8E17 /* UMAssetsCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMAssetsCollectionCell.m; sourceTree = "<group>"; };
+		12CC68971D4991A2007F8E17 /* UMAssetsCollectionCheckMarkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMAssetsCollectionCheckMarkView.h; sourceTree = "<group>"; };
+		12CC68981D4991A2007F8E17 /* UMAssetsCollectionCheckMarkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMAssetsCollectionCheckMarkView.m; sourceTree = "<group>"; };
+		12CC68991D4991A2007F8E17 /* UMAssetsCollectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMAssetsCollectionController.h; sourceTree = "<group>"; };
+		12CC689A1D4991A2007F8E17 /* UMAssetsCollectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMAssetsCollectionController.m; sourceTree = "<group>"; };
+		12CC689B1D4991A2007F8E17 /* UMAssetsCollectionGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMAssetsCollectionGrid.h; sourceTree = "<group>"; };
+		12CC689C1D4991A2007F8E17 /* UMAssetsCollectionGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMAssetsCollectionGrid.m; sourceTree = "<group>"; };
+		12CC689D1D4991A2007F8E17 /* UMAssetsCollectionOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMAssetsCollectionOverlayView.h; sourceTree = "<group>"; };
+		12CC689E1D4991A2007F8E17 /* UMAssetsCollectionOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMAssetsCollectionOverlayView.m; sourceTree = "<group>"; };
+		12CC689F1D4991A2007F8E17 /* UMImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMImagePickerController.h; sourceTree = "<group>"; };
+		12CC68A01D4991A2007F8E17 /* UMImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMImagePickerController.m; sourceTree = "<group>"; };
+		12CC68A11D4991A2007F8E17 /* UMImagePickerGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMImagePickerGroupCell.h; sourceTree = "<group>"; };
+		12CC68A21D4991A2007F8E17 /* UMImagePickerGroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMImagePickerGroupCell.m; sourceTree = "<group>"; };
+		12CC68A31D4991A2007F8E17 /* UMImagePickerThumbnailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMImagePickerThumbnailView.h; sourceTree = "<group>"; };
+		12CC68A41D4991A2007F8E17 /* UMImagePickerThumbnailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMImagePickerThumbnailView.m; sourceTree = "<group>"; };
+		12CC68A61D4991A2007F8E17 /* UMComRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComRefreshView.h; sourceTree = "<group>"; };
+		12CC68A71D4991A2007F8E17 /* UMComRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComRefreshView.m; sourceTree = "<group>"; };
+		12CC68A91D4991A2007F8E17 /* UMComSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComSearchBar.h; sourceTree = "<group>"; };
+		12CC68AA1D4991A2007F8E17 /* UMComSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComSearchBar.m; sourceTree = "<group>"; };
+		12CC68AC1D4991A2007F8E17 /* UMComSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComSegmentedControl.h; sourceTree = "<group>"; };
+		12CC68AD1D4991A2007F8E17 /* UMComSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComSegmentedControl.m; sourceTree = "<group>"; };
+		12CC68AF1D4991A2007F8E17 /* UMComGridTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComGridTableViewCell.h; sourceTree = "<group>"; };
+		12CC68B01D4991A2007F8E17 /* UMComGridTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComGridTableViewCell.m; sourceTree = "<group>"; };
+		12CC68B11D4991A2007F8E17 /* UMComGridTableViewCellOne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComGridTableViewCellOne.h; sourceTree = "<group>"; };
+		12CC68B21D4991A2007F8E17 /* UMComGridTableViewCellOne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComGridTableViewCellOne.m; sourceTree = "<group>"; };
+		12CC68B41D4991A2007F8E17 /* UMComiToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComiToast.h; sourceTree = "<group>"; };
+		12CC68B51D4991A2007F8E17 /* UMComiToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComiToast.m; sourceTree = "<group>"; };
+		12CC68B61D4991A2007F8E17 /* UMComShowToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComShowToast.h; sourceTree = "<group>"; };
+		12CC68B71D4991A2007F8E17 /* UMComShowToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComShowToast.m; sourceTree = "<group>"; };
+		12CC68B81D4991A2007F8E17 /* UIView+UMComAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+UMComAddition.h"; sourceTree = "<group>"; };
+		12CC68B91D4991A2007F8E17 /* UIView+UMComAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UMComAddition.m"; sourceTree = "<group>"; };
+		12CC68BB1D4991A2007F8E17 /* UMComEmojiKeyBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComEmojiKeyBoardView.h; sourceTree = "<group>"; };
+		12CC68BC1D4991A2007F8E17 /* UMComEmojiKeyBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComEmojiKeyBoardView.m; sourceTree = "<group>"; };
+		12CC68BD1D4991A2007F8E17 /* UMComEmojiPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComEmojiPageView.h; sourceTree = "<group>"; };
+		12CC68BE1D4991A2007F8E17 /* UMComEmojiPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComEmojiPageView.m; sourceTree = "<group>"; };
+		12CC68BF1D4991A2007F8E17 /* UMComFeedClickActionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComFeedClickActionDelegate.h; sourceTree = "<group>"; };
+		12CC68C11D4991A2007F8E17 /* UMComProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComProgressHUD.h; sourceTree = "<group>"; };
+		12CC68C21D4991A2007F8E17 /* UMComProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComProgressHUD.m; sourceTree = "<group>"; };
+		12CC68C41D4991A2007F8E17 /* UMComStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComStatusView.h; sourceTree = "<group>"; };
+		12CC68C51D4991A2007F8E17 /* UMComStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComStatusView.m; sourceTree = "<group>"; };
+		12CC68C71D4991A2007F8E17 /* UMComWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComWebView.h; sourceTree = "<group>"; };
+		12CC68C81D4991A2007F8E17 /* UMComWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComWebView.m; sourceTree = "<group>"; };
+		12CC68CA1D4991A2007F8E17 /* UMComAvatarImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComAvatarImageView.h; sourceTree = "<group>"; };
+		12CC68CB1D4991A2007F8E17 /* UMComAvatarImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComAvatarImageView.m; sourceTree = "<group>"; };
+		12CC68CC1D4991A2007F8E17 /* UMComImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComImageView.h; sourceTree = "<group>"; };
+		12CC68CD1D4991A2007F8E17 /* UMComImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComImageView.m; sourceTree = "<group>"; };
+		12CC68CF1D4991A2007F8E17 /* UMComSimplicityDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComSimplicityDiscoverViewController.h; sourceTree = "<group>"; };
+		12CC68D01D4991A2007F8E17 /* UMComSimplicityDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComSimplicityDiscoverViewController.m; sourceTree = "<group>"; };
+		12CC68D11D4991A2007F8E17 /* UMComSimplicityFindTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComSimplicityFindTableViewCell.h; sourceTree = "<group>"; };
+		12CC68D21D4991A2007F8E17 /* UMComSimplicityFindTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComSimplicityFindTableViewCell.m; sourceTree = "<group>"; };
+		12CC68D31D4991A2007F8E17 /* UMComSimplicityFindTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMComSimplicityFindTableViewCell.xib; sourceTree = "<group>"; };
+		12CC68D41D4991A2007F8E17 /* UMComSimplicityUserInfoBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComSimplicityUserInfoBar.h; sourceTree = "<group>"; };
+		12CC68D51D4991A2007F8E17 /* UMComSimplicityUserInfoBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComSimplicityUserInfoBar.m; sourceTree = "<group>"; };
+		12CC68D61D4991A2007F8E17 /* UMComSimplicityUserInfoBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMComSimplicityUserInfoBar.xib; sourceTree = "<group>"; };
+		12CC68D81D4991A2007F8E17 /* UINavigationBar+ChangeBackgroundColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+ChangeBackgroundColor.h"; sourceTree = "<group>"; };
+		12CC68D91D4991A2007F8E17 /* UINavigationBar+ChangeBackgroundColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+ChangeBackgroundColor.m"; sourceTree = "<group>"; };
+		12CC68DA1D4991A2007F8E17 /* UMComBriefEditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComBriefEditView.h; sourceTree = "<group>"; };
+		12CC68DB1D4991A2007F8E17 /* UMComBriefEditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComBriefEditView.m; sourceTree = "<group>"; };
+		12CC68DC1D4991A2007F8E17 /* UMComBriefEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComBriefEditViewController.h; sourceTree = "<group>"; };
+		12CC68DD1D4991A2007F8E17 /* UMComBriefEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComBriefEditViewController.m; sourceTree = "<group>"; };
+		12CC68DE1D4991A2007F8E17 /* UMComChangeBorderBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComChangeBorderBtn.h; sourceTree = "<group>"; };
+		12CC68DF1D4991A2007F8E17 /* UMComChangeBorderBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComChangeBorderBtn.m; sourceTree = "<group>"; };
+		12CC68E01D4991A2007F8E17 /* UMComSelectTopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComSelectTopicCell.h; sourceTree = "<group>"; };
+		12CC68E11D4991A2007F8E17 /* UMComSelectTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComSelectTopicCell.m; sourceTree = "<group>"; };
+		12CC68E21D4991A2007F8E17 /* UMComSelectTopicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComSelectTopicViewController.h; sourceTree = "<group>"; };
+		12CC68E31D4991A2007F8E17 /* UMComSelectTopicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComSelectTopicViewController.m; sourceTree = "<group>"; };
+		12CC68E41D4991A2007F8E17 /* UMComSelectTopicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMComSelectTopicViewController.xib; sourceTree = "<group>"; };
+		12CC68E61D4991A2007F8E17 /* UMComFeedImageCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComFeedImageCollectionView.h; sourceTree = "<group>"; };
+		12CC68E71D4991A2007F8E17 /* UMComFeedImageCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComFeedImageCollectionView.m; sourceTree = "<group>"; };
+		12CC68E81D4991A2007F8E17 /* UMComFeedImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComFeedImageCollectionViewCell.h; sourceTree = "<group>"; };
+		12CC68E91D4991A2007F8E17 /* UMComFeedImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComFeedImageCollectionViewCell.m; sourceTree = "<group>"; };
+		12CC68EA1D4991A2007F8E17 /* UMComFeedImageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMComFeedImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		12CC68EB1D4991A2007F8E17 /* UMComSimpleFeedOperationFinishDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComSimpleFeedOperationFinishDelegate.h; sourceTree = "<group>"; };
+		12CC68EC1D4991A2007F8E17 /* UMComSimpleFeedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComSimpleFeedTableViewCell.h; sourceTree = "<group>"; };
+		12CC68ED1D4991A2007F8E17 /* UMComSimpleFeedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComSimpleFeedTableViewCell.m; sourceTree = "<group>"; };
+		12CC68EE1D4991A2007F8E17 /* UMComSimpleFeedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMComSimpleFeedTableViewCell.xib; sourceTree = "<group>"; };
+		12CC68EF1D4991A2007F8E17 /* UMComSimpleFeedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComSimpleFeedTableViewController.h; sourceTree = "<group>"; };
+		12CC68F01D4991A2007F8E17 /* UMComSimpleFeedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComSimpleFeedTableViewController.m; sourceTree = "<group>"; };
+		12CC68F11D4991A2007F8E17 /* UMComSimpleTopicFeedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComSimpleTopicFeedTableViewController.h; sourceTree = "<group>"; };
+		12CC68F21D4991A2007F8E17 /* UMComSimpleTopicFeedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComSimpleTopicFeedTableViewController.m; sourceTree = "<group>"; };
+		12CC68F41D4991A2007F8E17 /* UMComFeedDetailCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComFeedDetailCommentCell.h; sourceTree = "<group>"; };
+		12CC68F51D4991A2007F8E17 /* UMComFeedDetailCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComFeedDetailCommentCell.m; sourceTree = "<group>"; };
+		12CC68F61D4991A2007F8E17 /* UMComFeedDetailCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMComFeedDetailCommentCell.xib; sourceTree = "<group>"; };
+		12CC68F71D4991A2007F8E17 /* UMComFeedDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComFeedDetailTableViewCell.h; sourceTree = "<group>"; };
+		12CC68F81D4991A2007F8E17 /* UMComFeedDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComFeedDetailTableViewCell.m; sourceTree = "<group>"; };
+		12CC68F91D4991A2007F8E17 /* UMComFeedDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMComFeedDetailTableViewCell.xib; sourceTree = "<group>"; };
+		12CC68FA1D4991A2007F8E17 /* UMComLargeImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComLargeImageTableViewCell.h; sourceTree = "<group>"; };
+		12CC68FB1D4991A2007F8E17 /* UMComLargeImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComLargeImageTableViewCell.m; sourceTree = "<group>"; };
+		12CC68FC1D4991A2007F8E17 /* UMComLargeImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMComLargeImageTableViewCell.xib; sourceTree = "<group>"; };
+		12CC68FD1D4991A2007F8E17 /* UMComLikeButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComLikeButtonTableViewCell.h; sourceTree = "<group>"; };
+		12CC68FE1D4991A2007F8E17 /* UMComLikeButtonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComLikeButtonTableViewCell.m; sourceTree = "<group>"; };
+		12CC68FF1D4991A2007F8E17 /* UMComLikeButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMComLikeButtonTableViewCell.xib; sourceTree = "<group>"; };
+		12CC69001D4991A2007F8E17 /* UMComSimpleFeedDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComSimpleFeedDetailViewController.h; sourceTree = "<group>"; };
+		12CC69011D4991A2007F8E17 /* UMComSimpleFeedDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComSimpleFeedDetailViewController.m; sourceTree = "<group>"; };
+		12CC69031D4991A2007F8E17 /* UMComSimpleHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComSimpleHomeViewController.h; sourceTree = "<group>"; };
+		12CC69041D4991A2007F8E17 /* UMComSimpleHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComSimpleHomeViewController.m; sourceTree = "<group>"; };
+		12CC69061D4991A2007F8E17 /* UMComSimpleAssociatedFeedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComSimpleAssociatedFeedTableViewCell.h; sourceTree = "<group>"; };
+		12CC69071D4991A2007F8E17 /* UMComSimpleAssociatedFeedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComSimpleAssociatedFeedTableViewCell.m; sourceTree = "<group>"; };
+		12CC69081D4991A2007F8E17 /* UMComSimpleAssociatedFeedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMComSimpleAssociatedFeedTableViewCell.xib; sourceTree = "<group>"; };
+		12CC69091D4991A2007F8E17 /* UMComSimpleCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComSimpleCommentViewController.h; sourceTree = "<group>"; };
+		12CC690A1D4991A2007F8E17 /* UMComSimpleCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComSimpleCommentViewController.m; sourceTree = "<group>"; };
+		12CC690B1D4991A2007F8E17 /* UMComSimpleLikeMyFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComSimpleLikeMyFeedViewController.h; sourceTree = "<group>"; };
+		12CC690C1D4991A2007F8E17 /* UMComSimpleLikeMyFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComSimpleLikeMyFeedViewController.m; sourceTree = "<group>"; };
+		12CC690D1D4991A2007F8E17 /* UMComSimpleNoticeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComSimpleNoticeTableViewController.h; sourceTree = "<group>"; };
+		12CC690E1D4991A2007F8E17 /* UMComSimpleNoticeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComSimpleNoticeTableViewController.m; sourceTree = "<group>"; };
+		12CC690F1D4991A2007F8E17 /* UMComSimpleNotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComSimpleNotificationCell.h; sourceTree = "<group>"; };
+		12CC69101D4991A2007F8E17 /* UMComSimpleNotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComSimpleNotificationCell.m; sourceTree = "<group>"; };
+		12CC69111D4991A2007F8E17 /* UMComSimpleNotificationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMComSimpleNotificationCell.xib; sourceTree = "<group>"; };
+		12CC69121D4991A2007F8E17 /* UMComSimpleSubCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComSimpleSubCommentViewController.h; sourceTree = "<group>"; };
+		12CC69131D4991A2007F8E17 /* UMComSimpleSubCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComSimpleSubCommentViewController.m; sourceTree = "<group>"; };
+		12CC69151D4991A2007F8E17 /* UMComMacroConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComMacroConfig.h; sourceTree = "<group>"; };
+		12CC69161D4991A2007F8E17 /* UMComMacroConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComMacroConfig.m; sourceTree = "<group>"; };
+		12CC69181D4991A2007F8E17 /* UMComSimpleProfileSettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComSimpleProfileSettingController.h; sourceTree = "<group>"; };
+		12CC69191D4991A2007F8E17 /* UMComSimpleProfileSettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComSimpleProfileSettingController.m; sourceTree = "<group>"; };
+		12CC691A1D4991A2007F8E17 /* UMComSimpleProfileSettingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMComSimpleProfileSettingController.xib; sourceTree = "<group>"; };
+		12CC691D1D4991A2007F8E17 /* UMComCustomMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComCustomMenuViewController.h; sourceTree = "<group>"; };
+		12CC691E1D4991A2007F8E17 /* UMComCustomMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComCustomMenuViewController.m; sourceTree = "<group>"; };
+		12CC691F1D4991A2007F8E17 /* UMComSimplicityRequestTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComSimplicityRequestTableViewController.h; sourceTree = "<group>"; };
+		12CC69201D4991A2007F8E17 /* UMComSimplicityRequestTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComSimplicityRequestTableViewController.m; sourceTree = "<group>"; };
+		12CC69221D4991A2007F8E17 /* UMComRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComRegisterViewController.h; sourceTree = "<group>"; };
+		12CC69231D4991A2007F8E17 /* UMComRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComRegisterViewController.m; sourceTree = "<group>"; };
+		12CC69241D4991A2007F8E17 /* UMComRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMComRegisterViewController.xib; sourceTree = "<group>"; };
+		12CC69251D4991A2007F8E17 /* UMComSimpleLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComSimpleLoginViewController.h; sourceTree = "<group>"; };
+		12CC69261D4991A2007F8E17 /* UMComSimpleLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComSimpleLoginViewController.m; sourceTree = "<group>"; };
+		12CC69271D4991A2007F8E17 /* UMComSimpleLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMComSimpleLoginViewController.xib; sourceTree = "<group>"; };
+		12CC69281D4991A2007F8E17 /* UMComSimplicityUserCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComSimplicityUserCenterViewController.h; sourceTree = "<group>"; };
+		12CC69291D4991A2007F8E17 /* UMComSimplicityUserCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComSimplicityUserCenterViewController.m; sourceTree = "<group>"; };
+		12CC692A1D4991A2007F8E17 /* UMComSimplicityUserCenterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMComSimplicityUserCenterViewController.xib; sourceTree = "<group>"; };
+		12CC692C1D4991A2007F8E17 /* UMComWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComWebViewController.h; sourceTree = "<group>"; };
+		12CC692D1D4991A2007F8E17 /* UMComWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComWebViewController.m; sourceTree = "<group>"; };
+		12CC69311D4991A2007F8E17 /* UMComCommentListDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComCommentListDataController.h; sourceTree = "<group>"; };
+		12CC69321D4991A2007F8E17 /* UMComCommentListDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComCommentListDataController.m; sourceTree = "<group>"; };
+		12CC69341D4991A2007F8E17 /* UMComFeedEditDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComFeedEditDataController.h; sourceTree = "<group>"; };
+		12CC69351D4991A2007F8E17 /* UMComFeedEditDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComFeedEditDataController.m; sourceTree = "<group>"; };
+		12CC69371D4991A2007F8E17 /* UMComFeedListDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComFeedListDataController.h; sourceTree = "<group>"; };
+		12CC69381D4991A2007F8E17 /* UMComFeedListDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComFeedListDataController.m; sourceTree = "<group>"; };
+		12CC693A1D4991A2007F8E17 /* UMComFeedDetailDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComFeedDetailDataController.h; sourceTree = "<group>"; };
+		12CC693B1D4991A2007F8E17 /* UMComFeedDetailDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComFeedDetailDataController.m; sourceTree = "<group>"; };
+		12CC693D1D4991A2007F8E17 /* UMComNoticeListDataController..m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComNoticeListDataController..m; sourceTree = "<group>"; };
+		12CC693E1D4991A2007F8E17 /* UMComNoticeListDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComNoticeListDataController.h; sourceTree = "<group>"; };
+		12CC69401D4991A2007F8E17 /* UMComTopicGroupDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComTopicGroupDataController.h; sourceTree = "<group>"; };
+		12CC69411D4991A2007F8E17 /* UMComTopicGroupDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComTopicGroupDataController.m; sourceTree = "<group>"; };
+		12CC69421D4991A2007F8E17 /* UMComTopicListDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComTopicListDataController.h; sourceTree = "<group>"; };
+		12CC69431D4991A2007F8E17 /* UMComTopicListDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComTopicListDataController.m; sourceTree = "<group>"; };
+		12CC69441D4991A2007F8E17 /* UMComListDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComListDataController.h; sourceTree = "<group>"; };
+		12CC69451D4991A2007F8E17 /* UMComListDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComListDataController.m; sourceTree = "<group>"; };
+		12CC69471D4991A2007F8E17 /* UMComUserCenterDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComUserCenterDataController.h; sourceTree = "<group>"; };
+		12CC69481D4991A2007F8E17 /* UMComUserCenterDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComUserCenterDataController.m; sourceTree = "<group>"; };
+		12CC69491D4991A2007F8E17 /* UMComUserListDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComUserListDataController.h; sourceTree = "<group>"; };
+		12CC694A1D4991A2007F8E17 /* UMComUserListDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComUserListDataController.m; sourceTree = "<group>"; };
+		12CC694B1D4991A2007F8E17 /* UMComUserUpdateDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComUserUpdateDataController.h; sourceTree = "<group>"; };
+		12CC694C1D4991A2007F8E17 /* UMComUserUpdateDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComUserUpdateDataController.m; sourceTree = "<group>"; };
+		12CC694E1D4991A2007F8E17 /* UMCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMCache.h; sourceTree = "<group>"; };
+		12CC694F1D4991A2007F8E17 /* UMComDataBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComDataBaseManager.h; sourceTree = "<group>"; };
+		12CC69501D4991A2007F8E17 /* UMComDataBasePublicHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComDataBasePublicHeader.h; sourceTree = "<group>"; };
+		12CC69511D4991A2007F8E17 /* UMComDataLocalPersistenceHandleDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComDataLocalPersistenceHandleDelegate.h; sourceTree = "<group>"; };
+		12CC69521D4991A2007F8E17 /* UMComDataParseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComDataParseModel.h; sourceTree = "<group>"; };
+		12CC69531D4991A2007F8E17 /* UMComDataParseModelProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComDataParseModelProtocol.h; sourceTree = "<group>"; };
+		12CC69541D4991A2007F8E17 /* UMComDataRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComDataRequestManager.h; sourceTree = "<group>"; };
+		12CC69551D4991A2007F8E17 /* UMComHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComHttpClient.h; sourceTree = "<group>"; };
+		12CC69561D4991A2007F8E17 /* UMComHttpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComHttpManager.h; sourceTree = "<group>"; };
+		12CC69591D4991A2007F8E17 /* UMComJSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComJSONModel.h; sourceTree = "<group>"; };
+		12CC695A1D4991A2007F8E17 /* UMComJSONModelError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComJSONModelError.h; sourceTree = "<group>"; };
+		12CC695B1D4991A2007F8E17 /* UMCommunity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMCommunity.h; sourceTree = "<group>"; };
+		12CC695C1D4991A2007F8E17 /* UMComNetworkConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComNetworkConfig.h; sourceTree = "<group>"; };
+		12CC695D1D4991A2007F8E17 /* UMComProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComProtocol.h; sourceTree = "<group>"; };
+		12CC695E1D4991A2007F8E17 /* UMComRelatedIDTableType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComRelatedIDTableType.h; sourceTree = "<group>"; };
+		12CC695F1D4991A2007F8E17 /* UMComSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComSession.h; sourceTree = "<group>"; };
+		12CC69601D4991A2007F8E17 /* UMImageLoadConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMImageLoadConnection.h; sourceTree = "<group>"; };
+		12CC69611D4991A2007F8E17 /* UMImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMImageLoader.h; sourceTree = "<group>"; };
+		12CC69621D4991A2007F8E17 /* UMImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMImageView.h; sourceTree = "<group>"; };
+		12CC69631D4991A2007F8E17 /* UMProtocolData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMProtocolData.h; sourceTree = "<group>"; };
+		12CC69641D4991A2007F8E17 /* UMUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMUtils.h; sourceTree = "<group>"; };
+		12CC69651D4991A2007F8E17 /* libUMCommunitySDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMCommunitySDK.a; sourceTree = "<group>"; };
+		12CC69671D4991A2007F8E17 /* UMComAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComAlbum.h; sourceTree = "<group>"; };
+		12CC69681D4991A2007F8E17 /* UMComComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComComment.h; sourceTree = "<group>"; };
+		12CC69691D4991A2007F8E17 /* UMComCurrencyDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComCurrencyDetail.h; sourceTree = "<group>"; };
+		12CC696A1D4991A2007F8E17 /* UMComFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComFeed.h; sourceTree = "<group>"; };
+		12CC696B1D4991A2007F8E17 /* UMComImageUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComImageUrl.h; sourceTree = "<group>"; };
+		12CC696C1D4991A2007F8E17 /* UMComLike.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComLike.h; sourceTree = "<group>"; };
+		12CC696D1D4991A2007F8E17 /* UMComLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComLocation.h; sourceTree = "<group>"; };
+		12CC696E1D4991A2007F8E17 /* UMComMedal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComMedal.h; sourceTree = "<group>"; };
+		12CC696F1D4991A2007F8E17 /* UMComModelObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComModelObject.h; sourceTree = "<group>"; };
+		12CC69701D4991A2007F8E17 /* UMComModelObjectHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComModelObjectHeader.h; sourceTree = "<group>"; };
+		12CC69711D4991A2007F8E17 /* UMComNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComNotification.h; sourceTree = "<group>"; };
+		12CC69721D4991A2007F8E17 /* UMComPointDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComPointDetail.h; sourceTree = "<group>"; };
+		12CC69731D4991A2007F8E17 /* UMComPointResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComPointResult.h; sourceTree = "<group>"; };
+		12CC69741D4991A2007F8E17 /* UMComPrivateLetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComPrivateLetter.h; sourceTree = "<group>"; };
+		12CC69751D4991A2007F8E17 /* UMComPrivateMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComPrivateMessage.h; sourceTree = "<group>"; };
+		12CC69761D4991A2007F8E17 /* UMComTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComTopic.h; sourceTree = "<group>"; };
+		12CC69771D4991A2007F8E17 /* UMComTopicType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComTopicType.h; sourceTree = "<group>"; };
+		12CC69781D4991A2007F8E17 /* UMComUnReadNoticeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComUnReadNoticeModel.h; sourceTree = "<group>"; };
+		12CC69791D4991A2007F8E17 /* UMComUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComUser.h; sourceTree = "<group>"; };
+		12CC697B1D4991A2007F8E17 /* UMComConfigFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComConfigFile.h; sourceTree = "<group>"; };
+		12CC697C1D4991A2007F8E17 /* UMComConfigFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComConfigFile.m; sourceTree = "<group>"; };
+		12CC697D1D4991A2007F8E17 /* UMComConstraintCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComConstraintCache.h; sourceTree = "<group>"; };
+		12CC697E1D4991A2007F8E17 /* UMComConstraintCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComConstraintCache.m; sourceTree = "<group>"; };
+		12CC697F1D4991A2007F8E17 /* UMComErrorCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComErrorCode.h; sourceTree = "<group>"; };
+		12CC69801D4991A2007F8E17 /* UMComErrorCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComErrorCode.m; sourceTree = "<group>"; };
+		12CC69811D4991A2007F8E17 /* UMComKit+Autolayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UMComKit+Autolayout.h"; sourceTree = "<group>"; };
+		12CC69821D4991A2007F8E17 /* UMComKit+Autolayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UMComKit+Autolayout.m"; sourceTree = "<group>"; };
+		12CC69831D4991A2007F8E17 /* UMComKit+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UMComKit+Image.h"; sourceTree = "<group>"; };
+		12CC69841D4991A2007F8E17 /* UMComKit+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UMComKit+Image.m"; sourceTree = "<group>"; };
+		12CC69851D4991A2007F8E17 /* UMComKit+Runtime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UMComKit+Runtime.h"; sourceTree = "<group>"; };
+		12CC69861D4991A2007F8E17 /* UMComKit+Runtime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UMComKit+Runtime.m"; sourceTree = "<group>"; };
+		12CC69871D4991A2007F8E17 /* UMComKit+String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UMComKit+String.h"; sourceTree = "<group>"; };
+		12CC69881D4991A2007F8E17 /* UMComKit+String.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UMComKit+String.m"; sourceTree = "<group>"; };
+		12CC69891D4991A2007F8E17 /* UMComKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComKit.h; sourceTree = "<group>"; };
+		12CC698A1D4991A2007F8E17 /* UMComKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComKit.m; sourceTree = "<group>"; };
+		12CC698B1D4991A2007F8E17 /* UMComNotificationMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComNotificationMacro.h; sourceTree = "<group>"; };
+		12CC698C1D4991A2007F8E17 /* UMComResourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComResourceManager.h; sourceTree = "<group>"; };
+		12CC698D1D4991A2007F8E17 /* UMComResourceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComResourceManager.m; sourceTree = "<group>"; };
+		12CC698E1D4991A2007F8E17 /* UMComTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComTools.h; sourceTree = "<group>"; };
+		12CC698F1D4991A2007F8E17 /* UMComTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComTools.m; sourceTree = "<group>"; };
 		12FA403C1D46F35E0084D50A /* RWWelcomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWWelcomeController.h; sourceTree = "<group>"; };
 		12FA403D1D46F35E0084D50A /* RWWelcomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWWelcomeController.m; sourceTree = "<group>"; };
 		12FA403E1D46F35E0084D50A /* RWWelcomeImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWWelcomeImageCell.h; sourceTree = "<group>"; };
@@ -132,6 +542,7 @@
 				123E9BBE1D34A00F009B61B5 /* libz.tbd in Frameworks */,
 				123E9BBC1D34A006009B61B5 /* libc++.tbd in Frameworks */,
 				123E9BBA1D349FDA009B61B5 /* SystemConfiguration.framework in Frameworks */,
+				12CC6A071D4991A2007F8E17 /* libUMCommunitySDK.a in Frameworks */,
 				123E9BB81D349FC7009B61B5 /* CoreTelephony.framework in Frameworks */,
 				D28576077618A1630E9E807B /* libPods.a in Frameworks */,
 			);
@@ -255,8 +666,9 @@
 		12C1AF5E1D4629040087ABA0 /* Community */ = {
 			isa = PBXGroup;
 			children = (
-				12C1AF5F1D4629040087ABA0 /* RWCommunityController.h */,
-				12C1AF601D4629040087ABA0 /* RWCommunityController.m */,
+				12CC683C1D4991A2007F8E17 /* RWCommunityController.h */,
+				12CC683D1D4991A2007F8E17 /* RWCommunityController.m */,
+				12CC683E1D4991A2007F8E17 /* umeng_community_ios_v2.6.0 */,
 			);
 			name = Community;
 			path = Classes/Community;
@@ -356,6 +768,742 @@
 			);
 			name = Settings;
 			path = Classes/Settings;
+			sourceTree = "<group>";
+		};
+		12CC683E1D4991A2007F8E17 /* umeng_community_ios_v2.6.0 */ = {
+			isa = PBXGroup;
+			children = (
+				12CC683F1D4991A2007F8E17 /* Community_simple */,
+				12CC692E1D4991A2007F8E17 /* Lib_UMCommunity */,
+			);
+			path = umeng_community_ios_v2.6.0;
+			sourceTree = "<group>";
+		};
+		12CC683F1D4991A2007F8E17 /* Community_simple */ = {
+			isa = PBXGroup;
+			children = (
+				12CC68401D4991A2007F8E17 /* Resource */,
+				12CC68441D4991A2007F8E17 /* Source */,
+			);
+			path = Community_simple;
+			sourceTree = "<group>";
+		};
+		12CC68401D4991A2007F8E17 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				12CC68411D4991A2007F8E17 /* FZLanTingHei-L-GBK-M.TTF */,
+				12CC68421D4991A2007F8E17 /* UMCommunityStrings.strings */,
+				12CC68431D4991A2007F8E17 /* UMComSimpleSDKResources.bundle */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		12CC68441D4991A2007F8E17 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				12CC68451D4991A2007F8E17 /* Login */,
+				12CC684B1D4991A2007F8E17 /* UI */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		12CC68451D4991A2007F8E17 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				12CC68461D4991A2007F8E17 /* UMComLoginDelegate.h */,
+				12CC68471D4991A2007F8E17 /* UMComLoginManager.h */,
+				12CC68481D4991A2007F8E17 /* UMComLoginManager.m */,
+				12CC68491D4991A2007F8E17 /* UMComSimpleLoginHandler.h */,
+				12CC684A1D4991A2007F8E17 /* UMComSimpleLoginHandler.m */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		12CC684B1D4991A2007F8E17 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				12CC684C1D4991A2007F8E17 /* BaseVC */,
+				12CC68541D4991A2007F8E17 /* CustomView */,
+				12CC68CE1D4991A2007F8E17 /* Discover */,
+				12CC68D71D4991A2007F8E17 /* Edit */,
+				12CC68E51D4991A2007F8E17 /* Feed */,
+				12CC68F31D4991A2007F8E17 /* FeedDetail */,
+				12CC69021D4991A2007F8E17 /* Home */,
+				12CC69051D4991A2007F8E17 /* InformSystem */,
+				12CC69141D4991A2007F8E17 /* MacroConfig */,
+				12CC69171D4991A2007F8E17 /* Setting */,
+				12CC691B1D4991A2007F8E17 /* SimplicityCommon */,
+				12CC69211D4991A2007F8E17 /* User */,
+				12CC692B1D4991A2007F8E17 /* WebVC */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		12CC684C1D4991A2007F8E17 /* BaseVC */ = {
+			isa = PBXGroup;
+			children = (
+				12CC684D1D4991A2007F8E17 /* UIViewController+UMComAddition.h */,
+				12CC684E1D4991A2007F8E17 /* UIViewController+UMComAddition.m */,
+				12CC684F1D4991A2007F8E17 /* UMComNavigationController.h */,
+				12CC68501D4991A2007F8E17 /* UMComNavigationController.m */,
+				12CC68511D4991A2007F8E17 /* UMComScrollViewDelegate.h */,
+				12CC68521D4991A2007F8E17 /* UMComViewController.h */,
+				12CC68531D4991A2007F8E17 /* UMComViewController.m */,
+			);
+			path = BaseVC;
+			sourceTree = "<group>";
+		};
+		12CC68541D4991A2007F8E17 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				12CC68551D4991A2007F8E17 /* AddImageView */,
+				12CC685E1D4991A2007F8E17 /* Button */,
+				12CC68631D4991A2007F8E17 /* CommentEditView */,
+				12CC686A1D4991A2007F8E17 /* CustomCell */,
+				12CC686E1D4991A2007F8E17 /* EditTextView */,
+				12CC68711D4991A2007F8E17 /* GridView */,
+				12CC687A1D4991A2007F8E17 /* HorizonMenuView */,
+				12CC68811D4991A2007F8E17 /* Label */,
+				12CC68841D4991A2007F8E17 /* MedalImageView */,
+				12CC68871D4991A2007F8E17 /* MenuControlView */,
+				12CC688A1D4991A2007F8E17 /* MutiStyleTextView */,
+				12CC68911D4991A2007F8E17 /* PageControlView */,
+				12CC68941D4991A2007F8E17 /* PhotoSelector */,
+				12CC68A51D4991A2007F8E17 /* RefreshView */,
+				12CC68A81D4991A2007F8E17 /* SearchBar */,
+				12CC68AB1D4991A2007F8E17 /* SegmentedControl */,
+				12CC68AE1D4991A2007F8E17 /* TableGridView */,
+				12CC68B31D4991A2007F8E17 /* Toast */,
+				12CC68B81D4991A2007F8E17 /* UIView+UMComAddition.h */,
+				12CC68B91D4991A2007F8E17 /* UIView+UMComAddition.m */,
+				12CC68BA1D4991A2007F8E17 /* UMComEmojiKeyBoard */,
+				12CC68BF1D4991A2007F8E17 /* UMComFeedClickActionDelegate.h */,
+				12CC68C01D4991A2007F8E17 /* UMComProgressHUD */,
+				12CC68C31D4991A2007F8E17 /* UMComStatusView */,
+				12CC68C61D4991A2007F8E17 /* UMComWebView */,
+				12CC68C91D4991A2007F8E17 /* UMImageView */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		12CC68551D4991A2007F8E17 /* AddImageView */ = {
+			isa = PBXGroup;
+			children = (
+				12CC68561D4991A2007F8E17 /* UMComActionDeleteView.h */,
+				12CC68571D4991A2007F8E17 /* UMComActionDeleteView.m */,
+				12CC68581D4991A2007F8E17 /* UMComActionPickerAddView.h */,
+				12CC68591D4991A2007F8E17 /* UMComActionPickerAddView.m */,
+				12CC685A1D4991A2007F8E17 /* UMComAddedImageCellView.h */,
+				12CC685B1D4991A2007F8E17 /* UMComAddedImageCellView.m */,
+				12CC685C1D4991A2007F8E17 /* UMComAddedImageView.h */,
+				12CC685D1D4991A2007F8E17 /* UMComAddedImageView.m */,
+			);
+			path = AddImageView;
+			sourceTree = "<group>";
+		};
+		12CC685E1D4991A2007F8E17 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				12CC685F1D4991A2007F8E17 /* UMComBarButtonItem.h */,
+				12CC68601D4991A2007F8E17 /* UMComBarButtonItem.m */,
+				12CC68611D4991A2007F8E17 /* UMComButton.h */,
+				12CC68621D4991A2007F8E17 /* UMComButton.m */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		12CC68631D4991A2007F8E17 /* CommentEditView */ = {
+			isa = PBXGroup;
+			children = (
+				12CC68641D4991A2007F8E17 /* UMComCommentEditView.h */,
+				12CC68651D4991A2007F8E17 /* UMComCommentEditView.m */,
+				12CC68661D4991A2007F8E17 /* UMComCommentInput.xib */,
+				12CC68671D4991A2007F8E17 /* UMComSimpleCommentEditView.h */,
+				12CC68681D4991A2007F8E17 /* UMComSimpleCommentEditView.m */,
+				12CC68691D4991A2007F8E17 /* UMComSimpleCommentInput.xib */,
+			);
+			path = CommentEditView;
+			sourceTree = "<group>";
+		};
+		12CC686A1D4991A2007F8E17 /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				12CC686B1D4991A2007F8E17 /* UMComTableViewCell.h */,
+				12CC686C1D4991A2007F8E17 /* UMComTableViewCell.m */,
+				12CC686D1D4991A2007F8E17 /* UMComTableViewCell.xib */,
+			);
+			path = CustomCell;
+			sourceTree = "<group>";
+		};
+		12CC686E1D4991A2007F8E17 /* EditTextView */ = {
+			isa = PBXGroup;
+			children = (
+				12CC686F1D4991A2007F8E17 /* UMComEditTextView.h */,
+				12CC68701D4991A2007F8E17 /* UMComEditTextView.m */,
+			);
+			path = EditTextView;
+			sourceTree = "<group>";
+		};
+		12CC68711D4991A2007F8E17 /* GridView */ = {
+			isa = PBXGroup;
+			children = (
+				12CC68721D4991A2007F8E17 /* UMComProgressView.h */,
+				12CC68731D4991A2007F8E17 /* UMComProgressView.m */,
+				12CC68741D4991A2007F8E17 /* UMComSimpleGridView.h */,
+				12CC68751D4991A2007F8E17 /* UMComSimpleGridView.m */,
+				12CC68761D4991A2007F8E17 /* UMComSimpleGridViewerController.h */,
+				12CC68771D4991A2007F8E17 /* UMComSimpleGridViewerController.m */,
+				12CC68781D4991A2007F8E17 /* UMImageProgressView.h */,
+				12CC68791D4991A2007F8E17 /* UMImageProgressView.m */,
+			);
+			path = GridView;
+			sourceTree = "<group>";
+		};
+		12CC687A1D4991A2007F8E17 /* HorizonMenuView */ = {
+			isa = PBXGroup;
+			children = (
+				12CC687B1D4991A2007F8E17 /* UMComHorizonCollectionView.h */,
+				12CC687C1D4991A2007F8E17 /* UMComHorizonCollectionView.m */,
+				12CC687D1D4991A2007F8E17 /* UMComHorizonMenuView.h */,
+				12CC687E1D4991A2007F8E17 /* UMComHorizonMenuView.m */,
+				12CC687F1D4991A2007F8E17 /* UMComSimpleHorizonMenuView.h */,
+				12CC68801D4991A2007F8E17 /* UMComSimpleHorizonMenuView.m */,
+			);
+			path = HorizonMenuView;
+			sourceTree = "<group>";
+		};
+		12CC68811D4991A2007F8E17 /* Label */ = {
+			isa = PBXGroup;
+			children = (
+				12CC68821D4991A2007F8E17 /* UMComLabel.h */,
+				12CC68831D4991A2007F8E17 /* UMComLabel.m */,
+			);
+			path = Label;
+			sourceTree = "<group>";
+		};
+		12CC68841D4991A2007F8E17 /* MedalImageView */ = {
+			isa = PBXGroup;
+			children = (
+				12CC68851D4991A2007F8E17 /* UMComMedalImageView.h */,
+				12CC68861D4991A2007F8E17 /* UMComMedalImageView.m */,
+			);
+			path = MedalImageView;
+			sourceTree = "<group>";
+		};
+		12CC68871D4991A2007F8E17 /* MenuControlView */ = {
+			isa = PBXGroup;
+			children = (
+				12CC68881D4991A2007F8E17 /* UMComMenuControlView.h */,
+				12CC68891D4991A2007F8E17 /* UMComMenuControlView.m */,
+			);
+			path = MenuControlView;
+			sourceTree = "<group>";
+		};
+		12CC688A1D4991A2007F8E17 /* MutiStyleTextView */ = {
+			isa = PBXGroup;
+			children = (
+				12CC688B1D4991A2007F8E17 /* UMComMutiStyleTextView.h */,
+				12CC688C1D4991A2007F8E17 /* UMComMutiStyleTextView.m */,
+				12CC688D1D4991A2007F8E17 /* UMComMutiText.h */,
+				12CC688E1D4991A2007F8E17 /* UMComMutiText.m */,
+				12CC688F1D4991A2007F8E17 /* UMComMutiTextRun.h */,
+				12CC68901D4991A2007F8E17 /* UMComMutiTextRun.m */,
+			);
+			path = MutiStyleTextView;
+			sourceTree = "<group>";
+		};
+		12CC68911D4991A2007F8E17 /* PageControlView */ = {
+			isa = PBXGroup;
+			children = (
+				12CC68921D4991A2007F8E17 /* UMComPageControlView.h */,
+				12CC68931D4991A2007F8E17 /* UMComPageControlView.m */,
+			);
+			path = PageControlView;
+			sourceTree = "<group>";
+		};
+		12CC68941D4991A2007F8E17 /* PhotoSelector */ = {
+			isa = PBXGroup;
+			children = (
+				12CC68951D4991A2007F8E17 /* UMAssetsCollectionCell.h */,
+				12CC68961D4991A2007F8E17 /* UMAssetsCollectionCell.m */,
+				12CC68971D4991A2007F8E17 /* UMAssetsCollectionCheckMarkView.h */,
+				12CC68981D4991A2007F8E17 /* UMAssetsCollectionCheckMarkView.m */,
+				12CC68991D4991A2007F8E17 /* UMAssetsCollectionController.h */,
+				12CC689A1D4991A2007F8E17 /* UMAssetsCollectionController.m */,
+				12CC689B1D4991A2007F8E17 /* UMAssetsCollectionGrid.h */,
+				12CC689C1D4991A2007F8E17 /* UMAssetsCollectionGrid.m */,
+				12CC689D1D4991A2007F8E17 /* UMAssetsCollectionOverlayView.h */,
+				12CC689E1D4991A2007F8E17 /* UMAssetsCollectionOverlayView.m */,
+				12CC689F1D4991A2007F8E17 /* UMImagePickerController.h */,
+				12CC68A01D4991A2007F8E17 /* UMImagePickerController.m */,
+				12CC68A11D4991A2007F8E17 /* UMImagePickerGroupCell.h */,
+				12CC68A21D4991A2007F8E17 /* UMImagePickerGroupCell.m */,
+				12CC68A31D4991A2007F8E17 /* UMImagePickerThumbnailView.h */,
+				12CC68A41D4991A2007F8E17 /* UMImagePickerThumbnailView.m */,
+			);
+			path = PhotoSelector;
+			sourceTree = "<group>";
+		};
+		12CC68A51D4991A2007F8E17 /* RefreshView */ = {
+			isa = PBXGroup;
+			children = (
+				12CC68A61D4991A2007F8E17 /* UMComRefreshView.h */,
+				12CC68A71D4991A2007F8E17 /* UMComRefreshView.m */,
+			);
+			path = RefreshView;
+			sourceTree = "<group>";
+		};
+		12CC68A81D4991A2007F8E17 /* SearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				12CC68A91D4991A2007F8E17 /* UMComSearchBar.h */,
+				12CC68AA1D4991A2007F8E17 /* UMComSearchBar.m */,
+			);
+			path = SearchBar;
+			sourceTree = "<group>";
+		};
+		12CC68AB1D4991A2007F8E17 /* SegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				12CC68AC1D4991A2007F8E17 /* UMComSegmentedControl.h */,
+				12CC68AD1D4991A2007F8E17 /* UMComSegmentedControl.m */,
+			);
+			path = SegmentedControl;
+			sourceTree = "<group>";
+		};
+		12CC68AE1D4991A2007F8E17 /* TableGridView */ = {
+			isa = PBXGroup;
+			children = (
+				12CC68AF1D4991A2007F8E17 /* UMComGridTableViewCell.h */,
+				12CC68B01D4991A2007F8E17 /* UMComGridTableViewCell.m */,
+				12CC68B11D4991A2007F8E17 /* UMComGridTableViewCellOne.h */,
+				12CC68B21D4991A2007F8E17 /* UMComGridTableViewCellOne.m */,
+			);
+			path = TableGridView;
+			sourceTree = "<group>";
+		};
+		12CC68B31D4991A2007F8E17 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				12CC68B41D4991A2007F8E17 /* UMComiToast.h */,
+				12CC68B51D4991A2007F8E17 /* UMComiToast.m */,
+				12CC68B61D4991A2007F8E17 /* UMComShowToast.h */,
+				12CC68B71D4991A2007F8E17 /* UMComShowToast.m */,
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
+		12CC68BA1D4991A2007F8E17 /* UMComEmojiKeyBoard */ = {
+			isa = PBXGroup;
+			children = (
+				12CC68BB1D4991A2007F8E17 /* UMComEmojiKeyBoardView.h */,
+				12CC68BC1D4991A2007F8E17 /* UMComEmojiKeyBoardView.m */,
+				12CC68BD1D4991A2007F8E17 /* UMComEmojiPageView.h */,
+				12CC68BE1D4991A2007F8E17 /* UMComEmojiPageView.m */,
+			);
+			path = UMComEmojiKeyBoard;
+			sourceTree = "<group>";
+		};
+		12CC68C01D4991A2007F8E17 /* UMComProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				12CC68C11D4991A2007F8E17 /* UMComProgressHUD.h */,
+				12CC68C21D4991A2007F8E17 /* UMComProgressHUD.m */,
+			);
+			path = UMComProgressHUD;
+			sourceTree = "<group>";
+		};
+		12CC68C31D4991A2007F8E17 /* UMComStatusView */ = {
+			isa = PBXGroup;
+			children = (
+				12CC68C41D4991A2007F8E17 /* UMComStatusView.h */,
+				12CC68C51D4991A2007F8E17 /* UMComStatusView.m */,
+			);
+			path = UMComStatusView;
+			sourceTree = "<group>";
+		};
+		12CC68C61D4991A2007F8E17 /* UMComWebView */ = {
+			isa = PBXGroup;
+			children = (
+				12CC68C71D4991A2007F8E17 /* UMComWebView.h */,
+				12CC68C81D4991A2007F8E17 /* UMComWebView.m */,
+			);
+			path = UMComWebView;
+			sourceTree = "<group>";
+		};
+		12CC68C91D4991A2007F8E17 /* UMImageView */ = {
+			isa = PBXGroup;
+			children = (
+				12CC68CA1D4991A2007F8E17 /* UMComAvatarImageView.h */,
+				12CC68CB1D4991A2007F8E17 /* UMComAvatarImageView.m */,
+				12CC68CC1D4991A2007F8E17 /* UMComImageView.h */,
+				12CC68CD1D4991A2007F8E17 /* UMComImageView.m */,
+			);
+			path = UMImageView;
+			sourceTree = "<group>";
+		};
+		12CC68CE1D4991A2007F8E17 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				12CC68CF1D4991A2007F8E17 /* UMComSimplicityDiscoverViewController.h */,
+				12CC68D01D4991A2007F8E17 /* UMComSimplicityDiscoverViewController.m */,
+				12CC68D11D4991A2007F8E17 /* UMComSimplicityFindTableViewCell.h */,
+				12CC68D21D4991A2007F8E17 /* UMComSimplicityFindTableViewCell.m */,
+				12CC68D31D4991A2007F8E17 /* UMComSimplicityFindTableViewCell.xib */,
+				12CC68D41D4991A2007F8E17 /* UMComSimplicityUserInfoBar.h */,
+				12CC68D51D4991A2007F8E17 /* UMComSimplicityUserInfoBar.m */,
+				12CC68D61D4991A2007F8E17 /* UMComSimplicityUserInfoBar.xib */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		12CC68D71D4991A2007F8E17 /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				12CC68D81D4991A2007F8E17 /* UINavigationBar+ChangeBackgroundColor.h */,
+				12CC68D91D4991A2007F8E17 /* UINavigationBar+ChangeBackgroundColor.m */,
+				12CC68DA1D4991A2007F8E17 /* UMComBriefEditView.h */,
+				12CC68DB1D4991A2007F8E17 /* UMComBriefEditView.m */,
+				12CC68DC1D4991A2007F8E17 /* UMComBriefEditViewController.h */,
+				12CC68DD1D4991A2007F8E17 /* UMComBriefEditViewController.m */,
+				12CC68DE1D4991A2007F8E17 /* UMComChangeBorderBtn.h */,
+				12CC68DF1D4991A2007F8E17 /* UMComChangeBorderBtn.m */,
+				12CC68E01D4991A2007F8E17 /* UMComSelectTopicCell.h */,
+				12CC68E11D4991A2007F8E17 /* UMComSelectTopicCell.m */,
+				12CC68E21D4991A2007F8E17 /* UMComSelectTopicViewController.h */,
+				12CC68E31D4991A2007F8E17 /* UMComSelectTopicViewController.m */,
+				12CC68E41D4991A2007F8E17 /* UMComSelectTopicViewController.xib */,
+			);
+			path = Edit;
+			sourceTree = "<group>";
+		};
+		12CC68E51D4991A2007F8E17 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				12CC68E61D4991A2007F8E17 /* UMComFeedImageCollectionView.h */,
+				12CC68E71D4991A2007F8E17 /* UMComFeedImageCollectionView.m */,
+				12CC68E81D4991A2007F8E17 /* UMComFeedImageCollectionViewCell.h */,
+				12CC68E91D4991A2007F8E17 /* UMComFeedImageCollectionViewCell.m */,
+				12CC68EA1D4991A2007F8E17 /* UMComFeedImageCollectionViewCell.xib */,
+				12CC68EB1D4991A2007F8E17 /* UMComSimpleFeedOperationFinishDelegate.h */,
+				12CC68EC1D4991A2007F8E17 /* UMComSimpleFeedTableViewCell.h */,
+				12CC68ED1D4991A2007F8E17 /* UMComSimpleFeedTableViewCell.m */,
+				12CC68EE1D4991A2007F8E17 /* UMComSimpleFeedTableViewCell.xib */,
+				12CC68EF1D4991A2007F8E17 /* UMComSimpleFeedTableViewController.h */,
+				12CC68F01D4991A2007F8E17 /* UMComSimpleFeedTableViewController.m */,
+				12CC68F11D4991A2007F8E17 /* UMComSimpleTopicFeedTableViewController.h */,
+				12CC68F21D4991A2007F8E17 /* UMComSimpleTopicFeedTableViewController.m */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		12CC68F31D4991A2007F8E17 /* FeedDetail */ = {
+			isa = PBXGroup;
+			children = (
+				12CC68F41D4991A2007F8E17 /* UMComFeedDetailCommentCell.h */,
+				12CC68F51D4991A2007F8E17 /* UMComFeedDetailCommentCell.m */,
+				12CC68F61D4991A2007F8E17 /* UMComFeedDetailCommentCell.xib */,
+				12CC68F71D4991A2007F8E17 /* UMComFeedDetailTableViewCell.h */,
+				12CC68F81D4991A2007F8E17 /* UMComFeedDetailTableViewCell.m */,
+				12CC68F91D4991A2007F8E17 /* UMComFeedDetailTableViewCell.xib */,
+				12CC68FA1D4991A2007F8E17 /* UMComLargeImageTableViewCell.h */,
+				12CC68FB1D4991A2007F8E17 /* UMComLargeImageTableViewCell.m */,
+				12CC68FC1D4991A2007F8E17 /* UMComLargeImageTableViewCell.xib */,
+				12CC68FD1D4991A2007F8E17 /* UMComLikeButtonTableViewCell.h */,
+				12CC68FE1D4991A2007F8E17 /* UMComLikeButtonTableViewCell.m */,
+				12CC68FF1D4991A2007F8E17 /* UMComLikeButtonTableViewCell.xib */,
+				12CC69001D4991A2007F8E17 /* UMComSimpleFeedDetailViewController.h */,
+				12CC69011D4991A2007F8E17 /* UMComSimpleFeedDetailViewController.m */,
+			);
+			path = FeedDetail;
+			sourceTree = "<group>";
+		};
+		12CC69021D4991A2007F8E17 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				12CC69031D4991A2007F8E17 /* UMComSimpleHomeViewController.h */,
+				12CC69041D4991A2007F8E17 /* UMComSimpleHomeViewController.m */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		12CC69051D4991A2007F8E17 /* InformSystem */ = {
+			isa = PBXGroup;
+			children = (
+				12CC69061D4991A2007F8E17 /* UMComSimpleAssociatedFeedTableViewCell.h */,
+				12CC69071D4991A2007F8E17 /* UMComSimpleAssociatedFeedTableViewCell.m */,
+				12CC69081D4991A2007F8E17 /* UMComSimpleAssociatedFeedTableViewCell.xib */,
+				12CC69091D4991A2007F8E17 /* UMComSimpleCommentViewController.h */,
+				12CC690A1D4991A2007F8E17 /* UMComSimpleCommentViewController.m */,
+				12CC690B1D4991A2007F8E17 /* UMComSimpleLikeMyFeedViewController.h */,
+				12CC690C1D4991A2007F8E17 /* UMComSimpleLikeMyFeedViewController.m */,
+				12CC690D1D4991A2007F8E17 /* UMComSimpleNoticeTableViewController.h */,
+				12CC690E1D4991A2007F8E17 /* UMComSimpleNoticeTableViewController.m */,
+				12CC690F1D4991A2007F8E17 /* UMComSimpleNotificationCell.h */,
+				12CC69101D4991A2007F8E17 /* UMComSimpleNotificationCell.m */,
+				12CC69111D4991A2007F8E17 /* UMComSimpleNotificationCell.xib */,
+				12CC69121D4991A2007F8E17 /* UMComSimpleSubCommentViewController.h */,
+				12CC69131D4991A2007F8E17 /* UMComSimpleSubCommentViewController.m */,
+			);
+			path = InformSystem;
+			sourceTree = "<group>";
+		};
+		12CC69141D4991A2007F8E17 /* MacroConfig */ = {
+			isa = PBXGroup;
+			children = (
+				12CC69151D4991A2007F8E17 /* UMComMacroConfig.h */,
+				12CC69161D4991A2007F8E17 /* UMComMacroConfig.m */,
+			);
+			path = MacroConfig;
+			sourceTree = "<group>";
+		};
+		12CC69171D4991A2007F8E17 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				12CC69181D4991A2007F8E17 /* UMComSimpleProfileSettingController.h */,
+				12CC69191D4991A2007F8E17 /* UMComSimpleProfileSettingController.m */,
+				12CC691A1D4991A2007F8E17 /* UMComSimpleProfileSettingController.xib */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		12CC691B1D4991A2007F8E17 /* SimplicityCommon */ = {
+			isa = PBXGroup;
+			children = (
+				12CC691C1D4991A2007F8E17 /* BaseVC */,
+			);
+			path = SimplicityCommon;
+			sourceTree = "<group>";
+		};
+		12CC691C1D4991A2007F8E17 /* BaseVC */ = {
+			isa = PBXGroup;
+			children = (
+				12CC691D1D4991A2007F8E17 /* UMComCustomMenuViewController.h */,
+				12CC691E1D4991A2007F8E17 /* UMComCustomMenuViewController.m */,
+				12CC691F1D4991A2007F8E17 /* UMComSimplicityRequestTableViewController.h */,
+				12CC69201D4991A2007F8E17 /* UMComSimplicityRequestTableViewController.m */,
+			);
+			path = BaseVC;
+			sourceTree = "<group>";
+		};
+		12CC69211D4991A2007F8E17 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				12CC69221D4991A2007F8E17 /* UMComRegisterViewController.h */,
+				12CC69231D4991A2007F8E17 /* UMComRegisterViewController.m */,
+				12CC69241D4991A2007F8E17 /* UMComRegisterViewController.xib */,
+				12CC69251D4991A2007F8E17 /* UMComSimpleLoginViewController.h */,
+				12CC69261D4991A2007F8E17 /* UMComSimpleLoginViewController.m */,
+				12CC69271D4991A2007F8E17 /* UMComSimpleLoginViewController.xib */,
+				12CC69281D4991A2007F8E17 /* UMComSimplicityUserCenterViewController.h */,
+				12CC69291D4991A2007F8E17 /* UMComSimplicityUserCenterViewController.m */,
+				12CC692A1D4991A2007F8E17 /* UMComSimplicityUserCenterViewController.xib */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		12CC692B1D4991A2007F8E17 /* WebVC */ = {
+			isa = PBXGroup;
+			children = (
+				12CC692C1D4991A2007F8E17 /* UMComWebViewController.h */,
+				12CC692D1D4991A2007F8E17 /* UMComWebViewController.m */,
+			);
+			path = WebVC;
+			sourceTree = "<group>";
+		};
+		12CC692E1D4991A2007F8E17 /* Lib_UMCommunity */ = {
+			isa = PBXGroup;
+			children = (
+				12CC692F1D4991A2007F8E17 /* DataController */,
+				12CC694D1D4991A2007F8E17 /* Header */,
+				12CC69651D4991A2007F8E17 /* libUMCommunitySDK.a */,
+				12CC69661D4991A2007F8E17 /* Model */,
+				12CC697A1D4991A2007F8E17 /* Utils */,
+			);
+			path = Lib_UMCommunity;
+			sourceTree = "<group>";
+		};
+		12CC692F1D4991A2007F8E17 /* DataController */ = {
+			isa = PBXGroup;
+			children = (
+				12CC69301D4991A2007F8E17 /* Comment */,
+				12CC69331D4991A2007F8E17 /* Edit */,
+				12CC69361D4991A2007F8E17 /* Feed */,
+				12CC69391D4991A2007F8E17 /* FeedDetail */,
+				12CC693C1D4991A2007F8E17 /* InformSystem */,
+				12CC693F1D4991A2007F8E17 /* Topic */,
+				12CC69441D4991A2007F8E17 /* UMComListDataController.h */,
+				12CC69451D4991A2007F8E17 /* UMComListDataController.m */,
+				12CC69461D4991A2007F8E17 /* User */,
+			);
+			path = DataController;
+			sourceTree = "<group>";
+		};
+		12CC69301D4991A2007F8E17 /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				12CC69311D4991A2007F8E17 /* UMComCommentListDataController.h */,
+				12CC69321D4991A2007F8E17 /* UMComCommentListDataController.m */,
+			);
+			path = Comment;
+			sourceTree = "<group>";
+		};
+		12CC69331D4991A2007F8E17 /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				12CC69341D4991A2007F8E17 /* UMComFeedEditDataController.h */,
+				12CC69351D4991A2007F8E17 /* UMComFeedEditDataController.m */,
+			);
+			path = Edit;
+			sourceTree = "<group>";
+		};
+		12CC69361D4991A2007F8E17 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				12CC69371D4991A2007F8E17 /* UMComFeedListDataController.h */,
+				12CC69381D4991A2007F8E17 /* UMComFeedListDataController.m */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		12CC69391D4991A2007F8E17 /* FeedDetail */ = {
+			isa = PBXGroup;
+			children = (
+				12CC693A1D4991A2007F8E17 /* UMComFeedDetailDataController.h */,
+				12CC693B1D4991A2007F8E17 /* UMComFeedDetailDataController.m */,
+			);
+			path = FeedDetail;
+			sourceTree = "<group>";
+		};
+		12CC693C1D4991A2007F8E17 /* InformSystem */ = {
+			isa = PBXGroup;
+			children = (
+				12CC693D1D4991A2007F8E17 /* UMComNoticeListDataController..m */,
+				12CC693E1D4991A2007F8E17 /* UMComNoticeListDataController.h */,
+			);
+			path = InformSystem;
+			sourceTree = "<group>";
+		};
+		12CC693F1D4991A2007F8E17 /* Topic */ = {
+			isa = PBXGroup;
+			children = (
+				12CC69401D4991A2007F8E17 /* UMComTopicGroupDataController.h */,
+				12CC69411D4991A2007F8E17 /* UMComTopicGroupDataController.m */,
+				12CC69421D4991A2007F8E17 /* UMComTopicListDataController.h */,
+				12CC69431D4991A2007F8E17 /* UMComTopicListDataController.m */,
+			);
+			path = Topic;
+			sourceTree = "<group>";
+		};
+		12CC69461D4991A2007F8E17 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				12CC69471D4991A2007F8E17 /* UMComUserCenterDataController.h */,
+				12CC69481D4991A2007F8E17 /* UMComUserCenterDataController.m */,
+				12CC69491D4991A2007F8E17 /* UMComUserListDataController.h */,
+				12CC694A1D4991A2007F8E17 /* UMComUserListDataController.m */,
+				12CC694B1D4991A2007F8E17 /* UMComUserUpdateDataController.h */,
+				12CC694C1D4991A2007F8E17 /* UMComUserUpdateDataController.m */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		12CC694D1D4991A2007F8E17 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				12CC694E1D4991A2007F8E17 /* UMCache.h */,
+				12CC694F1D4991A2007F8E17 /* UMComDataBaseManager.h */,
+				12CC69501D4991A2007F8E17 /* UMComDataBasePublicHeader.h */,
+				12CC69511D4991A2007F8E17 /* UMComDataLocalPersistenceHandleDelegate.h */,
+				12CC69521D4991A2007F8E17 /* UMComDataParseModel.h */,
+				12CC69531D4991A2007F8E17 /* UMComDataParseModelProtocol.h */,
+				12CC69541D4991A2007F8E17 /* UMComDataRequestManager.h */,
+				12CC69551D4991A2007F8E17 /* UMComHttpClient.h */,
+				12CC69561D4991A2007F8E17 /* UMComHttpManager.h */,
+				12CC69571D4991A2007F8E17 /* UMComJSONModel */,
+				12CC695B1D4991A2007F8E17 /* UMCommunity.h */,
+				12CC695C1D4991A2007F8E17 /* UMComNetworkConfig.h */,
+				12CC695D1D4991A2007F8E17 /* UMComProtocol.h */,
+				12CC695E1D4991A2007F8E17 /* UMComRelatedIDTableType.h */,
+				12CC695F1D4991A2007F8E17 /* UMComSession.h */,
+				12CC69601D4991A2007F8E17 /* UMImageLoadConnection.h */,
+				12CC69611D4991A2007F8E17 /* UMImageLoader.h */,
+				12CC69621D4991A2007F8E17 /* UMImageView.h */,
+				12CC69631D4991A2007F8E17 /* UMProtocolData.h */,
+				12CC69641D4991A2007F8E17 /* UMUtils.h */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		12CC69571D4991A2007F8E17 /* UMComJSONModel */ = {
+			isa = PBXGroup;
+			children = (
+				12CC69581D4991A2007F8E17 /* UMComJSONModel */,
+			);
+			path = UMComJSONModel;
+			sourceTree = "<group>";
+		};
+		12CC69581D4991A2007F8E17 /* UMComJSONModel */ = {
+			isa = PBXGroup;
+			children = (
+				12CC69591D4991A2007F8E17 /* UMComJSONModel.h */,
+				12CC695A1D4991A2007F8E17 /* UMComJSONModelError.h */,
+			);
+			path = UMComJSONModel;
+			sourceTree = "<group>";
+		};
+		12CC69661D4991A2007F8E17 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				12CC69671D4991A2007F8E17 /* UMComAlbum.h */,
+				12CC69681D4991A2007F8E17 /* UMComComment.h */,
+				12CC69691D4991A2007F8E17 /* UMComCurrencyDetail.h */,
+				12CC696A1D4991A2007F8E17 /* UMComFeed.h */,
+				12CC696B1D4991A2007F8E17 /* UMComImageUrl.h */,
+				12CC696C1D4991A2007F8E17 /* UMComLike.h */,
+				12CC696D1D4991A2007F8E17 /* UMComLocation.h */,
+				12CC696E1D4991A2007F8E17 /* UMComMedal.h */,
+				12CC696F1D4991A2007F8E17 /* UMComModelObject.h */,
+				12CC69701D4991A2007F8E17 /* UMComModelObjectHeader.h */,
+				12CC69711D4991A2007F8E17 /* UMComNotification.h */,
+				12CC69721D4991A2007F8E17 /* UMComPointDetail.h */,
+				12CC69731D4991A2007F8E17 /* UMComPointResult.h */,
+				12CC69741D4991A2007F8E17 /* UMComPrivateLetter.h */,
+				12CC69751D4991A2007F8E17 /* UMComPrivateMessage.h */,
+				12CC69761D4991A2007F8E17 /* UMComTopic.h */,
+				12CC69771D4991A2007F8E17 /* UMComTopicType.h */,
+				12CC69781D4991A2007F8E17 /* UMComUnReadNoticeModel.h */,
+				12CC69791D4991A2007F8E17 /* UMComUser.h */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		12CC697A1D4991A2007F8E17 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				12CC697B1D4991A2007F8E17 /* UMComConfigFile.h */,
+				12CC697C1D4991A2007F8E17 /* UMComConfigFile.m */,
+				12CC697D1D4991A2007F8E17 /* UMComConstraintCache.h */,
+				12CC697E1D4991A2007F8E17 /* UMComConstraintCache.m */,
+				12CC697F1D4991A2007F8E17 /* UMComErrorCode.h */,
+				12CC69801D4991A2007F8E17 /* UMComErrorCode.m */,
+				12CC69811D4991A2007F8E17 /* UMComKit+Autolayout.h */,
+				12CC69821D4991A2007F8E17 /* UMComKit+Autolayout.m */,
+				12CC69831D4991A2007F8E17 /* UMComKit+Image.h */,
+				12CC69841D4991A2007F8E17 /* UMComKit+Image.m */,
+				12CC69851D4991A2007F8E17 /* UMComKit+Runtime.h */,
+				12CC69861D4991A2007F8E17 /* UMComKit+Runtime.m */,
+				12CC69871D4991A2007F8E17 /* UMComKit+String.h */,
+				12CC69881D4991A2007F8E17 /* UMComKit+String.m */,
+				12CC69891D4991A2007F8E17 /* UMComKit.h */,
+				12CC698A1D4991A2007F8E17 /* UMComKit.m */,
+				12CC698B1D4991A2007F8E17 /* UMComNotificationMacro.h */,
+				12CC698C1D4991A2007F8E17 /* UMComResourceManager.h */,
+				12CC698D1D4991A2007F8E17 /* UMComResourceManager.m */,
+				12CC698E1D4991A2007F8E17 /* UMComTools.h */,
+				12CC698F1D4991A2007F8E17 /* UMComTools.m */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		12FA40501D46F5720084D50A /* DataBase */ = {
@@ -499,9 +1647,30 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12CC69E91D4991A2007F8E17 /* UMComSimpleAssociatedFeedTableViewCell.xib in Resources */,
+				12CC69F61D4991A2007F8E17 /* UMComRegisterViewController.xib in Resources */,
 				126271AA1D336F7F009D44A0 /* LaunchScreen.storyboard in Resources */,
+				12CC69FA1D4991A2007F8E17 /* UMComSimplicityUserCenterViewController.xib in Resources */,
 				126271A71D336F7F009D44A0 /* Assets.xcassets in Resources */,
+				12CC69F81D4991A2007F8E17 /* UMComSimpleLoginViewController.xib in Resources */,
+				12CC69E51D4991A2007F8E17 /* UMComLikeButtonTableViewCell.xib in Resources */,
+				12CC69F21D4991A2007F8E17 /* UMComSimpleProfileSettingController.xib in Resources */,
+				12CC69D61D4991A2007F8E17 /* UMComSelectTopicViewController.xib in Resources */,
+				12CC69A21D4991A2007F8E17 /* UMComSimpleCommentInput.xib in Resources */,
+				12CC69EE1D4991A2007F8E17 /* UMComSimpleNotificationCell.xib in Resources */,
+				12CC69E31D4991A2007F8E17 /* UMComLargeImageTableViewCell.xib in Resources */,
+				12CC69DB1D4991A2007F8E17 /* UMComSimpleFeedTableViewCell.xib in Resources */,
+				12CC69A41D4991A2007F8E17 /* UMComTableViewCell.xib in Resources */,
+				12CC69A01D4991A2007F8E17 /* UMComCommentInput.xib in Resources */,
+				12CC69CF1D4991A2007F8E17 /* UMComSimplicityUserInfoBar.xib in Resources */,
+				12CC69E11D4991A2007F8E17 /* UMComFeedDetailTableViewCell.xib in Resources */,
+				12CC69CD1D4991A2007F8E17 /* UMComSimplicityFindTableViewCell.xib in Resources */,
+				12CC69931D4991A2007F8E17 /* UMComSimpleSDKResources.bundle in Resources */,
+				12CC69921D4991A2007F8E17 /* UMCommunityStrings.strings in Resources */,
 				126271A51D336F7F009D44A0 /* Main.storyboard in Resources */,
+				12CC69911D4991A2007F8E17 /* FZLanTingHei-L-GBK-M.TTF in Resources */,
+				12CC69DF1D4991A2007F8E17 /* UMComFeedDetailCommentCell.xib in Resources */,
+				12CC69D91D4991A2007F8E17 /* UMComFeedImageCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -574,26 +1743,133 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12CC69B41D4991A2007F8E17 /* UMAssetsCollectionCell.m in Sources */,
+				12CC69AD1D4991A2007F8E17 /* UMComLabel.m in Sources */,
+				12CC69E41D4991A2007F8E17 /* UMComLikeButtonTableViewCell.m in Sources */,
+				12CC6A091D4991A2007F8E17 /* UMComConstraintCache.m in Sources */,
+				12CC69A71D4991A2007F8E17 /* UMComSimpleGridView.m in Sources */,
+				12CC6A0D1D4991A2007F8E17 /* UMComKit+Runtime.m in Sources */,
+				12CC69BA1D4991A2007F8E17 /* UMImagePickerGroupCell.m in Sources */,
+				12CC6A0C1D4991A2007F8E17 /* UMComKit+Image.m in Sources */,
+				12CC69E71D4991A2007F8E17 /* UMComSimpleHomeViewController.m in Sources */,
+				12CC69C01D4991A2007F8E17 /* UMComGridTableViewCellOne.m in Sources */,
+				12CC69B91D4991A2007F8E17 /* UMImagePickerController.m in Sources */,
 				12FBCE9D1D485D8300A646DB /* RWDataModels.m in Sources */,
 				12FA40571D46FD270084D50A /* RWChatManager.m in Sources */,
 				12FA404C1D46F56E0084D50A /* RWRequsetManager.m in Sources */,
+				12CC69F51D4991A2007F8E17 /* UMComRegisterViewController.m in Sources */,
 				12FA404D1D46F56E0084D50A /* RWRequsetManager+UserLogin.m in Sources */,
+				12CC69AC1D4991A2007F8E17 /* UMComSimpleHorizonMenuView.m in Sources */,
+				12CC69CB1D4991A2007F8E17 /* UMComSimplicityDiscoverViewController.m in Sources */,
+				12CC69EA1D4991A2007F8E17 /* UMComSimpleCommentViewController.m in Sources */,
+				12CC69C31D4991A2007F8E17 /* UIView+UMComAddition.m in Sources */,
+				12CC69DD1D4991A2007F8E17 /* UMComSimpleTopicFeedTableViewController.m in Sources */,
+				12CC69C61D4991A2007F8E17 /* UMComProgressHUD.m in Sources */,
 				12FA405A1D4703C50084D50A /* RWUserInformation.m in Sources */,
+				12CC69EB1D4991A2007F8E17 /* UMComSimpleLikeMyFeedViewController.m in Sources */,
 				12FBCEA31D486C7C00A646DB /* RWDoctorListCell.m in Sources */,
+				12CC69F91D4991A2007F8E17 /* UMComSimplicityUserCenterViewController.m in Sources */,
+				12CC69A91D4991A2007F8E17 /* UMImageProgressView.m in Sources */,
+				12CC69ED1D4991A2007F8E17 /* UMComSimpleNotificationCell.m in Sources */,
+				12CC69D41D4991A2007F8E17 /* UMComSelectTopicCell.m in Sources */,
+				12CC69CE1D4991A2007F8E17 /* UMComSimplicityUserInfoBar.m in Sources */,
+				12CC69D11D4991A2007F8E17 /* UMComBriefEditView.m in Sources */,
+				12CC69D71D4991A2007F8E17 /* UMComFeedImageCollectionView.m in Sources */,
+				12CC69F71D4991A2007F8E17 /* UMComSimpleLoginViewController.m in Sources */,
+				12CC6A041D4991A2007F8E17 /* UMComUserCenterDataController.m in Sources */,
+				12CC69D31D4991A2007F8E17 /* UMComChangeBorderBtn.m in Sources */,
+				12CC699F1D4991A2007F8E17 /* UMComCommentEditView.m in Sources */,
+				12CC69B81D4991A2007F8E17 /* UMAssetsCollectionOverlayView.m in Sources */,
+				12CC699D1D4991A2007F8E17 /* UMComBarButtonItem.m in Sources */,
+				12CC69D81D4991A2007F8E17 /* UMComFeedImageCollectionViewCell.m in Sources */,
+				12CC69D01D4991A2007F8E17 /* UINavigationBar+ChangeBackgroundColor.m in Sources */,
+				12CC6A081D4991A2007F8E17 /* UMComConfigFile.m in Sources */,
 				12C1AF741D4629040087ABA0 /* RWDoctorListController.m in Sources */,
+				12CC699E1D4991A2007F8E17 /* UMComButton.m in Sources */,
+				12CC6A0E1D4991A2007F8E17 /* UMComKit+String.m in Sources */,
+				12CC69BC1D4991A2007F8E17 /* UMComRefreshView.m in Sources */,
+				12CC69F01D4991A2007F8E17 /* UMComMacroConfig.m in Sources */,
+				12CC69AB1D4991A2007F8E17 /* UMComHorizonMenuView.m in Sources */,
+				12CC69A51D4991A2007F8E17 /* UMComEditTextView.m in Sources */,
 				12FA40401D46F35E0084D50A /* RWWelcomeController.m in Sources */,
+				12CC6A101D4991A2007F8E17 /* UMComResourceManager.m in Sources */,
 				12C1AF7A1D4629D10087ABA0 /* RWMainTabBarController.m in Sources */,
-				12C1AF731D4629040087ABA0 /* RWCommunityController.m in Sources */,
+				12CC69C21D4991A2007F8E17 /* UMComShowToast.m in Sources */,
+				12CC69AE1D4991A2007F8E17 /* UMComMedalImageView.m in Sources */,
+				12CC69C71D4991A2007F8E17 /* UMComStatusView.m in Sources */,
+				12CC69F41D4991A2007F8E17 /* UMComSimplicityRequestTableViewController.m in Sources */,
+				12CC699B1D4991A2007F8E17 /* UMComAddedImageCellView.m in Sources */,
+				12CC69FC1D4991A2007F8E17 /* UMComCommentListDataController.m in Sources */,
+				12CC6A001D4991A2007F8E17 /* UMComNoticeListDataController..m in Sources */,
+				12CC69A31D4991A2007F8E17 /* UMComTableViewCell.m in Sources */,
+				12CC69B71D4991A2007F8E17 /* UMAssetsCollectionGrid.m in Sources */,
 				12FA40411D46F35E0084D50A /* RWWelcomeImageCell.m in Sources */,
+				12CC6A061D4991A2007F8E17 /* UMComUserUpdateDataController.m in Sources */,
+				12CC69BE1D4991A2007F8E17 /* UMComSegmentedControl.m in Sources */,
+				12CC6A0F1D4991A2007F8E17 /* UMComKit.m in Sources */,
+				12CC69941D4991A2007F8E17 /* UMComLoginManager.m in Sources */,
+				12CC69E61D4991A2007F8E17 /* UMComSimpleFeedDetailViewController.m in Sources */,
+				12CC69C81D4991A2007F8E17 /* UMComWebView.m in Sources */,
+				12CC69CC1D4991A2007F8E17 /* UMComSimplicityFindTableViewCell.m in Sources */,
+				12CC69BD1D4991A2007F8E17 /* UMComSearchBar.m in Sources */,
+				12CC69971D4991A2007F8E17 /* UMComNavigationController.m in Sources */,
 				126095EA1D48AD1400A65AEE /* RWDoctorDescriptionController.m in Sources */,
+				12CC69C41D4991A2007F8E17 /* UMComEmojiKeyBoardView.m in Sources */,
+				12CC69A61D4991A2007F8E17 /* UMComProgressView.m in Sources */,
+				12CC69B31D4991A2007F8E17 /* UMComPageControlView.m in Sources */,
+				12CC6A051D4991A2007F8E17 /* UMComUserListDataController.m in Sources */,
+				12CC69E01D4991A2007F8E17 /* UMComFeedDetailTableViewCell.m in Sources */,
+				12CC69CA1D4991A2007F8E17 /* UMComImageView.m in Sources */,
+				12CC6A111D4991A2007F8E17 /* UMComTools.m in Sources */,
+				12CC6A0B1D4991A2007F8E17 /* UMComKit+Autolayout.m in Sources */,
+				12CC69B11D4991A2007F8E17 /* UMComMutiText.m in Sources */,
 				12C1AF751D4629040087ABA0 /* RWMainViewController.m in Sources */,
+				12CC69C51D4991A2007F8E17 /* UMComEmojiPageView.m in Sources */,
+				12CC69EF1D4991A2007F8E17 /* UMComSimpleSubCommentViewController.m in Sources */,
+				12CC69FB1D4991A2007F8E17 /* UMComWebViewController.m in Sources */,
+				12CC69BB1D4991A2007F8E17 /* UMImagePickerThumbnailView.m in Sources */,
+				12CC69BF1D4991A2007F8E17 /* UMComGridTableViewCell.m in Sources */,
+				12CC69961D4991A2007F8E17 /* UIViewController+UMComAddition.m in Sources */,
+				12CC69A81D4991A2007F8E17 /* UMComSimpleGridViewerController.m in Sources */,
+				12CC69B51D4991A2007F8E17 /* UMAssetsCollectionCheckMarkView.m in Sources */,
+				12CC69991D4991A2007F8E17 /* UMComActionDeleteView.m in Sources */,
+				12CC69FD1D4991A2007F8E17 /* UMComFeedEditDataController.m in Sources */,
+				12CC69FE1D4991A2007F8E17 /* UMComFeedListDataController.m in Sources */,
+				12CC69D21D4991A2007F8E17 /* UMComBriefEditViewController.m in Sources */,
 				1262719F1D336F7F009D44A0 /* AppDelegate.m in Sources */,
+				12CC69DC1D4991A2007F8E17 /* UMComSimpleFeedTableViewController.m in Sources */,
+				12CC6A021D4991A2007F8E17 /* UMComTopicListDataController.m in Sources */,
+				12CC69F11D4991A2007F8E17 /* UMComSimpleProfileSettingController.m in Sources */,
+				12CC69951D4991A2007F8E17 /* UMComSimpleLoginHandler.m in Sources */,
+				12CC6A011D4991A2007F8E17 /* UMComTopicGroupDataController.m in Sources */,
+				12CC69A11D4991A2007F8E17 /* UMComSimpleCommentEditView.m in Sources */,
+				12CC69C11D4991A2007F8E17 /* UMComiToast.m in Sources */,
+				12CC69FF1D4991A2007F8E17 /* UMComFeedDetailDataController.m in Sources */,
+				12CC69D51D4991A2007F8E17 /* UMComSelectTopicViewController.m in Sources */,
+				12CC69F31D4991A2007F8E17 /* UMComCustomMenuViewController.m in Sources */,
+				12CC699A1D4991A2007F8E17 /* UMComActionPickerAddView.m in Sources */,
+				12CC69DE1D4991A2007F8E17 /* UMComFeedDetailCommentCell.m in Sources */,
 				126095ED1D48ADD300A65AEE /* RWDescriptionView.m in Sources */,
 				12FA404F1D46F56E0084D50A /* RWDeployManager+DateProcess.m in Sources */,
+				12CC69AA1D4991A2007F8E17 /* UMComHorizonCollectionView.m in Sources */,
+				12CC69AF1D4991A2007F8E17 /* UMComMenuControlView.m in Sources */,
+				12CC69B21D4991A2007F8E17 /* UMComMutiTextRun.m in Sources */,
+				12CC69E81D4991A2007F8E17 /* UMComSimpleAssociatedFeedTableViewCell.m in Sources */,
+				12CC69B01D4991A2007F8E17 /* UMComMutiStyleTextView.m in Sources */,
 				12FBCEA01D4868F100A646DB /* RWOfficeListController.m in Sources */,
+				12CC69EC1D4991A2007F8E17 /* UMComSimpleNoticeTableViewController.m in Sources */,
+				12CC69901D4991A2007F8E17 /* RWCommunityController.m in Sources */,
+				12CC69C91D4991A2007F8E17 /* UMComAvatarImageView.m in Sources */,
 				12FA404E1D46F56E0084D50A /* RWDeployManager.m in Sources */,
+				12CC699C1D4991A2007F8E17 /* UMComAddedImageView.m in Sources */,
+				12CC6A031D4991A2007F8E17 /* UMComListDataController.m in Sources */,
+				12CC6A0A1D4991A2007F8E17 /* UMComErrorCode.m in Sources */,
 				1262719C1D336F7F009D44A0 /* main.m in Sources */,
+				12CC69E21D4991A2007F8E17 /* UMComLargeImageTableViewCell.m in Sources */,
+				12CC69981D4991A2007F8E17 /* UMComViewController.m in Sources */,
+				12CC69B61D4991A2007F8E17 /* UMAssetsCollectionController.m in Sources */,
 				12C1AF771D4629040087ABA0 /* RWSettingsViewController.m in Sources */,
+				12CC69DA1D4991A2007F8E17 /* UMComSimpleFeedTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -749,6 +2025,10 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/WritePigeonDoctor/Classes/PublicClass/PublicMacro.pch";
 				INFOPLIST_FILE = WritePigeonDoctor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WritePigeonDoctor/Classes/Community/umeng_community_ios_v2.6.0/Lib_UMCommunity",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = RyeWhiskey.WritePigeonDoctor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -769,6 +2049,10 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/WritePigeonDoctor/Classes/PublicClass/PublicMacro.pch";
 				INFOPLIST_FILE = WritePigeonDoctor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WritePigeonDoctor/Classes/Community/umeng_community_ios_v2.6.0/Lib_UMCommunity",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = RyeWhiskey.WritePigeonDoctor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
