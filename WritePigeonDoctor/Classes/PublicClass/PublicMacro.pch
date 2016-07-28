@@ -19,4 +19,17 @@
 #define __WPD_MAIN_COLOR__ [UIColor blueColor]
 #endif
 
+#ifndef __DEFAULT_NAVIGATION_BAR__
+#define __DEFAULT_NAVIGATION_BAR__ [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"渐变"] forBarMetrics:UIBarMetricsDefault]
+#endif
+
+#ifndef __NAVIGATION_DEUAULT_SETTINGS__
+#define __NAVIGATION_DEUAULT_SETTINGS__ \
+        self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];\
+        self.tabBarController.tabBar.translucent = NO;\
+        self.navigationController.navigationBar.translucent = NO;\
+        self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};\
+        self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+#endif
+
 #endif /* PublicMacro_pch */

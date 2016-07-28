@@ -1,23 +1,25 @@
 //
-//  RWMainViewController.m
+//  RWWPDBaseController.m
 //  WritePigeonDoctor
 //
-//  Created by zhongyu on 16/7/25.
+//  Created by zhongyu on 16/7/28.
 //  Copyright © 2016年 RyeWhiskey. All rights reserved.
 //
 
-#import "RWMainViewController.h"
+#import "RWWPDBaseController.h"
 
-@interface RWMainViewController ()
+@interface RWWPDBaseController ()
 
 @end
 
-@implementation RWMainViewController
+@implementation RWWPDBaseController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    __DEFAULT_NAVIGATION_BAR__;
+    __NAVIGATION_DEUAULT_SETTINGS__;
     
 }
 

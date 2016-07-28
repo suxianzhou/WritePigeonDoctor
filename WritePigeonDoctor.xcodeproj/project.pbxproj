@@ -18,9 +18,10 @@
 		1262719F1D336F7F009D44A0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1262719E1D336F7F009D44A0 /* AppDelegate.m */; };
 		126271A51D336F7F009D44A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 126271A31D336F7F009D44A0 /* Main.storyboard */; };
 		126271A71D336F7F009D44A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 126271A61D336F7F009D44A0 /* Assets.xcassets */; };
-		126271AA1D336F7F009D44A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 126271A81D336F7F009D44A0 /* LaunchScreen.storyboard */; };
 		126271B51D336F7F009D44A0 /* WritePigeonDoctorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 126271B41D336F7F009D44A0 /* WritePigeonDoctorTests.m */; };
 		126271C01D336F7F009D44A0 /* WritePigeonDoctorUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 126271BF1D336F7F009D44A0 /* WritePigeonDoctorUITests.m */; };
+		12A6AADD1D49FFDB00A0739C /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12A6AADC1D49FFDB00A0739C /* Launch Screen.storyboard */; };
+		12A6AAE01D4A071D00A0739C /* RWWPDBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A6AADF1D4A071D00A0739C /* RWWPDBaseController.m */; };
 		12C1AF741D4629040087ABA0 /* RWDoctorListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C1AF641D4629040087ABA0 /* RWDoctorListController.m */; };
 		12C1AF751D4629040087ABA0 /* RWMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C1AF6A1D4629040087ABA0 /* RWMainViewController.m */; };
 		12C1AF771D4629040087ABA0 /* RWSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C1AF721D4629040087ABA0 /* RWSettingsViewController.m */; };
@@ -203,7 +204,6 @@
 		1262719E1D336F7F009D44A0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../AppDelegate.m; sourceTree = "<group>"; };
 		126271A41D336F7F009D44A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		126271A61D336F7F009D44A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
-		126271A91D336F7F009D44A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		126271AB1D336F7F009D44A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		126271B01D336F7F009D44A0 /* WritePigeonDoctorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WritePigeonDoctorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		126271B41D336F7F009D44A0 /* WritePigeonDoctorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WritePigeonDoctorTests.m; sourceTree = "<group>"; };
@@ -211,6 +211,9 @@
 		126271BB1D336F7F009D44A0 /* WritePigeonDoctorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WritePigeonDoctorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		126271BF1D336F7F009D44A0 /* WritePigeonDoctorUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WritePigeonDoctorUITests.m; sourceTree = "<group>"; };
 		126271C11D336F7F009D44A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12A6AADC1D49FFDB00A0739C /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		12A6AADE1D4A071D00A0739C /* RWWPDBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWWPDBaseController.h; sourceTree = "<group>"; };
+		12A6AADF1D4A071D00A0739C /* RWWPDBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWWPDBaseController.m; sourceTree = "<group>"; };
 		12C1AF631D4629040087ABA0 /* RWDoctorListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWDoctorListController.h; sourceTree = "<group>"; };
 		12C1AF641D4629040087ABA0 /* RWDoctorListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWDoctorListController.m; sourceTree = "<group>"; };
 		12C1AF661D4629040087ABA0 /* Macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
@@ -571,8 +574,8 @@
 				1262719D1D336F7F009D44A0 /* AppDelegate.h */,
 				1262719E1D336F7F009D44A0 /* AppDelegate.m */,
 				126271A31D336F7F009D44A0 /* Main.storyboard */,
+				12A6AADC1D49FFDB00A0739C /* Launch Screen.storyboard */,
 				126271A61D336F7F009D44A0 /* Assets.xcassets */,
-				126271A81D336F7F009D44A0 /* LaunchScreen.storyboard */,
 				126271AB1D336F7F009D44A0 /* Info.plist */,
 			);
 			name = Other;
@@ -744,6 +747,8 @@
 				12C1AF791D4629D10087ABA0 /* RWMainTabBarController.m */,
 				12FBCE9B1D485D8300A646DB /* RWDataModels.h */,
 				12FBCE9C1D485D8300A646DB /* RWDataModels.m */,
+				12A6AADE1D4A071D00A0739C /* RWWPDBaseController.h */,
+				12A6AADF1D4A071D00A0739C /* RWWPDBaseController.m */,
 			);
 			name = PublicClass;
 			path = ../PublicClass;
@@ -1649,7 +1654,6 @@
 			files = (
 				12CC69E91D4991A2007F8E17 /* UMComSimpleAssociatedFeedTableViewCell.xib in Resources */,
 				12CC69F61D4991A2007F8E17 /* UMComRegisterViewController.xib in Resources */,
-				126271AA1D336F7F009D44A0 /* LaunchScreen.storyboard in Resources */,
 				12CC69FA1D4991A2007F8E17 /* UMComSimplicityUserCenterViewController.xib in Resources */,
 				126271A71D336F7F009D44A0 /* Assets.xcassets in Resources */,
 				12CC69F81D4991A2007F8E17 /* UMComSimpleLoginViewController.xib in Resources */,
@@ -1666,6 +1670,7 @@
 				12CC69E11D4991A2007F8E17 /* UMComFeedDetailTableViewCell.xib in Resources */,
 				12CC69CD1D4991A2007F8E17 /* UMComSimplicityFindTableViewCell.xib in Resources */,
 				12CC69931D4991A2007F8E17 /* UMComSimpleSDKResources.bundle in Resources */,
+				12A6AADD1D49FFDB00A0739C /* Launch Screen.storyboard in Resources */,
 				12CC69921D4991A2007F8E17 /* UMCommunityStrings.strings in Resources */,
 				126271A51D336F7F009D44A0 /* Main.storyboard in Resources */,
 				12CC69911D4991A2007F8E17 /* FZLanTingHei-L-GBK-M.TTF in Resources */,
@@ -1842,6 +1847,7 @@
 				12CC69F11D4991A2007F8E17 /* UMComSimpleProfileSettingController.m in Sources */,
 				12CC69951D4991A2007F8E17 /* UMComSimpleLoginHandler.m in Sources */,
 				12CC6A011D4991A2007F8E17 /* UMComTopicGroupDataController.m in Sources */,
+				12A6AAE01D4A071D00A0739C /* RWWPDBaseController.m in Sources */,
 				12CC69A11D4991A2007F8E17 /* UMComSimpleCommentEditView.m in Sources */,
 				12CC69C11D4991A2007F8E17 /* UMComiToast.m in Sources */,
 				12CC69FF1D4991A2007F8E17 /* UMComFeedDetailDataController.m in Sources */,
@@ -1911,15 +1917,6 @@
 				126271A41D336F7F009D44A0 /* Base */,
 			);
 			name = Main.storyboard;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		126271A81D336F7F009D44A0 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				126271A91D336F7F009D44A0 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			path = ..;
 			sourceTree = "<group>";
 		};
@@ -2015,7 +2012,6 @@
 			baseConfigurationReference = 9EF87DF12830927924691150 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2044,7 +2040,6 @@
 			baseConfigurationReference = 06B0CD839B2FB4AEC160CE84 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
