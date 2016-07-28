@@ -13,7 +13,8 @@
 @property (nonatomic,strong)UIImageView *header;
 @property (nonatomic,strong)UILabel *name;
 @property (nonatomic,strong)UILabel *professionalTitle;
-@property (nonatomic,strong)UILabel *price;
+@property (nonatomic,strong)UILabel *office;
+@property (nonatomic,strong)UILabel *expenses;
 
 @end
 
@@ -30,8 +31,11 @@
     _professionalTitle = [[UILabel alloc] init];
     [self addSubview:_professionalTitle];
     
-    _price = [[UILabel alloc] init];
-    [self addSubview:_price];
+    _office = [[UILabel alloc] init];
+    [self addSubview:_office];
+    
+    _expenses = [[UILabel alloc] init];
+    [self addSubview:_expenses];
 }
 
 - (void)setDefaultSettings
@@ -44,9 +48,38 @@
         make.left.equalTo(self.mas_left).offset(20);
     }];
     
+    CGFloat itemHeight = (self.frame.size.height - 40) / 3;
+    
     [_name mas_makeConstraints:^(MASConstraintMaker *make) {
        
-        
+        make.width.equalTo(@(60));
+        make.height.equalTo(@(itemHeight));
+        make.left.equalTo(_header.mas_right).offset(15);
+        make.top.equalTo(self.mas_top).offset(20);
+    }];
+    
+    [_professionalTitle mas_makeConstraints:^(MASConstraintMaker *make) {
+       
+        make.left.equalTo(_name.mas_right).offset(10);
+        make.right.equalTo(self.mas_right).offset(-10);
+        make.top.equalTo(_name.mas_top).offset(0);
+        make.bottom.equalTo(_name.mas_bottom).offset(0);
+    }];
+    
+    [_office mas_makeConstraints:^(MASConstraintMaker *make) {
+       
+        make.left.equalTo(_header.mas_right).offset(0);
+        make.right.equalTo(self.mas_right).offset(-10);
+        make.top.equalTo(_professionalTitle.mas_top).offset(0);
+        make.height.equalTo(@(itemHeight));
+    }];
+    
+    [_expenses mas_makeConstraints:^(MASConstraintMaker *make) {
+       
+        make.left.equalTo(_header.mas_right).offset(0);
+        make.right.equalTo(self.mas_right).offset(-10);
+        make.top.equalTo(_office.mas_top).offset(0);
+        make.height.equalTo(@(itemHeight));
     }];
 }
 
@@ -54,7 +87,6 @@
 {
     
 }
-
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -74,6 +106,17 @@
     [super setFrame:frame];
     
     [self autoLayoutViews];
+}
+
+- (void)setDoctor:(RWDoctorItem *)doctor
+{
+    _doctor = doctor;
+    
+    _header.image = doctor.header;
+    _name.text = doctor.name;
+    _professionalTitle.text = doctor.professionalTitle;
+    _office.text = doctor.office;
+    _expenses.text = doctor.expenses;
 }
 
 @end

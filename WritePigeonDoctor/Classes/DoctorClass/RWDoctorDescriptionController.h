@@ -1,5 +1,5 @@
 //
-//  RWDoctorListCell.h
+//  RWDoctorDescriptionController.h
 //  WritePigeonDoctor
 //
 //  Created by zhongyu on 16/7/27.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RWDoctorListCell : UITableViewCell
-
-@property (nonatomic,strong)RWDoctorItem *doctor;
+@interface RWDoctorDescriptionController : UIViewController
 
 @end

@@ -12,6 +12,8 @@
 		123E9BBC1D34A006009B61B5 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 123E9BBB1D34A006009B61B5 /* libc++.tbd */; };
 		123E9BBE1D34A00F009B61B5 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 123E9BBD1D34A00F009B61B5 /* libz.tbd */; };
 		123E9BC01D34A030009B61B5 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 123E9BBF1D34A030009B61B5 /* libsqlite3.tbd */; };
+		126095EA1D48AD1400A65AEE /* RWDoctorDescriptionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 126095E91D48AD1400A65AEE /* RWDoctorDescriptionController.m */; };
+		126095ED1D48ADD300A65AEE /* RWDescriptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 126095EC1D48ADD300A65AEE /* RWDescriptionView.m */; };
 		1262719C1D336F7F009D44A0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1262719B1D336F7F009D44A0 /* main.m */; };
 		1262719F1D336F7F009D44A0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1262719E1D336F7F009D44A0 /* AppDelegate.m */; };
 		126271A51D336F7F009D44A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 126271A31D336F7F009D44A0 /* Main.storyboard */; };
@@ -62,6 +64,10 @@
 		123E9BBB1D34A006009B61B5 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		123E9BBD1D34A00F009B61B5 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		123E9BBF1D34A030009B61B5 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		126095E81D48AD1400A65AEE /* RWDoctorDescriptionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWDoctorDescriptionController.h; sourceTree = "<group>"; };
+		126095E91D48AD1400A65AEE /* RWDoctorDescriptionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWDoctorDescriptionController.m; sourceTree = "<group>"; };
+		126095EB1D48ADD300A65AEE /* RWDescriptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWDescriptionView.h; sourceTree = "<group>"; };
+		126095EC1D48ADD300A65AEE /* RWDescriptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWDescriptionView.m; sourceTree = "<group>"; };
 		126271971D336F7F009D44A0 /* WritePigeonDoctor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WritePigeonDoctor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1262719B1D336F7F009D44A0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1262719D1D336F7F009D44A0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../AppDelegate.h; sourceTree = "<group>"; };
@@ -282,8 +288,12 @@
 				12FBCE9F1D4868F100A646DB /* RWOfficeListController.m */,
 				12C1AF631D4629040087ABA0 /* RWDoctorListController.h */,
 				12C1AF641D4629040087ABA0 /* RWDoctorListController.m */,
+				126095E81D48AD1400A65AEE /* RWDoctorDescriptionController.h */,
+				126095E91D48AD1400A65AEE /* RWDoctorDescriptionController.m */,
 				12FBCEA11D486C7C00A646DB /* RWDoctorListCell.h */,
 				12FBCEA21D486C7C00A646DB /* RWDoctorListCell.m */,
+				126095EB1D48ADD300A65AEE /* RWDescriptionView.h */,
+				126095EC1D48ADD300A65AEE /* RWDescriptionView.m */,
 			);
 			name = DoctorClass;
 			path = Classes/DoctorClass;
@@ -575,8 +585,10 @@
 				12C1AF7A1D4629D10087ABA0 /* RWMainTabBarController.m in Sources */,
 				12C1AF731D4629040087ABA0 /* RWCommunityController.m in Sources */,
 				12FA40411D46F35E0084D50A /* RWWelcomeImageCell.m in Sources */,
+				126095EA1D48AD1400A65AEE /* RWDoctorDescriptionController.m in Sources */,
 				12C1AF751D4629040087ABA0 /* RWMainViewController.m in Sources */,
 				1262719F1D336F7F009D44A0 /* AppDelegate.m in Sources */,
+				126095ED1D48ADD300A65AEE /* RWDescriptionView.m in Sources */,
 				12FA404F1D46F56E0084D50A /* RWDeployManager+DateProcess.m in Sources */,
 				12FBCEA01D4868F100A646DB /* RWOfficeListController.m in Sources */,
 				12FA404E1D46F56E0084D50A /* RWDeployManager.m in Sources */,
