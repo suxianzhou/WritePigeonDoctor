@@ -2031,6 +2031,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = RyeWhiskey.WritePigeonDoctor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				WARNING_CFLAGS = (
+					"-Wno-deprecated-declarations",
+					"-Wno-nullability-completeness",
+				);
 			};
 			name = Debug;
 		};
@@ -2055,6 +2059,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = RyeWhiskey.WritePigeonDoctor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				WARNING_CFLAGS = (
+					"-Wno-deprecated-declarations",
+					"-Wno-nullability-completeness",
+				);
 			};
 			name = Release;
 		};
