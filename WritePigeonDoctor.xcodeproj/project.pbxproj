@@ -223,8 +223,8 @@
 		12C1AF6C1D4629040087ABA0 /* PublicMacro.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicMacro.pch; sourceTree = "<group>"; };
 		12C1AF711D4629040087ABA0 /* RWSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWSettingsViewController.h; sourceTree = "<group>"; };
 		12C1AF721D4629040087ABA0 /* RWSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWSettingsViewController.m; sourceTree = "<group>"; };
-		12C1AF781D4629D10087ABA0 /* RWMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWMainTabBarController.h; sourceTree = "<group>"; };
-		12C1AF791D4629D10087ABA0 /* RWMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWMainTabBarController.m; sourceTree = "<group>"; };
+		12C1AF781D4629D10087ABA0 /* RWMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RWMainTabBarController.h; path = PublicClass/RWMainTabBarController.h; sourceTree = "<group>"; };
+		12C1AF791D4629D10087ABA0 /* RWMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RWMainTabBarController.m; path = PublicClass/RWMainTabBarController.m; sourceTree = "<group>"; };
 		12CC683C1D4991A2007F8E17 /* RWCommunityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWCommunityController.h; sourceTree = "<group>"; };
 		12CC683D1D4991A2007F8E17 /* RWCommunityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWCommunityController.m; sourceTree = "<group>"; };
 		12CC68411D4991A2007F8E17 /* FZLanTingHei-L-GBK-M.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FZLanTingHei-L-GBK-M.TTF"; sourceTree = "<group>"; };
@@ -573,6 +573,8 @@
 			children = (
 				1262719D1D336F7F009D44A0 /* AppDelegate.h */,
 				1262719E1D336F7F009D44A0 /* AppDelegate.m */,
+				12C1AF781D4629D10087ABA0 /* RWMainTabBarController.h */,
+				12C1AF791D4629D10087ABA0 /* RWMainTabBarController.m */,
 				126271A31D336F7F009D44A0 /* Main.storyboard */,
 				12A6AADC1D49FFDB00A0739C /* Launch Screen.storyboard */,
 				126271A61D336F7F009D44A0 /* Assets.xcassets */,
@@ -743,8 +745,6 @@
 				12FA403F1D46F35E0084D50A /* RWWelcomeImageCell.m */,
 				12C1AF651D4629040087ABA0 /* Macros */,
 				12C1AF6C1D4629040087ABA0 /* PublicMacro.pch */,
-				12C1AF781D4629D10087ABA0 /* RWMainTabBarController.h */,
-				12C1AF791D4629D10087ABA0 /* RWMainTabBarController.m */,
 				12FBCE9B1D485D8300A646DB /* RWDataModels.h */,
 				12FBCE9C1D485D8300A646DB /* RWDataModels.m */,
 				12A6AADE1D4A071D00A0739C /* RWWPDBaseController.h */,
