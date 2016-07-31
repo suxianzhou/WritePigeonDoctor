@@ -30,6 +30,12 @@
         
         self.delegate = self;
         self.dataSource = self;
+        
+        [self registerClass:[RWDescriptionCell class] forCellReuseIdentifier:NSStringFromClass([RWDescriptionCell class])];
+        
+        [self registerClass:[RWAnnouncementCell class] forCellReuseIdentifier:NSStringFromClass([RWAnnouncementCell class])];
+        
+        [self registerClass:[RWVisitHomeCell class] forCellReuseIdentifier:NSStringFromClass([RWVisitHomeCell class])];
     }
     
     return self;
@@ -47,22 +53,49 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return nil;
+    switch (indexPath.section)
+    {
+        case 0:
+        {
+            RWDescriptionCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([RWDescriptionCell class]) forIndexPath:indexPath];
+            
+            return cell;
+        }
+        case 1:
+        {
+            RWAnnouncementCell  *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([RWAnnouncementCell  class]) forIndexPath:indexPath];
+            
+            return cell;
+        }
+        default:
+        {
+            RWVisitHomeCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([RWVisitHomeCell class]) forIndexPath:indexPath];
+            
+            return cell;
+        }
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 0;
+    if (indexPath.section == 0) return __DESCRIPTION_HEIGHT__;
+    else if (indexPath.section == 1) return __ANNOUNCEMENT_HEIGHT__;
+    else return __VISIT_HEIGHT__;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 0;
+    return 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 0;
+    if (section == 2)
+    {
+        return 1;
+    }
+    
+    return 5;
 }
 
 @end
@@ -413,6 +446,21 @@
 
 @implementation RWVisitHomeCell
 
+- (void)setVisitHomeSource:(NSArray *)visitHomeSource
+{
+    _visitHomeSource = visitHomeSource;
+    
+    [_visitHomeList reloadData];
+}
+
+- (void)setDefaultSettings
+{
+    _title.text = @"出诊信息";
+    _title.backgroundColor = [UIColor colorWithWhite:0.3 alpha:1.0f];
+    
+    _detail.text = @"点击查看详细内容";
+}
+
 - (void)initViews
 {
     _title = [[UILabel alloc] init];
@@ -591,6 +639,7 @@
     if (self)
     {
         [self initViews];
+        [self setDefaultSettings];
     }
     
     return self;
@@ -630,6 +679,31 @@
         make.height.equalTo(@(heightList));
     }];
     
+    CGFloat oh = height - titleHeight - heightList - margin * 4;
+    
+    [_detail mas_makeConstraints:^(MASConstraintMaker *make) {
+       
+        make.left.equalTo(self.mas_left).offset(0);
+        make.right.equalTo(self.mas_right).offset(0);
+        make.top.equalTo(_visitHomeList.mas_top).offset(margin);
+        make.height.equalTo(@(oh / 4));
+    }];
+    
+    [_date mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.left.equalTo(self.mas_left).offset(0);
+        make.right.equalTo(self.mas_right).offset(0);
+        make.top.equalTo(_detail.mas_top).offset(0);
+        make.height.equalTo(@(oh / 4));
+    }];
+    
+    [_status mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.left.equalTo(self.mas_left).offset(0);
+        make.right.equalTo(self.mas_right).offset(0);
+        make.top.equalTo(_date.mas_top).offset(0);
+        make.bottom.equalTo(self.mas_bottom).offset(0);
+    }];
 }
 
 @end

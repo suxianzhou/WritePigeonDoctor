@@ -10,61 +10,6 @@
 #import "Masonry.h"
 #import "RWWeiChatView.h"
 
-#ifndef __RWGET_SYSFONT
-#define __RWGET_SYSFONT(size) [UIFont systemFontOfSize:(size)]
-#endif
-
-#ifndef __BORDER_COLOR__
-#define __BORDER_COLOR__ [UIColor grayColor]
-#endif
-
-#ifndef __MAIN_SCREEN_WIDTH__
-#define __MAIN_SCREEN_WIDTH__ [UIScreen mainScreen].bounds.size.width
-#endif
-
-#ifndef __MAIN_SCREEN_HEIGHT__
-#define __MAIN_SCREEN_HEIGHT__ [UIScreen mainScreen].bounds.size.height
-#endif
-
-#ifndef __SCREEN_320x480_INCH__
-#define __SCREEN_320x480_INCH__ (__MAIN_SCREEN_WIDTH__ == 320 && __MAIN_SCREEN_HEIGHT__ == 480)
-#endif
-#ifndef __SCREEN_320x568_INCH__
-#define __SCREEN_320x568_INCH__ (__MAIN_SCREEN_WIDTH__ == 320 && __MAIN_SCREEN_HEIGHT__ == 568)
-#endif
-#ifndef __SCREEN_375x667_INCH__
-#define __SCREEN_375x667_INCH__ (__MAIN_SCREEN_WIDTH__ == 375 && __MAIN_SCREEN_HEIGHT__ == 667)
-#endif
-#ifndef __SCREEN_414x763_INCH__
-#define __SCREEN_414x763_INCH__ (__MAIN_SCREEN_WIDTH__ == 414 && __MAIN_SCREEN_HEIGHT__ == 763)
-#endif
-#ifndef __SCREEN_768x1024_INCH__
-#define __SCREEN_768x1024_INCH__ (__MAIN_SCREEN_WIDTH__ == 768 && __MAIN_SCREEN_HEIGHT__ == 1024)
-#endif
-#ifndef __SCREEN_1024x1366_INCH__
-#define __SCREEN_1024x1366_INCH__ (__MAIN_SCREEN_WIDTH__ == 1024 && __MAIN_SCREEN_HEIGHT__ == 1366)
-#endif
-
-#ifndef __KEYBOARD_HEIGHT__
-#define __KEYBOARD_HEIGHT__
-#endif
-
-#ifndef __KEYBOARD_SIZE__
-#define __KEYBOARD_SIZE__ CGSizeMake(__MAIN_SCREEN_WIDTH__, 216.f)
-#endif
-
-#ifndef __KEYBOARD_POINT__
-#define __KEYBOARD_POINT__ CGPointMake(0.f,__MAIN_SCREEN_HEIGHT__)
-#endif
-
-#ifndef __RWGET_FRAME
-#define __RWGET_FRAME(point,size) CGRectMake(point.x, point.y, size.width, size.height)
-#endif
-
-#ifndef __KEYBOARD_FRAME__
-#define __KEYBOARD_FRAME__ __RWGET_FRAME(__KEYBOARD_POINT__,__KEYBOARD_SIZE__)
-#endif
-
 @class RWWeChatBar,RWTextField;
 @class RWAccessoryInputView,RWAccessoryPurposeMenu;
 typedef NS_ENUM(NSInteger,RWPurposeMenu);

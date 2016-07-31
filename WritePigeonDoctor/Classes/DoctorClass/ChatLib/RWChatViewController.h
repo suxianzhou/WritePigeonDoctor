@@ -21,15 +21,15 @@
     MicroVideoDelegate
 >
 
-@property (nonatomic,assign)CGPoint viewCenter;
+@property (nonatomic,assign,readonly)CGPoint viewCenter;
 
-@property (nonatomic,strong)AVAudioPlayer *audioPlayer;
+@property (nonatomic,strong,readonly)AVAudioPlayer *audioPlayer;
 
-@property (nonatomic,strong)RWWeChatBar *bar;
-@property (nonatomic,strong)RWWeChatView *weChat;
+@property (nonatomic,strong,readonly)RWWeChatBar *bar;
+@property (nonatomic,strong,readonly)RWWeChatView *weChat;
 
-@property (nonatomic,weak)RWWeChatCell *playing;
-@property (nonatomic,strong)UIView *coverLayer;
+@property (nonatomic,weak,readonly)RWWeChatCell *playing;
+@property (nonatomic,strong,readonly)UIView *coverLayer;
 
 @property (nonatomic,strong)NSMutableArray *messages;
 

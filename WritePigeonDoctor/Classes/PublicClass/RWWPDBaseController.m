@@ -20,6 +20,18 @@
     
     __DEFAULT_NAVIGATION_BAR__;
     __NAVIGATION_DEUAULT_SETTINGS__;
+    self.view.backgroundColor = [UIColor whiteColor];
+}
+
+- (void)pushNextWithViewcontroller:(UIViewController *)viewController
+{
+    CATransition *transition = [CATransition animation];
+    transition.type = @"suckEffect";
+    transition.subtype = @"fromLeft";
+    transition.duration = 1;
+    viewController.hidesBottomBarWhenPushed = YES;
+    [self.navigationController.view.layer addAnimation:transition forKey:nil];
+    [self.navigationController pushViewController:viewController animated:nil];
 }
 
 - (void)didReceiveMemoryWarning {

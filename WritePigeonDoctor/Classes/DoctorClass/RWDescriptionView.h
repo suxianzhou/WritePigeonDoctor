@@ -10,6 +10,8 @@
 
 @interface RWDescriptionView : UITableView
 
+@property (nonatomic,strong)RWDoctorItem *item;
+
 @end
 
 @interface RWDescriptionCell : UITableViewCell

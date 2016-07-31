@@ -8,7 +8,8 @@
 
 #import "AppDelegate.h"
 #import "RWMainTabBarController.h"
-
+#import "UMComSession.h"
+#import "UMCommunity.h"
 @interface AppDelegate ()
 
 @end
@@ -17,6 +18,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [UMComSession openLog:YES];
+    [UMCommunity setAppKey:UMengCommunityAppkey withAppSecret:UMengCommunityAppSecret];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     

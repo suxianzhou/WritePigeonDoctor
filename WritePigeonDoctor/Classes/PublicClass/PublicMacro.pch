@@ -14,6 +14,7 @@
 #import "Macro.h"
 #import "ThirdMacros.h"
 #import "RWDataModels.h"
+#import "RWViewsOfMacro.h"
 
 #ifndef __WPD_MAIN_COLOR__
 #define __WPD_MAIN_COLOR__ [UIColor colorWithRed:43.f/255.f green:141.f/255.f blue:241.f/255.f alpha:1.0]
