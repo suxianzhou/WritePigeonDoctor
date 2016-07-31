@@ -20,7 +20,6 @@
     
     __DEFAULT_NAVIGATION_BAR__;
     __NAVIGATION_DEUAULT_SETTINGS__;
-    
 }
 
 - (void)didReceiveMemoryWarning {

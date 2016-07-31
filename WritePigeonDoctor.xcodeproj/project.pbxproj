@@ -707,10 +707,7 @@
 				12C1AF641D4629040087ABA0 /* RWDoctorListController.m */,
 				126095E81D48AD1400A65AEE /* RWDoctorDescriptionController.h */,
 				126095E91D48AD1400A65AEE /* RWDoctorDescriptionController.m */,
-				12FBCEA11D486C7C00A646DB /* RWDoctorListCell.h */,
-				12FBCEA21D486C7C00A646DB /* RWDoctorListCell.m */,
-				126095EB1D48ADD300A65AEE /* RWDescriptionView.h */,
-				126095EC1D48ADD300A65AEE /* RWDescriptionView.m */,
+				12F1A05F1D4D84BF007B5994 /* Views */,
 			);
 			name = DoctorClass;
 			path = Classes/DoctorClass;
@@ -1509,6 +1506,17 @@
 				12CC698F1D4991A2007F8E17 /* UMComTools.m */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		12F1A05F1D4D84BF007B5994 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				12FBCEA11D486C7C00A646DB /* RWDoctorListCell.h */,
+				12FBCEA21D486C7C00A646DB /* RWDoctorListCell.m */,
+				126095EB1D48ADD300A65AEE /* RWDescriptionView.h */,
+				126095EC1D48ADD300A65AEE /* RWDescriptionView.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		12FA40501D46F5720084D50A /* DataBase */ = {
