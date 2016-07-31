@@ -156,6 +156,23 @@
 		12CC6A0F1D4991A2007F8E17 /* UMComKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC698A1D4991A2007F8E17 /* UMComKit.m */; };
 		12CC6A101D4991A2007F8E17 /* UMComResourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC698D1D4991A2007F8E17 /* UMComResourceManager.m */; };
 		12CC6A111D4991A2007F8E17 /* UMComTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CC698F1D4991A2007F8E17 /* UMComTools.m */; };
+		12F1A0961D4D8B70007B5994 /* RWChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F1A0721D4D8B70007B5994 /* RWChatViewController.m */; };
+		12F1A0971D4D8B70007B5994 /* RWWeChatBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F1A0741D4D8B70007B5994 /* RWWeChatBar.m */; };
+		12F1A0981D4D8B70007B5994 /* RWWeiChatView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F1A0761D4D8B70007B5994 /* RWWeiChatView.m */; };
+		12F1A0991D4D8B70007B5994 /* RWMakeImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F1A0791D4D8B70007B5994 /* RWMakeImageController.m */; };
+		12F1A09A1D4D8B70007B5994 /* UIImage+XZMicroVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F1A07C1D4D8B70007B5994 /* UIImage+XZMicroVideoPlayer.m */; };
+		12F1A09B1D4D8B70007B5994 /* XZMicroVideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F1A07E1D4D8B70007B5994 /* XZMicroVideoPlayerView.m */; };
+		12F1A09C1D4D8B70007B5994 /* XZMicroVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F1A0801D4D8B70007B5994 /* XZMicroVideoView.m */; };
+		12F1A09D1D4D8B70007B5994 /* FEProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F1A0831D4D8B70007B5994 /* FEProgressHUD.m */; };
+		12F1A09E1D4D8B70007B5994 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 12F1A0851D4D8B70007B5994 /* libmp3lame.a */; };
+		12F1A09F1D4D8B70007B5994 /* Mp3Recorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F1A0871D4D8B70007B5994 /* Mp3Recorder.m */; };
+		12F1A0A01D4D8B70007B5994 /* chat_message_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 12F1A0891D4D8B70007B5994 /* chat_message_back.png */; };
+		12F1A0A11D4D8B70007B5994 /* FEButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F1A08B1D4D8B70007B5994 /* FEButton.m */; };
+		12F1A0A21D4D8B70007B5994 /* microphone1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 12F1A0901D4D8B70007B5994 /* microphone1@2x.png */; };
+		12F1A0A31D4D8B70007B5994 /* microphone2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 12F1A0911D4D8B70007B5994 /* microphone2@2x.png */; };
+		12F1A0A41D4D8B70007B5994 /* microphone3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 12F1A0921D4D8B70007B5994 /* microphone3@2x.png */; };
+		12F1A0A51D4D8B70007B5994 /* microphone4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 12F1A0931D4D8B70007B5994 /* microphone4@2x.png */; };
+		12F1A0A61D4D8B70007B5994 /* microphone5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 12F1A0941D4D8B70007B5994 /* microphone5@2x.png */; };
 		12FA40401D46F35E0084D50A /* RWWelcomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA403D1D46F35E0084D50A /* RWWelcomeController.m */; };
 		12FA40411D46F35E0084D50A /* RWWelcomeImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA403F1D46F35E0084D50A /* RWWelcomeImageCell.m */; };
 		12FA404C1D46F56E0084D50A /* RWRequsetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA40441D46F56E0084D50A /* RWRequsetManager.m */; };
@@ -508,6 +525,34 @@
 		12CC698D1D4991A2007F8E17 /* UMComResourceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComResourceManager.m; sourceTree = "<group>"; };
 		12CC698E1D4991A2007F8E17 /* UMComTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComTools.h; sourceTree = "<group>"; };
 		12CC698F1D4991A2007F8E17 /* UMComTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComTools.m; sourceTree = "<group>"; };
+		12F1A0711D4D8B70007B5994 /* RWChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWChatViewController.h; sourceTree = "<group>"; };
+		12F1A0721D4D8B70007B5994 /* RWChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWChatViewController.m; sourceTree = "<group>"; };
+		12F1A0731D4D8B70007B5994 /* RWWeChatBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWWeChatBar.h; sourceTree = "<group>"; };
+		12F1A0741D4D8B70007B5994 /* RWWeChatBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWWeChatBar.m; sourceTree = "<group>"; };
+		12F1A0751D4D8B70007B5994 /* RWWeiChatView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWWeiChatView.h; sourceTree = "<group>"; };
+		12F1A0761D4D8B70007B5994 /* RWWeiChatView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWWeiChatView.m; sourceTree = "<group>"; };
+		12F1A0781D4D8B70007B5994 /* RWMakeImageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWMakeImageController.h; sourceTree = "<group>"; };
+		12F1A0791D4D8B70007B5994 /* RWMakeImageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWMakeImageController.m; sourceTree = "<group>"; };
+		12F1A07B1D4D8B70007B5994 /* UIImage+XZMicroVideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+XZMicroVideoPlayer.h"; sourceTree = "<group>"; };
+		12F1A07C1D4D8B70007B5994 /* UIImage+XZMicroVideoPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+XZMicroVideoPlayer.m"; sourceTree = "<group>"; };
+		12F1A07D1D4D8B70007B5994 /* XZMicroVideoPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZMicroVideoPlayerView.h; sourceTree = "<group>"; };
+		12F1A07E1D4D8B70007B5994 /* XZMicroVideoPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZMicroVideoPlayerView.m; sourceTree = "<group>"; };
+		12F1A07F1D4D8B70007B5994 /* XZMicroVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZMicroVideoView.h; sourceTree = "<group>"; };
+		12F1A0801D4D8B70007B5994 /* XZMicroVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZMicroVideoView.m; sourceTree = "<group>"; };
+		12F1A0821D4D8B70007B5994 /* FEProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FEProgressHUD.h; sourceTree = "<group>"; };
+		12F1A0831D4D8B70007B5994 /* FEProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FEProgressHUD.m; sourceTree = "<group>"; };
+		12F1A0841D4D8B70007B5994 /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
+		12F1A0851D4D8B70007B5994 /* libmp3lame.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmp3lame.a; sourceTree = "<group>"; };
+		12F1A0861D4D8B70007B5994 /* Mp3Recorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mp3Recorder.h; sourceTree = "<group>"; };
+		12F1A0871D4D8B70007B5994 /* Mp3Recorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mp3Recorder.m; sourceTree = "<group>"; };
+		12F1A0891D4D8B70007B5994 /* chat_message_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat_message_back.png; sourceTree = "<group>"; };
+		12F1A08A1D4D8B70007B5994 /* FEButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FEButton.h; sourceTree = "<group>"; };
+		12F1A08B1D4D8B70007B5994 /* FEButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FEButton.m; sourceTree = "<group>"; };
+		12F1A0901D4D8B70007B5994 /* microphone1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microphone1@2x.png"; sourceTree = "<group>"; };
+		12F1A0911D4D8B70007B5994 /* microphone2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microphone2@2x.png"; sourceTree = "<group>"; };
+		12F1A0921D4D8B70007B5994 /* microphone3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microphone3@2x.png"; sourceTree = "<group>"; };
+		12F1A0931D4D8B70007B5994 /* microphone4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microphone4@2x.png"; sourceTree = "<group>"; };
+		12F1A0941D4D8B70007B5994 /* microphone5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microphone5@2x.png"; sourceTree = "<group>"; };
 		12FA403C1D46F35E0084D50A /* RWWelcomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWWelcomeController.h; sourceTree = "<group>"; };
 		12FA403D1D46F35E0084D50A /* RWWelcomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWWelcomeController.m; sourceTree = "<group>"; };
 		12FA403E1D46F35E0084D50A /* RWWelcomeImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWWelcomeImageCell.h; sourceTree = "<group>"; };
@@ -542,6 +587,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				123E9BC01D34A030009B61B5 /* libsqlite3.tbd in Frameworks */,
+				12F1A09E1D4D8B70007B5994 /* libmp3lame.a in Frameworks */,
 				123E9BBE1D34A00F009B61B5 /* libz.tbd in Frameworks */,
 				123E9BBC1D34A006009B61B5 /* libc++.tbd in Frameworks */,
 				123E9BBA1D349FDA009B61B5 /* SystemConfiguration.framework in Frameworks */,
@@ -707,6 +753,7 @@
 				12C1AF641D4629040087ABA0 /* RWDoctorListController.m */,
 				126095E81D48AD1400A65AEE /* RWDoctorDescriptionController.h */,
 				126095E91D48AD1400A65AEE /* RWDoctorDescriptionController.m */,
+				12F1A06F1D4D8AE8007B5994 /* ChatViews */,
 				12F1A05F1D4D84BF007B5994 /* Views */,
 			);
 			name = DoctorClass;
@@ -1519,6 +1566,121 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		12F1A06F1D4D8AE8007B5994 /* ChatViews */ = {
+			isa = PBXGroup;
+			children = (
+				12F1A0701D4D8B70007B5994 /* ChatLib */,
+				12F1A0771D4D8B70007B5994 /* PhotoLib */,
+				12F1A07A1D4D8B70007B5994 /* VideoLib */,
+				12F1A0811D4D8B70007B5994 /* VoiceLib */,
+			);
+			name = ChatViews;
+			sourceTree = "<group>";
+		};
+		12F1A0701D4D8B70007B5994 /* ChatLib */ = {
+			isa = PBXGroup;
+			children = (
+				12F1A0711D4D8B70007B5994 /* RWChatViewController.h */,
+				12F1A0721D4D8B70007B5994 /* RWChatViewController.m */,
+				12F1A0731D4D8B70007B5994 /* RWWeChatBar.h */,
+				12F1A0741D4D8B70007B5994 /* RWWeChatBar.m */,
+				12F1A0751D4D8B70007B5994 /* RWWeiChatView.h */,
+				12F1A0761D4D8B70007B5994 /* RWWeiChatView.m */,
+			);
+			path = ChatLib;
+			sourceTree = "<group>";
+		};
+		12F1A0771D4D8B70007B5994 /* PhotoLib */ = {
+			isa = PBXGroup;
+			children = (
+				12F1A0781D4D8B70007B5994 /* RWMakeImageController.h */,
+				12F1A0791D4D8B70007B5994 /* RWMakeImageController.m */,
+			);
+			path = PhotoLib;
+			sourceTree = "<group>";
+		};
+		12F1A07A1D4D8B70007B5994 /* VideoLib */ = {
+			isa = PBXGroup;
+			children = (
+				12F1A07B1D4D8B70007B5994 /* UIImage+XZMicroVideoPlayer.h */,
+				12F1A07C1D4D8B70007B5994 /* UIImage+XZMicroVideoPlayer.m */,
+				12F1A07D1D4D8B70007B5994 /* XZMicroVideoPlayerView.h */,
+				12F1A07E1D4D8B70007B5994 /* XZMicroVideoPlayerView.m */,
+				12F1A07F1D4D8B70007B5994 /* XZMicroVideoView.h */,
+				12F1A0801D4D8B70007B5994 /* XZMicroVideoView.m */,
+			);
+			path = VideoLib;
+			sourceTree = "<group>";
+		};
+		12F1A0811D4D8B70007B5994 /* VoiceLib */ = {
+			isa = PBXGroup;
+			children = (
+				12F1A0821D4D8B70007B5994 /* FEProgressHUD.h */,
+				12F1A0831D4D8B70007B5994 /* FEProgressHUD.m */,
+				12F1A0841D4D8B70007B5994 /* lame.h */,
+				12F1A0851D4D8B70007B5994 /* libmp3lame.a */,
+				12F1A0861D4D8B70007B5994 /* Mp3Recorder.h */,
+				12F1A0871D4D8B70007B5994 /* Mp3Recorder.m */,
+				12F1A0881D4D8B70007B5994 /* pic */,
+			);
+			path = VoiceLib;
+			sourceTree = "<group>";
+		};
+		12F1A0881D4D8B70007B5994 /* pic */ = {
+			isa = PBXGroup;
+			children = (
+				12F1A0891D4D8B70007B5994 /* chat_message_back.png */,
+				12F1A08A1D4D8B70007B5994 /* FEButton.h */,
+				12F1A08B1D4D8B70007B5994 /* FEButton.m */,
+				12F1A08C1D4D8B70007B5994 /* Masonry */,
+				12F1A0901D4D8B70007B5994 /* microphone1@2x.png */,
+				12F1A0911D4D8B70007B5994 /* microphone2@2x.png */,
+				12F1A0921D4D8B70007B5994 /* microphone3@2x.png */,
+				12F1A0931D4D8B70007B5994 /* microphone4@2x.png */,
+				12F1A0941D4D8B70007B5994 /* microphone5@2x.png */,
+				12F1A0951D4D8B70007B5994 /* photo */,
+			);
+			path = pic;
+			sourceTree = "<group>";
+		};
+		12F1A08C1D4D8B70007B5994 /* Masonry */ = {
+			isa = PBXGroup;
+			children = (
+				12F1A08D1D4D8B70007B5994 /* VoiceLib */,
+			);
+			path = Masonry;
+			sourceTree = "<group>";
+		};
+		12F1A08D1D4D8B70007B5994 /* VoiceLib */ = {
+			isa = PBXGroup;
+			children = (
+				12F1A08E1D4D8B70007B5994 /* pic */,
+			);
+			path = VoiceLib;
+			sourceTree = "<group>";
+		};
+		12F1A08E1D4D8B70007B5994 /* pic */ = {
+			isa = PBXGroup;
+			children = (
+				12F1A08F1D4D8B70007B5994 /* photo */,
+			);
+			path = pic;
+			sourceTree = "<group>";
+		};
+		12F1A08F1D4D8B70007B5994 /* photo */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = photo;
+			sourceTree = "<group>";
+		};
+		12F1A0951D4D8B70007B5994 /* photo */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = photo;
+			sourceTree = "<group>";
+		};
 		12FA40501D46F5720084D50A /* DataBase */ = {
 			isa = PBXGroup;
 			children = (
@@ -1662,9 +1824,11 @@
 			files = (
 				12CC69E91D4991A2007F8E17 /* UMComSimpleAssociatedFeedTableViewCell.xib in Resources */,
 				12CC69F61D4991A2007F8E17 /* UMComRegisterViewController.xib in Resources */,
+				12F1A0A21D4D8B70007B5994 /* microphone1@2x.png in Resources */,
 				12CC69FA1D4991A2007F8E17 /* UMComSimplicityUserCenterViewController.xib in Resources */,
 				126271A71D336F7F009D44A0 /* Assets.xcassets in Resources */,
 				12CC69F81D4991A2007F8E17 /* UMComSimpleLoginViewController.xib in Resources */,
+				12F1A0A51D4D8B70007B5994 /* microphone4@2x.png in Resources */,
 				12CC69E51D4991A2007F8E17 /* UMComLikeButtonTableViewCell.xib in Resources */,
 				12CC69F21D4991A2007F8E17 /* UMComSimpleProfileSettingController.xib in Resources */,
 				12CC69D61D4991A2007F8E17 /* UMComSelectTopicViewController.xib in Resources */,
@@ -1675,12 +1839,16 @@
 				12CC69A41D4991A2007F8E17 /* UMComTableViewCell.xib in Resources */,
 				12CC69A01D4991A2007F8E17 /* UMComCommentInput.xib in Resources */,
 				12CC69CF1D4991A2007F8E17 /* UMComSimplicityUserInfoBar.xib in Resources */,
+				12F1A0A01D4D8B70007B5994 /* chat_message_back.png in Resources */,
 				12CC69E11D4991A2007F8E17 /* UMComFeedDetailTableViewCell.xib in Resources */,
+				12F1A0A41D4D8B70007B5994 /* microphone3@2x.png in Resources */,
+				12F1A0A31D4D8B70007B5994 /* microphone2@2x.png in Resources */,
 				12CC69CD1D4991A2007F8E17 /* UMComSimplicityFindTableViewCell.xib in Resources */,
 				12CC69931D4991A2007F8E17 /* UMComSimpleSDKResources.bundle in Resources */,
 				12A6AADD1D49FFDB00A0739C /* Launch Screen.storyboard in Resources */,
 				12CC69921D4991A2007F8E17 /* UMCommunityStrings.strings in Resources */,
 				126271A51D336F7F009D44A0 /* Main.storyboard in Resources */,
+				12F1A0A61D4D8B70007B5994 /* microphone5@2x.png in Resources */,
 				12CC69911D4991A2007F8E17 /* FZLanTingHei-L-GBK-M.TTF in Resources */,
 				12CC69DF1D4991A2007F8E17 /* UMComFeedDetailCommentCell.xib in Resources */,
 				12CC69D91D4991A2007F8E17 /* UMComFeedImageCollectionViewCell.xib in Resources */,
@@ -1786,6 +1954,7 @@
 				12CC69ED1D4991A2007F8E17 /* UMComSimpleNotificationCell.m in Sources */,
 				12CC69D41D4991A2007F8E17 /* UMComSelectTopicCell.m in Sources */,
 				12CC69CE1D4991A2007F8E17 /* UMComSimplicityUserInfoBar.m in Sources */,
+				12F1A0A11D4D8B70007B5994 /* FEButton.m in Sources */,
 				12CC69D11D4991A2007F8E17 /* UMComBriefEditView.m in Sources */,
 				12CC69D71D4991A2007F8E17 /* UMComFeedImageCollectionView.m in Sources */,
 				12CC69F71D4991A2007F8E17 /* UMComSimpleLoginViewController.m in Sources */,
@@ -1801,6 +1970,8 @@
 				12CC699E1D4991A2007F8E17 /* UMComButton.m in Sources */,
 				12CC6A0E1D4991A2007F8E17 /* UMComKit+String.m in Sources */,
 				12CC69BC1D4991A2007F8E17 /* UMComRefreshView.m in Sources */,
+				12F1A0961D4D8B70007B5994 /* RWChatViewController.m in Sources */,
+				12F1A09B1D4D8B70007B5994 /* XZMicroVideoPlayerView.m in Sources */,
 				12CC69F01D4991A2007F8E17 /* UMComMacroConfig.m in Sources */,
 				12CC69AB1D4991A2007F8E17 /* UMComHorizonMenuView.m in Sources */,
 				12CC69A51D4991A2007F8E17 /* UMComEditTextView.m in Sources */,
@@ -1809,6 +1980,7 @@
 				12C1AF7A1D4629D10087ABA0 /* RWMainTabBarController.m in Sources */,
 				12CC69C21D4991A2007F8E17 /* UMComShowToast.m in Sources */,
 				12CC69AE1D4991A2007F8E17 /* UMComMedalImageView.m in Sources */,
+				12F1A09C1D4D8B70007B5994 /* XZMicroVideoView.m in Sources */,
 				12CC69C71D4991A2007F8E17 /* UMComStatusView.m in Sources */,
 				12CC69F41D4991A2007F8E17 /* UMComSimplicityRequestTableViewController.m in Sources */,
 				12CC699B1D4991A2007F8E17 /* UMComAddedImageCellView.m in Sources */,
@@ -1825,6 +1997,8 @@
 				12CC69C81D4991A2007F8E17 /* UMComWebView.m in Sources */,
 				12CC69CC1D4991A2007F8E17 /* UMComSimplicityFindTableViewCell.m in Sources */,
 				12CC69BD1D4991A2007F8E17 /* UMComSearchBar.m in Sources */,
+				12F1A0981D4D8B70007B5994 /* RWWeiChatView.m in Sources */,
+				12F1A09F1D4D8B70007B5994 /* Mp3Recorder.m in Sources */,
 				12CC69971D4991A2007F8E17 /* UMComNavigationController.m in Sources */,
 				126095EA1D48AD1400A65AEE /* RWDoctorDescriptionController.m in Sources */,
 				12CC69C41D4991A2007F8E17 /* UMComEmojiKeyBoardView.m in Sources */,
@@ -1833,6 +2007,7 @@
 				12CC6A051D4991A2007F8E17 /* UMComUserListDataController.m in Sources */,
 				12CC69E01D4991A2007F8E17 /* UMComFeedDetailTableViewCell.m in Sources */,
 				12CC69CA1D4991A2007F8E17 /* UMComImageView.m in Sources */,
+				12F1A0971D4D8B70007B5994 /* RWWeChatBar.m in Sources */,
 				12CC6A111D4991A2007F8E17 /* UMComTools.m in Sources */,
 				12CC6A0B1D4991A2007F8E17 /* UMComKit+Autolayout.m in Sources */,
 				12CC69B11D4991A2007F8E17 /* UMComMutiText.m in Sources */,
@@ -1842,11 +2017,13 @@
 				12CC69FB1D4991A2007F8E17 /* UMComWebViewController.m in Sources */,
 				12CC69BB1D4991A2007F8E17 /* UMImagePickerThumbnailView.m in Sources */,
 				12CC69BF1D4991A2007F8E17 /* UMComGridTableViewCell.m in Sources */,
+				12F1A09D1D4D8B70007B5994 /* FEProgressHUD.m in Sources */,
 				12CC69961D4991A2007F8E17 /* UIViewController+UMComAddition.m in Sources */,
 				12CC69A81D4991A2007F8E17 /* UMComSimpleGridViewerController.m in Sources */,
 				12CC69B51D4991A2007F8E17 /* UMAssetsCollectionCheckMarkView.m in Sources */,
 				12CC69991D4991A2007F8E17 /* UMComActionDeleteView.m in Sources */,
 				12CC69FD1D4991A2007F8E17 /* UMComFeedEditDataController.m in Sources */,
+				12F1A09A1D4D8B70007B5994 /* UIImage+XZMicroVideoPlayer.m in Sources */,
 				12CC69FE1D4991A2007F8E17 /* UMComFeedListDataController.m in Sources */,
 				12CC69D21D4991A2007F8E17 /* UMComBriefEditViewController.m in Sources */,
 				1262719F1D336F7F009D44A0 /* AppDelegate.m in Sources */,
@@ -1861,6 +2038,7 @@
 				12CC69FF1D4991A2007F8E17 /* UMComFeedDetailDataController.m in Sources */,
 				12CC69D51D4991A2007F8E17 /* UMComSelectTopicViewController.m in Sources */,
 				12CC69F31D4991A2007F8E17 /* UMComCustomMenuViewController.m in Sources */,
+				12F1A0991D4D8B70007B5994 /* RWMakeImageController.m in Sources */,
 				12CC699A1D4991A2007F8E17 /* UMComActionPickerAddView.m in Sources */,
 				12CC69DE1D4991A2007F8E17 /* UMComFeedDetailCommentCell.m in Sources */,
 				126095ED1D48ADD300A65AEE /* RWDescriptionView.m in Sources */,
@@ -2033,6 +2211,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/WritePigeonDoctor/Classes/Community/umeng_community_ios_v2.6.0/Lib_UMCommunity",
+					"$(PROJECT_DIR)/WritePigeonDoctor/Classes/DoctorClass/VoiceLib",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = RyeWhiskey.WritePigeonDoctor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2061,6 +2240,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/WritePigeonDoctor/Classes/Community/umeng_community_ios_v2.6.0/Lib_UMCommunity",
+					"$(PROJECT_DIR)/WritePigeonDoctor/Classes/DoctorClass/VoiceLib",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = RyeWhiskey.WritePigeonDoctor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
