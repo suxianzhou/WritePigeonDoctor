@@ -26,6 +26,30 @@
 		12C1AF751D4629040087ABA0 /* RWMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C1AF6A1D4629040087ABA0 /* RWMainViewController.m */; };
 		12C1AF771D4629040087ABA0 /* RWSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C1AF721D4629040087ABA0 /* RWSettingsViewController.m */; };
 		12C1AF7A1D4629D10087ABA0 /* RWMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C1AF791D4629D10087ABA0 /* RWMainTabBarController.m */; };
+		12E93DA51D4DAC8700F55FD5 /* 中医儿科.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 12E93D8F1D4DAC8700F55FD5 /* 中医儿科.jpg */; };
+		12E93DA61D4DAC8700F55FD5 /* 中医内科.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 12E93D901D4DAC8700F55FD5 /* 中医内科.jpg */; };
+		12E93DA71D4DAC8700F55FD5 /* 中医外科.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 12E93D911D4DAC8700F55FD5 /* 中医外科.jpg */; };
+		12E93DA81D4DAC8700F55FD5 /* 中医妇科.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 12E93D921D4DAC8700F55FD5 /* 中医妇科.jpg */; };
+		12E93DA91D4DAC8700F55FD5 /* 中医男科.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 12E93D931D4DAC8700F55FD5 /* 中医男科.jpg */; };
+		12E93DAA1D4DAC8700F55FD5 /* 中医眼科.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 12E93D941D4DAC8700F55FD5 /* 中医眼科.jpg */; };
+		12E93DAB1D4DAC8700F55FD5 /* 中医美容.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 12E93D951D4DAC8700F55FD5 /* 中医美容.jpg */; };
+		12E93DAC1D4DAC8700F55FD5 /* 中医肾科.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 12E93D961D4DAC8700F55FD5 /* 中医肾科.jpg */; };
+		12E93DAD1D4DAC8700F55FD5 /* 中医骨科.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 12E93D971D4DAC8700F55FD5 /* 中医骨科.jpg */; };
+		12E93DAE1D4DAC8700F55FD5 /* 内分泌科.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 12E93D981D4DAC8700F55FD5 /* 内分泌科.jpg */; };
+		12E93DAF1D4DAC8700F55FD5 /* 呼吸内科.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 12E93D991D4DAC8700F55FD5 /* 呼吸内科.jpg */; };
+		12E93DB01D4DAC8700F55FD5 /* 心血管科.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 12E93D9A1D4DAC8700F55FD5 /* 心血管科.jpg */; };
+		12E93DB11D4DAC8700F55FD5 /* 治未病科.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 12E93D9B1D4DAC8700F55FD5 /* 治未病科.jpg */; };
+		12E93DB21D4DAC8700F55FD5 /* 消化内科.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 12E93D9C1D4DAC8700F55FD5 /* 消化内科.jpg */; };
+		12E93DB31D4DAC8700F55FD5 /* 疑难杂症.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 12E93D9D1D4DAC8700F55FD5 /* 疑难杂症.jpg */; };
+		12E93DB41D4DAC8700F55FD5 /* 皮肤病科.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 12E93D9E1D4DAC8700F55FD5 /* 皮肤病科.jpg */; };
+		12E93DB51D4DAC8700F55FD5 /* 神经内科.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 12E93D9F1D4DAC8700F55FD5 /* 神经内科.jpg */; };
+		12E93DB61D4DAC8700F55FD5 /* 耳鼻喉科.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 12E93DA01D4DAC8700F55FD5 /* 耳鼻喉科.jpg */; };
+		12E93DB71D4DAC8700F55FD5 /* 肿瘤内科.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 12E93DA11D4DAC8700F55FD5 /* 肿瘤内科.jpg */; };
+		12E93DB81D4DAC8700F55FD5 /* 血液病科.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 12E93DA21D4DAC8700F55FD5 /* 血液病科.jpg */; };
+		12E93DB91D4DAC8700F55FD5 /* 针灸推拿.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 12E93DA31D4DAC8700F55FD5 /* 针灸推拿.jpg */; };
+		12E93DBA1D4DAC8700F55FD5 /* 风湿免疫.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 12E93DA41D4DAC8700F55FD5 /* 风湿免疫.jpg */; };
+		12E93DBD1D4DACAC00F55FD5 /* RWTestDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E93DBC1D4DACAC00F55FD5 /* RWTestDataSource.m */; };
+		12E93DBF1D4DDAFF00F55FD5 /* MY.png in Resources */ = {isa = PBXBuildFile; fileRef = 12E93DBE1D4DDAFF00F55FD5 /* MY.png */; };
 		12F1A0961D4D8B70007B5994 /* RWChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F1A0721D4D8B70007B5994 /* RWChatViewController.m */; };
 		12F1A0971D4D8B70007B5994 /* RWWeChatBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F1A0741D4D8B70007B5994 /* RWWeChatBar.m */; };
 		12F1A0981D4D8B70007B5994 /* RWWeiChatView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F1A0761D4D8B70007B5994 /* RWWeiChatView.m */; };
@@ -242,6 +266,31 @@
 		12C1AF721D4629040087ABA0 /* RWSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWSettingsViewController.m; sourceTree = "<group>"; };
 		12C1AF781D4629D10087ABA0 /* RWMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RWMainTabBarController.h; path = PublicClass/RWMainTabBarController.h; sourceTree = "<group>"; };
 		12C1AF791D4629D10087ABA0 /* RWMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RWMainTabBarController.m; path = PublicClass/RWMainTabBarController.m; sourceTree = "<group>"; };
+		12E93D8F1D4DAC8700F55FD5 /* 中医儿科.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "中医儿科.jpg"; sourceTree = "<group>"; };
+		12E93D901D4DAC8700F55FD5 /* 中医内科.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "中医内科.jpg"; sourceTree = "<group>"; };
+		12E93D911D4DAC8700F55FD5 /* 中医外科.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "中医外科.jpg"; sourceTree = "<group>"; };
+		12E93D921D4DAC8700F55FD5 /* 中医妇科.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "中医妇科.jpg"; sourceTree = "<group>"; };
+		12E93D931D4DAC8700F55FD5 /* 中医男科.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "中医男科.jpg"; sourceTree = "<group>"; };
+		12E93D941D4DAC8700F55FD5 /* 中医眼科.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "中医眼科.jpg"; sourceTree = "<group>"; };
+		12E93D951D4DAC8700F55FD5 /* 中医美容.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "中医美容.jpg"; sourceTree = "<group>"; };
+		12E93D961D4DAC8700F55FD5 /* 中医肾科.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "中医肾科.jpg"; sourceTree = "<group>"; };
+		12E93D971D4DAC8700F55FD5 /* 中医骨科.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "中医骨科.jpg"; sourceTree = "<group>"; };
+		12E93D981D4DAC8700F55FD5 /* 内分泌科.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "内分泌科.jpg"; sourceTree = "<group>"; };
+		12E93D991D4DAC8700F55FD5 /* 呼吸内科.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "呼吸内科.jpg"; sourceTree = "<group>"; };
+		12E93D9A1D4DAC8700F55FD5 /* 心血管科.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "心血管科.jpg"; sourceTree = "<group>"; };
+		12E93D9B1D4DAC8700F55FD5 /* 治未病科.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "治未病科.jpg"; sourceTree = "<group>"; };
+		12E93D9C1D4DAC8700F55FD5 /* 消化内科.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "消化内科.jpg"; sourceTree = "<group>"; };
+		12E93D9D1D4DAC8700F55FD5 /* 疑难杂症.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "疑难杂症.jpg"; sourceTree = "<group>"; };
+		12E93D9E1D4DAC8700F55FD5 /* 皮肤病科.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "皮肤病科.jpg"; sourceTree = "<group>"; };
+		12E93D9F1D4DAC8700F55FD5 /* 神经内科.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "神经内科.jpg"; sourceTree = "<group>"; };
+		12E93DA01D4DAC8700F55FD5 /* 耳鼻喉科.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "耳鼻喉科.jpg"; sourceTree = "<group>"; };
+		12E93DA11D4DAC8700F55FD5 /* 肿瘤内科.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "肿瘤内科.jpg"; sourceTree = "<group>"; };
+		12E93DA21D4DAC8700F55FD5 /* 血液病科.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "血液病科.jpg"; sourceTree = "<group>"; };
+		12E93DA31D4DAC8700F55FD5 /* 针灸推拿.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "针灸推拿.jpg"; sourceTree = "<group>"; };
+		12E93DA41D4DAC8700F55FD5 /* 风湿免疫.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "风湿免疫.jpg"; sourceTree = "<group>"; };
+		12E93DBB1D4DACAC00F55FD5 /* RWTestDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWTestDataSource.h; sourceTree = "<group>"; };
+		12E93DBC1D4DACAC00F55FD5 /* RWTestDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWTestDataSource.m; sourceTree = "<group>"; };
+		12E93DBE1D4DDAFF00F55FD5 /* MY.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MY.png; sourceTree = "<group>"; };
 		12F1A0711D4D8B70007B5994 /* RWChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWChatViewController.h; sourceTree = "<group>"; };
 		12F1A0721D4D8B70007B5994 /* RWChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWChatViewController.m; sourceTree = "<group>"; };
 		12F1A0731D4D8B70007B5994 /* RWWeChatBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWWeChatBar.h; sourceTree = "<group>"; };
@@ -737,6 +786,7 @@
 		12C1AF621D4629040087ABA0 /* DoctorClass */ = {
 			isa = PBXGroup;
 			children = (
+				12E93D8D1D4DAC8700F55FD5 /* TestDataSource */,
 				12FBCE9E1D4868F100A646DB /* RWOfficeListController.h */,
 				12FBCE9F1D4868F100A646DB /* RWOfficeListController.m */,
 				12C1AF631D4629040087ABA0 /* RWDoctorListController.h */,
@@ -807,6 +857,46 @@
 			);
 			name = Settings;
 			path = Classes/Settings;
+			sourceTree = "<group>";
+		};
+		12E93D8D1D4DAC8700F55FD5 /* TestDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				12E93DBE1D4DDAFF00F55FD5 /* MY.png */,
+				12E93D8E1D4DAC8700F55FD5 /* OfficeSource */,
+				12E93DBB1D4DACAC00F55FD5 /* RWTestDataSource.h */,
+				12E93DBC1D4DACAC00F55FD5 /* RWTestDataSource.m */,
+			);
+			path = TestDataSource;
+			sourceTree = "<group>";
+		};
+		12E93D8E1D4DAC8700F55FD5 /* OfficeSource */ = {
+			isa = PBXGroup;
+			children = (
+				12E93D8F1D4DAC8700F55FD5 /* 中医儿科.jpg */,
+				12E93D901D4DAC8700F55FD5 /* 中医内科.jpg */,
+				12E93D911D4DAC8700F55FD5 /* 中医外科.jpg */,
+				12E93D921D4DAC8700F55FD5 /* 中医妇科.jpg */,
+				12E93D931D4DAC8700F55FD5 /* 中医男科.jpg */,
+				12E93D941D4DAC8700F55FD5 /* 中医眼科.jpg */,
+				12E93D951D4DAC8700F55FD5 /* 中医美容.jpg */,
+				12E93D961D4DAC8700F55FD5 /* 中医肾科.jpg */,
+				12E93D971D4DAC8700F55FD5 /* 中医骨科.jpg */,
+				12E93D981D4DAC8700F55FD5 /* 内分泌科.jpg */,
+				12E93D991D4DAC8700F55FD5 /* 呼吸内科.jpg */,
+				12E93D9A1D4DAC8700F55FD5 /* 心血管科.jpg */,
+				12E93D9B1D4DAC8700F55FD5 /* 治未病科.jpg */,
+				12E93D9C1D4DAC8700F55FD5 /* 消化内科.jpg */,
+				12E93D9D1D4DAC8700F55FD5 /* 疑难杂症.jpg */,
+				12E93D9E1D4DAC8700F55FD5 /* 皮肤病科.jpg */,
+				12E93D9F1D4DAC8700F55FD5 /* 神经内科.jpg */,
+				12E93DA01D4DAC8700F55FD5 /* 耳鼻喉科.jpg */,
+				12E93DA11D4DAC8700F55FD5 /* 肿瘤内科.jpg */,
+				12E93DA21D4DAC8700F55FD5 /* 血液病科.jpg */,
+				12E93DA31D4DAC8700F55FD5 /* 针灸推拿.jpg */,
+				12E93DA41D4DAC8700F55FD5 /* 风湿免疫.jpg */,
+			);
+			path = OfficeSource;
 			sourceTree = "<group>";
 		};
 		12F1A05F1D4D84BF007B5994 /* Views */ = {
@@ -1825,35 +1915,58 @@
 			buildActionMask = 2147483647;
 			files = (
 				12F1A23C1D4DA990007B5994 /* UMComSimplicityUserInfoBar.xib in Resources */,
+				12E93DB51D4DAC8700F55FD5 /* 神经内科.jpg in Resources */,
+				12E93DA71D4DAC8700F55FD5 /* 中医外科.jpg in Resources */,
 				12F1A0A21D4D8B70007B5994 /* microphone1@2x.png in Resources */,
 				12F1A2651D4DA990007B5994 /* UMComSimpleLoginViewController.xib in Resources */,
+				12E93DAA1D4DAC8700F55FD5 /* 中医眼科.jpg in Resources */,
 				12F1A2461D4DA990007B5994 /* UMComFeedImageCollectionViewCell.xib in Resources */,
 				12F1A23A1D4DA990007B5994 /* UMComSimplicityFindTableViewCell.xib in Resources */,
 				12F1A24C1D4DA990007B5994 /* UMComFeedDetailCommentCell.xib in Resources */,
 				12F1A1FE1D4DA990007B5994 /* FZLanTingHei-L-GBK-M.TTF in Resources */,
 				12F1A20F1D4DA990007B5994 /* UMComSimpleCommentInput.xib in Resources */,
+				12E93DBF1D4DDAFF00F55FD5 /* MY.png in Resources */,
+				12E93DB71D4DAC8700F55FD5 /* 肿瘤内科.jpg in Resources */,
 				12F1A2111D4DA990007B5994 /* UMComTableViewCell.xib in Resources */,
+				12E93DAB1D4DAC8700F55FD5 /* 中医美容.jpg in Resources */,
+				12E93DB31D4DAC8700F55FD5 /* 疑难杂症.jpg in Resources */,
+				12E93DB91D4DAC8700F55FD5 /* 针灸推拿.jpg in Resources */,
 				12F1A2001D4DA990007B5994 /* UMComSimpleSDKResources.bundle in Resources */,
+				12E93DA81D4DAC8700F55FD5 /* 中医妇科.jpg in Resources */,
 				126271A71D336F7F009D44A0 /* Assets.xcassets in Resources */,
+				12E93DB21D4DAC8700F55FD5 /* 消化内科.jpg in Resources */,
+				12E93DAE1D4DAC8700F55FD5 /* 内分泌科.jpg in Resources */,
 				12F1A2431D4DA990007B5994 /* UMComSelectTopicViewController.xib in Resources */,
+				12E93DB11D4DAC8700F55FD5 /* 治未病科.jpg in Resources */,
 				12F1A20D1D4DA990007B5994 /* UMComCommentInput.xib in Resources */,
+				12E93DB81D4DAC8700F55FD5 /* 血液病科.jpg in Resources */,
 				12F1A24E1D4DA990007B5994 /* UMComFeedDetailTableViewCell.xib in Resources */,
+				12E93DA91D4DAC8700F55FD5 /* 中医男科.jpg in Resources */,
 				12F1A0A51D4D8B70007B5994 /* microphone4@2x.png in Resources */,
 				12F1A2561D4DA990007B5994 /* UMComSimpleAssociatedFeedTableViewCell.xib in Resources */,
+				12E93DAF1D4DAC8700F55FD5 /* 呼吸内科.jpg in Resources */,
 				12F1A0A01D4D8B70007B5994 /* chat_message_back.png in Resources */,
+				12E93DAD1D4DAC8700F55FD5 /* 中医骨科.jpg in Resources */,
 				12F1A25F1D4DA990007B5994 /* UMComSimpleProfileSettingController.xib in Resources */,
 				12F1A2631D4DA990007B5994 /* UMComRegisterViewController.xib in Resources */,
+				12E93DB61D4DAC8700F55FD5 /* 耳鼻喉科.jpg in Resources */,
 				12F1A2501D4DA990007B5994 /* UMComLargeImageTableViewCell.xib in Resources */,
 				12F1A0A41D4D8B70007B5994 /* microphone3@2x.png in Resources */,
+				12E93DAC1D4DAC8700F55FD5 /* 中医肾科.jpg in Resources */,
+				12E93DA61D4DAC8700F55FD5 /* 中医内科.jpg in Resources */,
 				12F1A2671D4DA990007B5994 /* UMComSimplicityUserCenterViewController.xib in Resources */,
 				12F1A0A31D4D8B70007B5994 /* microphone2@2x.png in Resources */,
+				12E93DA51D4DAC8700F55FD5 /* 中医儿科.jpg in Resources */,
 				12A6AADD1D49FFDB00A0739C /* Launch Screen.storyboard in Resources */,
 				12F1A1FF1D4DA990007B5994 /* UMCommunityStrings.strings in Resources */,
+				12E93DB01D4DAC8700F55FD5 /* 心血管科.jpg in Resources */,
 				12F1A2521D4DA990007B5994 /* UMComLikeButtonTableViewCell.xib in Resources */,
 				126271A51D336F7F009D44A0 /* Main.storyboard in Resources */,
 				12F1A2481D4DA990007B5994 /* UMComSimpleFeedTableViewCell.xib in Resources */,
+				12E93DBA1D4DAC8700F55FD5 /* 风湿免疫.jpg in Resources */,
 				12F1A25B1D4DA990007B5994 /* UMComSimpleNotificationCell.xib in Resources */,
 				12F1A0A61D4D8B70007B5994 /* microphone5@2x.png in Resources */,
+				12E93DB41D4DAC8700F55FD5 /* 皮肤病科.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2010,6 +2123,7 @@
 				12F1A2171D4DA990007B5994 /* UMComHorizonCollectionView.m in Sources */,
 				12F1A20C1D4DA990007B5994 /* UMComCommentEditView.m in Sources */,
 				12F1A21E1D4DA990007B5994 /* UMComMutiText.m in Sources */,
+				12E93DBD1D4DACAC00F55FD5 /* RWTestDataSource.m in Sources */,
 				12F1A24D1D4DA990007B5994 /* UMComFeedDetailTableViewCell.m in Sources */,
 				12F1A2211D4DA990007B5994 /* UMAssetsCollectionCell.m in Sources */,
 				12F1A2051D4DA990007B5994 /* UMComViewController.m in Sources */,

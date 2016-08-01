@@ -10,4 +10,6 @@
 
 @interface RWDoctorDescriptionController : RWWPDBaseController
 
++ (instancetype)doctorDescroptionWith:(RWDoctorItem *(^)())doctorItem;
+
 @end

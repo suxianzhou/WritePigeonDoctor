@@ -8,6 +8,7 @@
 
 #import "RWDoctorListController.h"
 #import "RWDoctorListCell.h"
+#import "RWDoctorDescriptionController.h"
 
 @interface RWDoctorListController ()
 
@@ -17,7 +18,6 @@
 >
 
 @property (nonatomic,strong)UITableView *doctorList;
-@property (nonatomic,strong)NSArray *doctorResource;
 
 @end
 
@@ -52,9 +52,18 @@
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 120;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    RWDoctorDescriptionController *doctor = [RWDoctorDescriptionController doctorDescroptionWith:^RWDoctorItem *{
+       return _doctorResource[indexPath.row];
+    }];
     
+    [self pushNextWithViewcontroller:doctor];
 }
 
 #pragma mark - Life Cycle
@@ -64,7 +73,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.navigationItem.title = @"医生列表";
+    
     [self initViews];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [_doctorList reloadData];
 }
 
 - (void)didReceiveMemoryWarning {

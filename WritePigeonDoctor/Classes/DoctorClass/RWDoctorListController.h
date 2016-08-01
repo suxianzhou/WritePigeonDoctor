@@ -10,4 +10,6 @@
 
 @interface RWDoctorListController : RWWPDBaseController
 
+@property (nonatomic,strong)NSArray *doctorResource;
+
 @end

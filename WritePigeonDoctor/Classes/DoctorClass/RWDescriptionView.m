@@ -19,6 +19,13 @@
 
 @implementation RWDescriptionView
 
+- (void)setItem:(RWDoctorItem *)item
+{
+    _item = item;
+    
+    [self reloadData];
+}
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame style:UITableViewStyleGrouped];
@@ -41,7 +48,7 @@
     return self;
 }
 
-- (NSInteger)numberOfRowsInSection:(NSInteger)section
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 3;
 }
@@ -59,11 +66,26 @@
         {
             RWDescriptionCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([RWDescriptionCell class]) forIndexPath:indexPath];
             
+            [cell setItem:_item attentionResponce:^(BOOL isAttention) {
+                
+                if (isAttention)
+                {
+                    
+                }
+                else
+                {
+                    
+                }
+                
+            } isAttention:NO];
+            
             return cell;
         }
         case 1:
         {
-            RWAnnouncementCell  *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([RWAnnouncementCell  class]) forIndexPath:indexPath];
+            RWAnnouncementCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([RWAnnouncementCell  class]) forIndexPath:indexPath];
+            
+            cell.context = _item.announcement;
             
             return cell;
         }
@@ -129,7 +151,11 @@
         [_attention setTitle:@"关注" forState:UIControlStateNormal];
     }
     
-    //more linker
+    _header.image = _item.header;
+    _name.text = _item.name;
+    _professionalTitle.text = _item.professionalTitle;
+    _office.text = _item.office;
+    _descriptionView.text = _item.doctorDescription;
 }
 
 - (void)initViews
@@ -158,6 +184,11 @@
     _name.textAlignment = NSTextAlignmentCenter;
     _professionalTitle.textAlignment = NSTextAlignmentCenter;
     _office.textAlignment = NSTextAlignmentCenter;
+    
+    [_attention setTitleColor:__WPD_MAIN_COLOR__ forState:UIControlStateNormal];
+    _attention.layer.cornerRadius = 3.f;
+    _attention.layer.borderWidth = 1.f;
+    _attention.layer.borderColor = [__WPD_MAIN_COLOR__ CGColor];
     
     [_attention addTarget:self
                    action:@selector(addAndRemoveAttention)
@@ -333,9 +364,9 @@
     
     if (_autoLayout)
     {
-        [self mas_makeConstraints:_autoLayout];
+        [self mas_remakeConstraints:_autoLayout];
         
-        [_line mas_makeConstraints:^(MASConstraintMaker *make) {
+        [_line mas_remakeConstraints:^(MASConstraintMaker *make) {
            
             make.left.equalTo(self.mas_left).offset(10);
             make.right.equalTo(self.mas_right).offset(-10);
@@ -482,13 +513,15 @@
 {
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     
-    flowLayout.scrollDirection = UICollectionViewScrollPositionCenteredHorizontally;
+    flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     flowLayout.minimumLineSpacing = 0;
     flowLayout.minimumInteritemSpacing = 0;
     flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
     
     _visitHomeList = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, 0, 0) collectionViewLayout:flowLayout];
     [self addSubview:_visitHomeList];
+    
+    _visitHomeList.backgroundColor = [UIColor brownColor];
     
     _visitHomeList.bounces = NO;
     _visitHomeList.showsVerticalScrollIndicator = NO;
@@ -509,6 +542,8 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     RWVisitHomeItemCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([RWVisitHomeItemCell class]) forIndexPath:indexPath];
+    
+    cell.layer.cornerRadius = 0.5f;
     
     if (indexPath.row < 4)
     {
@@ -671,11 +706,11 @@
     
     CGFloat heightList = itemLength * 4;
     
-    [_visitHomeList mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_visitHomeList mas_remakeConstraints:^(MASConstraintMaker *make) {
        
         make.left.equalTo(self.mas_left).offset(margin);
         make.top.equalTo(_title.mas_bottom).offset(margin);
-        make.right.equalTo(self.mas_right).offset(margin);
+        make.right.equalTo(self.mas_right).offset(-margin);
         make.height.equalTo(@(heightList));
     }];
     

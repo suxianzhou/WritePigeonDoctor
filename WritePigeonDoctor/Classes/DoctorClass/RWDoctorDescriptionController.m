@@ -7,21 +7,44 @@
 //
 
 #import "RWDoctorDescriptionController.h"
+#import "RWDescriptionView.h"
+#import "RWDataModels.h"
 
 @interface RWDoctorDescriptionController ()
+
+@property (nonatomic,strong)RWDescriptionView *descriptionView;
+@property (nonatomic,copy)RWDoctorItem *(^doctorItem)();
 
 @end
 
 @implementation RWDoctorDescriptionController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
++ (instancetype)doctorDescroptionWith:(RWDoctorItem *(^)())doctorItem
+{
+    RWDoctorDescriptionController *doctordes =
+                                        [[RWDoctorDescriptionController alloc] init];
+    
+    doctordes.doctorItem = doctorItem;
+    
+    return doctordes;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    
+    _descriptionView = [[RWDescriptionView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [self.view addSubview:_descriptionView];
+    
+    _descriptionView.item = _doctorItem();
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [_descriptionView reloadData];
 }
 
 /*

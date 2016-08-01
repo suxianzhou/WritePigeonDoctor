@@ -40,52 +40,62 @@
 
 - (void)setDefaultSettings
 {
-    [_header mas_makeConstraints:^(MASConstraintMaker *make) {
-       
-        make.width.equalTo(@(40));
-        make.height.equalTo(@(40));
+    _name.font = __RWGET_SYSFONT(16.f);
+    _professionalTitle.font = __RWGET_SYSFONT(14.f);
+    _professionalTitle.textColor = [UIColor grayColor];
+    
+    _office.textColor = [UIColor grayColor];
+    _office.font = __RWGET_SYSFONT(13.f);
+    _expenses.textColor = [UIColor grayColor];
+    _expenses.font = __RWGET_SYSFONT(13.f);
+}
+
+- (void)autoLayoutViews
+{
+    [_header mas_remakeConstraints:^(MASConstraintMaker *make) {
+        
+        make.width.equalTo(@(55));
+        make.height.equalTo(@(55));
         make.centerY.equalTo(self.mas_centerY).offset(0);
         make.left.equalTo(self.mas_left).offset(20);
     }];
     
+    _header.layer.cornerRadius = 27.5f;
+    _header.clipsToBounds = YES;
+    
     CGFloat itemHeight = (self.frame.size.height - 40) / 3;
     
-    [_name mas_makeConstraints:^(MASConstraintMaker *make) {
-       
+    [_name mas_remakeConstraints:^(MASConstraintMaker *make) {
+        
         make.width.equalTo(@(60));
         make.height.equalTo(@(itemHeight));
         make.left.equalTo(_header.mas_right).offset(15);
         make.top.equalTo(self.mas_top).offset(20);
     }];
     
-    [_professionalTitle mas_makeConstraints:^(MASConstraintMaker *make) {
-       
+    [_professionalTitle mas_remakeConstraints:^(MASConstraintMaker *make) {
+        
         make.left.equalTo(_name.mas_right).offset(10);
         make.right.equalTo(self.mas_right).offset(-10);
         make.top.equalTo(_name.mas_top).offset(0);
         make.bottom.equalTo(_name.mas_bottom).offset(0);
     }];
     
-    [_office mas_makeConstraints:^(MASConstraintMaker *make) {
-       
-        make.left.equalTo(_header.mas_right).offset(0);
+    [_office mas_remakeConstraints:^(MASConstraintMaker *make) {
+        
+        make.left.equalTo(_header.mas_right).offset(15);
         make.right.equalTo(self.mas_right).offset(-10);
-        make.top.equalTo(_professionalTitle.mas_top).offset(0);
+        make.top.equalTo(_professionalTitle.mas_bottom).offset(0);
         make.height.equalTo(@(itemHeight));
     }];
     
-    [_expenses mas_makeConstraints:^(MASConstraintMaker *make) {
-       
-        make.left.equalTo(_header.mas_right).offset(0);
+    [_expenses mas_remakeConstraints:^(MASConstraintMaker *make) {
+        
+        make.left.equalTo(_header.mas_right).offset(15);
         make.right.equalTo(self.mas_right).offset(-10);
-        make.top.equalTo(_office.mas_top).offset(0);
+        make.top.equalTo(_office.mas_bottom).offset(0);
         make.height.equalTo(@(itemHeight));
     }];
-}
-
-- (void)autoLayoutViews
-{
-    
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -112,11 +122,11 @@
 {
     _doctor = doctor;
     
-    _header.image = doctor.header;
-    _name.text = doctor.name;
-    _professionalTitle.text = doctor.professionalTitle;
-    _office.text = doctor.office;
-    _expenses.text = doctor.expenses;
+    _header.image = _doctor.header;
+    _name.text = _doctor.name;
+    _professionalTitle.text = _doctor.professionalTitle;
+    _office.text = _doctor.office;
+    _expenses.text = _doctor.expenses;
 }
 
 @end

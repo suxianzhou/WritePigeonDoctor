@@ -8,33 +8,45 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+@class RWWeekHomeVisit,RWHomeVisitItem,RWDoctorItem;
 
 @interface RWOfficeItem : NSObject
 
 @property (nonatomic,strong)UIImage *image;
-
-@property (nonatomic,strong)NSString *doctorList;
+@property (nonatomic,strong)NSArray *doctorList;
 
 @end
 
 @interface RWDoctorItem : NSObject
 
 @property (nonatomic,strong)UIImage *header;
-
 @property (nonatomic,strong)NSString *name;
-
 @property (nonatomic,strong)NSString *professionalTitle;
-
 @property (nonatomic,strong)NSString *office;
-
 @property (nonatomic,strong)NSString *announcement;
-
-@property (nonatomic,strong)NSDictionary *homeVisitList;
-
+@property (nonatomic,strong)RWWeekHomeVisit *homeVisitList;
 @property (nonatomic,strong)NSString *expenses;
-
 @property (nonatomic,strong)NSString *EMID;
-
 @property (nonatomic,strong)NSString *doctorDescription;
+
+@end
+
+@interface RWWeekHomeVisit : NSObject
+
+@property (nonatomic,strong)RWHomeVisitItem *Monday;
+@property (nonatomic,strong)RWHomeVisitItem *Tuesday;
+@property (nonatomic,strong)RWHomeVisitItem *Wednesday;
+@property (nonatomic,strong)RWHomeVisitItem *Thursday;
+@property (nonatomic,strong)RWHomeVisitItem *Friday;
+@property (nonatomic,strong)RWHomeVisitItem *Saturday;
+@property (nonatomic,strong)RWHomeVisitItem *Sunday;
+
+@end
+
+@interface RWHomeVisitItem : NSObject
+
+@property (nonatomic,strong)NSString *morning;
+@property (nonatomic,strong)NSString *afternoon;
+@property (nonatomic,strong)NSString *night;
 
 @end

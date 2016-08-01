@@ -7,6 +7,8 @@
 //
 
 #import "RWOfficeListController.h"
+#import "RWDoctorListController.h"
+#import "RWTestDataSource.h"
 
 @interface RWOfficesCell : UICollectionViewCell
 
@@ -57,6 +59,10 @@
     _offices = [[UICollectionView alloc] initWithFrame:self.view.bounds
                                   collectionViewLayout:flowLayout];
     
+    [self.view addSubview:_offices];
+    
+    _offices.backgroundColor = [UIColor whiteColor];
+    
     _offices.delegate = self;
     _offices.dataSource = self;
     
@@ -75,7 +81,9 @@
 {
     RWOfficesCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([RWOfficesCell class]) forIndexPath:indexPath];
     
-    cell.imageView.image = _officeList[indexPath.row];
+    RWOfficeItem *item = _officeList[indexPath.row];
+    
+    cell.imageView.image = item.image;
     
     return cell;
 }
@@ -87,7 +95,13 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    RWOfficeItem *item = _officeList[indexPath.row];
     
+    RWDoctorListController *doctorList = [[RWDoctorListController alloc] init];
+    
+    doctorList.doctorResource = item.doctorList;
+    
+    [self pushNextWithViewcontroller:doctorList];
 }
 
 #pragma mark - Life Cycle
@@ -96,6 +110,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.navigationItem.title = @"找医生";
+    _officeList = [RWTestDataSource getResource];
+    
+    [self initViews];
 }
 
 - (void)didReceiveMemoryWarning {

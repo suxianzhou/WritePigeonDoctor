@@ -42,6 +42,8 @@
 
 @interface RWVisitHomeCell : UITableViewCell
 
+@property (nonatomic,weak,readonly)RWWeekHomeVisit *item;
+
 @property (nonatomic,strong)NSArray *visitHomeSource;
 
 @end
