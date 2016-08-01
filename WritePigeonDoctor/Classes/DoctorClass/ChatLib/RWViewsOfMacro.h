@@ -147,8 +147,16 @@
 
 #pragma mark - description
 
-#ifndef __DESCRIPTION_HEIGHT__
-#define __DESCRIPTION_HEIGHT__ __MAIN_SCREEN_WIDTH__ / 58 * 41
+#ifndef __MAIN_NAV_HEIGHT__
+#define __MAIN_NAV_HEIGHT__ self.navigationController.navigationBar.bounds.size.height
+#endif
+
+#ifndef __DESCRIPTION_HEIGHT_CLOSE__
+#define __DESCRIPTION_HEIGHT_CLOSE__ __MAIN_SCREEN_WIDTH__ / 58 * 41
+#endif
+
+#ifndef __DESCRIPTION_HEIGHT_OPEN__
+#define __DESCRIPTION_HEIGHT_OPEN__ (__MAIN_SCREEN_HEIGHT__ - 64)
 #endif
 
 #ifndef __ANNOUNCEMENT_HEIGHT__
@@ -158,6 +166,5 @@
 #ifndef __VISIT_HEIGHT__
 #define __VISIT_HEIGHT__ __MAIN_SCREEN_WIDTH__
 #endif
-
 
 #endif /* RWViewsOfMacro_h */

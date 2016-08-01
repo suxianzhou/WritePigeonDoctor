@@ -126,7 +126,7 @@
     _name.text = _doctor.name;
     _professionalTitle.text = _doctor.professionalTitle;
     _office.text = _doctor.office;
-    _expenses.text = _doctor.expenses;
+    _expenses.text = _doctor.expenses.count?_doctor.expenses[0]:nil;
 }
 
 @end

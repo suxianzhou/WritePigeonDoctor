@@ -72,7 +72,7 @@
         item.office = @"测试科室";
         item.announcement = @"这是一个测试公告";
         item.homeVisitList = [RWTestDataSource getHomeVisitList];
-        item.expenses = @"￥50.00元 / 2小时";
+        item.expenses = @[@"￥50.00元 / 2小时"];
         item.EMID = @"";
         item.doctorDescription = @"测试医生简介！！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！";
         
@@ -94,9 +94,9 @@
     
     visit.Monday = item;
     visit.Tuesday = item;
-    visit.Wednesday = item;
-    visit.Thursday = item;
-    visit.Friday = item;
+    visit.Wednesday = nil;
+    visit.Thursday = nil;
+    visit.Friday = nil;
     visit.Saturday = item;
     visit.Sunday = item;
     

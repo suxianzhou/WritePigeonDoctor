@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1201DFA91D4F55190002D2A9 /* 311f1acbe389dbe322ffcf5305bc98d4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1201DFA01D4F55190002D2A9 /* 311f1acbe389dbe322ffcf5305bc98d4.jpg */; };
+		1201DFAA1D4F55190002D2A9 /* FEBaseLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1201DFA21D4F55190002D2A9 /* FEBaseLoginController.m */; };
+		1201DFAB1D4F55190002D2A9 /* FELoginTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1201DFA41D4F55190002D2A9 /* FELoginTableCell.m */; };
+		1201DFAC1D4F55190002D2A9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1201DFA61D4F55190002D2A9 /* LoginViewController.m */; };
+		1201DFAD1D4F55190002D2A9 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1201DFA81D4F55190002D2A9 /* RegisterViewController.m */; };
 		123E9BB81D349FC7009B61B5 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 123E9BB71D349FC7009B61B5 /* CoreTelephony.framework */; };
 		123E9BBA1D349FDA009B61B5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 123E9BB91D349FDA009B61B5 /* SystemConfiguration.framework */; };
 		123E9BBC1D34A006009B61B5 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 123E9BBB1D34A006009B61B5 /* libc++.tbd */; };
@@ -230,6 +235,15 @@
 
 /* Begin PBXFileReference section */
 		06B0CD839B2FB4AEC160CE84 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		1201DFA01D4F55190002D2A9 /* 311f1acbe389dbe322ffcf5305bc98d4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 311f1acbe389dbe322ffcf5305bc98d4.jpg; sourceTree = "<group>"; };
+		1201DFA11D4F55190002D2A9 /* FEBaseLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FEBaseLoginController.h; sourceTree = "<group>"; };
+		1201DFA21D4F55190002D2A9 /* FEBaseLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FEBaseLoginController.m; sourceTree = "<group>"; };
+		1201DFA31D4F55190002D2A9 /* FELoginTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FELoginTableCell.h; sourceTree = "<group>"; };
+		1201DFA41D4F55190002D2A9 /* FELoginTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FELoginTableCell.m; sourceTree = "<group>"; };
+		1201DFA51D4F55190002D2A9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		1201DFA61D4F55190002D2A9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		1201DFA71D4F55190002D2A9 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		1201DFA81D4F55190002D2A9 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		123E9BB71D349FC7009B61B5 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		123E9BB91D349FDA009B61B5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		123E9BBB1D34A006009B61B5 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
@@ -693,9 +707,26 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
+		1201DF9F1D4F550A0002D2A9 /* LoginClass */ = {
+			isa = PBXGroup;
+			children = (
+				1201DFA01D4F55190002D2A9 /* 311f1acbe389dbe322ffcf5305bc98d4.jpg */,
+				1201DFA11D4F55190002D2A9 /* FEBaseLoginController.h */,
+				1201DFA21D4F55190002D2A9 /* FEBaseLoginController.m */,
+				1201DFA31D4F55190002D2A9 /* FELoginTableCell.h */,
+				1201DFA41D4F55190002D2A9 /* FELoginTableCell.m */,
+				1201DFA51D4F55190002D2A9 /* LoginViewController.h */,
+				1201DFA61D4F55190002D2A9 /* LoginViewController.m */,
+				1201DFA71D4F55190002D2A9 /* RegisterViewController.h */,
+				1201DFA81D4F55190002D2A9 /* RegisterViewController.m */,
+			);
+			name = LoginClass;
+			sourceTree = "<group>";
+		};
 		1236AA831D46ED1D00C65043 /* PageViews */ = {
 			isa = PBXGroup;
 			children = (
+				1201DF9F1D4F550A0002D2A9 /* LoginClass */,
 				12C1AF681D4629040087ABA0 /* MainClass */,
 				12C1AF621D4629040087ABA0 /* DoctorClass */,
 				12F1A0A81D4DA990007B5994 /* Community */,
@@ -1958,6 +1989,7 @@
 				12F1A0A31D4D8B70007B5994 /* microphone2@2x.png in Resources */,
 				12E93DA51D4DAC8700F55FD5 /* 中医儿科.jpg in Resources */,
 				12A6AADD1D49FFDB00A0739C /* Launch Screen.storyboard in Resources */,
+				1201DFA91D4F55190002D2A9 /* 311f1acbe389dbe322ffcf5305bc98d4.jpg in Resources */,
 				12F1A1FF1D4DA990007B5994 /* UMCommunityStrings.strings in Resources */,
 				12E93DB01D4DAC8700F55FD5 /* 心血管科.jpg in Resources */,
 				12F1A2521D4DA990007B5994 /* UMComLikeButtonTableViewCell.xib in Resources */,
@@ -2061,12 +2093,14 @@
 				12F1A21A1D4DA990007B5994 /* UMComLabel.m in Sources */,
 				12F1A2011D4DA990007B5994 /* UMComLoginManager.m in Sources */,
 				12F1A2391D4DA990007B5994 /* UMComSimplicityFindTableViewCell.m in Sources */,
+				1201DFAD1D4F55190002D2A9 /* RegisterViewController.m in Sources */,
 				12F1A2341D4DA990007B5994 /* UMComStatusView.m in Sources */,
 				12F1A27A1D4DA990007B5994 /* UMComKit+Runtime.m in Sources */,
 				12F1A2661D4DA990007B5994 /* UMComSimplicityUserCenterViewController.m in Sources */,
 				12F1A2161D4DA990007B5994 /* UMImageProgressView.m in Sources */,
 				12F1A2711D4DA990007B5994 /* UMComUserCenterDataController.m in Sources */,
 				12FA404D1D46F56E0084D50A /* RWRequsetManager+UserLogin.m in Sources */,
+				1201DFAC1D4F55190002D2A9 /* LoginViewController.m in Sources */,
 				12F1A2731D4DA990007B5994 /* UMComUserUpdateDataController.m in Sources */,
 				12FA405A1D4703C50084D50A /* RWUserInformation.m in Sources */,
 				12F1A2491D4DA990007B5994 /* UMComSimpleFeedTableViewController.m in Sources */,
@@ -2112,6 +2146,7 @@
 				12F1A22D1D4DA990007B5994 /* UMComGridTableViewCellOne.m in Sources */,
 				12F1A2121D4DA990007B5994 /* UMComEditTextView.m in Sources */,
 				12F1A09C1D4D8B70007B5994 /* XZMicroVideoView.m in Sources */,
+				1201DFAA1D4F55190002D2A9 /* FEBaseLoginController.m in Sources */,
 				12FA40411D46F35E0084D50A /* RWWelcomeImageCell.m in Sources */,
 				12F1A20E1D4DA990007B5994 /* UMComSimpleCommentEditView.m in Sources */,
 				12F1A0981D4D8B70007B5994 /* RWWeiChatView.m in Sources */,
@@ -2154,6 +2189,7 @@
 				12F1A2091D4DA990007B5994 /* UMComAddedImageView.m in Sources */,
 				12F1A2231D4DA990007B5994 /* UMAssetsCollectionController.m in Sources */,
 				12FA404F1D46F56E0084D50A /* RWDeployManager+DateProcess.m in Sources */,
+				1201DFAB1D4F55190002D2A9 /* FELoginTableCell.m in Sources */,
 				12FBCEA01D4868F100A646DB /* RWOfficeListController.m in Sources */,
 				12F1A2791D4DA990007B5994 /* UMComKit+Image.m in Sources */,
 				12F1A22B1D4DA990007B5994 /* UMComSegmentedControl.m in Sources */,

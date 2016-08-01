@@ -25,7 +25,7 @@
 @property (nonatomic,strong)NSString *office;
 @property (nonatomic,strong)NSString *announcement;
 @property (nonatomic,strong)RWWeekHomeVisit *homeVisitList;
-@property (nonatomic,strong)NSString *expenses;
+@property (nonatomic,strong)NSArray *expenses;
 @property (nonatomic,strong)NSString *EMID;
 @property (nonatomic,strong)NSString *doctorDescription;
 

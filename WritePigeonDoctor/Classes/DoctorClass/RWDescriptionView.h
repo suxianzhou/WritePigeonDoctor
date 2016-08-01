@@ -8,29 +8,59 @@
 
 #import <UIKit/UIKit.h>
 
+@class RWDescriptionView,RWRegisterOfficeView;
+
+@protocol RWDescriptionViewDelegate <NSObject>
+
+- (void)isAttentionAtDescriptionView:(RWDescriptionView *)descriptionView;
+- (void)isShowDoctorDescription:(RWDescriptionView *)descriptionView;
+
+@end
+
 @interface RWDescriptionView : UITableView
 
 @property (nonatomic,strong)RWDoctorItem *item;
+
+@property (nonatomic,assign)BOOL isOpenDescription;
+@property (nonatomic,assign)BOOL isAttention;
+
+@property (nonatomic,strong)id<RWDescriptionViewDelegate> eventSource;
 
 @end
 
 @interface RWDescriptionCell : UITableViewCell
 
 @property (nonatomic,assign)BOOL isAttention;
+@property (nonatomic,assign)BOOL isOpen;
 
 @property (nonatomic,weak,readonly)RWDoctorItem *item;
 
-- (void)setItem:(RWDoctorItem *)item attentionResponce:(void(^)(BOOL isAttention))attentionResponce isAttention:(BOOL)isAttention;
+- (void)setItem:(RWDoctorItem *)item attentionResponce:(void(^)(BOOL isAttention))attentionResponce isAttention:(BOOL)isAttention isOpen:(void(^)(BOOL isOpen))isOpen;
 
 @end
 
 @interface RWPartitionView : UIView
 
+@property (nonatomic,copy,readonly)void(^autoLayout)(MASConstraintMaker *make);
+- (void)setAutoLayout:(void (^)(MASConstraintMaker *))autoLayout;
+
 + (instancetype)partitionWithAutoLayout:(void(^)(MASConstraintMaker *make))autoLayout switchControl:(void(^)(BOOL isOpen))switchControl;
 
 @end
 
-@interface RWRegisterOfficeCell : UITableViewCell
+@protocol RWRegisterOfficeViewDelegate <NSObject>
+
+- (void)consultWayAtRegisterOffice:(RWRegisterOfficeView *)registerOffice;
+- (void)startConsultAtRegisterOffice:(RWRegisterOfficeView *)registerOffice;
+
+@end
+
+@interface RWRegisterOfficeView : UIView
+
+@property (nonatomic,strong)UIButton *startBtn;
+@property (nonatomic,strong)UILabel *contentLabel;
+
+@property (nonatomic,strong)id<RWRegisterOfficeViewDelegate> delegate;
 
 @end
 
@@ -42,7 +72,7 @@
 
 @interface RWVisitHomeCell : UITableViewCell
 
-@property (nonatomic,weak,readonly)RWWeekHomeVisit *item;
+@property (nonatomic,weak)RWWeekHomeVisit *item;
 
 @property (nonatomic,strong)NSArray *visitHomeSource;
 

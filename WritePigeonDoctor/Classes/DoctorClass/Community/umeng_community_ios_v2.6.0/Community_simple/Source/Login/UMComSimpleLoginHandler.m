@@ -9,7 +9,7 @@
 #import "UMComSimpleLoginHandler.h"
 #import "UMComSimpleLoginViewController.h"
 #import "UMComNavigationController.h"
-
+#import "LoginViewController.h"
 @interface UMComSimpleLoginHandler()
 
 
@@ -35,6 +35,10 @@ static UMComSimpleLoginHandler *_instance = nil;
 //        UMComNavigationController *navigationController = [[UMComNavigationController alloc] initWithRootViewController:loginViewController];
 //        [viewController presentViewController:navigationController animated:YES completion:^{
 //        }];
+        LoginViewController * LoginVC=[[LoginViewController alloc]init];
+        [viewController presentViewController:LoginVC animated:YES completion:^{
+            
+        }];
         
         NSLog(@"跳转登录界面 ");
     });
