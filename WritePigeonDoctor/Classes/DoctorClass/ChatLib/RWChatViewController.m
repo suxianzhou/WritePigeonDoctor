@@ -344,6 +344,8 @@
 {
     [super viewDidLoad];
     
+    self.view.backgroundColor = [UIColor whiteColor];
+    
     _viewCenter = self.view.center;
     _coverLayer = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     _coverLayer.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.7];

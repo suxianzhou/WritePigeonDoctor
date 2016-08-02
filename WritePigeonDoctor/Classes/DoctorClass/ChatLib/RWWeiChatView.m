@@ -1,4 +1,5 @@
 
+
 //
 //  RWWeiChatView.m
 //  RWWeChatController
@@ -75,6 +76,11 @@ static NSString *const chatCell = @"chatCell";
 
 - (void)addMessage:(RWWeChatMessage *)message
 {
+    if (!_messages)
+    {
+        _messages = [[NSMutableArray alloc] init];
+    }
+    
     [_messages addObject:message];
     
     [self reloadData];
@@ -609,7 +615,7 @@ CGRect getTopRestrain(RWWeChatCell * cell)
         make.right.equalTo(_headerImage.mas_left).offset(-5);
     }];
     
-    _headerImage.image = [UIImage imageNamed:@"MY"];
+    _headerImage.image = [UIImage imageNamed:@"表情"];
     _arrowheadImage.image = [[UIImage imageNamed:@"RightCa"] imageWithColor:[UIColor greenColor]];
 }
 

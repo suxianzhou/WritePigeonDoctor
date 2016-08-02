@@ -21,7 +21,7 @@
     MicroVideoDelegate
 >
 
-@property (nonatomic,assign,readonly)CGPoint viewCenter;
+@property (nonatomic,assign)CGPoint viewCenter;
 
 @property (nonatomic,strong,readonly)AVAudioPlayer *audioPlayer;
 

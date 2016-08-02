@@ -169,5 +169,5 @@ RWSquareTarget RWSquareTargetMake(NSUInteger horizontal,NSUInteger vertical);
 @interface RWPurposeMenuItemCell : UICollectionViewCell
 
 @property (nonatomic,strong)UIImageView *imageView;
-@property (nonatomic,strong)UILabel *title;
+
 @end

@@ -386,7 +386,6 @@
 }
 -(void)buttonwithAgreement{
     [self.delegate Agreement];
-    
 }
 
 

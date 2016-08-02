@@ -106,9 +106,9 @@
     self.layer.borderColor = [__BORDER_COLOR__ CGColor];
     self.layer.borderWidth = 0.3;
     
-    _messageType.image = [UIImage imageNamed:@"voice"];
-    _expressionKeyboard.image = [UIImage imageNamed:@"myface"];
-    _otherFunction.image = [UIImage imageNamed:@"otherFuntion"];
+    _messageType.image = [UIImage imageNamed:@"喇叭"];
+    _expressionKeyboard.image = [UIImage imageNamed:@"表情"];
+    _otherFunction.image = [UIImage imageNamed:@"加号"];
     
     _purposeMenu.delegate = self;
     _inputView.delegate = self;
@@ -276,7 +276,7 @@
                 _makeTextMessage.hidden = NO;
                 _makeVoiceMessage.hidden = YES;
                 _isTextMessage = YES;
-                _messageType.image = [UIImage imageNamed:@"voice"];
+                _messageType.image = [UIImage imageNamed:@"喇叭"];
             }
             
             break;
@@ -289,7 +289,7 @@
                 _makeTextMessage.hidden = NO;
                 _makeVoiceMessage.hidden = YES;
                 _isTextMessage = YES;
-                _messageType.image = [UIImage imageNamed:@"voice"];
+                _messageType.image = [UIImage imageNamed:@"喇叭"];
             }
             
             [_makeTextMessage.textView resignFirstResponder];
@@ -809,13 +809,13 @@ BOOL isContainsEmoji(NSString *string)
 {
     [super didMoveToSuperview];
     
-    _resource = @[@[@{@"title":@"照片",@"image":[UIImage imageNamed:@"mypic"]},
-                    @{@"title":@"拍照",@"image":[UIImage imageNamed:@"makephoto"]},
-                    @{@"title":@"小视频",@"image":[UIImage imageNamed:@"makeVideo"]},
-                    @{@"title":@"视频通话",@"image":[UIImage imageNamed:@"video"]},
-                    @{@"title":@"位置",@"image":[UIImage imageNamed:@"location"]},
-                    @{@"title":@"收藏",@"image":[UIImage imageNamed:@"collect"]},
-                    @{@"title":@"个人名片",@"image":[UIImage imageNamed:@"myNameCard"]}]];
+    _resource = @[@[[UIImage imageNamed:@"照片"],
+                    [UIImage imageNamed:@"拍摄"],
+                    [UIImage imageNamed:@"小视频"],
+                    [UIImage imageNamed:@"小视频"],
+                    [UIImage imageNamed:@"位置"],
+                    [UIImage imageNamed:@"收藏"],
+                    [UIImage imageNamed:@"个人名片"]]];
     
     self.pageView.numberOfPages = _resource.count;
     
@@ -1078,9 +1078,8 @@ RWSquareTarget RWSquareTargetMake(NSUInteger horizontal,NSUInteger vertical)
 {
     RWPurposeMenuItemCell *cell =
             [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([RWPurposeMenuItemCell class]) forIndexPath:indexPath];
-    
-    cell.title.text = [_items[indexPath.row] objectForKey:@"title"];
-    cell.imageView.image = [_items[indexPath.row] objectForKey:@"image"];
+
+    cell.imageView.image = _items[indexPath.row];
     
     return cell;
 }
@@ -1111,27 +1110,12 @@ RWSquareTarget RWSquareTargetMake(NSUInteger horizontal,NSUInteger vertical)
         _imageView = [[UIImageView alloc] init];
         [self addSubview:_imageView];
         
-        _title = [[UILabel alloc] init];
-        _title.textAlignment = NSTextAlignmentCenter;
-        _title.font = [UIFont systemFontOfSize:15];
-        [self addSubview:_title];
-        
-        [_title mas_makeConstraints:^(MASConstraintMaker *make) {
+        [_imageView mas_makeConstraints:^(MASConstraintMaker *make) {
            
             make.left.equalTo(self.mas_left).offset(0);
             make.right.equalTo(self.mas_right).offset(0);
             make.bottom.equalTo(self.mas_bottom).offset(0);
-            make.height.equalTo(@(20));
-        }];
-        
-        CGFloat height = frame.size.height - 20 - 10;
-        
-        [_imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-           
-            make.width.equalTo(@(height));
-            make.height.equalTo(@(height));
-            make.centerX.equalTo(self.mas_centerX).offset(0);
-            make.top.equalTo(self.mas_top).offset(5);
+            make.top.equalTo(self.mas_top).offset(0);
         }];
     }
     

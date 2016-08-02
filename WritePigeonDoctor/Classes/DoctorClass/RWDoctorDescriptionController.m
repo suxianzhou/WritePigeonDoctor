@@ -7,6 +7,7 @@
 //
 
 #import "RWDoctorDescriptionController.h"
+#import "RWConsultViewController.h"
 #import "RWDescriptionView.h"
 #import "RWDataModels.h"
 
@@ -73,7 +74,9 @@
 
 - (void)startConsultAtRegisterOffice:(RWRegisterOfficeView *)registerOffice
 {
-    NSLog(@"开始资讯");
+    RWConsultViewController *chatView = [[RWConsultViewController alloc] init];
+    
+    [self pushNextWithViewcontroller:chatView];
 }
 
 - (void)consultWayAtRegisterOffice:(RWRegisterOfficeView *)registerOffice

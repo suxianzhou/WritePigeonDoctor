@@ -12,6 +12,7 @@
 		1201DFAB1D4F55190002D2A9 /* FELoginTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1201DFA41D4F55190002D2A9 /* FELoginTableCell.m */; };
 		1201DFAC1D4F55190002D2A9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1201DFA61D4F55190002D2A9 /* LoginViewController.m */; };
 		1201DFAD1D4F55190002D2A9 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1201DFA81D4F55190002D2A9 /* RegisterViewController.m */; };
+		12023E6E1D4F59680027816B /* RWConsultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12023E6D1D4F59680027816B /* RWConsultViewController.m */; };
 		123E9BB81D349FC7009B61B5 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 123E9BB71D349FC7009B61B5 /* CoreTelephony.framework */; };
 		123E9BBA1D349FDA009B61B5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 123E9BB91D349FDA009B61B5 /* SystemConfiguration.framework */; };
 		123E9BBC1D34A006009B61B5 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 123E9BBB1D34A006009B61B5 /* libc++.tbd */; };
@@ -244,6 +245,8 @@
 		1201DFA61D4F55190002D2A9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		1201DFA71D4F55190002D2A9 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		1201DFA81D4F55190002D2A9 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		12023E6C1D4F59680027816B /* RWConsultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWConsultViewController.h; sourceTree = "<group>"; };
+		12023E6D1D4F59680027816B /* RWConsultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWConsultViewController.m; sourceTree = "<group>"; };
 		123E9BB71D349FC7009B61B5 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		123E9BB91D349FDA009B61B5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		123E9BBB1D34A006009B61B5 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
@@ -824,6 +827,8 @@
 				12C1AF641D4629040087ABA0 /* RWDoctorListController.m */,
 				126095E81D48AD1400A65AEE /* RWDoctorDescriptionController.h */,
 				126095E91D48AD1400A65AEE /* RWDoctorDescriptionController.m */,
+				12023E6C1D4F59680027816B /* RWConsultViewController.h */,
+				12023E6D1D4F59680027816B /* RWConsultViewController.m */,
 				12F1A06F1D4D8AE8007B5994 /* ChatViews */,
 				12F1A05F1D4D84BF007B5994 /* Views */,
 			);
@@ -2203,6 +2208,7 @@
 				12F1A25E1D4DA990007B5994 /* UMComSimpleProfileSettingController.m in Sources */,
 				1262719C1D336F7F009D44A0 /* main.m in Sources */,
 				12F1A26D1D4DA990007B5994 /* UMComNoticeListDataController..m in Sources */,
+				12023E6E1D4F59680027816B /* RWConsultViewController.m in Sources */,
 				12F1A2751D4DA990007B5994 /* UMComConfigFile.m in Sources */,
 				12F1A2571D4DA990007B5994 /* UMComSimpleCommentViewController.m in Sources */,
 				12F1A2411D4DA990007B5994 /* UMComSelectTopicCell.m in Sources */,
