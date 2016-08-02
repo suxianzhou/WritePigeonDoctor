@@ -345,8 +345,24 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
+    __NAVIGATION_DEUAULT_SETTINGS__;
     
     _viewCenter = self.view.center;
+    
+    if (self.navigationController && !self.navigationController.navigationBar.hidden)
+    {
+        _viewCenter.y += (self.navigationController.navigationBar.bounds.size.height/2);
+        
+        CGRect statusFrame = [UIApplication sharedApplication].statusBarFrame;
+        
+        _viewCenter.y += (statusFrame.size.height / 2);
+    }
+    
+    if (self.tabBarController && !self.tabBarController.tabBar.hidden)
+    {
+        _viewCenter.y -= (self.tabBarController.tabBar.bounds.size.height / 2);
+    }
+    
     _coverLayer = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     _coverLayer.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.7];
     

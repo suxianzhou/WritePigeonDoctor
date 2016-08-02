@@ -486,7 +486,7 @@ CGRect getTopRestrain(RWWeChatCell * cell)
     
     if (_message.isMyMessage)
     {
-        _contentLabel.backgroundColor = [UIColor greenColor];
+        _contentLabel.backgroundColor = __WPD_MAIN_COLOR__;
     }
     else
     {
@@ -510,7 +510,7 @@ CGRect getTopRestrain(RWWeChatCell * cell)
     
     if (_message.isMyMessage)
     {
-        _voiceButton.backgroundColor = [UIColor greenColor];
+        _voiceButton.backgroundColor = __WPD_MAIN_COLOR__;
     }
     else
     {
@@ -616,7 +616,7 @@ CGRect getTopRestrain(RWWeChatCell * cell)
     }];
     
     _headerImage.image = [UIImage imageNamed:@"表情"];
-    _arrowheadImage.image = [[UIImage imageNamed:@"RightCa"] imageWithColor:[UIColor greenColor]];
+    _arrowheadImage.image = [[UIImage imageNamed:@"RightCa"] imageWithColor:__WPD_MAIN_COLOR__];
 }
 
 - (void)someoneMessageBaseLayout
