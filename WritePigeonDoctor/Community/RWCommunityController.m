@@ -28,6 +28,7 @@
     }
     return self;
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -92,6 +93,10 @@
     [super viewWillAppear:animated];
     //token更新之后要更新首页的数据
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshData) name:kUMComGetTokenSucceedNotification object:nil];
+    
+    __DEFAULT_NAVIGATION_BAR__;
+    __NAVIGATION_DEUAULT_SETTINGS__;
+
 }
 
 - (void)refreshData

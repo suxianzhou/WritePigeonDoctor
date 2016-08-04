@@ -36,6 +36,9 @@ static UMComSimpleLoginHandler *_instance = nil;
 //        [viewController presentViewController:navigationController animated:YES completion:^{
 //        }];
         LoginViewController * LoginVC=[[LoginViewController alloc]init];
+        
+        LoginVC.completion = completion;
+        
         [viewController presentViewController:LoginVC animated:YES completion:^{
             
         }];

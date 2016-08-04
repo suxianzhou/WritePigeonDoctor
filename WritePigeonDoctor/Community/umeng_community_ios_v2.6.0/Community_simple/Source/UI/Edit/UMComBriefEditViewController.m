@@ -327,6 +327,7 @@ typedef void (^SelectedTopicFinishedAction)(UMComTopic* topic,NSError* error);
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
     self.originImages = [NSMutableArray arrayWithCapacity:9];
     
     [self createNavigationItems];
@@ -340,6 +341,9 @@ typedef void (^SelectedTopicFinishedAction)(UMComTopic* topic,NSError* error);
     [self createTipAddImage];
     
     [self viewsFrameChange];
+    
+    
+  
 }
 
 - (void)didReceiveMemoryWarning {
@@ -351,13 +355,15 @@ typedef void (^SelectedTopicFinishedAction)(UMComTopic* topic,NSError* error);
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.navigationController.navigationBar umcom_setBackgroundColor:UMComColorWithColorValueString(@"#469ef8")];
+    __DEFAULT_NAVIGATION_BAR__;
+    __NAVIGATION_DEUAULT_SETTINGS__;
+
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [self.navigationController.navigationBar umcom_reset];
+  
 }
 
 #pragma mark - private method
@@ -412,6 +418,10 @@ typedef void (^SelectedTopicFinishedAction)(UMComTopic* topic,NSError* error);
     titleLabel.textColor =  UMComColorWithColorValueString(@"FFFFFF");
     titleLabel.backgroundColor = [UIColor clearColor];
     [self.navigationItem setTitleView:titleLabel];
+
+    
+    __DEFAULT_NAVIGATION_BAR__;
+    __NAVIGATION_DEUAULT_SETTINGS__;
 
 }
 

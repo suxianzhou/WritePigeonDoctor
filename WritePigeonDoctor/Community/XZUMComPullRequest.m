@@ -49,4 +49,44 @@
         completion (responseObject,error);
     }];
 }
+
++ (void)checkUserName:(NSString *)name
+         userNameType:(UMComUserNameType)userNameType
+       userNameLength:(UMComUserNameLength)userNameLength
+           completion:(UMComRequestCompletion)completion
+{
+    [UMComRequestManager checkUserName:name userNameType:userNameType userNameLength:userNameLength completion:^(NSDictionary *responseObject, NSError *error) {
+        completion (responseObject,error);
+    }];
+}
+
++ (void)updateProfileWithName:(NSString *)name
+                          age:(NSNumber *)age
+                       gender:(NSNumber *)gender
+                       custom:(NSString *)custom
+                 userNameType:(UMComUserNameType)userNameType
+               userNameLength:(UMComUserNameLength)userNameLength
+                   completion:(UMComRequestCompletion)completion
+{
+   [UMComRequestManager updateProfileWithName:name age:age gender:gender custom:custom userNameType:userNameType userNameLength:userNameLength completion:^(NSDictionary *responseObject, NSError *error) {
+       completion (responseObject,error);
+   }];
+}
+
++ (void)userUpdateAvatarWithImage:(id)image
+                       completion:(UMComRequestCompletion)completion
+{
+   [UMComRequestManager userUpdateAvatarWithImage:image completion:^(NSDictionary *responseObject, NSError *error) {
+      completion (responseObject,error); 
+   }];
+}
+
++ (void)fecthUserFollowingsWithUid:(NSString *)uid
+                             count:(NSInteger)count
+                        completion:(UMComRequestCompletion)completion
+{
+    [UMComRequestManager fecthUserFollowingsWithUid:uid count:count completion:^(NSDictionary *responseObject, NSError *error) {
+        completion (responseObject,error);
+    }];
+}
 @end

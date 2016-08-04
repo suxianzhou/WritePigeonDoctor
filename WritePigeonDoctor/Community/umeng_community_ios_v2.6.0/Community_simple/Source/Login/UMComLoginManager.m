@@ -76,6 +76,8 @@ static UMComLoginManager *_instance = nil;
 
 + (void)performLogin:(UIViewController *)viewController completion:(void (^)(id responseObject, NSError *error))completion
 {
+    
+    NSLog(@"%d",[UMComSession sharedInstance].isLogin);
     if ([UMComSession sharedInstance].isLogin) {
         if (completion) {
             completion([UMComSession sharedInstance].uid,nil);
