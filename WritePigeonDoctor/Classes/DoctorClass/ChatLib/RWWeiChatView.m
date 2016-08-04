@@ -212,8 +212,10 @@ CGRect getTopRestrain(RWWeChatCell * cell)
             case RWTextMenuTypeOfCopy:
             {
                 UIPasteboard *paste = [UIPasteboard generalPasteboard];
-                paste.string =
-                            wechat.message.message[getKey(wechat.message.messageType)];
+                
+                EMTextMessageBody *body = (EMTextMessageBody *)wechat.message.message.body;
+                
+                paste.string = body.text;
                 
                 break;
 
@@ -392,10 +394,6 @@ CGRect getTopRestrain(RWWeChatCell * cell)
     [_contentImage addGestureRecognizer:tapImage];
     [_contentImage addGestureRecognizer:pressImage];
     
-//    UITapGestureRecognizer *tapVideo = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(videoPlay)];
-//    UILongPressGestureRecognizer *pressVideo = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(pressMessage)];
-//    pressVideo.minimumPressDuration = 1.5;
-    
 }
 
 #pragma mark - click
@@ -408,28 +406,28 @@ CGRect getTopRestrain(RWWeChatCell * cell)
             
             [_eventSource wechatCell:self
                                event:RWMessageEventPressText
-                             context:_message.message[getKey(RWMessageTypeText)]];
+                             context:_message.message];
             break;
             
         case RWMessageTypeImage:
             
             [_eventSource wechatCell:self
                                event:RWMessageEventPressImage
-                             context:_message.message[getKey(RWMessageTypeImage)]];
+                             context:_message.message];
             break;
             
         case RWMessageTypeVideo:
             
             [_eventSource wechatCell:self
                                event:RWMessageEventPressVideo
-                             context:_message.message[getKey(RWMessageTypeVideo)]];
+                             context:_message.message];
             break;
             
         case RWMessageTypeVoice:
             
             [_eventSource wechatCell:self
                                event:RWMessageEventPressVoice
-                             context:_message.message[getKey(RWMessageTypeVoice)]];
+                             context:_message.message];
             break;
             
         default: break;
@@ -440,11 +438,13 @@ CGRect getTopRestrain(RWWeChatCell * cell)
 {
     [_eventSource wechatCell:self
                        event:RWMessageEventTapVoice
-                     context:_message.message[getKey(RWMessageTypeVoice)][@"data"]];
+                     context:_message.message];
     
     [_voiceButton.playAnimation startAnimating];
     
-    NSInteger second = [_message.message[getKey(RWMessageTypeVoice)][@"time"] integerValue];
+    EMVoiceMessageBody *body = (EMVoiceMessageBody *)_message.message.body;
+    
+    NSInteger second = body.duration;
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(second * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
@@ -457,16 +457,20 @@ CGRect getTopRestrain(RWWeChatCell * cell)
 
 - (void)imageShow
 {
+    EMImageMessageBody *body = (EMImageMessageBody *)_message.message.body;
+    
     [_eventSource wechatCell:self
                        event:RWMessageEventTapImage
-                     context:_message.message[getKey(RWMessageTypeImage)]];
+                     context:[UIImage imageWithContentsOfFile:body.localPath]];
 }
 
 - (void)videoPlay
 {
+    EMVideoMessageBody *body = (EMVideoMessageBody *)_message.message.body;
+    
     [_eventSource wechatCell:self
                        event:RWMessageEventTapVideo
-                     context:_message.message[getKey(RWMessageTypeVideo)][@"data"]];
+                     context:body.localPath];
 }
 
 #pragma mark - settings With Type
@@ -493,7 +497,8 @@ CGRect getTopRestrain(RWWeChatCell * cell)
         _contentLabel.backgroundColor = [UIColor lightGrayColor];
     }
     
-    _contentLabel.textLabel.text = _message.message[getKey(RWMessageTypeText)];
+    EMTextMessageBody *body = (EMTextMessageBody *)_message.message.body;
+    _contentLabel.textLabel.text = body.text;
 }
 
 - (void)setVoiceMessageSettings
@@ -505,7 +510,9 @@ CGRect getTopRestrain(RWWeChatCell * cell)
     [_videoPlayer removeFromSuperview];
     _videoPlayer = nil;
     
-    NSString *second = [_message.message[getKey(RWMessageTypeVoice)][@"time"] stringValue];
+    EMVoiceMessageBody *body = (EMVoiceMessageBody *)_message.message.body;
+    
+    NSString *second = [NSString stringWithFormat:@"%d",body.duration];
     _voiceButton.second.text = [NSString stringWithFormat:@"%@“",second];
     
     if (_message.isMyMessage)
@@ -533,7 +540,9 @@ CGRect getTopRestrain(RWWeChatCell * cell)
     [self getAutoLayoutParameter];
     [_contentImage mas_remakeConstraints:_autoLayout];
     
-    _contentImage.image = _message.message[getKey(RWMessageTypeImage)];
+    EMImageMessageBody *body = (EMImageMessageBody *)_message.message.body;
+    
+    _contentImage.image = [UIImage imageWithContentsOfFile:body.thumbnailLocalPath];
 }
 
 - (void)setVideoMessageSettings
@@ -545,7 +554,9 @@ CGRect getTopRestrain(RWWeChatCell * cell)
     
     [self addSubview:[self getVideoPlayer]];
     
-    _videoPlayer.videoURL = [NSURL fileURLWithPath:_message.message[getKey(RWMessageTypeVideo)]];
+    EMVideoMessageBody *body = (EMVideoMessageBody *)_message.message.body;
+    
+    _videoPlayer.videoURL = [NSURL fileURLWithPath:body.localPath];
 }
 
 - (XZMicroVideoPlayerView *)getVideoPlayer
@@ -666,7 +677,9 @@ CGRect getTopRestrain(RWWeChatCell * cell)
     {
         case RWMessageTypeText:
         {
-            NSString *context = _message.message[getKey(RWMessageTypeText)];
+            EMTextMessageBody *body = (EMTextMessageBody *)_message.message.body;
+            
+            NSString *context = body.text;
             CGSize size = getFitSize(context, __RWCHAT_FONT__, 0, 1);
             
             if ((size.width + __TEXT_MARGINS__ * 2) < __TEXT_LENGHT__)
@@ -686,7 +699,9 @@ CGRect getTopRestrain(RWWeChatCell * cell)
         }
         case RWMessageTypeImage:
         {
-            UIImage *image = _message.message[getKey(RWMessageTypeImage)];
+            EMImageMessageBody *body = (EMImageMessageBody *)_message.message.body;
+            
+            UIImage *image = [UIImage imageWithContentsOfFile:body.thumbnailLocalPath];
             CGSize size = getFitImageSize(image);
             
             if (_message.isMyMessage)
@@ -704,7 +719,9 @@ CGRect getTopRestrain(RWWeChatCell * cell)
         }
         case RWMessageTypeVoice:
         {
-            NSInteger second = [_message.message[getKey(RWMessageTypeVoice)][@"time"] integerValue];
+            EMVoiceMessageBody *body = (EMVoiceMessageBody *)_message.message.body;
+            
+            NSInteger second = body.duration;
             
             CGFloat scale = second / 60.f;
             
@@ -757,11 +774,6 @@ CGRect getTopRestrain(RWWeChatCell * cell)
 }
 
 @end
-
-NSString *getKey(RWMessageType type)
-{
-    return [NSString stringWithFormat:@"%d",(int)type];
-}
 
 CGSize getFitSize(NSString *text,UIFont *font,CGFloat width,CGFloat lines)
 {
@@ -862,12 +874,18 @@ NSString *getDate(NSDate *messageDate)
 
 @implementation RWWeChatMessage
 
-+ (instancetype)message:(id)message type:(RWMessageType)type myMessage:(BOOL)isMyMessage messageDate:(NSDate *)messageDate showTime:(BOOL)showTime
++ (instancetype)message:(EMMessage *)message
+                 header:(UIImage *)header
+                   type:(RWMessageType)type
+              myMessage:(BOOL)isMyMessage
+            messageDate:(NSDate *)messageDate
+               showTime:(BOOL)showTime
 {
     RWWeChatMessage *item = [[RWWeChatMessage alloc] init];
     
+    item.header = header;
     item.showTime = showTime;
-    item.message = @{getKey(type):message};
+    item.message = message;
     item.isMyMessage = isMyMessage;
     [item setMessageType:type];
     
@@ -903,7 +921,9 @@ NSString *getDate(NSDate *messageDate)
     
     if (_messageType == RWMessageTypeText)
     {
-        NSString *text = _message[getKey(messageType)];
+        EMTextMessageBody *body = (EMTextMessageBody *)_message.body;
+        
+        NSString *text = body.text;
         CGSize itemSize = getFitSize(text, __RWCHAT_FONT__, __TEXT_LENGHT__, 0);
         
         _itemHeight = _itemHeight + itemSize.height + __MARGINS__ * 2 + __TEXT_MARGINS__ * 2 - __CELL_LENGTH__;
@@ -915,7 +935,9 @@ NSString *getDate(NSDate *messageDate)
     }
     else if (_messageType == RWMessageTypeImage)
     {
-        CGSize imageSize = getFitImageSize(_message[getKey(messageType)]);
+        EMImageMessageBody *body = (EMImageMessageBody *)_message.body;
+        
+        CGSize imageSize = getFitImageSize([UIImage imageWithContentsOfFile:body.thumbnailLocalPath]);
         
         _itemHeight = imageSize.height + __MARGINS__ * 2;
     }

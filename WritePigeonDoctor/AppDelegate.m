@@ -10,6 +10,8 @@
 #import "RWMainTabBarController.h"
 #import "UMComSession.h"
 #import "UMCommunity.h"
+#import "EMSDK.h"
+
 @interface AppDelegate ()
 
 @end
@@ -18,6 +20,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    EMOptions *options = [EMOptions optionsWithAppkey:__EMSDK_KEY__];
+    options.apnsCertName = @"Dev_WPD";
+    [[EMClient sharedClient] initializeSDKWithOptions:options];
     
     [UMComSession openLog:YES];
     [UMCommunity setAppKey:UMengCommunityAppkey withAppSecret:UMengCommunityAppSecret];
@@ -42,10 +48,14 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    [[EMClient sharedClient] applicationDidEnterBackground:application];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    
+    [[EMClient sharedClient] applicationWillEnterForeground:application];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {

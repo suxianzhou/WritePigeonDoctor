@@ -211,10 +211,10 @@
     
     [self deleteCafCache];
     NSLog(@"MP3转换结束");
-    if (_delegate && [_delegate respondsToSelector:@selector(endConvertWithData:)]) {
+    if (_delegate && [_delegate respondsToSelector:@selector(endConvertWithData:MP3Path:)]) {
         
         NSData *voiceData = [NSData dataWithContentsOfFile:[self mp3Path]];
-        [_delegate endConvertWithData:voiceData];
+        [_delegate endConvertWithData:voiceData MP3Path:[self mp3Path]];
     }
 }
 

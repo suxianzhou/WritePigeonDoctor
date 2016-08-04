@@ -7,73 +7,79 @@
 //
 
 #import "RWRequsetManager+UserLogin.h"
+#import "XZUMComPullRequest.h"
 
 @implementation RWRequsetManager (UserLogin)
 
 - (void)registerWithUsername:(NSString *)username AndPassword:(NSString *)password verificationCode:(NSString *)verificationCode
 {
-    
-//    UMComUserAccount *userAccount = [[UMComUserAccount alloc] init];
-//    
-//    userAccount.usid = username;
-//    userAccount.name = username;
-//    
-//    [UMComPushRequest loginWithCustomAccountForUser:userAccount completion:^(id responseObject, NSError *error) {
-//        
-//        if(!error)
-//        {
-//            NSDictionary *body = @{@"username":username,
-//                                   @"password":password,
-//                                   @"yzm":verificationCode};
-//            
-//            [self.manager POST:REGISTER_URL parameters:body progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//                
-//                NSDictionary *Json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
-//                
-//                if ([[Json objectForKey:@"resultCode"] integerValue] == 200)
-//                {
-//                    [[RWDeployManager defaultManager]
-//                                        changeLoginStatusWithStatus:DID_LOGIN
-//                                                           Username:username
-//                                                           Password:password
-//                                                   termOfEndearment:username];
-//                    
-//                    [self.delegate registerResponds:YES
-//                                        ErrorReason:nil];
-//                }
-//                else
-//                {
-//                    if ([Json objectForKey:@"result"])
-//                    {
-//                        [self.delegate registerResponds:NO
-//                                            ErrorReason:[Json objectForKey:@"result"]];
-//                    }
-//                    else
-//                    {
-//                        [self.delegate registerResponds:NO
-//                                            ErrorReason:@"注册失败"];
-//                    }
-//                }
-//                
-//            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//                
-//                [self.delegate registerResponds:NO
-//                                    ErrorReason:error.description];
-//            }];
-//        }
-//        else
-//        {
-//            
-//            [self.delegate registerResponds:NO
-//                                ErrorReason:error.description];
-//        }
-//    }];
+    [XZUMComPullRequest userCustomAccountLoginWithName:username
+                                              sourceId:username
+                                              icon_url:nil
+                                                gender:0
+                                                   age:20
+                                                custom:nil
+                                                 score:0
+                                            levelTitle:nil
+                                                 level:0
+                                     contextDictionary:nil
+                                          userNameType:userNameDefault
+                                        userNameLength:userNameLengthDefault
+                                            completion:^(NSDictionary *responseObject, NSError *error)
+     {
+         if(!error)
+         {
+             NSDictionary *body = @{@"username":username,
+                                    @"password":password};
+             
+             [self.requestManager POST:__USER_REGISTER__
+                            parameters:body
+                              progress:nil
+                               success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
+             {
+                 
+                 NSDictionary *Json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+                 
+                 if ([[Json objectForKey:@"resultCode"] integerValue] == 200)
+                 {
+                     
+//                     [self.delegate registerResponds:YES
+//                                         ErrorReason:nil];
+                 }
+                 else
+                 {
+                     if ([Json objectForKey:@"result"])
+                     {
+//                         [self.delegate registerResponds:NO
+//                                             ErrorReason:[Json objectForKey:@"result"]];
+                     }
+                     else
+                     {
+//                         [self.delegate registerResponds:NO
+//                                             ErrorReason:@"注册失败"];
+                     }
+                 }
+                 
+             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
+              {
+                  
+//                  [self.delegate registerResponds:NO
+//                                      ErrorReason:error.description];
+              }];
+         }
+         else
+         {
+             
+//             [self.delegate registerResponds:NO
+//                                 ErrorReason:error.description];
+         }
+    }];
 }
 
 - (void)userinfoWithUsername:(NSString *)username AndPassword:(NSString *)password
 {
 //    RWDeployManager *deploy = [RWDeployManager defaultManager];
-//    
+//
 //    UMComUserAccount *userAccount = [[UMComUserAccount alloc] init];
 //    
 //    userAccount.usid = username;

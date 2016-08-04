@@ -14,11 +14,13 @@
 
 @protocol FEButtonViewDelegate <NSObject>
 /**
- *  语音回调方法
+ *  语音回调
+ *
  *  @param voice  语音片段
  *  @param second 语音时间
+ *  @param path   语音路径
  */
-- (void) sendVoice:(NSData *)voice time:(NSInteger)second;
+- (void)sendVoice:(NSData *)voice time:(NSInteger)second MP3Path:(NSString *)path;
 
 
 @end

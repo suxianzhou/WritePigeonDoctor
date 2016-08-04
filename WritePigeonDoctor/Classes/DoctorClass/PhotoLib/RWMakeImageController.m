@@ -7,6 +7,7 @@
 //
 
 #import "RWMakeImageController.h"
+#import "RWChatManager.h"
 
 @interface RWMakeImageController ()
 
@@ -15,13 +16,13 @@
     UINavigationControllerDelegate
 >
 
-@property (nonatomic,copy)void(^selectedImage)(UIImage *image);
+@property (nonatomic,copy)void(^selectedImage)(NSData *imageData, NSString *imageName);
 
 @end
 
 @implementation RWMakeImageController
 
-+ (instancetype)makeImageWithSourceType:(UIImagePickerControllerSourceType)sourceType didSelectedImage:(void(^)(UIImage *image))selectedImage
++ (instancetype)makeImageWithSourceType:(UIImagePickerControllerSourceType)sourceType didSelectedImage:(void (^)(NSData *imageData, NSString *imageName))selectedImage
 {
     RWMakeImageController *makeImage = [[RWMakeImageController alloc] init];
     
@@ -42,7 +43,14 @@
 {
     if (_selectedImage)
     {
-        _selectedImage(image);
+        if (!UIImagePNGRepresentation(image))
+        {
+            _selectedImage(UIImageJPEGRepresentation(image, 1),[RWChatManager imageNameSuffix:@"jpg"]);
+        }
+        else
+        {
+            _selectedImage(UIImagePNGRepresentation(image),[RWChatManager imageNameSuffix:@"png"]);
+        }
     }
     
     [self dismissViewControllerAnimated:YES completion:nil];

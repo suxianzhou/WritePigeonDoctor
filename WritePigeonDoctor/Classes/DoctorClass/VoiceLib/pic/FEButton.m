@@ -159,9 +159,9 @@
 #pragma mark - Mp3RecorderDelegate
 
 //回调录音资料
-- (void)endConvertWithData:(NSData *)voiceData
+- (void)endConvertWithData:(NSData *)voiceData MP3Path:(NSString *)path
 {
-    [self.delegate sendVoice:voiceData time:playTime+1];
+    [self.delegate sendVoice:voiceData time:playTime+1 MP3Path:path];
     [FEProgressHUD dismissWithSuccess:@"发送成功"];
     
     //缓冲消失时间 (最好有block回调消失完成)

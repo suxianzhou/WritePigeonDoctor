@@ -10,6 +10,6 @@
 
 @interface RWMakeImageController : UIImagePickerController
 
-+ (instancetype)makeImageWithSourceType:(UIImagePickerControllerSourceType)sourceType didSelectedImage:(void(^)(UIImage *image))selectedImage;
++ (instancetype)makeImageWithSourceType:(UIImagePickerControllerSourceType)sourceType didSelectedImage:(void(^)(NSData *imageData,NSString *imageName))selectedImage;
 
 @end

@@ -26,6 +26,8 @@
 		126271A71D336F7F009D44A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 126271A61D336F7F009D44A0 /* Assets.xcassets */; };
 		126271B51D336F7F009D44A0 /* WritePigeonDoctorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 126271B41D336F7F009D44A0 /* WritePigeonDoctorTests.m */; };
 		126271C01D336F7F009D44A0 /* WritePigeonDoctorUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 126271BF1D336F7F009D44A0 /* WritePigeonDoctorUITests.m */; };
+		12A26A2B1D5239EB0046E163 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12A26A2A1D5239EB0046E163 /* CoreData.framework */; };
+		12A26A2E1D523BDC0046E163 /* PigeonDoctorDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 12A26A2C1D523BDC0046E163 /* PigeonDoctorDatabase.xcdatamodeld */; };
 		12A6AADD1D49FFDB00A0739C /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12A6AADC1D49FFDB00A0739C /* Launch Screen.storyboard */; };
 		12A6AAE01D4A071D00A0739C /* RWWPDBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A6AADF1D4A071D00A0739C /* RWWPDBaseController.m */; };
 		12C1AF741D4629040087ABA0 /* RWDoctorListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C1AF641D4629040087ABA0 /* RWDoctorListController.m */; };
@@ -203,6 +205,7 @@
 		12F1A27C1D4DA990007B5994 /* UMComKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F1A1F71D4DA990007B5994 /* UMComKit.m */; };
 		12F1A27D1D4DA990007B5994 /* UMComResourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F1A1FA1D4DA990007B5994 /* UMComResourceManager.m */; };
 		12F1A27E1D4DA990007B5994 /* UMComTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F1A1FC1D4DA990007B5994 /* UMComTools.m */; };
+		12F822741D51C898004B3E78 /* XZUMComPullRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F822731D51C898004B3E78 /* XZUMComPullRequest.m */; };
 		12FA40401D46F35E0084D50A /* RWWelcomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA403D1D46F35E0084D50A /* RWWelcomeController.m */; };
 		12FA40411D46F35E0084D50A /* RWWelcomeImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA403F1D46F35E0084D50A /* RWWelcomeImageCell.m */; };
 		12FA404C1D46F56E0084D50A /* RWRequsetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA40441D46F56E0084D50A /* RWRequsetManager.m */; };
@@ -269,6 +272,8 @@
 		126271BB1D336F7F009D44A0 /* WritePigeonDoctorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WritePigeonDoctorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		126271BF1D336F7F009D44A0 /* WritePigeonDoctorUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WritePigeonDoctorUITests.m; sourceTree = "<group>"; };
 		126271C11D336F7F009D44A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12A26A2A1D5239EB0046E163 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		12A26A2D1D523BDC0046E163 /* PigeonDoctorDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PigeonDoctorDatabase.xcdatamodel; sourceTree = "<group>"; };
 		12A6AADC1D49FFDB00A0739C /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		12A6AADE1D4A071D00A0739C /* RWWPDBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWWPDBaseController.h; sourceTree = "<group>"; };
 		12A6AADF1D4A071D00A0739C /* RWWPDBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWWPDBaseController.m; sourceTree = "<group>"; };
@@ -620,6 +625,8 @@
 		12F1A1FA1D4DA990007B5994 /* UMComResourceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComResourceManager.m; sourceTree = "<group>"; };
 		12F1A1FB1D4DA990007B5994 /* UMComTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComTools.h; sourceTree = "<group>"; };
 		12F1A1FC1D4DA990007B5994 /* UMComTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComTools.m; sourceTree = "<group>"; };
+		12F822721D51C898004B3E78 /* XZUMComPullRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XZUMComPullRequest.h; path = ../XZUMComPullRequest.h; sourceTree = "<group>"; };
+		12F822731D51C898004B3E78 /* XZUMComPullRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XZUMComPullRequest.m; path = ../XZUMComPullRequest.m; sourceTree = "<group>"; };
 		12FA403C1D46F35E0084D50A /* RWWelcomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWWelcomeController.h; sourceTree = "<group>"; };
 		12FA403D1D46F35E0084D50A /* RWWelcomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWWelcomeController.m; sourceTree = "<group>"; };
 		12FA403E1D46F35E0084D50A /* RWWelcomeImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWWelcomeImageCell.h; sourceTree = "<group>"; };
@@ -653,6 +660,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12A26A2B1D5239EB0046E163 /* CoreData.framework in Frameworks */,
 				123E9BC01D34A030009B61B5 /* libsqlite3.tbd in Frameworks */,
 				12F1A09E1D4D8B70007B5994 /* libmp3lame.a in Frameworks */,
 				12F1A2741D4DA990007B5994 /* libUMCommunitySDK.a in Frameworks */,
@@ -1067,6 +1075,8 @@
 			children = (
 				12F1A0A91D4DA990007B5994 /* RWCommunityController.h */,
 				12F1A0AA1D4DA990007B5994 /* RWCommunityController.m */,
+				12F822721D51C898004B3E78 /* XZUMComPullRequest.h */,
+				12F822731D51C898004B3E78 /* XZUMComPullRequest.m */,
 				12F1A0AB1D4DA990007B5994 /* umeng_community_ios_v2.6.0 */,
 			);
 			name = Community;
@@ -1812,6 +1822,7 @@
 		12FA40501D46F5720084D50A /* DataBase */ = {
 			isa = PBXGroup;
 			children = (
+				12A26A2C1D523BDC0046E163 /* PigeonDoctorDatabase.xcdatamodeld */,
 			);
 			name = DataBase;
 			sourceTree = "<group>";
@@ -1830,6 +1841,7 @@
 		442497FD92A093AD82020936 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				12A26A2A1D5239EB0046E163 /* CoreData.framework */,
 				75E7335217CD8786A2D3E4FC /* libPods.a */,
 			);
 			name = Frameworks;
@@ -2086,6 +2098,7 @@
 				12FA40571D46FD270084D50A /* RWChatManager.m in Sources */,
 				12F1A2591D4DA990007B5994 /* UMComSimpleNoticeTableViewController.m in Sources */,
 				12F1A24F1D4DA990007B5994 /* UMComLargeImageTableViewCell.m in Sources */,
+				12F822741D51C898004B3E78 /* XZUMComPullRequest.m in Sources */,
 				12F1A2471D4DA990007B5994 /* UMComSimpleFeedTableViewCell.m in Sources */,
 				12F1A24A1D4DA990007B5994 /* UMComSimpleTopicFeedTableViewController.m in Sources */,
 				12F1A2271D4DA990007B5994 /* UMImagePickerGroupCell.m in Sources */,
@@ -2208,6 +2221,7 @@
 				12F1A25E1D4DA990007B5994 /* UMComSimpleProfileSettingController.m in Sources */,
 				1262719C1D336F7F009D44A0 /* main.m in Sources */,
 				12F1A26D1D4DA990007B5994 /* UMComNoticeListDataController..m in Sources */,
+				12A26A2E1D523BDC0046E163 /* PigeonDoctorDatabase.xcdatamodeld in Sources */,
 				12023E6E1D4F59680027816B /* RWConsultViewController.m in Sources */,
 				12F1A2751D4DA990007B5994 /* UMComConfigFile.m in Sources */,
 				12F1A2571D4DA990007B5994 /* UMComSimpleCommentViewController.m in Sources */,
@@ -2415,8 +2429,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/HyphenateFullSDK\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"\"${PODS_ROOT}/Headers/Public/SVProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/Wonderful\"",
+					"\"${PODS_ROOT}/Headers/Public/YYKit\"",
+				);
 				INFOPLIST_FILE = WritePigeonDoctorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PODS_ROOT = "${SRCROOT}/Pods";
 				PRODUCT_BUNDLE_IDENTIFIER = RyeWhiskey.WritePigeonDoctorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WritePigeonDoctor.app/WritePigeonDoctor";
@@ -2427,8 +2453,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/HyphenateFullSDK\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"\"${PODS_ROOT}/Headers/Public/SVProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/Wonderful\"",
+					"\"${PODS_ROOT}/Headers/Public/YYKit\"",
+				);
 				INFOPLIST_FILE = WritePigeonDoctorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PODS_ROOT = "${SRCROOT}/Pods";
 				PRODUCT_BUNDLE_IDENTIFIER = RyeWhiskey.WritePigeonDoctorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WritePigeonDoctor.app/WritePigeonDoctor";
@@ -2438,6 +2476,17 @@
 		126271CB1D336F7F009D44A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/HyphenateFullSDK\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"\"${PODS_ROOT}/Headers/Public/SVProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/Wonderful\"",
+					"\"${PODS_ROOT}/Headers/Public/YYKit\"",
+				);
 				INFOPLIST_FILE = WritePigeonDoctorUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = RyeWhiskey.WritePigeonDoctorUITests;
@@ -2449,6 +2498,17 @@
 		126271CC1D336F7F009D44A0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/HyphenateFullSDK\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"\"${PODS_ROOT}/Headers/Public/SVProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/Wonderful\"",
+					"\"${PODS_ROOT}/Headers/Public/YYKit\"",
+				);
 				INFOPLIST_FILE = WritePigeonDoctorUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = RyeWhiskey.WritePigeonDoctorUITests;
@@ -2497,6 +2557,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		12A26A2C1D523BDC0046E163 /* PigeonDoctorDatabase.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				12A26A2D1D523BDC0046E163 /* PigeonDoctorDatabase.xcdatamodel */,
+			);
+			currentVersion = 12A26A2D1D523BDC0046E163 /* PigeonDoctorDatabase.xcdatamodel */;
+			path = PigeonDoctorDatabase.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1262718F1D336F7F009D44A0 /* Project object */;
 }

@@ -9,12 +9,15 @@
 #import <Foundation/Foundation.h>
 
 @protocol Mp3RecorderDelegate <NSObject>
+
 - (void)failRecord;
 - (void)beginConvert;
-- (void)endConvertWithData:(NSData *)voiceData;
+- (void)endConvertWithData:(NSData *)voiceData MP3Path:(NSString *)path;
+
 @end
 
 @interface Mp3Recorder : NSObject
+
 @property (nonatomic, weak) id<Mp3RecorderDelegate> delegate;
 @property(nonatomic,assign)float power;
 - (id)initWithDelegate:(id<Mp3RecorderDelegate>)delegate;

@@ -255,9 +255,17 @@
     {
         case RWPurposeMenuOfPhoto:
         {
-            RWMakeImageController *makeImage = [RWMakeImageController makeImageWithSourceType:UIImagePickerControllerSourceTypePhotoLibrary didSelectedImage:^(UIImage *image) {
+            RWMakeImageController *makeImage = [RWMakeImageController makeImageWithSourceType:UIImagePickerControllerSourceTypePhotoLibrary didSelectedImage:^(NSData *imageData, NSString *imageName)
+            {
                 
-                [self sendMessage:image type:RWMessageTypeImage];
+                [self sendMessage:
+                 
+                 [RWChatMessageMaker messageWithType:EMMessageBodyTypeImage
+                                                body:@{messageImageBody:imageData,
+                                                       messageImageName:imageName}
+                                           extension:nil]
+                 
+                             type:RWMessageTypeImage];
             }];
             
             if (makeImage)
@@ -273,9 +281,18 @@
         }
         case RWPurposeMenuOfCamera:
         {
-            RWMakeImageController *makeImage = [RWMakeImageController makeImageWithSourceType:UIImagePickerControllerSourceTypeCamera didSelectedImage:^(UIImage *image) {
+            RWMakeImageController *makeImage = [RWMakeImageController makeImageWithSourceType:UIImagePickerControllerSourceTypeCamera didSelectedImage:^(NSData *imageData, NSString *imageName)
+            {
                 
-                [self sendMessage:image type:RWMessageTypeImage];
+                
+                [self sendMessage:
+                 
+                 [RWChatMessageMaker messageWithType:EMMessageBodyTypeImage
+                                                body:@{messageImageBody:imageData,
+                                                       messageImageName:imageName}
+                                           extension:nil]
+                 
+                             type:RWMessageTypeImage];
                 
                 [makeImage dismissViewControllerAnimated:YES completion:nil];
             }];
@@ -325,12 +342,13 @@
 
 - (void)touchUpDone:(NSString *)savePath
 {
-    RWWeChatMessage *chatMessage = [RWWeChatMessage message:savePath
-                                                       type:RWMessageTypeVideo
-                                                  myMessage:YES
-                                                messageDate:[NSDate date]
-                                                   showTime:NO];
-    [_weChat addMessage:chatMessage];
+    EMMessage *message = [RWChatMessageMaker messageWithType:EMMessageBodyTypeVideo
+                                                        body:
+                                        @{messageVideoBody:savePath,
+                                          messageVideoName:[RWChatManager videoName]}
+                                                   extension:nil];
+    
+    [self sendMessage:message type:RWMessageTypeVideo];
 }
 
 - (void)videoViewWillRemoveFromSuperView
@@ -393,13 +411,6 @@
     [self.view addSubview:_weChat];
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    
-    
-}
-
 - (void)setMessages:(NSMutableArray *)messages
 {
     _messages = messages;
@@ -412,9 +423,11 @@
 
 #pragma mark - send message
 
-- (void)sendMessage:(id)message type:(RWMessageType)type
+- (void)sendMessage:(EMMessage *)message type:(RWMessageType)type
 {
     RWWeChatMessage *chatMessage = [RWWeChatMessage message:message
+                                                     header:
+                                                    [UIImage imageNamed:@"针灸推拿"]
                                                        type:type
                                                   myMessage:YES
                                                 messageDate:[NSDate date]

@@ -94,9 +94,16 @@
 
 #pragma mark - voice delegate
 
-- (void)sendVoice:(NSData *)voice time:(NSInteger)second
+- (void)sendVoice:(NSData *)voice time:(NSInteger)second MP3Path:(NSString *)path
 {
-    [_delegate sendMessage:@{@"time":@(second),@"data":voice}
+    [_delegate sendMessage:
+     
+     [RWChatMessageMaker messageWithType:EMMessageBodyTypeVoice
+                                    body:@{messageVideoBody:path,
+                                           messageVideoName:[RWChatManager voiceName],
+                                           messageVoiceDuration:@(second)}
+                               extension:nil]
+     
                       type:RWMessageTypeVoice];
 }
 
@@ -160,7 +167,13 @@
         
         if (_delegate)
         {
-            [_delegate sendMessage:textView.text type:RWMessageTypeText];
+            [_delegate sendMessage:
+             
+             [RWChatMessageMaker messageWithType:EMMessageBodyTypeText
+                                            body:@{messageTextBody:text}
+                                       extension:nil]
+             
+                              type:RWMessageTypeText];
         }
         
         textView.text = nil;
@@ -225,7 +238,15 @@
 {
     if (_delegate)
     {
-        [_delegate sendMessage:_makeTextMessage.textView.text type:RWMessageTypeText];
+        [_delegate sendMessage:
+         
+         [RWChatMessageMaker messageWithType:EMMessageBodyTypeText
+                                        body:
+                                    @{messageTextBody:_makeTextMessage.textView.text}
+                                   extension:nil]
+         
+                          type:RWMessageTypeText];
+        
         _makeTextMessage.textView.text = nil;
     }
 }

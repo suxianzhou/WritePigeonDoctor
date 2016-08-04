@@ -10,46 +10,91 @@
 
 @interface RWConsultViewController ()
 
+<
+    RWChatManagerDelegate
+>
+
+@property (nonatomic,strong)RWChatManager *chatManager;
+
 @end
 
 @implementation RWConsultViewController
 
-- (void)viewDidLoad {
+- (void)sendMessage:(EMMessage *)message type:(RWMessageType)type
+{
+    [super sendMessage:message type:type];
+    
+    //发送文字消息
+}
+
+- (void)touchUpDone:(NSString *)savePath
+{
+    [super touchUpDone:savePath];
+    
+    //视频消息
+}
+
+
+
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-//    NSMutableArray *arr = [[NSMutableArray alloc] init];
-//    
-//    for (int i = 0; i < 15; i++)
-//    {
-//        RWWeChatMessage *message = [RWWeChatMessage message:@"Hello World!" type:RWMessageTypeText myMessage:i%2 messageDate:[NSDate date] showTime:NO];
-//        
-//        [arr addObject:message];
-//    }
-//    
-//    for (int i = 0; i < 15; i++)
-//    {
-//        RWWeChatMessage *message = [RWWeChatMessage message:[UIImage imageNamed:@"someOne.jpg"] type:RWMessageTypeImage myMessage:i%2 messageDate:nil showTime:NO];
-//        
-//        [arr addObject:message];
-//    }
-//    
-//    self.messages = arr;
+    _chatManager = [RWChatManager defaultManager];
+    _chatManager.delegate = self;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)receiveMessage:(EMMessage *)message messageType:(EMMessageBodyType)messageType
+{
+    switch (messageType)
+    {
+        case EMMessageBodyTypeText:
+        {
+            [RWWeChatMessage message:message
+                              header:[UIImage imageNamed:@"MY"]
+                                type:RWMessageTypeText
+                           myMessage:NO
+                         messageDate:[NSDate date]
+                            showTime:NO];
+        }
+            break;
+        case EMMessageBodyTypeImage:
+        {
+            [RWWeChatMessage message:message
+                              header:[UIImage imageNamed:@"MY"]
+                                type:RWMessageTypeImage
+                           myMessage:NO
+                         messageDate:[NSDate date]
+                            showTime:NO];
+        }
+            break;
+        case EMMessageBodyTypeLocation:break;
+        case EMMessageBodyTypeVoice:
+        {
+            [RWWeChatMessage message:message
+                              header:[UIImage imageNamed:@"MY"]
+                                type:RWMessageTypeVoice
+                           myMessage:NO
+                         messageDate:[NSDate date]
+                            showTime:NO];
+        }
+            break;
+        case EMMessageBodyTypeVideo:
+        {
+            [RWWeChatMessage message:message
+                              header:[UIImage imageNamed:@"MY"]
+                                type:RWMessageTypeVideo
+                           myMessage:NO
+                         messageDate:[NSDate date]
+                            showTime:NO];
+        }
+            break;
+        case EMMessageBodyTypeFile:break;
+            
+        default:
+            break;
+    }
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

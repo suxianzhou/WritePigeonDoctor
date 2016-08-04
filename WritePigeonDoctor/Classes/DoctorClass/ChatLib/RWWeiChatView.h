@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Masonry.h"
+#import <EMSDK.h>
+#import "RWChatManager.h"
 #import "XZMicroVideoPlayerView.h"
 
 @class RWWeChatMessage ,RWWeChatView,RWWeChatCell;
@@ -32,9 +33,7 @@ typedef NS_ENUM(NSInteger,RWMessageEvent)
     RWMessageEventTapVideo
 };
 
-NSString *getKey(RWMessageType type);
 NSString *getDate(NSDate *messageDate);
-
 CGSize getFitSize(NSString *text,UIFont *font,CGFloat width,CGFloat lines);
 CGSize getFitImageSize(UIImage *image);
 CGFloat getArrowheadX(RWWeChatCell *cell);
@@ -66,18 +65,25 @@ CGRect getFitVideoSize(CGSize originalSize,BOOL isMyMessage);
 
 @interface RWWeChatMessage : NSObject
 
-+ (instancetype)message:(id)message type:(RWMessageType)type myMessage:(BOOL)isMyMessage messageDate:(NSDate *)messageDate showTime:(BOOL)showTime;
++ (instancetype)message:(EMMessage *)message
+                 header:(UIImage *)header
+                   type:(RWMessageType)type
+              myMessage:(BOOL)isMyMessage
+            messageDate:(NSDate *)messageDate
+               showTime:(BOOL)showTime;
 
 @property (nonatomic,assign)RWMessageType messageType;
 
+@property (nonatomic,strong)UIImage *header;
 @property (nonatomic,assign)BOOL isMyMessage;
 @property (nonatomic,assign)BOOL showTime;
 @property (nonatomic,assign,readonly)CGFloat itemHeight;
 
+
 @property (nonatomic,strong)NSDate *messageDate;
 @property (nonatomic,strong,readonly)NSString *dateString;
 
-@property (nonatomic,strong)NSDictionary<NSString *,id> *message;
+@property (nonatomic,strong)EMMessage *message;
 
 @end
 
