@@ -457,16 +457,34 @@ CGRect getTopRestrain(RWWeChatCell * cell)
 
 - (void)imageShow
 {
-    [_eventSource wechatCell:self
-                       event:RWMessageEventTapImage
-                     context:_message.message];
+    if (_message.originalResource)
+    {
+        [_eventSource wechatCell:self
+                           event:RWMessageEventTapImage
+                         context:_message.originalResource];
+    }
+    else
+    {
+        [_eventSource wechatCell:self
+                           event:RWMessageEventTapImage
+                         context:_message.message];
+    }
 }
 
 - (void)videoPlay
 {
-    [_eventSource wechatCell:self
-                       event:RWMessageEventTapVideo
-                     context:_message.message];
+    if (_message.originalResource)
+    {
+        [_eventSource wechatCell:self
+                           event:RWMessageEventTapVideo
+                         context:_message.originalResource];
+    }
+    else
+    {
+        [_eventSource wechatCell:self
+                           event:RWMessageEventTapVideo
+                         context:_message.message];
+    }
 }
 
 #pragma mark - settings With Type
@@ -536,9 +554,16 @@ CGRect getTopRestrain(RWWeChatCell * cell)
     [self getAutoLayoutParameter];
     [_contentImage mas_remakeConstraints:_autoLayout];
     
-    EMImageMessageBody *body = (EMImageMessageBody *)_message.message.body;
-    
-    _contentImage.image = [UIImage imageWithContentsOfFile:body.thumbnailLocalPath];
+    if (_message.originalResource)
+    {
+        _contentImage.image = [UIImage imageWithData:_message.originalResource];
+    }
+    else
+    {
+        EMImageMessageBody *body = (EMImageMessageBody *)_message.message.body;
+        
+        _contentImage.image = [UIImage imageWithContentsOfFile:body.localPath];
+    }
 }
 
 - (void)setVideoMessageSettings
@@ -550,9 +575,16 @@ CGRect getTopRestrain(RWWeChatCell * cell)
     
     [self addSubview:[self getVideoPlayer]];
     
-    EMVideoMessageBody *body = (EMVideoMessageBody *)_message.message.body;
-    
-    _videoPlayer.videoURL = [NSURL fileURLWithPath:body.localPath];
+    if (_message.originalResource)
+    {
+        _videoPlayer.videoURL = [NSURL fileURLWithPath:_message.originalResource];
+    }
+    else
+    {
+        EMVideoMessageBody *body = (EMVideoMessageBody *)_message.message.body;
+        
+        _videoPlayer.videoURL = [NSURL fileURLWithPath:body.localPath];
+    }
 }
 
 - (XZMicroVideoPlayerView *)getVideoPlayer
@@ -697,7 +729,10 @@ CGRect getTopRestrain(RWWeChatCell * cell)
         {
             EMImageMessageBody *body = (EMImageMessageBody *)_message.message.body;
             
-            UIImage *image = [UIImage imageWithContentsOfFile:body.thumbnailLocalPath];
+            UIImage *image = _message.originalResource?
+                            [UIImage imageWithData:_message.originalResource]:
+                            [UIImage imageWithContentsOfFile:body.localPath];
+            
             CGSize size = getFitImageSize(image);
             
             if (_message.isMyMessage)
@@ -876,6 +911,7 @@ NSString *getDate(NSDate *messageDate)
               myMessage:(BOOL)isMyMessage
             messageDate:(NSDate *)messageDate
                showTime:(BOOL)showTime
+       originalResource:(id)originalResource
 {
     RWWeChatMessage *item = [[RWWeChatMessage alloc] init];
     
@@ -883,6 +919,7 @@ NSString *getDate(NSDate *messageDate)
     item.showTime = showTime;
     item.message = message;
     item.isMyMessage = isMyMessage;
+    item.originalResource = originalResource;
     [item setMessageType:type];
     
     if (messageDate)
@@ -933,7 +970,11 @@ NSString *getDate(NSDate *messageDate)
     {
         EMImageMessageBody *body = (EMImageMessageBody *)_message.body;
         
-        CGSize imageSize = getFitImageSize([UIImage imageWithContentsOfFile:body.thumbnailLocalPath]);
+        UIImage *image = _originalResource?
+                        [UIImage imageWithData:_originalResource]:
+                        [UIImage imageWithContentsOfFile:body.localPath];
+
+        CGSize imageSize = getFitImageSize(image);
         
         _itemHeight = imageSize.height + __MARGINS__ * 2;
     }

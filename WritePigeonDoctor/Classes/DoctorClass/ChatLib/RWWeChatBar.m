@@ -104,7 +104,7 @@
                                            messageVoiceDuration:@(second)}
                                extension:nil]
      
-                      type:RWMessageTypeVoice];
+                      type:RWMessageTypeVoice LocalResource:voice];
 }
 
 - (void)setDefaultSettings
@@ -173,7 +173,8 @@
                                             body:@{messageTextBody:textView.text}
                                        extension:nil]
              
-                              type:RWMessageTypeText];
+                              type:RWMessageTypeText
+                     LocalResource:nil];
         }
         
         textView.text = nil;
@@ -245,7 +246,8 @@
                                     @{messageTextBody:_makeTextMessage.textView.text}
                                    extension:nil]
          
-                          type:RWMessageTypeText];
+                          type:RWMessageTypeText
+                 LocalResource:nil];
         
         _makeTextMessage.textView.text = nil;
     }

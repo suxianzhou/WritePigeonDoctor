@@ -271,7 +271,8 @@
                                                        messageImageName:imageName}
                                            extension:nil]
                  
-                             type:RWMessageTypeImage];
+                             type:RWMessageTypeImage
+                    LocalResource:imageData];
             }];
             
             if (makeImage)
@@ -298,7 +299,8 @@
                                                        messageImageName:imageName}
                                            extension:nil]
                  
-                             type:RWMessageTypeImage];
+                             type:RWMessageTypeImage
+                    LocalResource:imageData];
                 
                 [makeImage dismissViewControllerAnimated:YES completion:nil];
             }];
@@ -354,7 +356,8 @@
                                           messageVideoName:[RWChatManager videoName]}
                                                    extension:nil];
     
-    [self sendMessage:message type:RWMessageTypeVideo];
+    [self sendMessage:message type:RWMessageTypeVideo
+        LocalResource:savePath];
 }
 
 - (void)videoViewWillRemoveFromSuperView
@@ -429,7 +432,7 @@
 
 #pragma mark - send message
 
-- (void)sendMessage:(EMMessage *)message type:(RWMessageType)type
+- (void)sendMessage:(EMMessage *)message type:(RWMessageType)type LocalResource:(id)resource
 {
     RWWeChatMessage *chatMessage = [RWWeChatMessage message:message
                                                      header:
@@ -437,7 +440,8 @@
                                                        type:type
                                                   myMessage:YES
                                                 messageDate:[NSDate date]
-                                                   showTime:NO];
+                                                   showTime:NO
+                                           originalResource:resource];
     
     [_weChat addMessage:chatMessage];
 }

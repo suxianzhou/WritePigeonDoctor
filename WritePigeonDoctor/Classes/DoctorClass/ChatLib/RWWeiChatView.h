@@ -70,7 +70,8 @@ CGRect getFitVideoSize(CGSize originalSize,BOOL isMyMessage);
                    type:(RWMessageType)type
               myMessage:(BOOL)isMyMessage
             messageDate:(NSDate *)messageDate
-               showTime:(BOOL)showTime;
+               showTime:(BOOL)showTime
+       originalResource:(id)originalResource;
 
 @property (nonatomic,assign)RWMessageType messageType;
 
@@ -84,6 +85,8 @@ CGRect getFitVideoSize(CGSize originalSize,BOOL isMyMessage);
 @property (nonatomic,strong,readonly)NSString *dateString;
 
 @property (nonatomic,strong)EMMessage *message;
+
+@property (nonatomic,strong)id originalResource;
 
 @end
 

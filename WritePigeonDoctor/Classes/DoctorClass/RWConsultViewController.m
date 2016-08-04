@@ -21,7 +21,7 @@
 
 @implementation RWConsultViewController
 
-- (void)sendMessage:(EMMessage *)message type:(RWMessageType)type
+- (void)sendMessage:(EMMessage *)message type:(RWMessageType)type LocalResource:(id)resource
 {
     [_chatManager.chatManager asyncSendMessage:message progress:nil completion:^(EMMessage *message, EMError *error) {
        
@@ -31,7 +31,7 @@
         }
     }];
     
-    [super sendMessage:message type:type];
+    [super sendMessage:message type:type LocalResource:resource];
 }
 
 - (void)viewDidLoad
@@ -62,7 +62,8 @@
                                  type:RWMessageTypeText
                             myMessage:NO
                           messageDate:[NSDate date]
-                             showTime:NO]
+                             showTime:NO
+                     originalResource:nil]
              ];
         }
             break;
@@ -75,7 +76,8 @@
                                  type:RWMessageTypeImage
                             myMessage:NO
                           messageDate:[NSDate date]
-                             showTime:NO]
+                             showTime:NO
+                     originalResource:nil]
              ];
         }
             break;
@@ -89,7 +91,8 @@
                                  type:RWMessageTypeVoice
                             myMessage:NO
                           messageDate:[NSDate date]
-                             showTime:NO]
+                             showTime:NO
+                     originalResource:nil]
              ];
         }
             break;
@@ -102,7 +105,8 @@
                                  type:RWMessageTypeVideo
                             myMessage:NO
                           messageDate:[NSDate date]
-                             showTime:NO]
+                             showTime:NO
+                     originalResource:nil]
              ];
         }
             break;

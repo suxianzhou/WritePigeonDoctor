@@ -65,14 +65,22 @@ const NSString *messageVideoBody = @"messageVideoBody";
     {
         __block EMMessageBody *msgBody = msg.body;
         
-        if (msgBody.type != EMMessageBodyTypeText ||
+        if (msgBody.type != EMMessageBodyTypeText &&
             msgBody.type != EMMessageBodyTypeVoice)
         {
             [_chatManager asyncDownloadMessageAttachments:msg
                                                  progress:nil
                                                completion:^(EMMessage *message, EMError *error)
              {
-                 [_delegate receiveMessage:message messageType:msgBody.type];
+                 if (!error)
+                 {
+                     EMFileMessageBody *body = (EMFileMessageBody *)message.body;
+                     
+                     if ([NSData dataWithContentsOfFile:body.localPath])
+                     {
+                        [_delegate receiveMessage:message messageType:msgBody.type];
+                     }
+                 }
              }];
         }
         else
