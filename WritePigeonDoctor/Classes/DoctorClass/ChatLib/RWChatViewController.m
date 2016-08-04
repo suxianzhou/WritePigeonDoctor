@@ -12,7 +12,7 @@
 
 #pragma mark - chatView - delegate
 
-- (void)wechatCell:(RWWeChatCell *)wechat event:(RWMessageEvent)event context:(id)context
+- (void)wechatCell:(RWWeChatCell *)wechat event:(RWMessageEvent)event context:(EMMessage *)context
 {
     switch (event)
     {
@@ -43,17 +43,23 @@
                 }];
             }
             
-            [RWPhotoAlbum photoAlbumWithImage:context];
+            EMImageMessageBody *body = (EMImageMessageBody *)context.body;
+            
+            [RWPhotoAlbum photoAlbumWithImage:[UIImage imageWithContentsOfFile:body.localPath]];
             
             break;
         }
         case RWMessageEventTapVoice:
         {
+            EMVoiceMessageBody *body = (EMVoiceMessageBody *)context.body;
+            
+            NSData *voiceData = [NSData dataWithContentsOfFile:body.localPath];
+            
             if (_audioPlayer)
             {
                 [_audioPlayer stop];
                 
-                if (_audioPlayer.data == context)
+                if (_audioPlayer.data == voiceData)
                 {
                     _audioPlayer = nil;
                     
@@ -86,7 +92,7 @@
                 _audioPlayer = nil;
             }
             
-            _audioPlayer = [[AVAudioPlayer alloc] initWithData:context error:nil];
+            _audioPlayer = [[AVAudioPlayer alloc] initWithData:voiceData error:nil];
             _audioPlayer.delegate = self;
             
             _playing = wechat;
@@ -427,7 +433,7 @@
 {
     RWWeChatMessage *chatMessage = [RWWeChatMessage message:message
                                                      header:
-                                                    [UIImage imageNamed:@"针灸推拿"]
+                                                    [UIImage imageNamed:@"MY"]
                                                        type:type
                                                   myMessage:YES
                                                 messageDate:[NSDate date]

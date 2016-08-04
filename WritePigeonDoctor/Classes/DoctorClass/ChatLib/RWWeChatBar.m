@@ -99,8 +99,8 @@
     [_delegate sendMessage:
      
      [RWChatMessageMaker messageWithType:EMMessageBodyTypeVoice
-                                    body:@{messageVideoBody:path,
-                                           messageVideoName:[RWChatManager voiceName],
+                                    body:@{messageVideoBody:voice,
+                                           messageVideoName:@"mp3.caf",
                                            messageVoiceDuration:@(second)}
                                extension:nil]
      
@@ -170,7 +170,7 @@
             [_delegate sendMessage:
              
              [RWChatMessageMaker messageWithType:EMMessageBodyTypeText
-                                            body:@{messageTextBody:text}
+                                            body:@{messageTextBody:textView.text}
                                        extension:nil]
              
                               type:RWMessageTypeText];

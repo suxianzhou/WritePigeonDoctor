@@ -8,6 +8,7 @@
 
 #import "RWRequsetManager+UserLogin.h"
 #import "XZUMComPullRequest.h"
+#import <EMSDK.h>
 
 @implementation RWRequsetManager (UserLogin)
 
@@ -78,54 +79,68 @@
 
 - (void)userinfoWithUsername:(NSString *)username AndPassword:(NSString *)password
 {
-//    RWDeployManager *deploy = [RWDeployManager defaultManager];
-//
-//    UMComUserAccount *userAccount = [[UMComUserAccount alloc] init];
-//    
-//    userAccount.usid = username;
-//    userAccount.name = username;
-//    
-//    [UMComPushRequest loginWithCustomAccountForUser:userAccount completion:^(id responseObject, NSError *error) {
-//        
-//        NSLog(@"res = %@",responseObject);
-//        
-//        if(!error)
-//        {
-//            NSDictionary *body = @{@"username":username,@"password":password};
-//            
-//            [self.manager POST:LOGIN_URL parameters:body progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//                
-//                NSDictionary *Json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
-//                
-//                if ([[Json objectForKey:@"resultCode"] integerValue] == 200)
-//                {
-//                    
-//                    
-//                    [deploy changeLoginStatusWithStatus:DID_LOGIN
-//                                               Username:username
-//                                               Password:password
-//                                       termOfEndearment:userAccount.name];
-//                    
-//                    [self.delegate userLoginResponds:YES ErrorReason:nil];
-//                }
-//                else
-//                {
-//                    [self.delegate userLoginResponds:NO
-//                                         ErrorReason:[Json objectForKey:@"result"]];
-//                }
-//                
-//            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
-//             {
-//                
-//                [self.delegate requestError:error Task:task];
-//            }];
-//        }
-//        else
-//        {
-//            [self.delegate userLoginResponds:NO
-//                                 ErrorReason:error.description];
-//        }
-//    }];
+    [XZUMComPullRequest userCustomAccountLoginWithName:username
+                                              sourceId:username
+                                              icon_url:nil
+                                                gender:0
+                                                   age:20
+                                                custom:nil
+                                                 score:0
+                                            levelTitle:nil
+                                                 level:0
+                                     contextDictionary:nil
+                                          userNameType:userNameDefault
+                                        userNameLength:userNameLengthDefault
+                                            completion:^(NSDictionary *responseObject, NSError *error)
+    {
+        if(!error)
+        {
+            NSDictionary *body = @{@"username":username,
+                                   @"password":password};
+            
+            [self.requestManager POST:__USER_LOGIN__
+                           parameters:body
+                             progress:nil
+                              success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
+             {
+                 
+                 NSDictionary *Json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+                 
+                 if ([[Json objectForKey:@"resultCode"] integerValue] == 200)
+                 {
+                     EMError *error =[[EMClient sharedClient]loginWithUsername:username
+                                                                      password:password];
+                     if (!error)
+                     {
+                         NSLog(@"登录成功");
+                     }
+                 }
+                 else
+                 {
+                     if ([Json objectForKey:@"result"])
+                     {
+                         //
+                     }
+                     else
+                     {
+                        //
+                     }
+                 }
+                 
+             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
+             {
+                 
+                 //                  [self.delegate registerResponds:NO
+                 //                                      ErrorReason:error.description];
+             }];
+        }
+        else
+        {
+            
+            //             [self.delegate registerResponds:NO
+            //                                 ErrorReason:error.description];
+        }
+    }];
 }
 
 - (void)replacePasswordWithUsername:(NSString *)username AndPassword:(NSString *)password verificationCode:(NSString *)verificationCode

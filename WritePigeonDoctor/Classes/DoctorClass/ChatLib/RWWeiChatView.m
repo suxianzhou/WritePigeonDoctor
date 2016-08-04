@@ -251,7 +251,7 @@ CGRect getTopRestrain(RWWeChatCell * cell)
 
 #pragma mark - event Source
 
-- (void)wechatCell:(RWWeChatCell *)wechat event:(RWMessageEvent)event context:(id)context
+- (void)wechatCell:(RWWeChatCell *)wechat event:(RWMessageEvent)event context:(EMMessage *)context
 {
     [self removeTextMenu];
     
@@ -457,20 +457,16 @@ CGRect getTopRestrain(RWWeChatCell * cell)
 
 - (void)imageShow
 {
-    EMImageMessageBody *body = (EMImageMessageBody *)_message.message.body;
-    
     [_eventSource wechatCell:self
                        event:RWMessageEventTapImage
-                     context:[UIImage imageWithContentsOfFile:body.localPath]];
+                     context:_message.message];
 }
 
 - (void)videoPlay
 {
-    EMVideoMessageBody *body = (EMVideoMessageBody *)_message.message.body;
-    
     [_eventSource wechatCell:self
                        event:RWMessageEventTapVideo
-                     context:body.localPath];
+                     context:_message.message];
 }
 
 #pragma mark - settings With Type
@@ -626,7 +622,7 @@ CGRect getTopRestrain(RWWeChatCell * cell)
         make.right.equalTo(_headerImage.mas_left).offset(-5);
     }];
     
-    _headerImage.image = [UIImage imageNamed:@"表情"];
+    _headerImage.image = _message.header;
     _arrowheadImage.image = [[UIImage imageNamed:@"RightCa"] imageWithColor:__WPD_MAIN_COLOR__];
 }
 
@@ -655,7 +651,7 @@ CGRect getTopRestrain(RWWeChatCell * cell)
         make.left.equalTo(_headerImage.mas_right).offset(5);
     }];
     
-    _headerImage.image = [UIImage imageNamed:@"someOne.jpg"];
+    _headerImage.image = _message.header;
     _arrowheadImage.image = [[UIImage imageNamed:@"LifeCa"] imageWithColor:[UIColor lightGrayColor]];
 }
 

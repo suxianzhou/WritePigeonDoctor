@@ -137,9 +137,9 @@ const NSString *messageVideoBody = @"messageVideoBody";
     
     NSString *from = [[EMClient sharedClient] currentUsername];
 
-    EMMessage *message = [[EMMessage alloc] initWithConversationID:@"6001"
+    EMMessage *message = [[EMMessage alloc] initWithConversationID:@"iOSTest001"
                                                               from:from
-                                                                to:@"6001"
+                                                                to:@"iOSTest001"
                                                               body:nil
                                                                ext:extension];
     message.chatType = EMChatTypeChat;
@@ -161,7 +161,7 @@ const NSString *messageVideoBody = @"messageVideoBody";
         }
         case EMMessageBodyTypeVoice:
         {
-            EMVoiceMessageBody *voiceBody = [[EMVoiceMessageBody alloc] initWithLocalPath:body[messageVoiceBody] displayName:body[messageVoiceName]];
+            EMVoiceMessageBody *voiceBody = [[EMVoiceMessageBody alloc] initWithData:body[messageVoiceBody] displayName:body[messageVoiceName]];
             
             voiceBody.duration = [body[messageVoiceDuration] intValue];
             

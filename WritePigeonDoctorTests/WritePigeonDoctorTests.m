@@ -24,9 +24,12 @@
 {
     RWRequsetManager *manager = [[RWRequsetManager alloc] init];
     
-    [manager registerWithUsername:@"12345678121"
-                      AndPassword:@"123456"
+    [manager registerWithUsername:@"iOSTest002"
+                      AndPassword:@"iOSTest002"
                  verificationCode:@""];
+    
+    
+//    [manager userinfoWithUsername:@"12345678121" AndPassword:@"123"];
     
     CFRunLoopRun();
 }
