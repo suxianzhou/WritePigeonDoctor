@@ -96,15 +96,19 @@
 
 - (void)sendVoice:(NSData *)voice time:(NSInteger)second MP3Path:(NSString *)path
 {
+    NSString *name = [[path componentsSeparatedByString:@"/"] lastObject];
+    
     [_delegate sendMessage:
      
      [RWChatMessageMaker messageWithType:EMMessageBodyTypeVoice
                                     body:@{messageVideoBody:path,
-                                           messageVideoName:[RWChatManager voiceName],
+                                           messageVideoName:name,
                                            messageVoiceDuration:@(second)}
-                               extension:nil]
+                               extension:nil
+                                      to:@"iOSTest002"]
      
-                      type:RWMessageTypeVoice LocalResource:voice];
+                      type:RWMessageTypeVoice
+             LocalResource:voice];
 }
 
 - (void)setDefaultSettings
@@ -171,7 +175,8 @@
              
              [RWChatMessageMaker messageWithType:EMMessageBodyTypeText
                                             body:@{messageTextBody:textView.text}
-                                       extension:nil]
+                                       extension:nil
+                                              to:@"iOSTest002"]
              
                               type:RWMessageTypeText
                      LocalResource:nil];
@@ -244,7 +249,8 @@
          [RWChatMessageMaker messageWithType:EMMessageBodyTypeText
                                         body:
                                     @{messageTextBody:_makeTextMessage.textView.text}
-                                   extension:nil]
+                                   extension:nil
+                                          to:@"iOSTest002"]
          
                           type:RWMessageTypeText
                  LocalResource:nil];

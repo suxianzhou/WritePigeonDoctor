@@ -269,7 +269,8 @@
                  [RWChatMessageMaker messageWithType:EMMessageBodyTypeImage
                                                 body:@{messageImageBody:imageData,
                                                        messageImageName:imageName}
-                                           extension:nil]
+                                           extension:nil
+                                                  to:@"iOSTest002"]
                  
                              type:RWMessageTypeImage
                     LocalResource:imageData];
@@ -297,7 +298,8 @@
                  [RWChatMessageMaker messageWithType:EMMessageBodyTypeImage
                                                 body:@{messageImageBody:imageData,
                                                        messageImageName:imageName}
-                                           extension:nil]
+                                           extension:nil
+                                                  to:@"iOSTest002"]
                  
                              type:RWMessageTypeImage
                     LocalResource:imageData];
@@ -354,7 +356,8 @@
                                                         body:
                                         @{messageVideoBody:savePath,
                                           messageVideoName:[RWChatManager videoName]}
-                                                   extension:nil];
+                                                   extension:nil
+                                                          to:@"iOSTest002"];
     
     [self sendMessage:message type:RWMessageTypeVideo
         LocalResource:savePath];

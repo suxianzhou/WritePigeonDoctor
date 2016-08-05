@@ -56,6 +56,6 @@ extern NSString *messageVideoBody;
 
 @interface RWChatMessageMaker : NSObject
 
-+ (EMMessage *)messageWithType:(EMMessageBodyType)type body:(NSDictionary *)body extension:(NSDictionary *)extension;
++ (EMMessage *)messageWithType:(EMMessageBodyType)type body:(NSDictionary *)body extension:(NSDictionary *)extension to:(NSString *)toChatId;
 
 @end
