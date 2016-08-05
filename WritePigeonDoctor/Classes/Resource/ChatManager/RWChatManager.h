@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <EMSDK.h>
+#import <EMSDKFull.h>
 
 extern NSString *messageTextBody;
 extern NSString *messageImageName;

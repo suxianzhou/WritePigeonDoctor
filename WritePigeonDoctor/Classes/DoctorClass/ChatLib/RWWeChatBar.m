@@ -96,19 +96,7 @@
 
 - (void)sendVoice:(NSData *)voice time:(NSInteger)second MP3Path:(NSString *)path
 {
-    NSString *name = [[path componentsSeparatedByString:@"/"] lastObject];
-    
-    [_delegate sendMessage:
-     
-     [RWChatMessageMaker messageWithType:EMMessageBodyTypeVoice
-                                    body:@{messageVideoBody:path,
-                                           messageVideoName:name,
-                                           messageVoiceDuration:@(second)}
-                               extension:nil
-                                      to:@"iOSTest002"]
-     
-                      type:RWMessageTypeVoice
-             LocalResource:voice];
+    [_delegate sendVoice:voice time:second MP3Path:path];
 }
 
 - (void)setDefaultSettings

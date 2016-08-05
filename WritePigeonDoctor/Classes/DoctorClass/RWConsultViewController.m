@@ -47,6 +47,8 @@
     [ma userinfoWithUsername:@"iOSTest001" AndPassword:@"iOSTest001"];
     
     [_chatManager createConversationWithID:@"iOSTest001"];
+    
+    [_chatManager.client.callManager makeVideoCall:self.item.EMID error:nil];
 }
 
 - (void)receiveMessage:(EMMessage *)message messageType:(EMMessageBodyType)messageType
