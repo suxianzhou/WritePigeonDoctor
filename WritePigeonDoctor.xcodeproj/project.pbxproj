@@ -214,6 +214,7 @@
 		12FA404F1D46F56E0084D50A /* RWDeployManager+DateProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA404B1D46F56E0084D50A /* RWDeployManager+DateProcess.m */; };
 		12FA40571D46FD270084D50A /* RWChatManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA40561D46FD270084D50A /* RWChatManager.m */; };
 		12FA405A1D4703C50084D50A /* RWUserInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA40591D4703C50084D50A /* RWUserInformation.m */; };
+		12FB35F41D548FE7004BB669 /* MicroVideoSource.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12FB35F31D548FE7004BB669 /* MicroVideoSource.xcassets */; };
 		12FBCE9D1D485D8300A646DB /* RWDataModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FBCE9C1D485D8300A646DB /* RWDataModels.m */; };
 		12FBCEA01D4868F100A646DB /* RWOfficeListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FBCE9F1D4868F100A646DB /* RWOfficeListController.m */; };
 		12FBCEA31D486C7C00A646DB /* RWDoctorListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FBCEA21D486C7C00A646DB /* RWDoctorListCell.m */; };
@@ -645,6 +646,7 @@
 		12FA40561D46FD270084D50A /* RWChatManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWChatManager.m; sourceTree = "<group>"; };
 		12FA40581D4703C50084D50A /* RWUserInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWUserInformation.h; sourceTree = "<group>"; };
 		12FA40591D4703C50084D50A /* RWUserInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWUserInformation.m; sourceTree = "<group>"; };
+		12FB35F31D548FE7004BB669 /* MicroVideoSource.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MicroVideoSource.xcassets; sourceTree = "<group>"; };
 		12FBCE9B1D485D8300A646DB /* RWDataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWDataModels.h; sourceTree = "<group>"; };
 		12FBCE9C1D485D8300A646DB /* RWDataModels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWDataModels.m; sourceTree = "<group>"; };
 		12FBCE9E1D4868F100A646DB /* RWOfficeListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWOfficeListController.h; sourceTree = "<group>"; };
@@ -699,6 +701,7 @@
 				126271A31D336F7F009D44A0 /* Main.storyboard */,
 				12A6AADC1D49FFDB00A0739C /* Launch Screen.storyboard */,
 				126271A61D336F7F009D44A0 /* Assets.xcassets */,
+				12FB35F31D548FE7004BB669 /* MicroVideoSource.xcassets */,
 				126271AB1D336F7F009D44A0 /* Info.plist */,
 			);
 			name = Other;
@@ -2016,6 +2019,7 @@
 				12F1A0161D52D42D00151BB9 /* UMComSimplicityUserCenterViewController.xib in Resources */,
 				12F1A0A61D4D8B70007B5994 /* microphone5@2x.png in Resources */,
 				12E93DB41D4DAC8700F55FD5 /* 皮肤病科.jpg in Resources */,
+				12FB35F41D548FE7004BB669 /* MicroVideoSource.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
