@@ -126,11 +126,11 @@
 #endif
 
 #ifndef __KEYBOARD_HEIGHT__
-#define __KEYBOARD_HEIGHT__
+#define __KEYBOARD_HEIGHT__ 216.f
 #endif
 
 #ifndef __KEYBOARD_SIZE__
-#define __KEYBOARD_SIZE__ CGSizeMake(__MAIN_SCREEN_WIDTH__, 216.f)
+#define __KEYBOARD_SIZE__ CGSizeMake(__MAIN_SCREEN_WIDTH__, __KEYBOARD_HEIGHT__)
 #endif
 
 #ifndef __KEYBOARD_POINT__
@@ -152,7 +152,7 @@
 #endif
 
 #ifndef __DESCRIPTION_HEIGHT_CLOSE__
-#define __DESCRIPTION_HEIGHT_CLOSE__ __MAIN_SCREEN_WIDTH__ / 58 * 41
+#define __DESCRIPTION_HEIGHT_CLOSE__ 293.f
 #endif
 
 #ifndef __DESCRIPTION_HEIGHT_OPEN__

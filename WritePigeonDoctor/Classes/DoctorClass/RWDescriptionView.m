@@ -112,7 +112,7 @@
             tableView.scrollEnabled = NO;
             return __DESCRIPTION_HEIGHT_OPEN__;
         }
-        
+
         tableView.scrollEnabled = YES;
         return __DESCRIPTION_HEIGHT_CLOSE__;
     }
@@ -388,7 +388,13 @@
         
         _arrowhead = [[UIImageView alloc] init];
         [self addSubview:_arrowhead];
-//        _arrowhead.image = [UIImage imageNamed:@""];
+        _arrowhead.image = [UIImage imageNamed:@"closedescription"];
+        _arrowhead.userInteractionEnabled = YES;
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openAndClose)];
+        tap.numberOfTapsRequired = 1;
+        
+        [_arrowhead addGestureRecognizer:tap];
     }
     
     return self;
@@ -399,13 +405,13 @@
     if (_isOpen)
     {
         _isOpen = NO;
-        //        _arrowhead.image = [UIImage imageNamed:@""];
+        _arrowhead.image = [UIImage imageNamed:@"opendescription"];
         _switchControl(_isOpen);
     }
     else
     {
         _isOpen = YES;
-        //        _arrowhead.image = [UIImage imageNamed:@""];
+        _arrowhead.image = [UIImage imageNamed:@"closedescription"];
         _switchControl(_isOpen );
     }
 }
@@ -430,16 +436,16 @@
         
         [_openBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
             
-            make.width.equalTo(@(80));
+            make.width.equalTo(@(70));
             make.top.equalTo(self.mas_top).offset(0);
             make.bottom.equalTo(self.mas_bottom).offset(0);
-            make.centerX.equalTo(self.mas_centerX).offset(-self.bounds.size.height);
+            make.centerX.equalTo(self.mas_centerX).offset(-15);
         }];
         
         [_arrowhead mas_remakeConstraints:^(MASConstraintMaker *make) {
             
-            make.width.equalTo(@(self.bounds.size.height));
-            make.height.equalTo(@(self.bounds.size.height));
+            make.width.equalTo(@(30));
+            make.height.equalTo(@(30));
             make.left.equalTo(_openBtn.mas_right).offset(0);
             make.centerY.equalTo(self.mas_centerY).offset(0);
         }];
@@ -464,16 +470,16 @@
         
         [_openBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
            
-            make.width.equalTo(@(80));
+            make.width.equalTo(@(70));
             make.top.equalTo(self.mas_top).offset(0);
             make.bottom.equalTo(self.mas_bottom).offset(0);
-            make.centerX.equalTo(self.mas_centerX).offset(-self.bounds.size.height);
+            make.centerX.equalTo(self.mas_centerX).offset(-15);
         }];
         
         [_arrowhead mas_remakeConstraints:^(MASConstraintMaker *make) {
            
-            make.width.equalTo(@(self.bounds.size.height));
-            make.height.equalTo(@(self.bounds.size.height));
+            make.width.equalTo(@(30));
+            make.height.equalTo(@(30));
             make.left.equalTo(_openBtn.mas_right).offset(0);
             make.centerY.equalTo(self.mas_centerY).offset(0);
         }];
@@ -582,6 +588,7 @@
         
         _title = [[UILabel alloc] init];
         _title.text = @"    医生公告";
+        _title.font = __RWGET_SYSFONT(15.f);
         _title.backgroundColor = __WPD_MAIN_COLOR__;
         _title.textColor = [UIColor whiteColor];
         [self addSubview:_title];
@@ -649,6 +656,7 @@
 - (void)setDefaultSettings
 {
     _title.text = @"    出诊信息";
+    _title.font = __RWGET_SYSFONT(15.f);
     _title.backgroundColor = __WPD_MAIN_COLOR__;
     _title.textColor = [UIColor whiteColor];
     
@@ -656,10 +664,8 @@
     _detail.font = __RWGET_SYSFONT(14.f);
     _detail.textColor = [UIColor grayColor];
     
-//    _date.text = @"星期一 上午";
     _date.font = __RWGET_SYSFONT(14.f);
     
-//    _status.text = @"10：00 在青医附院XXX科室 坐诊";
     _status.font = __RWGET_SYSFONT(14.f);
 }
 
@@ -749,7 +755,7 @@
     }
     else
     {
-        UIImage *hasDay = [UIImage imageNamed:@"喇叭"];
+        UIImage *hasDay = [UIImage imageNamed:@"visitHomeYes"];
         
         switch (indexPath.row / 4)
         {

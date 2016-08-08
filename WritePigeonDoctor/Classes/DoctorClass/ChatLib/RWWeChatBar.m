@@ -286,7 +286,7 @@
                 _makeTextMessage.hidden = YES;
                 _makeVoiceMessage.hidden = NO;
                 _isTextMessage = NO;
-                _messageType.image = [UIImage imageNamed:@"keyboard"];
+                _messageType.image = [UIImage imageNamed:@"文字"];
             }
             else
             {
@@ -662,8 +662,8 @@ BOOL isContainsEmoji(NSString *string)
         _send = [[UIButton alloc] init];
         [self addSubview:_send];
         
-        [_send setTitle:@"发送" forState:UIControlStateNormal];
-        _send.backgroundColor = [UIColor blueColor];
+        [_send setTitle:@"发 送" forState:UIControlStateNormal];
+        _send.backgroundColor = __WPD_MAIN_COLOR__;
         _send.titleLabel.font = [UIFont systemFontOfSize:13];
         
         [_send addTarget:self
@@ -736,7 +736,7 @@ BOOL isContainsEmoji(NSString *string)
     
     [_send mas_makeConstraints:^(MASConstraintMaker *make) {
        
-        make.width.equalTo(@(40));
+        make.width.equalTo(@(60));
         make.right.equalTo(self.mas_right).offset(-10);
         make.top.equalTo(self.pageView.mas_bottom).offset(5);
         make.bottom.equalTo(self.mas_bottom).offset(-5);
@@ -812,7 +812,7 @@ BOOL isContainsEmoji(NSString *string)
     _resource = @[@[[UIImage imageNamed:@"照片"],
                     [UIImage imageNamed:@"拍摄"],
                     [UIImage imageNamed:@"小视频"],
-                    [UIImage imageNamed:@"小视频"],
+                    [UIImage imageNamed:@"语音聊天"],
                     [UIImage imageNamed:@"位置"],
                     [UIImage imageNamed:@"收藏"],
                     [UIImage imageNamed:@"个人名片"]]];
@@ -954,7 +954,14 @@ RWSquareTarget RWSquareTargetMake(NSUInteger horizontal,NSUInteger vertical)
 {
     RWInputViewItemCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([RWInputViewItemCell class]) forIndexPath:indexPath];
     
-    cell.item.text = _items[indexPath.row];
+    if ([_items[indexPath.row] isEqualToString:@"i"])
+    {
+        cell.imageItem.image = [UIImage imageNamed:@"取消"];
+    }
+    else
+    {
+        cell.item.text = _items[indexPath.row];
+    }
     
     return cell;
 }
@@ -976,18 +983,47 @@ RWSquareTarget RWSquareTargetMake(NSUInteger horizontal,NSUInteger vertical)
 
 @implementation RWInputViewItemCell
 
-- (instancetype)initWithFrame:(CGRect)frame
+- (UIImageView *)imageItem
 {
-    self = [super initWithFrame:frame];
+    if (_item)
+    {
+        [_item removeFromSuperview];
+        _item = nil;
+    }
     
-    if (self)
+    if (!_imageItem)
+    {
+        _imageItem = [[UIImageView alloc] init];
+        [self addSubview:_imageItem];
+        
+        [_imageItem mas_makeConstraints:^(MASConstraintMaker *make) {
+            
+            make.left.equalTo(self.mas_left).offset(5);
+            make.right.equalTo(self.mas_right).offset(-5);
+            make.bottom.equalTo(self.mas_bottom).offset(-5);
+            make.top.equalTo(self.mas_top).offset(5);
+        }];
+    }
+    
+    return _imageItem;
+}
+
+- (UILabel *)item
+{
+    if (_imageItem)
+    {
+        [_imageItem removeFromSuperview];
+        _imageItem = nil;
+    }
+    
+    if (!_item)
     {
         _item = [[UILabel alloc] init];
         _item.textAlignment = NSTextAlignmentCenter;
         [self addSubview:_item];
         
         [_item mas_makeConstraints:^(MASConstraintMaker *make) {
-           
+            
             make.left.equalTo(self.mas_left).offset(0);
             make.right.equalTo(self.mas_right).offset(0);
             make.bottom.equalTo(self.mas_bottom).offset(0);
@@ -995,7 +1031,7 @@ RWSquareTarget RWSquareTargetMake(NSUInteger horizontal,NSUInteger vertical)
         }];
     }
     
-    return self;
+    return _item;
 }
 
 @end
@@ -1025,9 +1061,6 @@ RWSquareTarget RWSquareTargetMake(NSUInteger horizontal,NSUInteger vertical)
         UICollectionViewFlowLayout *flowLayout =
                                             [[UICollectionViewFlowLayout alloc] init];
         flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
-        flowLayout.minimumLineSpacing = 0;
-        flowLayout.minimumInteritemSpacing = 0;
-        flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
         
         _itemsContainer = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, 0, 0) collectionViewLayout:flowLayout];
         
@@ -1086,7 +1119,35 @@ RWSquareTarget RWSquareTargetMake(NSUInteger horizontal,NSUInteger vertical)
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(collectionView.bounds.size.width/_square.horizontal, collectionView.bounds.size.height/_square.vertical);
+    CGFloat itemHeight = collectionView.frame.size.height / 2 - 10;
+    CGFloat itemWidth = itemHeight / 63 * 48;
+    
+    return CGSizeMake(itemWidth, itemHeight);
+}
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    CGFloat itemHeight = collectionView.frame.size.height / 2 - 10;
+    CGFloat itemWidth = itemHeight / 63 * 48;
+    
+    CGFloat marginWidth = (collectionView.frame.size.width / 4 - itemWidth) / 2;
+    
+    return UIEdgeInsetsMake(5, marginWidth, 5, marginWidth);
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 10;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
+{
+    CGFloat itemHeight = collectionView.frame.size.height / 2 - 10;
+    CGFloat itemWidth = itemHeight / 63 * 48;
+    
+    CGFloat marginWidth = (collectionView.frame.size.width / 4 - itemWidth) / 2;
+    
+    return marginWidth * 2;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath

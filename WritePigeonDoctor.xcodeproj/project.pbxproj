@@ -30,6 +30,13 @@
 		12A26A2E1D523BDC0046E163 /* PigeonDoctorDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 12A26A2C1D523BDC0046E163 /* PigeonDoctorDatabase.xcdatamodeld */; };
 		12A6AADD1D49FFDB00A0739C /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12A6AADC1D49FFDB00A0739C /* Launch Screen.storyboard */; };
 		12A6AAE01D4A071D00A0739C /* RWWPDBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A6AADF1D4A071D00A0739C /* RWWPDBaseController.m */; };
+		12BFA2511D5733E1007C86DF /* RWUserInformation+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BFA2461D5733E1007C86DF /* RWUserInformation+CoreDataProperties.m */; };
+		12BFA2521D5733E1007C86DF /* RWUserInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BFA2481D5733E1007C86DF /* RWUserInformation.m */; };
+		12BFA2531D5733E1007C86DF /* RWConsultHistory+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BFA24A1D5733E1007C86DF /* RWConsultHistory+CoreDataProperties.m */; };
+		12BFA2541D5733E1007C86DF /* RWConsultHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BFA24C1D5733E1007C86DF /* RWConsultHistory.m */; };
+		12BFA2551D5733E1007C86DF /* RWChatCache+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BFA24E1D5733E1007C86DF /* RWChatCache+CoreDataProperties.m */; };
+		12BFA2561D5733E1007C86DF /* RWChatCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BFA2501D5733E1007C86DF /* RWChatCache.m */; };
+		12BFA25A1D573508007C86DF /* RWObjectModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BFA2591D573508007C86DF /* RWObjectModels.m */; };
 		12C1AF741D4629040087ABA0 /* RWDoctorListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C1AF641D4629040087ABA0 /* RWDoctorListController.m */; };
 		12C1AF751D4629040087ABA0 /* RWMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C1AF6A1D4629040087ABA0 /* RWMainViewController.m */; };
 		12C1AF7A1D4629D10087ABA0 /* RWMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C1AF791D4629D10087ABA0 /* RWMainTabBarController.m */; };
@@ -215,7 +222,6 @@
 		12FA404E1D46F56E0084D50A /* RWDeployManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA40491D46F56E0084D50A /* RWDeployManager.m */; };
 		12FA404F1D46F56E0084D50A /* RWDeployManager+DateProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA404B1D46F56E0084D50A /* RWDeployManager+DateProcess.m */; };
 		12FA40571D46FD270084D50A /* RWChatManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA40561D46FD270084D50A /* RWChatManager.m */; };
-		12FA405A1D4703C50084D50A /* RWUserInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA40591D4703C50084D50A /* RWUserInformation.m */; };
 		12FB35F41D548FE7004BB669 /* MicroVideoSource.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12FB35F31D548FE7004BB669 /* MicroVideoSource.xcassets */; };
 		12FBCE9D1D485D8300A646DB /* RWDataModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FBCE9C1D485D8300A646DB /* RWDataModels.m */; };
 		12FBCEA01D4868F100A646DB /* RWOfficeListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FBCE9F1D4868F100A646DB /* RWOfficeListController.m */; };
@@ -280,6 +286,20 @@
 		12A6AADC1D49FFDB00A0739C /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		12A6AADE1D4A071D00A0739C /* RWWPDBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWWPDBaseController.h; sourceTree = "<group>"; };
 		12A6AADF1D4A071D00A0739C /* RWWPDBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWWPDBaseController.m; sourceTree = "<group>"; };
+		12BFA2451D5733E1007C86DF /* RWUserInformation+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RWUserInformation+CoreDataProperties.h"; sourceTree = "<group>"; };
+		12BFA2461D5733E1007C86DF /* RWUserInformation+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RWUserInformation+CoreDataProperties.m"; sourceTree = "<group>"; };
+		12BFA2471D5733E1007C86DF /* RWUserInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWUserInformation.h; sourceTree = "<group>"; };
+		12BFA2481D5733E1007C86DF /* RWUserInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWUserInformation.m; sourceTree = "<group>"; };
+		12BFA2491D5733E1007C86DF /* RWConsultHistory+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RWConsultHistory+CoreDataProperties.h"; sourceTree = "<group>"; };
+		12BFA24A1D5733E1007C86DF /* RWConsultHistory+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RWConsultHistory+CoreDataProperties.m"; sourceTree = "<group>"; };
+		12BFA24B1D5733E1007C86DF /* RWConsultHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWConsultHistory.h; sourceTree = "<group>"; };
+		12BFA24C1D5733E1007C86DF /* RWConsultHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWConsultHistory.m; sourceTree = "<group>"; };
+		12BFA24D1D5733E1007C86DF /* RWChatCache+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RWChatCache+CoreDataProperties.h"; sourceTree = "<group>"; };
+		12BFA24E1D5733E1007C86DF /* RWChatCache+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RWChatCache+CoreDataProperties.m"; sourceTree = "<group>"; };
+		12BFA24F1D5733E1007C86DF /* RWChatCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWChatCache.h; sourceTree = "<group>"; };
+		12BFA2501D5733E1007C86DF /* RWChatCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWChatCache.m; sourceTree = "<group>"; };
+		12BFA2581D573508007C86DF /* RWObjectModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWObjectModels.h; sourceTree = "<group>"; };
+		12BFA2591D573508007C86DF /* RWObjectModels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWObjectModels.m; sourceTree = "<group>"; };
 		12C1AF631D4629040087ABA0 /* RWDoctorListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWDoctorListController.h; sourceTree = "<group>"; };
 		12C1AF641D4629040087ABA0 /* RWDoctorListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWDoctorListController.m; sourceTree = "<group>"; };
 		12C1AF661D4629040087ABA0 /* Macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
@@ -651,8 +671,6 @@
 		12FA404B1D46F56E0084D50A /* RWDeployManager+DateProcess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RWDeployManager+DateProcess.m"; sourceTree = "<group>"; };
 		12FA40551D46FD270084D50A /* RWChatManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWChatManager.h; sourceTree = "<group>"; };
 		12FA40561D46FD270084D50A /* RWChatManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWChatManager.m; sourceTree = "<group>"; };
-		12FA40581D4703C50084D50A /* RWUserInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWUserInformation.h; sourceTree = "<group>"; };
-		12FA40591D4703C50084D50A /* RWUserInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWUserInformation.m; sourceTree = "<group>"; };
 		12FB35F31D548FE7004BB669 /* MicroVideoSource.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MicroVideoSource.xcassets; sourceTree = "<group>"; };
 		12FBCE9B1D485D8300A646DB /* RWDataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWDataModels.h; sourceTree = "<group>"; };
 		12FBCE9C1D485D8300A646DB /* RWDataModels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWDataModels.m; sourceTree = "<group>"; };
@@ -816,6 +834,25 @@
 				126271C11D336F7F009D44A0 /* Info.plist */,
 			);
 			path = WritePigeonDoctorUITests;
+			sourceTree = "<group>";
+		};
+		12BFA2441D5733BD007C86DF /* BaseModels */ = {
+			isa = PBXGroup;
+			children = (
+				12BFA2451D5733E1007C86DF /* RWUserInformation+CoreDataProperties.h */,
+				12BFA2461D5733E1007C86DF /* RWUserInformation+CoreDataProperties.m */,
+				12BFA2471D5733E1007C86DF /* RWUserInformation.h */,
+				12BFA2481D5733E1007C86DF /* RWUserInformation.m */,
+				12BFA2491D5733E1007C86DF /* RWConsultHistory+CoreDataProperties.h */,
+				12BFA24A1D5733E1007C86DF /* RWConsultHistory+CoreDataProperties.m */,
+				12BFA24B1D5733E1007C86DF /* RWConsultHistory.h */,
+				12BFA24C1D5733E1007C86DF /* RWConsultHistory.m */,
+				12BFA24D1D5733E1007C86DF /* RWChatCache+CoreDataProperties.h */,
+				12BFA24E1D5733E1007C86DF /* RWChatCache+CoreDataProperties.m */,
+				12BFA24F1D5733E1007C86DF /* RWChatCache.h */,
+				12BFA2501D5733E1007C86DF /* RWChatCache.m */,
+			);
+			name = BaseModels;
 			sourceTree = "<group>";
 		};
 		12C1AF611D4629040087ABA0 /* DataCenter */ = {
@@ -1835,6 +1872,9 @@
 		12FA40501D46F5720084D50A /* DataBase */ = {
 			isa = PBXGroup;
 			children = (
+				12BFA2581D573508007C86DF /* RWObjectModels.h */,
+				12BFA2591D573508007C86DF /* RWObjectModels.m */,
+				12BFA2441D5733BD007C86DF /* BaseModels */,
 				12A26A2C1D523BDC0046E163 /* PigeonDoctorDatabase.xcdatamodeld */,
 				12EA06BD1D56D7D40056A875 /* RWDataBaseManager.h */,
 				12EA06BE1D56D7D40056A875 /* RWDataBaseManager.m */,
@@ -1847,8 +1887,6 @@
 			children = (
 				12FA40551D46FD270084D50A /* RWChatManager.h */,
 				12FA40561D46FD270084D50A /* RWChatManager.m */,
-				12FA40581D4703C50084D50A /* RWUserInformation.h */,
-				12FA40591D4703C50084D50A /* RWUserInformation.m */,
 			);
 			path = ChatManager;
 			sourceTree = "<group>";
@@ -2111,6 +2149,7 @@
 				12EA086A1D5703070056A875 /* UMComFeedDetailTableViewCell.m in Sources */,
 				12EA083B1D5703070056A875 /* UMComMutiText.m in Sources */,
 				12EA08811D5703070056A875 /* UMComSimpleLoginViewController.m in Sources */,
+				12BFA2531D5733E1007C86DF /* RWConsultHistory+CoreDataProperties.m in Sources */,
 				12EA08391D5703070056A875 /* UMComMenuControlView.m in Sources */,
 				12FA404C1D46F56E0084D50A /* RWRequsetManager.m in Sources */,
 				1201DFAD1D4F55190002D2A9 /* RegisterViewController.m in Sources */,
@@ -2130,7 +2169,6 @@
 				12EA08861D5703070056A875 /* UMComCommentListDataController.m in Sources */,
 				12EA08751D5703070056A875 /* UMComSimpleLikeMyFeedViewController.m in Sources */,
 				12EA08741D5703070056A875 /* UMComSimpleCommentViewController.m in Sources */,
-				12FA405A1D4703C50084D50A /* RWUserInformation.m in Sources */,
 				12EA085C1D5703070056A875 /* UMComBriefEditViewController.m in Sources */,
 				12EA08301D5703070056A875 /* UMComProgressView.m in Sources */,
 				12EA086E1D5703070056A875 /* UMComLikeButtonTableViewCell.m in Sources */,
@@ -2143,6 +2181,7 @@
 				12EA08701D5703070056A875 /* UMComSimpleFeedDetailViewController.m in Sources */,
 				12EA08481D5703070056A875 /* UMComSegmentedControl.m in Sources */,
 				12EA085A1D5703070056A875 /* UINavigationBar+ChangeBackgroundColor.m in Sources */,
+				12BFA2551D5733E1007C86DF /* RWChatCache+CoreDataProperties.m in Sources */,
 				12EA08A21D57039D0056A875 /* XZMicroVideoPlayerView.m in Sources */,
 				12EA08981D5703070056A875 /* UMComKit+String.m in Sources */,
 				12EA084B1D5703070056A875 /* UMComiToast.m in Sources */,
@@ -2166,6 +2205,7 @@
 				12EA08951D5703070056A875 /* UMComKit+Autolayout.m in Sources */,
 				12EA083E1D5703070056A875 /* UMAssetsCollectionCell.m in Sources */,
 				12EA08531D5703070056A875 /* UMComAvatarImageView.m in Sources */,
+				12BFA2561D5733E1007C86DF /* RWChatCache.m in Sources */,
 				12EA08761D5703070056A875 /* UMComSimpleNoticeTableViewController.m in Sources */,
 				12EA08401D5703070056A875 /* UMAssetsCollectionController.m in Sources */,
 				12EA08221D5703070056A875 /* UMComViewController.m in Sources */,
@@ -2176,6 +2216,8 @@
 				12EA083A1D5703070056A875 /* UMComMutiStyleTextView.m in Sources */,
 				12EA08471D5703070056A875 /* UMComSearchBar.m in Sources */,
 				12EA08561D5703070056A875 /* UMComSimplicityFindTableViewCell.m in Sources */,
+				12BFA25A1D573508007C86DF /* RWObjectModels.m in Sources */,
+				12BFA2511D5733E1007C86DF /* RWUserInformation+CoreDataProperties.m in Sources */,
 				12EA08321D5703070056A875 /* UMComSimpleGridViewerController.m in Sources */,
 				1201DFAA1D4F55190002D2A9 /* FEBaseLoginController.m in Sources */,
 				12EA089C1D5703070056A875 /* XZUMComPullRequest.m in Sources */,
@@ -2212,6 +2254,8 @@
 				12EA084F1D5703070056A875 /* UMComEmojiPageView.m in Sources */,
 				12F1A09D1D4D8B70007B5994 /* FEProgressHUD.m in Sources */,
 				12F1A09A1D4D8B70007B5994 /* UIImage+XZMicroVideoPlayer.m in Sources */,
+				12BFA2521D5733E1007C86DF /* RWUserInformation.m in Sources */,
+				12BFA2541D5733E1007C86DF /* RWConsultHistory.m in Sources */,
 				12EA08891D5703070056A875 /* UMComFeedDetailDataController.m in Sources */,
 				12EA081A1D5703070056A875 /* RWCommunityController.m in Sources */,
 				12EA08451D5703070056A875 /* UMImagePickerThumbnailView.m in Sources */,

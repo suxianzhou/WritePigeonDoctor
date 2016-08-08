@@ -25,7 +25,8 @@
     if (self)
     {
         _imageView = [[UIImageView alloc] initWithFrame:self.bounds];
-        [self addSubview:_imageView];
+        [self.contentView addSubview:_imageView];
+        _imageView.userInteractionEnabled = YES;
     }
     
     return self;
@@ -58,8 +59,15 @@
     
     _offices = [[UICollectionView alloc] initWithFrame:self.view.bounds
                                   collectionViewLayout:flowLayout];
-    
     [self.view addSubview:_offices];
+    
+    [_offices mas_makeConstraints:^(MASConstraintMaker *make) {
+       
+        make.left.equalTo(self.view.mas_left).offset(0);
+        make.right.equalTo(self.view.mas_right).offset(0);
+        make.top.equalTo(self.view.mas_top).offset(0);
+        make.bottom.equalTo(self.view.mas_bottom).offset(0);
+    }];
     
     _offices.backgroundColor = [UIColor whiteColor];
     

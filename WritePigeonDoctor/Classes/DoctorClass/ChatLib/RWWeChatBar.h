@@ -153,6 +153,7 @@ RWSquareTarget RWSquareTargetMake(NSUInteger horizontal,NSUInteger vertical);
 @interface RWInputViewItemCell : UICollectionViewCell
 
 @property (nonatomic,strong)UILabel *item;
+@property (nonatomic,strong)UIImageView *imageItem;
 
 @end
 
