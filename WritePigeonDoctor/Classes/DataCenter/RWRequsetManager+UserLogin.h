@@ -21,6 +21,15 @@
  */
 - (void)registerWithUsername:(NSString *)username AndPassword:(NSString *)password verificationCode:(NSString *)verificationCode;
 /**
+ *  设置用户信息
+ *
+ *  @param header 头像
+ *  @param name   昵称
+ *  @param age    年龄
+ *  @param sex    性别
+ */
+- (void)setUserHeader:(UIImage *)header name:(NSString *)name age:(NSString *)age sex:(NSString *)sex;
+/**
  *  用户登录
  *
  *  @param username 用户名

@@ -86,6 +86,11 @@
     }];
 }
 
+- (void)setUserHeader:(UIImage *)header name:(NSString *)name age:(NSString *)age sex:(NSString *)sex
+{
+    
+}
+
 - (void)userinfoWithUsername:(NSString *)username AndPassword:(NSString *)password
 {
     [XZUMComPullRequest userCustomAccountLoginWithName:username

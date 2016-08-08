@@ -7,6 +7,10 @@
 //
 
 #import "FEBaseLoginController.h"
+#import "FELoginTableCell.h"
+#import "YYKit.h"
+#import "UIColor+Wonderful.h"
+
 @interface FEBaseLoginController ()
 @property(nonatomic,strong)UIImageView * backImageView;
 
@@ -16,18 +20,23 @@
 
 @implementation FEBaseLoginController
 
+@synthesize viewList;
 
 - (void)viewDidLoad {
+   
     [super viewDidLoad];
     [self createBackImageView];
     [self createHeaderView];
     _tap=[self addTapGesture];
     
+    
 }
 
 -(void)createBackImageView{
     
-    _backImageView=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"311f1acbe389dbe322ffcf5305bc98d4.jpg"]];
+    _backImageView=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"1"]];
+    
+    
     _backImageView.frame=[UIScreen mainScreen].bounds;
     _backImageView.backgroundColor=[UIColor whiteColor];
     [self.view addSubview:_backImageView];
@@ -43,16 +52,20 @@
     
     backView.backgroundColor = [UIColor clearColor];
     [_backView addSubview:backView];
+    UIImageView * view=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"gg"]];
+    view.backgroundColor=[UIColor clearColor];
+    
+    [_backView addSubview:view];
+    
     UILabel *titleLabel = [[UILabel alloc]init];
     
     titleLabel.text = @"白鸽 · Doctor";
     titleLabel.numberOfLines = 0;
     titleLabel.textAlignment = NSTextAlignmentCenter;
 
-    titleLabel.font=[UIFont systemFontOfSize:30];
-    titleLabel.textColor = [UIColor blackColor];
-    titleLabel.shadowOffset = CGSizeMake(1, 1);
-    titleLabel.shadowColor = [UIColor yellowColor];
+    titleLabel.backgroundColor=[UIColor clearColor];
+    titleLabel.font=[UIFont systemFontOfSize:25];
+    titleLabel.textColor = [UIColor whiteColor];
     
     [backView addSubview:titleLabel];
     
@@ -60,17 +73,23 @@
         
         make.left.equalTo(_backView.mas_left).offset(40);
         make.right.equalTo(_backView.mas_right).offset(-40);
-        make.top.equalTo(_backView.mas_top).offset(20);
-        make.bottom.equalTo(_backView.mas_bottom).offset(-20);
+        make.top.equalTo(_backView.mas_top).offset(120);
+        make.bottom.equalTo(_backView.mas_bottom).offset(-10);
     }];
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.left.equalTo(backView.mas_left);
         make.right.equalTo(backView.mas_right);
-        make.top.equalTo(backView.mas_top);
+        make.top.equalTo(backView.mas_top).offset(backView.frame.size.height/2);
         make.bottom.equalTo(backView.mas_bottom);
     }];
-
+    [view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(_backView);
+        make.centerY.equalTo(_backView.mas_centerY);
+        make.width.equalTo(@(100));
+        make.height.equalTo(@(100));
+        
+    }];
     
     [_backView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view);

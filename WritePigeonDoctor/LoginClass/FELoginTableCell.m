@@ -39,16 +39,16 @@
 
     textField.backgroundColor=[UIColor clearColor];
     
-    textField.textColor = [UIColor whiteColor];
+    textField.textColor = [UIColor blackColor];
     
     textField.textAlignment=NSTextAlignmentCenter;
     
     textField.font = [UIFont fontWithName:@"Helvetica-Bold" size:16];
     
     textField.delegate = self;
-    bankgroundView.backgroundColor=[UIColor colorWithWhite:0.5f alpha:0.5];
+    bankgroundView.backgroundColor=[UIColor whiteColor];
     
-    bankgroundView.layer.cornerRadius=6;
+    bankgroundView.layer.cornerRadius=10;
     
     [bankgroundView addSubview:textField];
     
@@ -57,14 +57,16 @@
     [super setFrame:frame];
     
     __weak typeof(self) weakSelf = self;
-    [bankgroundView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [bankgroundView mas_makeConstraints:^(MASConstraintMaker *make)
+    {
         make.top.equalTo(weakSelf).offset(5);
         make.bottom.equalTo(weakSelf).offset(-5);
-        make.left.equalTo(weakSelf).offset(10);
-        make.right.equalTo(weakSelf).offset(-10);
+        make.left.equalTo(weakSelf).offset(20);
+        make.right.equalTo(weakSelf).offset(-20);
     }];
     
-    [textField mas_makeConstraints:^(MASConstraintMaker *make) {
+    [textField mas_makeConstraints:^(MASConstraintMaker *make)
+    {
         make.top.equalTo(bankgroundView).offset(3);
         make.bottom.equalTo(bankgroundView).offset(-3);
         make.left.equalTo(bankgroundView).offset(10);
@@ -147,10 +149,10 @@
     
     [button mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.left.equalTo(self.mas_left).offset(10);
-        make.right.equalTo(self.mas_right).offset(-10);
-        make.top.equalTo(self.mas_top).offset(5);
-        make.bottom.equalTo(self.mas_bottom).offset(-10);
+        make.left.equalTo(self.mas_left).offset(20);
+        make.right.equalTo(self.mas_right).offset(-20);
+        make.top.equalTo(self.mas_top).offset(10);
+        make.bottom.equalTo(self.mas_bottom).offset(-5);
     }];
     
     
@@ -202,14 +204,14 @@
     
     textField.backgroundColor=[UIColor clearColor];
     
-    textField.textColor = [UIColor whiteColor];
+    textField.textColor = [UIColor blackColor];
     
     textField.textAlignment=NSTextAlignmentCenter;
     
-    textField.font = [UIFont fontWithName:@"Helvetica-Bold" size:16];
+    textField.font = [UIFont systemFontOfSize:12];
     
     textField.delegate = self;
-    bankgroundView.backgroundColor=[UIColor colorWithWhite:0.5f alpha:0.5];
+    bankgroundView.backgroundColor=[UIColor whiteColor];
     bankgroundView.layer.cornerRadius=6;
     [bankgroundView addSubview:textField];
     
@@ -259,24 +261,24 @@
     
     __weak typeof(self) weakSelf = self;
     [bankgroundView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakSelf).offset(5);
-        make.bottom.equalTo(weakSelf).offset(-5);
-        make.left.equalTo(weakSelf).offset(10);
-        make.right.equalTo(weakSelf).offset(-self.frame.size.width/3-10);
+        make.top.equalTo(weakSelf).offset(8);
+        make.bottom.equalTo(weakSelf).offset(-8);
+        make.left.equalTo(weakSelf).offset(20);
+        make.right.equalTo(weakSelf).offset(-self.frame.size.width/3-20);
     }];
     
     [textField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(bankgroundView).offset(3);
-        make.bottom.equalTo(bankgroundView).offset(-3);
+        make.top.equalTo(bankgroundView).offset(5);
+        make.bottom.equalTo(bankgroundView).offset(-5);
         make.left.equalTo(bankgroundView).offset(10);
         make.right.equalTo(bankgroundView);
     }];
     
     [_button mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(textField);
-        make.bottom.equalTo(textField);
+        make.top.equalTo(bankgroundView);
+        make.bottom.equalTo(bankgroundView);
         make.left.equalTo(textField.mas_right).offset(10);
-        make.right.equalTo(weakSelf).offset(-15);
+        make.right.equalTo(weakSelf).offset(-25);
         
     }];
 }
@@ -324,7 +326,8 @@
     [self addSubview:bankgroundView];
     
     agreementButton=[[UIButton alloc]init];
-    agreementButton.backgroundColor=[UIColor orangeColor];
+//    agreementButton.backgroundColor=[UIColor orangeColor];
+    [agreementButton setImage:[UIImage imageNamed:@"duihao"] forState:(UIControlStateNormal)];
     [agreementButton addTarget:self action:@selector(FEbuttonClick) forControlEvents:(UIControlEventTouchUpInside)];
     
     [bankgroundView addSubview:agreementButton];

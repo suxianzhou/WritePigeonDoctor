@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1201DFA91D4F55190002D2A9 /* 311f1acbe389dbe322ffcf5305bc98d4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1201DFA01D4F55190002D2A9 /* 311f1acbe389dbe322ffcf5305bc98d4.jpg */; };
-		1201DFAA1D4F55190002D2A9 /* FEBaseLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1201DFA21D4F55190002D2A9 /* FEBaseLoginController.m */; };
-		1201DFAB1D4F55190002D2A9 /* FELoginTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1201DFA41D4F55190002D2A9 /* FELoginTableCell.m */; };
-		1201DFAC1D4F55190002D2A9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1201DFA61D4F55190002D2A9 /* LoginViewController.m */; };
-		1201DFAD1D4F55190002D2A9 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1201DFA81D4F55190002D2A9 /* RegisterViewController.m */; };
 		12023E6E1D4F59680027816B /* RWConsultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12023E6D1D4F59680027816B /* RWConsultViewController.m */; };
 		123E9BB81D349FC7009B61B5 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 123E9BB71D349FC7009B61B5 /* CoreTelephony.framework */; };
 		123E9BBA1D349FDA009B61B5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 123E9BB91D349FDA009B61B5 /* SystemConfiguration.framework */; };
@@ -20,6 +15,18 @@
 		123E9BC01D34A030009B61B5 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 123E9BBF1D34A030009B61B5 /* libsqlite3.tbd */; };
 		126095EA1D48AD1400A65AEE /* RWDoctorDescriptionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 126095E91D48AD1400A65AEE /* RWDoctorDescriptionController.m */; };
 		126095ED1D48ADD300A65AEE /* RWDescriptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 126095EC1D48ADD300A65AEE /* RWDescriptionView.m */; };
+		1260AC0B1D5891B000A1EBE7 /* 45195.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1260AC011D5891B000A1EBE7 /* 45195.jpg */; };
+		1260AC0C1D5891B000A1EBE7 /* FeedBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1260AC031D5891B000A1EBE7 /* FeedBackViewController.m */; };
+		1260AC0D1D5891B000A1EBE7 /* RWSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1260AC051D5891B000A1EBE7 /* RWSettingsViewController.m */; };
+		1260AC0E1D5891B000A1EBE7 /* status.png in Resources */ = {isa = PBXBuildFile; fileRef = 1260AC061D5891B000A1EBE7 /* status.png */; };
+		1260AC0F1D5891B000A1EBE7 /* WPD_SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1260AC081D5891B000A1EBE7 /* WPD_SVProgressHUD.m */; };
+		1260AC101D5891B000A1EBE7 /* XZSettingWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1260AC0A1D5891B000A1EBE7 /* XZSettingWebViewController.m */; };
+		1260AC1D1D5891CC00A1EBE7 /* FEBaseLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1260AC131D5891CC00A1EBE7 /* FEBaseLoginController.m */; };
+		1260AC1E1D5891CC00A1EBE7 /* FELoginTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1260AC151D5891CC00A1EBE7 /* FELoginTableCell.m */; };
+		1260AC1F1D5891CC00A1EBE7 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1260AC171D5891CC00A1EBE7 /* InfoViewController.m */; };
+		1260AC201D5891CC00A1EBE7 /* Login.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1260AC181D5891CC00A1EBE7 /* Login.xcassets */; };
+		1260AC211D5891CC00A1EBE7 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1260AC1A1D5891CC00A1EBE7 /* LoginViewController.m */; };
+		1260AC221D5891CC00A1EBE7 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1260AC1C1D5891CC00A1EBE7 /* RegisterViewController.m */; };
 		1262719C1D336F7F009D44A0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1262719B1D336F7F009D44A0 /* main.m */; };
 		1262719F1D336F7F009D44A0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1262719E1D336F7F009D44A0 /* AppDelegate.m */; };
 		126271A51D336F7F009D44A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 126271A31D336F7F009D44A0 /* Main.storyboard */; };
@@ -65,7 +72,6 @@
 		12E93DBD1D4DACAC00F55FD5 /* RWTestDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E93DBC1D4DACAC00F55FD5 /* RWTestDataSource.m */; };
 		12E93DBF1D4DDAFF00F55FD5 /* MY.png in Resources */ = {isa = PBXBuildFile; fileRef = 12E93DBE1D4DDAFF00F55FD5 /* MY.png */; };
 		12EA06BF1D56D7D40056A875 /* RWDataBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 12EA06BE1D56D7D40056A875 /* RWDataBaseManager.m */; };
-		12EA06C21D5702A50056A875 /* RWSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12EA06C11D5702A50056A875 /* RWSettingsViewController.m */; };
 		12EA081A1D5703070056A875 /* RWCommunityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12EA06C51D5703060056A875 /* RWCommunityController.m */; };
 		12EA081B1D5703070056A875 /* FZLanTingHei-L-GBK-M.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 12EA06C91D5703060056A875 /* FZLanTingHei-L-GBK-M.TTF */; };
 		12EA081C1D5703070056A875 /* UMCommunityStrings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 12EA06CA1D5703060056A875 /* UMCommunityStrings.strings */; };
@@ -249,15 +255,6 @@
 
 /* Begin PBXFileReference section */
 		06B0CD839B2FB4AEC160CE84 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		1201DFA01D4F55190002D2A9 /* 311f1acbe389dbe322ffcf5305bc98d4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 311f1acbe389dbe322ffcf5305bc98d4.jpg; sourceTree = "<group>"; };
-		1201DFA11D4F55190002D2A9 /* FEBaseLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FEBaseLoginController.h; sourceTree = "<group>"; };
-		1201DFA21D4F55190002D2A9 /* FEBaseLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FEBaseLoginController.m; sourceTree = "<group>"; };
-		1201DFA31D4F55190002D2A9 /* FELoginTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FELoginTableCell.h; sourceTree = "<group>"; };
-		1201DFA41D4F55190002D2A9 /* FELoginTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FELoginTableCell.m; sourceTree = "<group>"; };
-		1201DFA51D4F55190002D2A9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		1201DFA61D4F55190002D2A9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		1201DFA71D4F55190002D2A9 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
-		1201DFA81D4F55190002D2A9 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		12023E6C1D4F59680027816B /* RWConsultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWConsultViewController.h; sourceTree = "<group>"; };
 		12023E6D1D4F59680027816B /* RWConsultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWConsultViewController.m; sourceTree = "<group>"; };
 		123E9BB71D349FC7009B61B5 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -269,6 +266,27 @@
 		126095E91D48AD1400A65AEE /* RWDoctorDescriptionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWDoctorDescriptionController.m; sourceTree = "<group>"; };
 		126095EB1D48ADD300A65AEE /* RWDescriptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWDescriptionView.h; sourceTree = "<group>"; };
 		126095EC1D48ADD300A65AEE /* RWDescriptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWDescriptionView.m; sourceTree = "<group>"; };
+		1260AC011D5891B000A1EBE7 /* 45195.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 45195.jpg; sourceTree = "<group>"; };
+		1260AC021D5891B000A1EBE7 /* FeedBackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedBackViewController.h; sourceTree = "<group>"; };
+		1260AC031D5891B000A1EBE7 /* FeedBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedBackViewController.m; sourceTree = "<group>"; };
+		1260AC041D5891B000A1EBE7 /* RWSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWSettingsViewController.h; sourceTree = "<group>"; };
+		1260AC051D5891B000A1EBE7 /* RWSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWSettingsViewController.m; sourceTree = "<group>"; };
+		1260AC061D5891B000A1EBE7 /* status.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = status.png; sourceTree = "<group>"; };
+		1260AC071D5891B000A1EBE7 /* WPD_SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WPD_SVProgressHUD.h; sourceTree = "<group>"; };
+		1260AC081D5891B000A1EBE7 /* WPD_SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPD_SVProgressHUD.m; sourceTree = "<group>"; };
+		1260AC091D5891B000A1EBE7 /* XZSettingWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZSettingWebViewController.h; sourceTree = "<group>"; };
+		1260AC0A1D5891B000A1EBE7 /* XZSettingWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZSettingWebViewController.m; sourceTree = "<group>"; };
+		1260AC121D5891CC00A1EBE7 /* FEBaseLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FEBaseLoginController.h; sourceTree = "<group>"; };
+		1260AC131D5891CC00A1EBE7 /* FEBaseLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FEBaseLoginController.m; sourceTree = "<group>"; };
+		1260AC141D5891CC00A1EBE7 /* FELoginTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FELoginTableCell.h; sourceTree = "<group>"; };
+		1260AC151D5891CC00A1EBE7 /* FELoginTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FELoginTableCell.m; sourceTree = "<group>"; };
+		1260AC161D5891CC00A1EBE7 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		1260AC171D5891CC00A1EBE7 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		1260AC181D5891CC00A1EBE7 /* Login.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Login.xcassets; sourceTree = "<group>"; };
+		1260AC191D5891CC00A1EBE7 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		1260AC1A1D5891CC00A1EBE7 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		1260AC1B1D5891CC00A1EBE7 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		1260AC1C1D5891CC00A1EBE7 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		126271971D336F7F009D44A0 /* WritePigeonDoctor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WritePigeonDoctor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1262719B1D336F7F009D44A0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1262719D1D336F7F009D44A0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../AppDelegate.h; sourceTree = "<group>"; };
@@ -337,8 +355,6 @@
 		12E93DBE1D4DDAFF00F55FD5 /* MY.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MY.png; sourceTree = "<group>"; };
 		12EA06BD1D56D7D40056A875 /* RWDataBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWDataBaseManager.h; sourceTree = "<group>"; };
 		12EA06BE1D56D7D40056A875 /* RWDataBaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWDataBaseManager.m; sourceTree = "<group>"; };
-		12EA06C01D5702A50056A875 /* RWSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWSettingsViewController.h; sourceTree = "<group>"; };
-		12EA06C11D5702A50056A875 /* RWSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWSettingsViewController.m; sourceTree = "<group>"; };
 		12EA06C41D5703060056A875 /* RWCommunityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWCommunityController.h; sourceTree = "<group>"; };
 		12EA06C51D5703060056A875 /* RWCommunityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWCommunityController.m; sourceTree = "<group>"; };
 		12EA06C91D5703060056A875 /* FZLanTingHei-L-GBK-M.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FZLanTingHei-L-GBK-M.TTF"; sourceTree = "<group>"; };
@@ -751,32 +767,49 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		1201DF9F1D4F550A0002D2A9 /* LoginClass */ = {
-			isa = PBXGroup;
-			children = (
-				1201DFA01D4F55190002D2A9 /* 311f1acbe389dbe322ffcf5305bc98d4.jpg */,
-				1201DFA11D4F55190002D2A9 /* FEBaseLoginController.h */,
-				1201DFA21D4F55190002D2A9 /* FEBaseLoginController.m */,
-				1201DFA31D4F55190002D2A9 /* FELoginTableCell.h */,
-				1201DFA41D4F55190002D2A9 /* FELoginTableCell.m */,
-				1201DFA51D4F55190002D2A9 /* LoginViewController.h */,
-				1201DFA61D4F55190002D2A9 /* LoginViewController.m */,
-				1201DFA71D4F55190002D2A9 /* RegisterViewController.h */,
-				1201DFA81D4F55190002D2A9 /* RegisterViewController.m */,
-			);
-			name = LoginClass;
-			sourceTree = "<group>";
-		};
 		1236AA831D46ED1D00C65043 /* PageViews */ = {
 			isa = PBXGroup;
 			children = (
-				1201DF9F1D4F550A0002D2A9 /* LoginClass */,
 				12C1AF681D4629040087ABA0 /* MainClass */,
 				12C1AF621D4629040087ABA0 /* DoctorClass */,
 				12EA06C31D5703060056A875 /* Community */,
-				12C1AF701D4629040087ABA0 /* Settings */,
 			);
 			name = PageViews;
+			sourceTree = "<group>";
+		};
+		1260AC001D5891B000A1EBE7 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				1260AC011D5891B000A1EBE7 /* 45195.jpg */,
+				1260AC021D5891B000A1EBE7 /* FeedBackViewController.h */,
+				1260AC031D5891B000A1EBE7 /* FeedBackViewController.m */,
+				1260AC041D5891B000A1EBE7 /* RWSettingsViewController.h */,
+				1260AC051D5891B000A1EBE7 /* RWSettingsViewController.m */,
+				1260AC061D5891B000A1EBE7 /* status.png */,
+				1260AC071D5891B000A1EBE7 /* WPD_SVProgressHUD.h */,
+				1260AC081D5891B000A1EBE7 /* WPD_SVProgressHUD.m */,
+				1260AC091D5891B000A1EBE7 /* XZSettingWebViewController.h */,
+				1260AC0A1D5891B000A1EBE7 /* XZSettingWebViewController.m */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		1260AC111D5891CC00A1EBE7 /* LoginClass */ = {
+			isa = PBXGroup;
+			children = (
+				1260AC121D5891CC00A1EBE7 /* FEBaseLoginController.h */,
+				1260AC131D5891CC00A1EBE7 /* FEBaseLoginController.m */,
+				1260AC141D5891CC00A1EBE7 /* FELoginTableCell.h */,
+				1260AC151D5891CC00A1EBE7 /* FELoginTableCell.m */,
+				1260AC161D5891CC00A1EBE7 /* InfoViewController.h */,
+				1260AC171D5891CC00A1EBE7 /* InfoViewController.m */,
+				1260AC181D5891CC00A1EBE7 /* Login.xcassets */,
+				1260AC191D5891CC00A1EBE7 /* LoginViewController.h */,
+				1260AC1A1D5891CC00A1EBE7 /* LoginViewController.m */,
+				1260AC1B1D5891CC00A1EBE7 /* RegisterViewController.h */,
+				1260AC1C1D5891CC00A1EBE7 /* RegisterViewController.m */,
+			);
+			path = LoginClass;
 			sourceTree = "<group>";
 		};
 		1262718E1D336F7F009D44A0 = {
@@ -804,7 +837,9 @@
 		126271991D336F7F009D44A0 /* WritePigeonDoctor */ = {
 			isa = PBXGroup;
 			children = (
+				1260AC111D5891CC00A1EBE7 /* LoginClass */,
 				1236AA831D46ED1D00C65043 /* PageViews */,
+				1260AC001D5891B000A1EBE7 /* Settings */,
 				12C1AF6D1D4629040087ABA0 /* Resource */,
 				0472B7851D361F4200FE847E /* Other */,
 				0472B7861D361F7F00FE847E /* Framework */,
@@ -943,16 +978,6 @@
 			);
 			name = Resource;
 			path = Classes/Resource;
-			sourceTree = "<group>";
-		};
-		12C1AF701D4629040087ABA0 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				12EA06C01D5702A50056A875 /* RWSettingsViewController.h */,
-				12EA06C11D5702A50056A875 /* RWSettingsViewController.m */,
-			);
-			name = Settings;
-			path = Classes/Settings;
 			sourceTree = "<group>";
 		};
 		12E93D8D1D4DAC8700F55FD5 /* TestDataSource */ = {
@@ -2045,6 +2070,7 @@
 				12EA08571D5703070056A875 /* UMComSimplicityFindTableViewCell.xib in Resources */,
 				12EA08601D5703070056A875 /* UMComSelectTopicViewController.xib in Resources */,
 				12E93DB81D4DAC8700F55FD5 /* 血液病科.jpg in Resources */,
+				1260AC0B1D5891B000A1EBE7 /* 45195.jpg in Resources */,
 				12EA086D1D5703070056A875 /* UMComLargeImageTableViewCell.xib in Resources */,
 				12EA08821D5703070056A875 /* UMComSimpleLoginViewController.xib in Resources */,
 				12E93DA91D4DAC8700F55FD5 /* 中医男科.jpg in Resources */,
@@ -2060,13 +2086,13 @@
 				12E93DB61D4DAC8700F55FD5 /* 耳鼻喉科.jpg in Resources */,
 				12F1A0A41D4D8B70007B5994 /* microphone3@2x.png in Resources */,
 				12E93DAC1D4DAC8700F55FD5 /* 中医肾科.jpg in Resources */,
+				1260AC201D5891CC00A1EBE7 /* Login.xcassets in Resources */,
 				12E93DA61D4DAC8700F55FD5 /* 中医内科.jpg in Resources */,
 				12F1A0A31D4D8B70007B5994 /* microphone2@2x.png in Resources */,
 				12E93DA51D4DAC8700F55FD5 /* 中医儿科.jpg in Resources */,
 				12EA08591D5703070056A875 /* UMComSimplicityUserInfoBar.xib in Resources */,
 				12A6AADD1D49FFDB00A0739C /* Launch Screen.storyboard in Resources */,
 				12EA08731D5703070056A875 /* UMComSimpleAssociatedFeedTableViewCell.xib in Resources */,
-				1201DFA91D4F55190002D2A9 /* 311f1acbe389dbe322ffcf5305bc98d4.jpg in Resources */,
 				12EA082A1D5703070056A875 /* UMComCommentInput.xib in Resources */,
 				12E93DB01D4DAC8700F55FD5 /* 心血管科.jpg in Resources */,
 				126271A51D336F7F009D44A0 /* Main.storyboard in Resources */,
@@ -2076,6 +2102,7 @@
 				12F1A0A61D4D8B70007B5994 /* microphone5@2x.png in Resources */,
 				12E93DB41D4DAC8700F55FD5 /* 皮肤病科.jpg in Resources */,
 				12FB35F41D548FE7004BB669 /* MicroVideoSource.xcassets in Resources */,
+				1260AC0E1D5891B000A1EBE7 /* status.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2154,20 +2181,20 @@
 				12EA086A1D5703070056A875 /* UMComFeedDetailTableViewCell.m in Sources */,
 				12EA083B1D5703070056A875 /* UMComMutiText.m in Sources */,
 				12EA08811D5703070056A875 /* UMComSimpleLoginViewController.m in Sources */,
+				1260AC211D5891CC00A1EBE7 /* LoginViewController.m in Sources */,
 				12BFA2531D5733E1007C86DF /* RWConsultHistory+CoreDataProperties.m in Sources */,
 				12EA08391D5703070056A875 /* UMComMenuControlView.m in Sources */,
 				12FA404C1D46F56E0084D50A /* RWRequsetManager.m in Sources */,
-				1201DFAD1D4F55190002D2A9 /* RegisterViewController.m in Sources */,
 				12EA088F1D5703070056A875 /* UMComUserListDataController.m in Sources */,
 				12EA08241D5703070056A875 /* UMComActionPickerAddView.m in Sources */,
 				12EA08901D5703070056A875 /* UMComUserUpdateDataController.m in Sources */,
+				1260AC221D5891CC00A1EBE7 /* RegisterViewController.m in Sources */,
 				12EA08371D5703070056A875 /* UMComLabel.m in Sources */,
 				12EA083C1D5703070056A875 /* UMComMutiTextRun.m in Sources */,
 				12FA404D1D46F56E0084D50A /* RWRequsetManager+UserLogin.m in Sources */,
 				12EA08711D5703070056A875 /* UMComSimpleHomeViewController.m in Sources */,
 				12EA083F1D5703070056A875 /* UMAssetsCollectionCheckMarkView.m in Sources */,
 				12EA08551D5703070056A875 /* UMComSimplicityDiscoverViewController.m in Sources */,
-				1201DFAC1D4F55190002D2A9 /* LoginViewController.m in Sources */,
 				12EA08621D5703070056A875 /* UMComFeedImageCollectionViewCell.m in Sources */,
 				12EA08491D5703070056A875 /* UMComGridTableViewCell.m in Sources */,
 				12EA08521D5703070056A875 /* UMComWebView.m in Sources */,
@@ -2191,6 +2218,7 @@
 				12EA08981D5703070056A875 /* UMComKit+String.m in Sources */,
 				12EA084B1D5703070056A875 /* UMComiToast.m in Sources */,
 				12EA08421D5703070056A875 /* UMAssetsCollectionOverlayView.m in Sources */,
+				1260AC1E1D5891CC00A1EBE7 /* FELoginTableCell.m in Sources */,
 				12EA08361D5703070056A875 /* UMComSimpleHorizonMenuView.m in Sources */,
 				12C1AF741D4629040087ABA0 /* RWDoctorListController.m in Sources */,
 				12EA08281D5703070056A875 /* UMComButton.m in Sources */,
@@ -2199,9 +2227,9 @@
 				12EA08641D5703070056A875 /* UMComSimpleFeedTableViewCell.m in Sources */,
 				12EA06BF1D56D7D40056A875 /* RWDataBaseManager.m in Sources */,
 				12EA08721D5703070056A875 /* UMComSimpleAssociatedFeedTableViewCell.m in Sources */,
+				1260AC0C1D5891B000A1EBE7 /* FeedBackViewController.m in Sources */,
 				12EA08331D5703070056A875 /* UMImageProgressView.m in Sources */,
 				12EA089F1D57031A0056A875 /* UITabBar+badge.m in Sources */,
-				12EA06C21D5702A50056A875 /* RWSettingsViewController.m in Sources */,
 				12FA40401D46F35E0084D50A /* RWWelcomeController.m in Sources */,
 				12C1AF7A1D4629D10087ABA0 /* RWMainTabBarController.m in Sources */,
 				12EA08311D5703070056A875 /* UMComSimpleGridView.m in Sources */,
@@ -2225,7 +2253,6 @@
 				12BFA25A1D573508007C86DF /* RWObjectModels.m in Sources */,
 				12BFA2511D5733E1007C86DF /* RWUserInformation+CoreDataProperties.m in Sources */,
 				12EA08321D5703070056A875 /* UMComSimpleGridViewerController.m in Sources */,
-				1201DFAA1D4F55190002D2A9 /* FEBaseLoginController.m in Sources */,
 				12EA089C1D5703070056A875 /* XZUMComPullRequest.m in Sources */,
 				12FA40411D46F35E0084D50A /* RWWelcomeImageCell.m in Sources */,
 				12EA089B1D5703070056A875 /* UMComTools.m in Sources */,
@@ -2239,6 +2266,7 @@
 				12EA08671D5703070056A875 /* UMComSimpleTopicFeedTableViewController.m in Sources */,
 				12EA08931D5703070056A875 /* UMComConstraintCache.m in Sources */,
 				12EA087A1D5703070056A875 /* UMComMacroConfig.m in Sources */,
+				1260AC1D1D5891CC00A1EBE7 /* FEBaseLoginController.m in Sources */,
 				12EA084A1D5703070056A875 /* UMComGridTableViewCellOne.m in Sources */,
 				12EA08961D5703070056A875 /* UMComKit+Image.m in Sources */,
 				126095EA1D48AD1400A65AEE /* RWDoctorDescriptionController.m in Sources */,
@@ -2252,6 +2280,7 @@
 				12C1AF751D4629040087ABA0 /* RWMainViewController.m in Sources */,
 				12EA08991D5703070056A875 /* UMComKit.m in Sources */,
 				12EA087B1D5703070056A875 /* UMComSimpleProfileSettingController.m in Sources */,
+				1260AC101D5891B000A1EBE7 /* XZSettingWebViewController.m in Sources */,
 				12EA088B1D5703070056A875 /* UMComTopicGroupDataController.m in Sources */,
 				12EA088C1D5703070056A875 /* UMComTopicListDataController.m in Sources */,
 				12EA08351D5703070056A875 /* UMComHorizonMenuView.m in Sources */,
@@ -2276,6 +2305,7 @@
 				12EA08851D5703070056A875 /* UMComWebViewController.m in Sources */,
 				12EA08271D5703070056A875 /* UMComBarButtonItem.m in Sources */,
 				12EA08231D5703070056A875 /* UMComActionDeleteView.m in Sources */,
+				1260AC1F1D5891CC00A1EBE7 /* InfoViewController.m in Sources */,
 				12EA087F1D5703070056A875 /* UMComRegisterViewController.m in Sources */,
 				12EA088E1D5703070056A875 /* UMComUserCenterDataController.m in Sources */,
 				12EA084E1D5703070056A875 /* UMComEmojiKeyBoardView.m in Sources */,
@@ -2287,13 +2317,14 @@
 				12EA08201D5703070056A875 /* UIViewController+UMComAddition.m in Sources */,
 				12FA404F1D46F56E0084D50A /* RWDeployManager+DateProcess.m in Sources */,
 				12EA08441D5703070056A875 /* UMImagePickerGroupCell.m in Sources */,
-				1201DFAB1D4F55190002D2A9 /* FELoginTableCell.m in Sources */,
 				12FBCEA01D4868F100A646DB /* RWOfficeListController.m in Sources */,
 				12FA404E1D46F56E0084D50A /* RWDeployManager.m in Sources */,
 				12EA085D1D5703070056A875 /* UMComChangeBorderBtn.m in Sources */,
+				1260AC0F1D5891B000A1EBE7 /* WPD_SVProgressHUD.m in Sources */,
 				12EA08411D5703070056A875 /* UMAssetsCollectionGrid.m in Sources */,
 				12EA089A1D5703070056A875 /* UMComResourceManager.m in Sources */,
 				12EA08611D5703070056A875 /* UMComFeedImageCollectionView.m in Sources */,
+				1260AC0D1D5891B000A1EBE7 /* RWSettingsViewController.m in Sources */,
 				12EA08501D5703070056A875 /* UMComProgressHUD.m in Sources */,
 				12EA08791D5703070056A875 /* UMComSimpleSubCommentViewController.m in Sources */,
 				12EA088D1D5703070056A875 /* UMComListDataController.m in Sources */,

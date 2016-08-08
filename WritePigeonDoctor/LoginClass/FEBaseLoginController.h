@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-
 @interface FEBaseLoginController : UIViewController
 @property(nonatomic,strong)UIView * backView;
 @property(nonatomic,strong)UITableView * viewList;

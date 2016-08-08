@@ -8,9 +8,12 @@
 
 #ifndef ThirdMacros_h
 #define ThirdMacros_h
-
+#import "UIColor+Wonderful.h"
+#import "WPD_SVProgressHUD.h"
+#import "UIView+YYAdd.h"
 //友盟统计
-
+#define SHOWLOADING [WPD_SVProgressHUD showLoadingView]
+#define DISSMISS [WPD_SVProgressHUD dissmiss]
 #define MOB_CLICK @""
 
 //极光推送

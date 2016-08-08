@@ -9,7 +9,8 @@
 #import "LoginViewController.h"
 #import "FELoginTableCell.h"
 #import "RegisterViewController.h"
-
+#import "SXColorGradientView.h"
+#import "UIColor+Wonderful.h"
 #define INTERVAL_KEYBOARD 5
 @interface LoginViewController ()<UITableViewDataSource,
 UITableViewDelegate,
@@ -25,7 +26,6 @@ static NSString * const textFieldCell=@"textFieldCell";
 static NSString *const buttonCell = @"buttonCell";
 @implementation LoginViewController
 
-@synthesize viewList;
 @synthesize facePlaceHolder;
 
 
@@ -50,7 +50,8 @@ static NSString *const buttonCell = @"buttonCell";
     
     [super viewDidLoad];
     [self initWithViewList];
-    [viewList addGestureRecognizer:self.tap];
+    [self.viewList addGestureRecognizer:self.tap];
+    [self createBottomView];
     
 }
 
@@ -69,7 +70,7 @@ static NSString *const buttonCell = @"buttonCell";
     
     CGSize keyboardSize = [value CGRectValue].size;
     
-    CGFloat offset = (viewList.frame.origin.y+viewList.frame.size.height+INTERVAL_KEYBOARD) - (self.view.frame.size.height - keyboardSize.height);
+    CGFloat offset = (self.viewList.frame.origin.y+self.viewList.frame.size.height+INTERVAL_KEYBOARD) - (self.view.frame.size.height - keyboardSize.height);
     
     if(offset > 0) {
                 [UIView animateWithDuration:0.3 animations:^{
@@ -91,23 +92,54 @@ static NSString *const buttonCell = @"buttonCell";
 
 #pragma mark    创建整体UI设计
 -(void)initWithViewList{
+    UIView *backview=[[UIView alloc]init];
+    backview.backgroundColor=[UIColor clearColor];
+    [self.view addSubview:backview];
+    [backview mas_makeConstraints:^(MASConstraintMaker *make) {
+       
+        make.centerX.equalTo(self.view);
+        make.centerY.equalTo(self.view);
+        make.left.equalTo(self.view.mas_left).offset(self.view.frame.size.height/15);
+        make.top.equalTo(self.backView.mas_bottom);
+        
+    }];
+    //  创建需要的毛玻璃特效类型
+    
+    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    
+    //  毛玻璃view 视图
+    
+    UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    
+    effectView.alpha = .8f;
+    effectView.layer.cornerRadius=12;
+    effectView.layer.masksToBounds=YES;
+        [backview addSubview:effectView];
+    [effectView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(backview);
+        make.size.equalTo(backview);
 
-    viewList = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height) style:UITableViewStylePlain];
-    viewList.backgroundColor=[UIColor blackColor];
-    [self.view addSubview:viewList];
-    [viewList mas_makeConstraints:^(MASConstraintMaker *make) {
+    }];
+    
+    
+//    NSLog(@"--------->%f",grv3.frame.size.width);
+    
+    self.viewList = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height) style:UITableViewStylePlain];
+    self.viewList.backgroundColor=[UIColor clearColor];
+    [self.view addSubview:self.viewList];
+    [self.viewList mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
         make.centerY.equalTo(self.view);
         make.left.equalTo(self.view.mas_left).offset(self.view.frame.size.height/15);
         make.top.equalTo(self.backView.mas_bottom);
     }];
-    viewList.scrollEnabled=NO;
-    viewList.allowsSelection = NO;
-    viewList.separatorStyle = UITableViewCellSeparatorStyleNone;
-    viewList.delegate = self;
-    viewList.dataSource = self;
-    [viewList registerClass:[FETextFiledCell class] forCellReuseIdentifier:textFieldCell];
-    [viewList registerClass:[FEButtonCell class] forCellReuseIdentifier:buttonCell];
+    self.viewList.scrollEnabled=NO;
+    self.viewList.allowsSelection = NO;
+    self.viewList.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.viewList.delegate = self;
+    self.viewList.dataSource = self;
+    [self.viewList registerClass:[FETextFiledCell class] forCellReuseIdentifier:textFieldCell];
+    [self.viewList registerClass:[FEButtonCell class] forCellReuseIdentifier:buttonCell];
 }
 
 #pragma mark    -------UITableViewDataSource代理方法
@@ -125,10 +157,10 @@ static NSString *const buttonCell = @"buttonCell";
 {
     if (indexPath.section==2) {
         
-        return viewList.frame.size.height/5.5;
+        return self.viewList.frame.size.height/5.5;
     }
     
-    return viewList.frame.size.height/6;
+    return self.viewList.frame.size.height/6;
     
     
 }
@@ -166,20 +198,16 @@ static NSString *const buttonCell = @"buttonCell";
 {
     if (section == 0)
     {
-        return viewList.frame.size.height/4;
+        return self.viewList.frame.size.height/4;
     }
-    
-    return 0;
-}
-
-
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    
     if (section==2) {
-        return viewList.frame.size.height/5.5;
+        return self.viewList.frame.size.height/10;
     }
+    
     return 0;
 }
+
+
 
 /**
  *  组透视图
@@ -194,13 +222,13 @@ static NSString *const buttonCell = @"buttonCell";
         
         UILabel *titleLabel = [[UILabel alloc]init];
         
-        titleLabel.text = @"ZHONGYU · 中域";
+        titleLabel.text = @"登录窗口";
         titleLabel.numberOfLines = 0;
         titleLabel.textAlignment = NSTextAlignmentCenter;
-        titleLabel.font = [UIFont fontWithName:@"STXingkai-SC-Bold"size:20];
-        titleLabel.textColor = [UIColor yellowColor];
-//        titleLabel.shadowOffset = CGSizeMake(1, 1);
-//        titleLabel.shadowColor = [UIColor yellowColor];
+        titleLabel.font = [UIFont systemFontOfSize:15];
+        titleLabel.textColor = [UIColor whiteColor];
+        titleLabel.shadowOffset = CGSizeMake(0, 1);
+        titleLabel.shadowColor = [UIColor greenColor];
         
         [backView addSubview:titleLabel];
         
@@ -215,9 +243,6 @@ static NSString *const buttonCell = @"buttonCell";
         return backView;
     }
     
-    return nil;
-}
--(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     if (section==2) {
         UIView *backView = [[UIView alloc]init];
         
@@ -226,10 +251,10 @@ static NSString *const buttonCell = @"buttonCell";
         UIButton * ForgotButton=[[UIButton alloc]init];
         [ForgotButton setTitle:@"忘记密码" forState:(UIControlStateNormal)];
         ForgotButton.titleLabel.font=[UIFont fontWithName:@"Helvetica" size:14];
-
+        
         UIButton *registerButton=[[UIButton alloc]init];
         
-         registerButton.titleLabel.font=[UIFont fontWithName:@"Helvetica" size:14];
+        registerButton.titleLabel.font=[UIFont fontWithName:@"Helvetica" size:14];
         
         [registerButton setTitle:@"新用户注册" forState:(UIControlStateNormal)];
         
@@ -244,25 +269,31 @@ static NSString *const buttonCell = @"buttonCell";
         [backView addSubview:registerButton];
         
         [ForgotButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.equalTo(backView).offset(-(viewList.frame.size.width/1.5));
+            make.right.equalTo(backView).offset(-(self.viewList.frame.size.width/1.5));
             make.left.equalTo(backView).offset(10);
             make.top.equalTo(backView).offset(10);
             make.height.equalTo(@(30));
+//            make.bottom.equalTo(@(5));
         }];
         
         
         
         [registerButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(backView).offset(-10);
-            make.left.equalTo(ForgotButton).offset(viewList.frame.size.width/1.7);
+            make.left.equalTo(ForgotButton).offset(self.viewList.frame.size.width/1.7);
             make.top.equalTo(backView).offset(10);
             make.height.equalTo(@(30));
+//            make.bottom.equalTo(@(5));
         }];
         
         
         
         return backView;
     }
+    
+    return nil;
+}
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     
     return nil;
 }
@@ -291,12 +322,55 @@ static NSString *const buttonCell = @"buttonCell";
     facePlaceHolder = placeholder;
 }
 
+#pragma mark     ---登录按钮事件
 -(void)button:(UIButton *)button ClickWithTitle:(NSString *)title{
     
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-    }];
+  //    [self dismissViewControllerAnimated:YES completion:^{
+//        
+//    }];
+    
 }
 
+-(void)createBottomView{
+    
+    UIView * bottomView=[[UIView alloc]init];
+    
+    bottomView.backgroundColor=[UIColor clearColor];
+    
+    [self.view addSubview:bottomView];
+    
+    UIButton * bottomButton=[[UIButton alloc]init];
+    
+    bottomButton.backgroundColor=[UIColor clearColor];
+    
+    [bottomButton setTitle:@"跳过登录使用" forState:(UIControlStateNormal)];
+  
+    [bottomButton addTarget:self action:@selector(jumpMain) forControlEvents:(UIControlEventTouchUpInside)];
+    [bottomView addSubview:bottomButton];
+
+    __weak typeof (self) weakself =self;
+    [bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.centerX.equalTo(weakself.view.mas_centerX);
+        make.left.equalTo(weakself.view.mas_left);
+        make.height.equalTo(@(30));
+        make.bottom.equalTo(weakself.view.mas_bottom).offset(-weakself.view.frame.size.height/10);
+    }];
+    
+    [bottomButton mas_makeConstraints:^(MASConstraintMaker *make) {
+    
+        make.center.equalTo(bottomView);
+        make.left.equalTo(bottomView.mas_left).offset(40);
+        make.bottom.equalTo(bottomView.mas_bottom).offset(-10);
+        
+    }];
+    
+    
+}
+
+-(void)jumpMain{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
 
 @end
