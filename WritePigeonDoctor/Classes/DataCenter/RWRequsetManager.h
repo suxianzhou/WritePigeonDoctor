@@ -22,6 +22,10 @@
  */
 - (void)requestError:(NSError *)error Task:(NSURLSessionDataTask *)task;
 
+- (void)userLoginSuccess:(BOOL)success responseMessage:(NSString *)responseMessage;
+
+- (void)userRegisterSuccess:(BOOL)success responseMessage:(NSString *)responseMessage;
+
 @optional
 
 

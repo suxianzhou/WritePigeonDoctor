@@ -28,6 +28,5 @@
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *office;
 @property (nonatomic, retain) NSString *professionTitle;
-@property (nonatomic, retain) NSString *username;
 
 @end

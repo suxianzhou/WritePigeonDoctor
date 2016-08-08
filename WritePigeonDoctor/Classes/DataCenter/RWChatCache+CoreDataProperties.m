@@ -23,8 +23,10 @@
 @dynamic myMessage;
 @dynamic read;
 @dynamic remotePath;
-@dynamic success;
+@dynamic status;
 @dynamic to;
 @dynamic type;
+@dynamic secretKey;
+@dynamic showTime;
 
 @end

@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import "RWObjectModels.h"
+#import "RWWeiChatView.h"
+#import "RWUserInformation+CoreDataProperties.h"
+#import "RWChatCache+CoreDataProperties.h"
+#import "RWConsultHistory+CoreDataProperties.h"
 
 @interface RWDataBaseManager : NSObject
 
@@ -19,5 +23,15 @@
 @property (nonatomic,strong,readonly)NSManagedObjectModel *managedObjectModel;
 
 @property (nonatomic,strong,readonly)NSPersistentStoreCoordinator *storeCoordinator;
+
+- (BOOL)saveContext;
+- (NSArray *)searchItemWithEntityName:(NSString *)name predicate:(NSPredicate *)predicate sortDescriptors:(NSArray<NSSortDescriptor *> *)sortDescriptors;
+
+- (BOOL)addNewUesr:(RWUser *)user;
+- (BOOL)updateUesr:(RWUser *)user;
+- (BOOL)existUser:(RWUser *)user;
+- (BOOL)removeUser:(RWUser *)user;
+
+- (RWUser *)getDefualtUser;
 
 @end

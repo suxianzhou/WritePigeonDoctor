@@ -226,6 +226,7 @@
 		12FBCE9D1D485D8300A646DB /* RWDataModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FBCE9C1D485D8300A646DB /* RWDataModels.m */; };
 		12FBCEA01D4868F100A646DB /* RWOfficeListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FBCE9F1D4868F100A646DB /* RWOfficeListController.m */; };
 		12FBCEA31D486C7C00A646DB /* RWDoctorListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FBCEA21D486C7C00A646DB /* RWDoctorListCell.m */; };
+		12FCF2B71D580E6100BFD0FA /* RWDataBaseManager+ChatCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FCF2B61D580E6100BFD0FA /* RWDataBaseManager+ChatCache.m */; };
 		D28576077618A1630E9E807B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 75E7335217CD8786A2D3E4FC /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -678,6 +679,8 @@
 		12FBCE9F1D4868F100A646DB /* RWOfficeListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWOfficeListController.m; sourceTree = "<group>"; };
 		12FBCEA11D486C7C00A646DB /* RWDoctorListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWDoctorListCell.h; sourceTree = "<group>"; };
 		12FBCEA21D486C7C00A646DB /* RWDoctorListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWDoctorListCell.m; sourceTree = "<group>"; };
+		12FCF2B51D580E6100BFD0FA /* RWDataBaseManager+ChatCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RWDataBaseManager+ChatCache.h"; sourceTree = "<group>"; };
+		12FCF2B61D580E6100BFD0FA /* RWDataBaseManager+ChatCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RWDataBaseManager+ChatCache.m"; sourceTree = "<group>"; };
 		75E7335217CD8786A2D3E4FC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EF87DF12830927924691150 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1878,6 +1881,8 @@
 				12A26A2C1D523BDC0046E163 /* PigeonDoctorDatabase.xcdatamodeld */,
 				12EA06BD1D56D7D40056A875 /* RWDataBaseManager.h */,
 				12EA06BE1D56D7D40056A875 /* RWDataBaseManager.m */,
+				12FCF2B51D580E6100BFD0FA /* RWDataBaseManager+ChatCache.h */,
+				12FCF2B61D580E6100BFD0FA /* RWDataBaseManager+ChatCache.m */,
 			);
 			name = DataBase;
 			sourceTree = "<group>";
@@ -2205,6 +2210,7 @@
 				12EA08951D5703070056A875 /* UMComKit+Autolayout.m in Sources */,
 				12EA083E1D5703070056A875 /* UMAssetsCollectionCell.m in Sources */,
 				12EA08531D5703070056A875 /* UMComAvatarImageView.m in Sources */,
+				12FCF2B71D580E6100BFD0FA /* RWDataBaseManager+ChatCache.m in Sources */,
 				12BFA2561D5733E1007C86DF /* RWChatCache.m in Sources */,
 				12EA08761D5703070056A875 /* UMComSimpleNoticeTableViewController.m in Sources */,
 				12EA08401D5703070056A875 /* UMAssetsCollectionController.m in Sources */,

@@ -44,35 +44,35 @@
                  if ([[Json objectForKey:@"resultCode"] integerValue] == 200)
                  {
                      
-//                     [self.delegate registerResponds:YES
-//                                         ErrorReason:nil];
+                     [self.delegate userRegisterSuccess:YES
+                                        responseMessage:nil];
                  }
                  else
                  {
                      if ([Json objectForKey:@"result"])
                      {
-//                         [self.delegate registerResponds:NO
-//                                             ErrorReason:[Json objectForKey:@"result"]];
+                         [self.delegate userRegisterSuccess:NO
+                                            responseMessage:
+                                                    [Json objectForKey:@"result"]];
                      }
                      else
                      {
-//                         [self.delegate registerResponds:NO
-//                                             ErrorReason:@"注册失败"];
+                         [self.delegate userRegisterSuccess:NO
+                                            responseMessage:@"注册失败"];
                      }
                  }
                  
              } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
               {
-                  
-//                  [self.delegate registerResponds:NO
-//                                      ErrorReason:error.description];
+                  [self.delegate userRegisterSuccess:NO
+                                     responseMessage:error.description];
               }];
          }
          else
          {
              
-//             [self.delegate registerResponds:NO
-//                                 ErrorReason:error.description];
+             [self.delegate userRegisterSuccess:NO
+                                responseMessage:error.description];
          }
     }];
 }
@@ -108,37 +108,49 @@
                  
                  if ([[Json objectForKey:@"resultCode"] integerValue] == 200)
                  {
-                     EMError *error =[[EMClient sharedClient]loginWithUsername:username
-                                                                      password:password];
-                     if (!error)
-                     {
-                         NSLog(@"登录成功");
-                     }
+                     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 1), ^{
+                         
+                         EMError *error =
+                                [[EMClient sharedClient]loginWithUsername:username
+                                                                 password:password];
+                         
+                         if (!error)
+                         {
+                             dispatch_async(dispatch_get_main_queue(), ^{
+                                 
+                                 [self.delegate userLoginSuccess:YES
+                                                 responseMessage:nil];
+                             });
+                         }
+                     });
                  }
                  else
                  {
                      if ([Json objectForKey:@"result"])
                      {
-                         //
+                         [self.delegate userLoginSuccess:NO
+                                         responseMessage:
+                                                [Json objectForKey:@"result"]];
                      }
                      else
                      {
-                        //
+                         [self.delegate userLoginSuccess:NO
+                                         responseMessage:
+                                                    [Json objectForKey:@"登录失败"]];
                      }
                  }
                  
              } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
              {
-                 
-                 //                  [self.delegate registerResponds:NO
-                 //                                      ErrorReason:error.description];
+                 [self.delegate userLoginSuccess:NO
+                                 responseMessage:error.description];
              }];
         }
         else
         {
             
-            //             [self.delegate registerResponds:NO
-            //                                 ErrorReason:error.description];
+            [self.delegate userLoginSuccess:NO
+                            responseMessage:error.description];
         }
     }];
 }

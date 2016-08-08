@@ -7,9 +7,6 @@
 //
 
 #import "RWDataBaseManager.h"
-#import "RWUserInformation+CoreDataProperties.h"
-#import "RWChatCache+CoreDataProperties.h"
-#import "RWConsultHistory+CoreDataProperties.h"
 
 #define __BASE_NAME__ @"PigeonDoctorDatabase.sqlite"
 
@@ -48,19 +45,21 @@
 
 - (NSManagedObjectContext *)managedObjectContext
 {
-    if(_managedObjectContext != nil)
+    if(_managedObjectContext)
     {
         return _managedObjectContext;
     }
+    
+    _managedObjectContext = [[NSManagedObjectContext alloc] init];
     
     [_managedObjectContext setPersistentStoreCoordinator:self.storeCoordinator];
     
     return _managedObjectContext;
 }
 
--(NSManagedObjectModel *)managedObjectModel
+- (NSManagedObjectModel *)managedObjectModel
 {
-    if(_managedObjectModel != nil)
+    if(_managedObjectModel)
     {
         return _managedObjectModel;
     }
@@ -72,18 +71,19 @@
     return _managedObjectModel;
 }
 
--(NSPersistentStoreCoordinator *)persistentStoreCoordinator
+- (NSPersistentStoreCoordinator *)storeCoordinator
 {
-    if(_storeCoordinator!=nil)
+    if(_storeCoordinator)
     {
         return _storeCoordinator;
     }
     
     _storeCoordinator = [[NSPersistentStoreCoordinator alloc]
                                 initWithManagedObjectModel: self.managedObjectModel];
-    NSString *basePath = [__SANDBOX_PATH__ stringByAppendingPathComponent:__BASE_NAME__];
-    NSURL *storeURL= [NSURL URLWithString:basePath];
+
     NSError *error = nil;
+    NSURL *documentURL = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    NSURL *storeURL = [documentURL URLByAppendingPathComponent:__BASE_NAME__];
     
     [_storeCoordinator addPersistentStoreWithType:NSSQLiteStoreType
                                     configuration:nil
@@ -95,7 +95,6 @@
         ![_storeCoordinator.persistentStores lastObject])
     {
         NSLog(@"create Base Fail reason : %@",error.description);
-        abort();
     }
     
     return _storeCoordinator;
@@ -141,7 +140,7 @@
     NSError *error = nil;
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
     
-    if (fetchedObjects == nil)
+    if (fetchedObjects)
     {
         return fetchedObjects;
     }
@@ -156,6 +155,11 @@
 
 - (BOOL)addNewUesr:(RWUser *)user
 {
+    if ([self existUser:user])
+    {
+        return [self updateUesr:user];
+    }
+    
     NSString *name = NSStringFromClass([RWUserInformation class]);
     NSManagedObjectContext *context = self.managedObjectContext;
     
@@ -169,15 +173,6 @@
     userInformation.password = user.password;
     userInformation.header = user.header;
     userInformation.defaultUser = @(YES);
-    
-//    NSFetchRequest *fetch = [NSFetchRequest fetchRequestWithEntityName:name];
-//    
-//    if (!fetch.entity)
-//    {
-//        return NO;
-//    }
-//    
-//    NSError *error = nil;
     
     NSArray *result = [self searchItemWithEntityName:name
                                            predicate:nil
@@ -193,23 +188,12 @@
 
 - (BOOL)updateUesr:(RWUser *)user
 {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"username = '%@'",user.username];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"username = %@",user.username];
     NSString *name = NSStringFromClass([RWUserInformation class]);
-    NSManagedObjectContext *context = self.managedObjectContext;
     
-    NSFetchRequest *fetch = [NSFetchRequest fetchRequestWithEntityName:name];
-    
-    fetch.predicate = predicate;
-    
-    if (!fetch.entity)
-    {
-        return NO;
-    }
-    
-    NSError *error = nil;
-    
-    NSArray *result = [context executeFetchRequest:fetch
-                                             error:&error];
+    NSArray *result = [self searchItemWithEntityName:name
+                                           predicate:predicate
+                                     sortDescriptors:nil];
     
     if (result.count != 1)
     {
@@ -230,22 +214,53 @@
     return [self saveContext];
 }
 
+- (BOOL)existUser:(RWUser *)user
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"username = %@",user.username];
+    NSString *name = NSStringFromClass([RWUserInformation class]);
+    
+    NSArray *result = [self searchItemWithEntityName:name
+                                           predicate:predicate
+                                     sortDescriptors:nil];
+    
+    if (result.count)
+    {
+        return YES;
+    }
+    
+    return NO;
+}
 
+- (BOOL)removeUser:(RWUser *)user
+{
+    NSPredicate *predicate = user?[NSPredicate predicateWithFormat:@"username = %@",user.username]:nil;
+    NSString *name = NSStringFromClass([RWUserInformation class]);
+    
+    NSArray *result = [self searchItemWithEntityName:name
+                                           predicate:predicate
+                                     sortDescriptors:nil];
+    
+    if (result.count)
+    {
+        NSManagedObjectContext *context = self.managedObjectContext;
+        
+        for (RWUserInformation *userInfo in result)
+        {
+            [context deleteObject:userInfo];
+        }
+    }
+    
+    return [self saveContext];
+}
 
 - (RWUser *)getDefualtUser
 {
     NSString *name = NSStringFromClass([RWUserInformation class]);
-    NSManagedObjectContext *context = self.managedObjectContext;
-    
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:name inManagedObjectContext:context];
-    [fetchRequest setEntity:entity];
-    
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"defaultUser = 1"];
-    [fetchRequest setPredicate:predicate];
-    
-    NSError *error = nil;
-    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+
+    NSArray *fetchedObjects = [self searchItemWithEntityName:name
+                                                   predicate:predicate
+                                             sortDescriptors:nil];
     
     if (fetchedObjects.count)
     {

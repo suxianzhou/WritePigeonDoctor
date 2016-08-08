@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "RWRequsetManager+UserLogin.h"
+#import "RWDataBaseManager+ChatCache.h"
 
 @interface WritePigeonDoctorTests : XCTestCase
 
@@ -32,6 +33,69 @@
 //    [manager userinfoWithUsername:@"12345678121" AndPassword:@"123"];
     
     CFRunLoopRun();
+}
+
+- (void)testAddUser
+{
+    RWDataBaseManager *defaultManager = [RWDataBaseManager defaultManager];
+    
+    RWUser *user = [[RWUser alloc] init];
+    
+    user.username = @"12345678910";
+    user.password = @"123456";
+    user.age = @"30";
+    user.gender = @"男";
+    user.header = nil;
+    user.name = @"new";
+    
+    XCTAssertTrue([defaultManager addNewUesr:user]);
+    XCTAssertTrue([defaultManager existUser:user]);
+    
+    RWUser *defaultUser = [defaultManager getDefualtUser];
+    
+    XCTAssertNotNil(defaultUser);
+    
+    NSLog(@"username = %@ \n password = %@ \n age = %@ gender = %@ \n header = %@ \n name = %@ \n defaultUser = %d",  defaultUser.username,
+          defaultUser.password,
+          defaultUser.age,
+          defaultUser.gender,
+          defaultUser.header,
+          defaultUser.name,
+          defaultUser.defaultUser);
+    
+    user.username = @"12345678910";
+    user.password = @"123456";
+    user.age = @"21";
+    user.gender = @"woman";
+    user.header = nil;
+    user.name = @"heooo";
+    user.defaultUser = YES;
+    
+    XCTAssertTrue([defaultManager updateUesr:user]);
+    
+    defaultUser = [defaultManager getDefualtUser];
+    
+    XCTAssertNotNil(defaultUser);
+    
+    NSLog(@"username = %@ \n password = %@ \n age = %@ gender = %@ \n header = %@ \n name = %@ \n defaultUser = %d",  defaultUser.username,
+          defaultUser.password,
+          defaultUser.age,
+          defaultUser.gender,
+          defaultUser.header,
+          defaultUser.name,
+          defaultUser.defaultUser);
+    
+}
+
+- (void)testChangeSettings
+{
+    RWDataBaseManager *defaultManager = [RWDataBaseManager defaultManager];
+    
+    XCTAssertTrue([defaultManager removeUser:[defaultManager getDefualtUser]]);
+    
+    RWUser *defaultUser = [defaultManager getDefualtUser];
+    
+    XCTAssertNil(defaultUser);
 }
 
 - (void)tearDown {

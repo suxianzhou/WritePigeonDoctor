@@ -25,9 +25,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSNumber *myMessage;
 @property (nullable, nonatomic, retain) NSNumber *read;
 @property (nullable, nonatomic, retain) NSString *remotePath;
-@property (nullable, nonatomic, retain) NSNumber *success;
+@property (nullable, nonatomic, retain) NSNumber *status;
 @property (nullable, nonatomic, retain) NSString *to;
 @property (nullable, nonatomic, retain) NSNumber *type;
+@property (nullable, nonatomic, retain) NSString *secretKey;
+@property (nullable, nonatomic, retain) NSNumber *showTime;
 
 @end
 

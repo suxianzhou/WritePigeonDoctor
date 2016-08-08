@@ -19,6 +19,5 @@
 @dynamic name;
 @dynamic office;
 @dynamic professionTitle;
-@dynamic username;
 
 @end

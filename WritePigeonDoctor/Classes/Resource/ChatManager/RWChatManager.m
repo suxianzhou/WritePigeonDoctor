@@ -140,11 +140,11 @@ const NSString *messageVideoBody = @"messageVideoBody";
 
 + (EMMessage *)messageWithType:(EMMessageBodyType)type body:(NSDictionary *)body extension:(NSDictionary *)extension to:(NSString *)toChatId
 {
-    
-    
     NSString *from = [[EMClient sharedClient] currentUsername];
+    RWChatManager *defaultManager = [RWChatManager defaultManager];
+    NSString *conversationID = defaultManager.faceSession.conversationId;
 
-    EMMessage *message = [[EMMessage alloc] initWithConversationID:@"iOSTest001"
+    EMMessage *message = [[EMMessage alloc] initWithConversationID:conversationID
                                                               from:from
                                                                 to:toChatId
                                                               body:nil
