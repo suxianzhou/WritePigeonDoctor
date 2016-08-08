@@ -155,7 +155,7 @@
 
 - (BOOL)addNewUesr:(RWUser *)user
 {
-    if ([self existUser:user])
+    if ([self existUser:user.username])
     {
         return [self updateUesr:user];
     }
@@ -214,15 +214,15 @@
     return [self saveContext];
 }
 
-- (BOOL)existUser:(RWUser *)user
+- (BOOL)existUser:(NSString *)username
 {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"username = %@",user.username];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:
+                                                        @"username = %@",username];
     NSString *name = NSStringFromClass([RWUserInformation class]);
     
     NSArray *result = [self searchItemWithEntityName:name
                                            predicate:predicate
                                      sortDescriptors:nil];
-    
     if (result.count)
     {
         return YES;

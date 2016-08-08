@@ -29,7 +29,7 @@
 
 - (BOOL)addNewUesr:(RWUser *)user;
 - (BOOL)updateUesr:(RWUser *)user;
-- (BOOL)existUser:(RWUser *)user;
+- (BOOL)existUser:(NSString *)username;
 - (BOOL)removeUser:(RWUser *)user;
 
 - (RWUser *)getDefualtUser;

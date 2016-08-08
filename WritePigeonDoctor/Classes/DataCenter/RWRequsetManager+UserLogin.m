@@ -8,6 +8,7 @@
 
 #import "RWRequsetManager+UserLogin.h"
 #import "XZUMComPullRequest.h"
+#import "RWDataBaseManager.h"
 #import <EMSDK.h>
 
 @implementation RWRequsetManager (UserLogin)
@@ -43,6 +44,15 @@
                  
                  if ([[Json objectForKey:@"resultCode"] integerValue] == 200)
                  {
+                     RWUser *user = [[RWUser alloc] init];
+                     
+                     user.username = username;
+                     user.password = password;
+                     
+                     RWDataBaseManager *baseManager =
+                                                [RWDataBaseManager defaultManager];
+                     
+                     [baseManager addNewUesr:user];
                      
                      [self.delegate userRegisterSuccess:YES
                                         responseMessage:nil];
@@ -70,7 +80,6 @@
          }
          else
          {
-             
              [self.delegate userRegisterSuccess:NO
                                 responseMessage:error.description];
          }
@@ -103,7 +112,6 @@
                              progress:nil
                               success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
              {
-                 
                  NSDictionary *Json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
                  
                  if ([[Json objectForKey:@"resultCode"] integerValue] == 200)
@@ -117,6 +125,19 @@
                          if (!error)
                          {
                              dispatch_async(dispatch_get_main_queue(), ^{
+                                 
+                                 RWDataBaseManager *baseManager =
+                                                    [RWDataBaseManager defaultManager];
+                                 
+                                 if (![baseManager existUser:username])
+                                 {
+                                     RWUser *user = [[RWUser alloc] init];
+                                     
+                                     user.username = username;
+                                     user.password = password;
+                                     
+                                     [baseManager addNewUesr:user];
+                                 }
                                  
                                  [self.delegate userLoginSuccess:YES
                                                  responseMessage:nil];
