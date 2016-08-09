@@ -11,6 +11,7 @@
 #import "RWOfficeListController.h"
 #import "RWCommunityController.h"
 #import "RWSettingsViewController.h"
+#import "RWConsultHistoryController.h"
 #import "UITabBar+badge.h"
 
 @interface RWMainTabBarController ()
@@ -84,9 +85,9 @@
 
     UINavigationController *mainNav = [[UINavigationController alloc]initWithRootViewController:main];
 
-    RWOfficeListController *office = [[RWOfficeListController alloc]init];
+    RWConsultHistoryController *history = [[RWConsultHistoryController alloc]init];
     
-    UINavigationController *officeNav = [[UINavigationController alloc]initWithRootViewController:office];
+    UINavigationController *officeNav = [[UINavigationController alloc]initWithRootViewController:history];
     
     RWCommunityController *community = [[RWCommunityController alloc]init];
     

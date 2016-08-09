@@ -394,6 +394,8 @@
     self.view.backgroundColor = [UIColor whiteColor];
     __NAVIGATION_DEUAULT_SETTINGS__;
     
+    _baseManager = [RWDataBaseManager defaultManager];
+    
     _viewCenter = self.view.center;
     
     if (self.navigationController && !self.navigationController.navigationBar.hidden)
@@ -462,6 +464,11 @@
                                            originalResource:resource];
     
     [_weChat addMessage:chatMessage];
+    
+    if (![_baseManager cacheMessage:chatMessage])
+    {
+        NSLog(@"fa~~~");
+    }
 }
 
 @end

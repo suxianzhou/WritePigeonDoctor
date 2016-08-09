@@ -8,6 +8,7 @@
 
 #import "RWMainViewController.h"
 #import "RWCustomizeToolBar.h"
+#import "RWOfficeListController.h"
 #import <WebKit/WebKit.h>
 
 @interface RWMainViewController ()
@@ -16,6 +17,7 @@
     UIAlertViewDelegate,
     WKNavigationDelegate,
     WKUIDelegate,
+    WKScriptMessageHandler,
     RWCustomizeWebToolBarDelegate
 >
 
@@ -29,31 +31,69 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    //    [self.tabBarController.tabBar setBadgeStyle:kCustomBadgeStyleNumber value:99 atIndex:1];
-    self.navigationController.navigationBar.translucent = YES;
-    self.navigationController.navigationBar.hidden = YES;
-    self.navigationController.navigationBar.alpha = 0.0f;
-    
     self.navigationItem.title = @"白鸽医生";
     
-    _informationView = [[WKWebView alloc] initWithFrame:self.view.bounds];
+    WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
+    
+    config.preferences = [[WKPreferences alloc] init];
+    config.preferences.minimumFontSize = 0;
+    config.preferences.javaScriptEnabled = YES;
+    config.preferences.javaScriptCanOpenWindowsAutomatically = NO;
+    config.processPool = [[WKProcessPool alloc] init];
+    config.userContentController = [[WKUserContentController alloc] init];
+    
+    [config.userContentController addScriptMessageHandler:self name:@"LookForDoctor"];
+    [config.userContentController addScriptMessageHandler:self name:@"MakeQuestion"];
+    
+    _informationView = [[WKWebView alloc] initWithFrame:self.view.bounds
+                                          configuration:config];
+    [self.view addSubview:_informationView];
+    
+    [_informationView mas_makeConstraints:^(MASConstraintMaker *make) {
+       
+        make.left.equalTo(self.view.mas_left).offset(0);
+        make.right.equalTo(self.view.mas_right).offset(0);
+        make.top.equalTo(self.view.mas_top).offset(-20);
+        make.bottom.equalTo(self.view.mas_bottom).offset(0);
+    }];
     
     _informationView.UIDelegate = self;
     _informationView.navigationDelegate = self;
-    
-    [self.view addSubview:_informationView];
+}
+
+- (void)userContentController:(WKUserContentController *)userContentController
+      didReceiveScriptMessage:(WKScriptMessage *)message
+{
+    if ([message.name isEqualToString:@"LookForDoctor"])
+    {
+        RWOfficeListController *office = [[RWOfficeListController alloc] init];
+        
+        [self pushNextWithViewcontroller:office];
+    }
+    else if ([message.name isEqualToString:@"MakeQuestion"])
+    {
+        NSLog(@"question");
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    
     NSURL *url = [NSURL URLWithString:@"http://www.zhongyuedu.com/tgm/test/test18"];
     
     NSURLRequest *requset = [NSURLRequest requestWithURL:url];
     
     [_informationView loadRequest:requset];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 
 - (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(null_unspecified WKNavigation *)navigation;

@@ -129,4 +129,15 @@
     _expenses.text = _doctor.expenses.count?_doctor.expenses[0]:nil;
 }
 
+- (void)setHistory:(RWHistory *)history
+{
+    _history = history;
+    
+    _header.image = [UIImage imageWithData:_history.header];
+    _name.text = _history.name;
+    _professionalTitle.text = _history.professionTitle;
+    _office.text = _history.office;
+    _expenses.text = nil;
+}
+
 @end

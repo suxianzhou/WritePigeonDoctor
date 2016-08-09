@@ -143,6 +143,17 @@
                                      
                                      [baseManager addNewUesr:user];
                                  }
+                                 else
+                                 {
+                                     RWUser *user = [baseManager getUser:username];
+                                     
+                                     if (!user.defaultUser)
+                                     {
+                                         user.defaultUser = YES;
+                                         
+                                         [baseManager updateUesr:user];
+                                     }
+                                 }
                                  
                                  [self.delegate userLoginSuccess:YES
                                                  responseMessage:nil];

@@ -223,6 +223,9 @@
 		12F1A0A41D4D8B70007B5994 /* microphone3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 12F1A0921D4D8B70007B5994 /* microphone3@2x.png */; };
 		12F1A0A51D4D8B70007B5994 /* microphone4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 12F1A0931D4D8B70007B5994 /* microphone4@2x.png */; };
 		12F1A0A61D4D8B70007B5994 /* microphone5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 12F1A0941D4D8B70007B5994 /* microphone5@2x.png */; };
+		12F880D41D59634000B7D87F /* RWCustomizeNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F880D31D59634000B7D87F /* RWCustomizeNavigationBar.m */; };
+		12F880D81D59919500B7D87F /* RWConsultHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F880D71D59919500B7D87F /* RWConsultHistoryController.m */; };
+		12F880DB1D59A53300B7D87F /* RWConsultNotesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F880DA1D59A53300B7D87F /* RWConsultNotesController.m */; };
 		12FA40401D46F35E0084D50A /* RWWelcomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA403D1D46F35E0084D50A /* RWWelcomeController.m */; };
 		12FA40411D46F35E0084D50A /* RWWelcomeImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA403F1D46F35E0084D50A /* RWWelcomeImageCell.m */; };
 		12FA404C1D46F56E0084D50A /* RWRequsetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA40441D46F56E0084D50A /* RWRequsetManager.m */; };
@@ -677,6 +680,12 @@
 		12F1A0931D4D8B70007B5994 /* microphone4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microphone4@2x.png"; sourceTree = "<group>"; };
 		12F1A0941D4D8B70007B5994 /* microphone5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "microphone5@2x.png"; sourceTree = "<group>"; };
 		12F1A0A71D4D91DA007B5994 /* RWViewsOfMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWViewsOfMacro.h; sourceTree = "<group>"; };
+		12F880D21D59634000B7D87F /* RWCustomizeNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWCustomizeNavigationBar.h; sourceTree = "<group>"; };
+		12F880D31D59634000B7D87F /* RWCustomizeNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWCustomizeNavigationBar.m; sourceTree = "<group>"; };
+		12F880D61D59919500B7D87F /* RWConsultHistoryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWConsultHistoryController.h; sourceTree = "<group>"; };
+		12F880D71D59919500B7D87F /* RWConsultHistoryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWConsultHistoryController.m; sourceTree = "<group>"; };
+		12F880D91D59A53300B7D87F /* RWConsultNotesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWConsultNotesController.h; sourceTree = "<group>"; };
+		12F880DA1D59A53300B7D87F /* RWConsultNotesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWConsultNotesController.m; sourceTree = "<group>"; };
 		12FA403C1D46F35E0084D50A /* RWWelcomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWWelcomeController.h; sourceTree = "<group>"; };
 		12FA403D1D46F35E0084D50A /* RWWelcomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWWelcomeController.m; sourceTree = "<group>"; };
 		12FA403E1D46F35E0084D50A /* RWWelcomeImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWWelcomeImageCell.h; sourceTree = "<group>"; };
@@ -921,6 +930,7 @@
 		12C1AF621D4629040087ABA0 /* DoctorClass */ = {
 			isa = PBXGroup;
 			children = (
+				12F880D51D5990AD00B7D87F /* ConsultHistory */,
 				12E93D8D1D4DAC8700F55FD5 /* TestDataSource */,
 				12FBCE9E1D4868F100A646DB /* RWOfficeListController.h */,
 				12FBCE9F1D4868F100A646DB /* RWOfficeListController.m */,
@@ -952,6 +962,8 @@
 			children = (
 				12C1AF691D4629040087ABA0 /* RWMainViewController.h */,
 				12C1AF6A1D4629040087ABA0 /* RWMainViewController.m */,
+				12F880D21D59634000B7D87F /* RWCustomizeNavigationBar.h */,
+				12F880D31D59634000B7D87F /* RWCustomizeNavigationBar.m */,
 				120B92691D58E10F00A5285F /* RWCustomizeToolBar.h */,
 				120B926A1D58E10F00A5285F /* RWCustomizeToolBar.m */,
 			);
@@ -1905,6 +1917,17 @@
 			path = photo;
 			sourceTree = "<group>";
 		};
+		12F880D51D5990AD00B7D87F /* ConsultHistory */ = {
+			isa = PBXGroup;
+			children = (
+				12F880D61D59919500B7D87F /* RWConsultHistoryController.h */,
+				12F880D71D59919500B7D87F /* RWConsultHistoryController.m */,
+				12F880D91D59A53300B7D87F /* RWConsultNotesController.h */,
+				12F880DA1D59A53300B7D87F /* RWConsultNotesController.m */,
+			);
+			name = ConsultHistory;
+			sourceTree = "<group>";
+		};
 		12FA40501D46F5720084D50A /* DataBase */ = {
 			isa = PBXGroup;
 			children = (
@@ -2184,6 +2207,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12F880D81D59919500B7D87F /* RWConsultHistoryController.m in Sources */,
 				12EA082D1D5703070056A875 /* UMComTableViewCell.m in Sources */,
 				12FBCE9D1D485D8300A646DB /* RWDataModels.m in Sources */,
 				12FA40571D46FD270084D50A /* RWChatManager.m in Sources */,
@@ -2206,6 +2230,7 @@
 				12EA08551D5703070056A875 /* UMComSimplicityDiscoverViewController.m in Sources */,
 				12EA08621D5703070056A875 /* UMComFeedImageCollectionViewCell.m in Sources */,
 				12EA08491D5703070056A875 /* UMComGridTableViewCell.m in Sources */,
+				12F880D41D59634000B7D87F /* RWCustomizeNavigationBar.m in Sources */,
 				12EA08521D5703070056A875 /* UMComWebView.m in Sources */,
 				12EA08861D5703070056A875 /* UMComCommentListDataController.m in Sources */,
 				12EA08751D5703070056A875 /* UMComSimpleLikeMyFeedViewController.m in Sources */,
@@ -2300,6 +2325,7 @@
 				12F1A09D1D4D8B70007B5994 /* FEProgressHUD.m in Sources */,
 				12F1A09A1D4D8B70007B5994 /* UIImage+XZMicroVideoPlayer.m in Sources */,
 				12BFA2521D5733E1007C86DF /* RWUserInformation.m in Sources */,
+				12F880DB1D59A53300B7D87F /* RWConsultNotesController.m in Sources */,
 				12BFA2541D5733E1007C86DF /* RWConsultHistory.m in Sources */,
 				12EA08891D5703070056A875 /* UMComFeedDetailDataController.m in Sources */,
 				12EA081A1D5703070056A875 /* RWCommunityController.m in Sources */,

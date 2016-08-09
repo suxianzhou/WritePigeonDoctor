@@ -10,6 +10,7 @@
 #import "RWConsultViewController.h"
 #import "RWDescriptionView.h"
 #import "RWDataModels.h"
+#import "RWDataBaseManager+ChatCache.h"
 
 @interface RWDoctorDescriptionController ()
 
@@ -78,7 +79,12 @@
     
     chatView.item = _doctorItem();
     
-    [self pushNextWithViewcontroller:chatView];
+    RWDataBaseManager *baseManager = [RWDataBaseManager defaultManager];
+    
+    if ([baseManager addConsultHistoryWithItem:chatView.item])
+    {
+        [self pushNextWithViewcontroller:chatView];
+    }
 }
 
 - (void)consultWayAtRegisterOffice:(RWRegisterOfficeView *)registerOffice

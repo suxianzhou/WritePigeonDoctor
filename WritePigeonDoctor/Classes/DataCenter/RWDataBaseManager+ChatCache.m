@@ -8,6 +8,7 @@
 
 #import "RWDataBaseManager+ChatCache.h"
 #import "RWChatManager.h"
+#import "RWDataModels.h"
 
 @implementation RWDataBaseManager (ChatCache)
 
@@ -15,7 +16,7 @@
 {
     if ([self existConsultHistory:history])
     {
-        [self updateConsultHistory:history];
+        return [self updateConsultHistory:history];
     }
     
     NSString *name = NSStringFromClass([RWConsultHistory class]);
@@ -35,9 +36,32 @@
     return [self saveContext];
 }
 
+- (BOOL)addConsultHistoryWithItem:(RWDoctorItem *)item
+{
+    RWHistory *history = [[RWHistory alloc] init];
+    
+    if ([self existConsultHistory:history])
+    {
+        return [self updateConsultHistory:history];
+    }
+    
+    history.doctorDescription = item.doctorDescription;
+    history.doctorid = item.EMID;
+    history.header =    UIImagePNGRepresentation(item.header)?
+                        UIImagePNGRepresentation(item.header):
+                        UIImageJPEGRepresentation(item.header, 1.f);
+    
+    history.name = item.name;
+    history.office = item.office;
+    history.professionTitle = item.professionalTitle;
+    
+    return [self addConsultHistory:history];
+}
+
 - (BOOL)existConsultHistory:(RWHistory *)history
 {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"doctorid = %@",history.doctorid];
+    NSPredicate *predicate =
+                [NSPredicate predicateWithFormat:@"doctorid = %@",history.doctorid];
     NSString *name = NSStringFromClass([RWConsultHistory class]);
     
     NSArray *result = [self searchItemWithEntityName:name
@@ -336,8 +360,10 @@
 - (BOOL)removeCacheMessageWith:(RWHistory *)history
 {
     NSString *name = NSStringFromClass([RWChatCache class]);
+    RWUser *user = [self getDefualtUser];
     
-    NSPredicate *predicate = history?[NSPredicate predicateWithFormat:@"to = %@ || from = %@",history.doctorid,history.doctorid]:nil;
+    NSPredicate *predicate = history?
+                            [NSPredicate predicateWithFormat:@"(to = %@ || from = %@) && (to = %@ || from = %@)",history.doctorid,history.doctorid,user.username,user.username]:nil;
     
     NSArray *result = [self searchItemWithEntityName:name
                                            predicate:predicate
@@ -360,7 +386,9 @@
 {
     NSString *name = NSStringFromClass([RWChatCache class]);
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"to = %@ || from = %@",emid,emid];
+    RWUser *user = [self getDefualtUser];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(to = %@ || from = %@) && (to = %@ || from = %@)",emid,emid,user.username,user.username];
     
     NSArray *result = [self searchItemWithEntityName:name
                                            predicate:predicate

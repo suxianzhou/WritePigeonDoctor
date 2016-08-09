@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RWObjectModels.h"
 
 @interface RWDoctorListCell : UITableViewCell
 
 @property (nonatomic,strong)RWDoctorItem *doctor;
+@property (nonatomic,strong)RWHistory *history;
 
 @end

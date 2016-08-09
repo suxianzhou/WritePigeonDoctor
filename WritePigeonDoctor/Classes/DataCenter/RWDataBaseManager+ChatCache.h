@@ -11,6 +11,7 @@
 @interface RWDataBaseManager (ChatCache)
 
 - (BOOL)addConsultHistory:(RWHistory *)history;
+- (BOOL)addConsultHistoryWithItem:(RWDoctorItem *)item;
 - (BOOL)updateConsultHistory:(RWHistory *)history;
 - (BOOL)removeConsultHistory:(RWHistory *)history;
 

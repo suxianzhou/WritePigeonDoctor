@@ -31,4 +31,6 @@
 @property (nonatomic,weak,readonly)RWWeChatCell *playing;
 @property (nonatomic,strong,readonly)UIView *coverLayer;
 
+@property (nonatomic,strong)RWDataBaseManager *baseManager;
+
 @end

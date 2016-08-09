@@ -17,7 +17,6 @@
 >
 
 @property (nonatomic,strong)RWChatManager *chatManager;
-@property (nonatomic,strong)RWDataBaseManager *baseManager;
 
 @end
 
@@ -48,9 +47,31 @@
     
     [_chatManager createConversationWithID:_item.EMID];
     
-    _baseManager = [RWDataBaseManager defaultManager];
+    self.weChat.messages = [[self.baseManager getMessageWith:_item.EMID] mutableCopy];
     
-    self.weChat.messages = [[_baseManager getMessageWith:_item.EMID] mutableCopy];
+    if (!self.weChat.messages.count)
+    {
+        EMMessage *message = [[EMMessage alloc] initWithConversationID:nil
+                                                                  from:nil
+                                                                    to:nil
+                                                                  body:nil
+                                                                   ext:nil];
+        message.chatType = EMChatTypeChat;
+        
+        message.body = [[EMTextMessageBody alloc]
+                            initWithText:@"欢迎使用白鸽医生，白鸽医生您的私人医护助理!------中域教育集团是一家集医师资格考试、考研高端、公务员考试为一体的教学研究的专业化、规模化的考前辅导机构。自成立以来，业务领域扩展了二十省，培训学员15万名，保过班通过率达到了惊人的96%，已迅速发展成为考试培训界的权威品牌，遥遥领先于各大培训机构。"];
+        
+        RWWeChatMessage *newMsg = [RWWeChatMessage message:message
+                                                    header:
+                                                    [UIImage imageNamed:@"45195.jpg"]
+                                                      type:RWMessageTypeText
+                                                 myMessage:NO
+                                               messageDate:[NSDate date]
+                                                  showTime:NO
+                                          originalResource:nil];
+        
+        self.weChat.messages = [@[newMsg] mutableCopy];
+    }
     
     for (int i = 0; i < self.weChat.messages.count; i++)
     {
@@ -63,7 +84,7 @@
         
         msg.message.isRead = YES;
         
-        [_baseManager updateCacheMessage:msg];
+        [self.baseManager updateCacheMessage:msg];
     }
 }
 

@@ -33,5 +33,6 @@
 - (BOOL)removeUser:(RWUser *)user;
 
 - (RWUser *)getDefualtUser;
+- (RWUser *)getUser:(NSString *)username;
 
 @end

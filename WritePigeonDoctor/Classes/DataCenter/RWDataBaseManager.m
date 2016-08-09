@@ -202,6 +202,18 @@
     
     for (RWUserInformation *userInfo in result)
     {
+        if (user.defaultUser)
+        {
+            NSArray *result = [self searchItemWithEntityName:name
+                                                   predicate:nil
+                                             sortDescriptors:nil];
+            
+            for (RWUserInformation *userInfo in result)
+            {
+                userInfo.defaultUser = @(NO);
+            }
+        }
+        
         userInfo.name = user.name;
         userInfo.age = user.age;
         userInfo.gender = user.gender;
@@ -251,6 +263,36 @@
     }
     
     return [self saveContext];
+}
+
+- (RWUser *)getUser:(NSString *)username
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"username = %@",username];
+    
+    NSString *name = NSStringFromClass([RWUserInformation class]);
+    
+    NSArray *result = [self searchItemWithEntityName:name
+                                           predicate:predicate
+                                     sortDescriptors:nil];
+    
+    if (result.count)
+    {
+        for (RWUserInformation *userInfo in result)
+        {
+            RWUser *user = [[RWUser alloc] init];
+            
+            user.name = userInfo.name;
+            user.age = userInfo.age;
+            user.gender = userInfo.gender;
+            user.username = userInfo.username;
+            user.password = userInfo.password;
+            user.header = userInfo.header;
+            user.defaultUser = userInfo.defaultUser.boolValue;
+            
+            return user;
+        }
+    }
+    return nil;
 }
 
 - (RWUser *)getDefualtUser
