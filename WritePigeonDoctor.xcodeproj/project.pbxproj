@@ -17,9 +17,6 @@
 		123E9BC01D34A030009B61B5 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 123E9BBF1D34A030009B61B5 /* libsqlite3.tbd */; };
 		126095EA1D48AD1400A65AEE /* RWDoctorDescriptionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 126095E91D48AD1400A65AEE /* RWDoctorDescriptionController.m */; };
 		126095ED1D48ADD300A65AEE /* RWDescriptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 126095EC1D48ADD300A65AEE /* RWDescriptionView.m */; };
-		1260AC1D1D5891CC00A1EBE7 /* FEBaseLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1260AC131D5891CC00A1EBE7 /* FEBaseLoginController.m */; };
-		1260AC1E1D5891CC00A1EBE7 /* FELoginTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1260AC151D5891CC00A1EBE7 /* FELoginTableCell.m */; };
-		1260AC201D5891CC00A1EBE7 /* Login.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1260AC181D5891CC00A1EBE7 /* Login.xcassets */; };
 		1262719C1D336F7F009D44A0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1262719B1D336F7F009D44A0 /* main.m */; };
 		1262719F1D336F7F009D44A0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1262719E1D336F7F009D44A0 /* AppDelegate.m */; };
 		126271A51D336F7F009D44A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 126271A31D336F7F009D44A0 /* Main.storyboard */; };
@@ -177,6 +174,12 @@
 		12D35BDF1D59B126001E4352 /* status.png in Resources */ = {isa = PBXBuildFile; fileRef = 12D35B541D59B126001E4352 /* status.png */; };
 		12D35BE01D59B126001E4352 /* WPD_SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D35B561D59B126001E4352 /* WPD_SVProgressHUD.m */; };
 		12D35BE11D59B126001E4352 /* XZSettingWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D35B581D59B126001E4352 /* XZSettingWebViewController.m */; };
+		12D35BEE1D59BBC9001E4352 /* FEBaseLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D35BE41D59BBC9001E4352 /* FEBaseLoginController.m */; };
+		12D35BEF1D59BBC9001E4352 /* FELoginTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D35BE61D59BBC9001E4352 /* FELoginTableCell.m */; };
+		12D35BF01D59BBC9001E4352 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D35BE81D59BBC9001E4352 /* InfoViewController.m */; };
+		12D35BF11D59BBC9001E4352 /* Login.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12D35BE91D59BBC9001E4352 /* Login.xcassets */; };
+		12D35BF21D59BBC9001E4352 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D35BEB1D59BBC9001E4352 /* LoginViewController.m */; };
+		12D35BF31D59BBC9001E4352 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D35BED1D59BBC9001E4352 /* RegisterViewController.m */; };
 		12E93DA51D4DAC8700F55FD5 /* 中医儿科.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 12E93D8F1D4DAC8700F55FD5 /* 中医儿科.jpg */; };
 		12E93DA61D4DAC8700F55FD5 /* 中医内科.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 12E93D901D4DAC8700F55FD5 /* 中医内科.jpg */; };
 		12E93DA71D4DAC8700F55FD5 /* 中医外科.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 12E93D911D4DAC8700F55FD5 /* 中医外科.jpg */; };
@@ -223,9 +226,6 @@
 		12F880D41D59634000B7D87F /* RWCustomizeNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F880D31D59634000B7D87F /* RWCustomizeNavigationBar.m */; };
 		12F880D81D59919500B7D87F /* RWConsultHistoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F880D71D59919500B7D87F /* RWConsultHistoryController.m */; };
 		12F880DB1D59A53300B7D87F /* RWConsultNotesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F880DA1D59A53300B7D87F /* RWConsultNotesController.m */; };
-		12F880E21D59ACAA00B7D87F /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F880DD1D59ACAA00B7D87F /* InfoViewController.m */; };
-		12F880E31D59ACAA00B7D87F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F880DF1D59ACAA00B7D87F /* LoginViewController.m */; };
-		12F880E41D59ACAA00B7D87F /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F880E11D59ACAA00B7D87F /* RegisterViewController.m */; };
 		12FA40401D46F35E0084D50A /* RWWelcomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA403D1D46F35E0084D50A /* RWWelcomeController.m */; };
 		12FA40411D46F35E0084D50A /* RWWelcomeImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA403F1D46F35E0084D50A /* RWWelcomeImageCell.m */; };
 		12FA404C1D46F56E0084D50A /* RWRequsetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA40441D46F56E0084D50A /* RWRequsetManager.m */; };
@@ -274,11 +274,6 @@
 		126095E91D48AD1400A65AEE /* RWDoctorDescriptionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWDoctorDescriptionController.m; sourceTree = "<group>"; };
 		126095EB1D48ADD300A65AEE /* RWDescriptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWDescriptionView.h; sourceTree = "<group>"; };
 		126095EC1D48ADD300A65AEE /* RWDescriptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWDescriptionView.m; sourceTree = "<group>"; };
-		1260AC121D5891CC00A1EBE7 /* FEBaseLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FEBaseLoginController.h; sourceTree = "<group>"; };
-		1260AC131D5891CC00A1EBE7 /* FEBaseLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FEBaseLoginController.m; sourceTree = "<group>"; };
-		1260AC141D5891CC00A1EBE7 /* FELoginTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FELoginTableCell.h; sourceTree = "<group>"; };
-		1260AC151D5891CC00A1EBE7 /* FELoginTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FELoginTableCell.m; sourceTree = "<group>"; };
-		1260AC181D5891CC00A1EBE7 /* Login.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Login.xcassets; sourceTree = "<group>"; };
 		126271971D336F7F009D44A0 /* WritePigeonDoctor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WritePigeonDoctor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1262719B1D336F7F009D44A0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1262719D1D336F7F009D44A0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../AppDelegate.h; sourceTree = "<group>"; };
@@ -615,6 +610,17 @@
 		12D35B561D59B126001E4352 /* WPD_SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPD_SVProgressHUD.m; sourceTree = "<group>"; };
 		12D35B571D59B126001E4352 /* XZSettingWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZSettingWebViewController.h; sourceTree = "<group>"; };
 		12D35B581D59B126001E4352 /* XZSettingWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZSettingWebViewController.m; sourceTree = "<group>"; };
+		12D35BE31D59BBC9001E4352 /* FEBaseLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FEBaseLoginController.h; sourceTree = "<group>"; };
+		12D35BE41D59BBC9001E4352 /* FEBaseLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FEBaseLoginController.m; sourceTree = "<group>"; };
+		12D35BE51D59BBC9001E4352 /* FELoginTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FELoginTableCell.h; sourceTree = "<group>"; };
+		12D35BE61D59BBC9001E4352 /* FELoginTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FELoginTableCell.m; sourceTree = "<group>"; };
+		12D35BE71D59BBC9001E4352 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		12D35BE81D59BBC9001E4352 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		12D35BE91D59BBC9001E4352 /* Login.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Login.xcassets; sourceTree = "<group>"; };
+		12D35BEA1D59BBC9001E4352 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		12D35BEB1D59BBC9001E4352 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		12D35BEC1D59BBC9001E4352 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		12D35BED1D59BBC9001E4352 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		12E93D8F1D4DAC8700F55FD5 /* 中医儿科.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "中医儿科.jpg"; sourceTree = "<group>"; };
 		12E93D901D4DAC8700F55FD5 /* 中医内科.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "中医内科.jpg"; sourceTree = "<group>"; };
 		12E93D911D4DAC8700F55FD5 /* 中医外科.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "中医外科.jpg"; sourceTree = "<group>"; };
@@ -680,12 +686,6 @@
 		12F880D71D59919500B7D87F /* RWConsultHistoryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWConsultHistoryController.m; sourceTree = "<group>"; };
 		12F880D91D59A53300B7D87F /* RWConsultNotesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWConsultNotesController.h; sourceTree = "<group>"; };
 		12F880DA1D59A53300B7D87F /* RWConsultNotesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWConsultNotesController.m; sourceTree = "<group>"; };
-		12F880DC1D59ACAA00B7D87F /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
-		12F880DD1D59ACAA00B7D87F /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
-		12F880DE1D59ACAA00B7D87F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		12F880DF1D59ACAA00B7D87F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		12F880E01D59ACAA00B7D87F /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
-		12F880E11D59ACAA00B7D87F /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		12FA403C1D46F35E0084D50A /* RWWelcomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWWelcomeController.h; sourceTree = "<group>"; };
 		12FA403D1D46F35E0084D50A /* RWWelcomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWWelcomeController.m; sourceTree = "<group>"; };
 		12FA403E1D46F35E0084D50A /* RWWelcomeImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWWelcomeImageCell.h; sourceTree = "<group>"; };
@@ -793,24 +793,6 @@
 			name = PageViews;
 			sourceTree = "<group>";
 		};
-		1260AC111D5891CC00A1EBE7 /* LoginClass */ = {
-			isa = PBXGroup;
-			children = (
-				1260AC121D5891CC00A1EBE7 /* FEBaseLoginController.h */,
-				1260AC131D5891CC00A1EBE7 /* FEBaseLoginController.m */,
-				1260AC141D5891CC00A1EBE7 /* FELoginTableCell.h */,
-				1260AC151D5891CC00A1EBE7 /* FELoginTableCell.m */,
-				12F880DC1D59ACAA00B7D87F /* InfoViewController.h */,
-				12F880DD1D59ACAA00B7D87F /* InfoViewController.m */,
-				12F880DE1D59ACAA00B7D87F /* LoginViewController.h */,
-				12F880DF1D59ACAA00B7D87F /* LoginViewController.m */,
-				12F880E01D59ACAA00B7D87F /* RegisterViewController.h */,
-				12F880E11D59ACAA00B7D87F /* RegisterViewController.m */,
-				1260AC181D5891CC00A1EBE7 /* Login.xcassets */,
-			);
-			path = LoginClass;
-			sourceTree = "<group>";
-		};
 		1262718E1D336F7F009D44A0 = {
 			isa = PBXGroup;
 			children = (
@@ -836,7 +818,6 @@
 		126271991D336F7F009D44A0 /* WritePigeonDoctor */ = {
 			isa = PBXGroup;
 			children = (
-				1260AC111D5891CC00A1EBE7 /* LoginClass */,
 				1236AA831D46ED1D00C65043 /* PageViews */,
 				12C1AF6D1D4629040087ABA0 /* Resource */,
 				0472B7851D361F4200FE847E /* Other */,
@@ -975,6 +956,7 @@
 		12C1AF6D1D4629040087ABA0 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				12D35BE21D59BBC9001E4352 /* LoginClass */,
 				12C1AF6B1D4629040087ABA0 /* PublicClass */,
 				12FA40541D46FCFA0084D50A /* ChatManager */,
 				12C1AF611D4629040087ABA0 /* DataCenter */,
@@ -1750,6 +1732,24 @@
 			path = Classes/Settings;
 			sourceTree = "<group>";
 		};
+		12D35BE21D59BBC9001E4352 /* LoginClass */ = {
+			isa = PBXGroup;
+			children = (
+				12D35BE31D59BBC9001E4352 /* FEBaseLoginController.h */,
+				12D35BE41D59BBC9001E4352 /* FEBaseLoginController.m */,
+				12D35BE51D59BBC9001E4352 /* FELoginTableCell.h */,
+				12D35BE61D59BBC9001E4352 /* FELoginTableCell.m */,
+				12D35BE71D59BBC9001E4352 /* InfoViewController.h */,
+				12D35BE81D59BBC9001E4352 /* InfoViewController.m */,
+				12D35BE91D59BBC9001E4352 /* Login.xcassets */,
+				12D35BEA1D59BBC9001E4352 /* LoginViewController.h */,
+				12D35BEB1D59BBC9001E4352 /* LoginViewController.m */,
+				12D35BEC1D59BBC9001E4352 /* RegisterViewController.h */,
+				12D35BED1D59BBC9001E4352 /* RegisterViewController.m */,
+			);
+			path = LoginClass;
+			sourceTree = "<group>";
+		};
 		12E93D8D1D4DAC8700F55FD5 /* TestDataSource */ = {
 			isa = PBXGroup;
 			children = (
@@ -2119,7 +2119,7 @@
 				12E93DB61D4DAC8700F55FD5 /* 耳鼻喉科.jpg in Resources */,
 				12F1A0A41D4D8B70007B5994 /* microphone3@2x.png in Resources */,
 				12E93DAC1D4DAC8700F55FD5 /* 中医肾科.jpg in Resources */,
-				1260AC201D5891CC00A1EBE7 /* Login.xcassets in Resources */,
+				12D35BF11D59BBC9001E4352 /* Login.xcassets in Resources */,
 				12E93DA61D4DAC8700F55FD5 /* 中医内科.jpg in Resources */,
 				12F1A0A31D4D8B70007B5994 /* microphone2@2x.png in Resources */,
 				12D35B981D59B126001E4352 /* UMComSimplicityUserInfoBar.xib in Resources */,
@@ -2220,6 +2220,7 @@
 				12D35BBC1D59B126001E4352 /* UMComCustomMenuViewController.m in Sources */,
 				12D35B781D59B126001E4352 /* UMComMenuControlView.m in Sources */,
 				12D35BD81D59B126001E4352 /* UMComKit.m in Sources */,
+				12D35BF01D59BBC9001E4352 /* InfoViewController.m in Sources */,
 				12D35B891D59B126001E4352 /* UMComGridTableViewCellOne.m in Sources */,
 				12D35B6C1D59B126001E4352 /* UMComTableViewCell.m in Sources */,
 				12D35BD71D59B126001E4352 /* UMComKit+String.m in Sources */,
@@ -2228,7 +2229,6 @@
 				12D35B771D59B126001E4352 /* UMComMedalImageView.m in Sources */,
 				12D35BB81D59B126001E4352 /* UMComSimpleSubCommentViewController.m in Sources */,
 				12D35BC41D59B126001E4352 /* UMComWebViewController.m in Sources */,
-				12F880E21D59ACAA00B7D87F /* InfoViewController.m in Sources */,
 				12D35B6E1D59B126001E4352 /* UMComEditTextView.m in Sources */,
 				12D35B901D59B126001E4352 /* UMComStatusView.m in Sources */,
 				12D35BC01D59B126001E4352 /* UMComSimpleLoginViewController.m in Sources */,
@@ -2239,8 +2239,8 @@
 				12F880D41D59634000B7D87F /* RWCustomizeNavigationBar.m in Sources */,
 				12FBCEA31D486C7C00A646DB /* RWDoctorListCell.m in Sources */,
 				12D35B661D59B126001E4352 /* UMComBarButtonItem.m in Sources */,
-				12F880E31D59ACAA00B7D87F /* LoginViewController.m in Sources */,
 				12D35BCE1D59B126001E4352 /* UMComUserListDataController.m in Sources */,
+				12D35BF21D59BBC9001E4352 /* LoginViewController.m in Sources */,
 				12D35BA11D59B126001E4352 /* UMComFeedImageCollectionViewCell.m in Sources */,
 				12D35BD51D59B126001E4352 /* UMComKit+Image.m in Sources */,
 				12D35B8F1D59B126001E4352 /* UMComProgressHUD.m in Sources */,
@@ -2253,11 +2253,10 @@
 				12F1A0A11D4D8B70007B5994 /* FEButton.m in Sources */,
 				12D35B821D59B126001E4352 /* UMImagePickerController.m in Sources */,
 				12BFA2551D5733E1007C86DF /* RWChatCache+CoreDataProperties.m in Sources */,
+				12D35BF31D59BBC9001E4352 /* RegisterViewController.m in Sources */,
 				12EA08A21D57039D0056A875 /* XZMicroVideoPlayerView.m in Sources */,
 				12D35BC81D59B126001E4352 /* UMComFeedDetailDataController.m in Sources */,
-				12F880E41D59ACAA00B7D87F /* RegisterViewController.m in Sources */,
 				12D35B9C1D59B126001E4352 /* UMComChangeBorderBtn.m in Sources */,
-				1260AC1E1D5891CC00A1EBE7 /* FELoginTableCell.m in Sources */,
 				12C1AF741D4629040087ABA0 /* RWDoctorListController.m in Sources */,
 				12D35B7F1D59B126001E4352 /* UMAssetsCollectionController.m in Sources */,
 				12D35BDB1D59B126001E4352 /* XZUMComPullRequest.m in Sources */,
@@ -2305,7 +2304,6 @@
 				12D35B651D59B126001E4352 /* UMComAddedImageView.m in Sources */,
 				12D35B8A1D59B126001E4352 /* UMComiToast.m in Sources */,
 				12E93DBD1D4DACAC00F55FD5 /* RWTestDataSource.m in Sources */,
-				1260AC1D1D5891CC00A1EBE7 /* FEBaseLoginController.m in Sources */,
 				12D35BD41D59B126001E4352 /* UMComKit+Autolayout.m in Sources */,
 				12D35BB61D59B126001E4352 /* UMComSimpleNotificationCell.m in Sources */,
 				12D35BA91D59B126001E4352 /* UMComFeedDetailTableViewCell.m in Sources */,
@@ -2351,6 +2349,7 @@
 				12D35BE01D59B126001E4352 /* WPD_SVProgressHUD.m in Sources */,
 				12D35BB51D59B126001E4352 /* UMComSimpleNoticeTableViewController.m in Sources */,
 				1262719F1D336F7F009D44A0 /* AppDelegate.m in Sources */,
+				12D35BEE1D59BBC9001E4352 /* FEBaseLoginController.m in Sources */,
 				12A6AAE01D4A071D00A0739C /* RWWPDBaseController.m in Sources */,
 				12F1A0991D4D8B70007B5994 /* RWMakeImageController.m in Sources */,
 				12D35B5F1D59B126001E4352 /* UIViewController+UMComAddition.m in Sources */,
@@ -2365,6 +2364,7 @@
 				12D35BDD1D59B126001E4352 /* FeedBackViewController.m in Sources */,
 				12A26A2E1D523BDC0046E163 /* PigeonDoctorDatabase.xcdatamodeld in Sources */,
 				12D35B7A1D59B126001E4352 /* UMComMutiText.m in Sources */,
+				12D35BEF1D59BBC9001E4352 /* FELoginTableCell.m in Sources */,
 				12D35BCA1D59B126001E4352 /* UMComTopicGroupDataController.m in Sources */,
 				12023E6E1D4F59680027816B /* RWConsultViewController.m in Sources */,
 				12D35B871D59B126001E4352 /* UMComSegmentedControl.m in Sources */,

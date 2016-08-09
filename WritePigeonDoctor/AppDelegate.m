@@ -25,6 +25,24 @@
     options.apnsCertName = @"Dev_WPD";
     [[EMClient sharedClient] initializeSDKWithOptions:options];
     
+    if ([application respondsToSelector:@selector(registerForRemoteNotifications)])
+    {
+        [application registerForRemoteNotifications];
+        
+        UIUserNotificationType notificationTypes = UIUserNotificationTypeBadge |
+        UIUserNotificationTypeSound |
+        UIUserNotificationTypeAlert;
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:notificationTypes categories:nil];
+        [application registerUserNotificationSettings:settings];
+    }
+    else
+    {
+        UIRemoteNotificationType notificationTypes = UIRemoteNotificationTypeBadge |
+        UIRemoteNotificationTypeSound |
+        UIRemoteNotificationTypeAlert;
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:notificationTypes];
+    }
+    
     [UMComSession openLog:YES];
     [UMCommunity setAppKey:UMengCommunityAppkey withAppSecret:UMengCommunityAppSecret];
     
@@ -38,6 +56,16 @@
     _window.rootViewController = mainTabBar;
     
     return YES;
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    [[EMClient sharedClient] bindDeviceToken:deviceToken];
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
+{
+    NSLog(@"error -- %@",error);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

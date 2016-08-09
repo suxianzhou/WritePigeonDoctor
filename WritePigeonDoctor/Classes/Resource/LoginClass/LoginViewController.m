@@ -408,12 +408,12 @@ static NSString *const buttonCell = @"buttonCell";
     }
 }
 
--(void)userLogin{
+-(void)userLogin
+{
     [self obtainRequestManager];
     __block FETextFiledCell *textCell = [self.viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     
     NSString *phoneNumber = textCell.textField.text;
-    
     
     __block FETextFiledCell *verCell = [self.viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
     
@@ -463,7 +463,7 @@ static NSString *const buttonCell = @"buttonCell";
     DISSMISS;
     if (success) {
         
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [self dismissToRootViewController];
 
     }
     else{
@@ -471,5 +471,14 @@ static NSString *const buttonCell = @"buttonCell";
     }
     
 }
+-(void)dismissToRootViewController
+{
+    UIViewController *vc = self;
+    while (vc.presentingViewController) {
+        vc = vc.presentingViewController;
+    }
+    [vc dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 @end

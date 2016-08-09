@@ -8,6 +8,7 @@
 
 #import "RWRequsetManager+UserLogin.h"
 #import "XZUMComPullRequest.h"
+#import "UMComUser.h"
 #import "RWDataBaseManager.h"
 #import <EMSDK.h>
 
@@ -31,8 +32,13 @@
      {
          if(!error)
          {
+             UMComUser *umuser = responseObject[@"data"];
+             
              NSDictionary *body = @{@"username":username,
-                                    @"password":password};
+                                    @"password":password,
+                                    @"udid":__TOKEN_KEY__,
+                                    @"yzm":verificationCode,
+                                    @"umid":umuser.uid};
              
              [self.requestManager POST:__USER_REGISTER__
                             parameters:body
@@ -110,7 +116,8 @@
         if(!error)
         {
             NSDictionary *body = @{@"username":username,
-                                   @"password":password};
+                                   @"password":password,
+                                   @"udid":__TOKEN_KEY__};
             
             [self.requestManager POST:__USER_LOGIN__
                            parameters:body
@@ -194,65 +201,69 @@
 
 - (void)replacePasswordWithUsername:(NSString *)username AndPassword:(NSString *)password verificationCode:(NSString *)verificationCode
 {
-//    NSDictionary *body = @{@"username":username,
-//                           @"password":password,
-//                           @"yzm":verificationCode};
+    NSDictionary *body = @{@"username":username,
+                           @"password":password,
+                           @"yzm":verificationCode};
     
-//    [self.manager POST:REPLACE_PASSWORD_URL parameters:body progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        
-//        NSDictionary *Json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
-//        
-//        if ([[Json objectForKey:@"resultCode"] integerValue] == 200)
-//        {
-//            [self.delegate replacePasswordResponds:YES ErrorReason:nil];
-//        }
-//        else
-//        {
-//            [self.delegate replacePasswordResponds:NO ErrorReason:
-//                                                        [Json objectForKey:@"result"]];
-//        }
-//        
-//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//        
-//        [self.delegate requestError:error Task:task];
-//    }];
+    [self.requestManager POST:__REPLACE_PASSWORD__
+                   parameters:body
+                     progress:nil
+                      success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSDictionary *Json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+        
+        if ([[Json objectForKey:@"resultCode"] integerValue] == 200)
+        {
+            [self.delegate userReplacePasswordResponds:YES
+                                       responseMessage:@"密码重置成功"];
+        }
+        else
+        {
+            [self.delegate userReplacePasswordResponds:NO
+                                       responseMessage:[Json objectForKey:@"result"]];
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        [self.delegate userReplacePasswordResponds:NO
+                                   responseMessage:error.description];
+    }];
 }
 
 - (void)obtainVerificationWithPhoneNunber:(NSString *)phoneNumber result:(void(^)(BOOL succeed,NSString *reason))result
 {
-//    NSString *UUID =  [UIDevice currentDevice].identifierForVendor.UUIDString;
-//    
-//    NSDictionary *body = @{@"username":phoneNumber,@"did":UUID};
-//    
-//    [self.manager POST:VERIFICATION_PHONENUMBER parameters:body progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//         
-//        NSDictionary *Json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
-//        
-//        if ([[Json objectForKey:@"code"] integerValue] == 200)
-//        {
-//            result(YES,nil);
-//        }
-//        else
-//        {
-//            NSString *errorCode =
-//                        [NSString stringWithFormat:@"%@",[Json objectForKey:@"code"]];
-//            
-//            NSString *description = [self.errorDescription objectForKey:errorCode];
-//            
-//            if (description)
-//            {
-//                result(NO,description);
-//            }
-//            else
-//            {
-//                result(NO,@"验证码获取失败");
-//            }
-//        }
-//        
-//     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//         
-//         result(NO,error.description);
-//     }];
+    [self.requestManager POST: __VERIFICATION_CODE__
+                   parameters:@{@"username":phoneNumber,@"did":__TOKEN_KEY__}
+                     progress:nil
+                      success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+         
+        NSDictionary *Json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+        
+        if ([[Json objectForKey:@"code"] integerValue] == 200)
+        {
+            result(YES,nil);
+        }
+        else
+        {
+            NSString *errorCode =
+                        [NSString stringWithFormat:@"%@",[Json objectForKey:@"code"]];
+            
+            NSString *description = [self.errorDescription objectForKey:errorCode];
+            
+            if (description)
+            {
+                result(NO,description);
+            }
+            else
+            {
+                result(NO,@"验证码获取失败");
+            }
+        }
+        
+     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+         
+         result(NO,error.description);
+     }];
 }
 
 - (BOOL)verificationPhoneNumber:(NSString *)phoneNumber

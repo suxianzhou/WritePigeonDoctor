@@ -55,6 +55,10 @@ static NSString * const agreementCell=@"agreementCell";
 -(void)viewDidAppear:(BOOL)animated{
     
     [super viewDidAppear:animated];
+    if (_requestManager && _requestManager.delegate == nil)
+    {
+        _requestManager.delegate = self;
+    }
     
 }
 -(void)viewWillDisappear:(BOOL)animated{
@@ -64,6 +68,7 @@ static NSString * const agreementCell=@"agreementCell";
 }
 -(void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
+     _requestManager.delegate = nil;
 }
 
 - (void)viewDidLoad {
@@ -496,12 +501,15 @@ static NSString * const agreementCell=@"agreementCell";
 }
 -(void)userRegisterSuccess:(BOOL)success responseMessage:(NSString *)responseMessage
 {
-    
+    FETextFiledCell * phoneCell=[self.viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    FETextFiledCell * passwordCell=[self.viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:3]];
     DISSMISS;
     if (success)
     {
         [RWRequsetManager warningToViewController:self Title:@"注册成功" Click:^{
             InfoViewController * infoVC=[[InfoViewController alloc]init];
+            infoVC.phoneNumber=phoneCell.textField.text;
+            infoVC.passWord=passwordCell.textField.text;
             
         [self presentViewController:infoVC animated:YES completion:nil];
             

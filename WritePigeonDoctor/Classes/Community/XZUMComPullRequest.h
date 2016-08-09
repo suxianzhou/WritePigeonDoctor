@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "UMComDataRequestManager.h"
+
 @interface XZUMComPullRequest : NSObject
 
 

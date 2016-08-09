@@ -20,8 +20,20 @@
 #define __WPD_MAIN_COLOR__ [UIColor colorWithRed:43.f/255.f green:141.f/255.f blue:241.f/255.f alpha:1.0]
 #endif
 
+#ifndef __TOKEN_KEY__
+#define __TOKEN_KEY__ [UIDevice currentDevice].identifierForVendor.UUIDString
+#endif
+
 #ifndef __EMSDK_KEY__
 #define __EMSDK_KEY__ @"zhongyujiaoyu#writepigeondoctor"
+#endif
+
+#ifndef __VERIFICATION_CODE__
+#define __VERIFICATION_CODE__ @"http://api.zhongyuedu.com/comm/code.php"
+#endif
+
+#ifndef __REPLACE_PASSWORD__
+#define __REPLACE_PASSWORD__ @"http://api.zhongyuedu.com/bg/change_pwd.php"
 #endif
 
 #ifndef __DEFAULT_NAVIGATION_BAR__

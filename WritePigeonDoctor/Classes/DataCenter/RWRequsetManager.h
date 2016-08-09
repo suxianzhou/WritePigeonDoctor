@@ -12,22 +12,14 @@
 
 @protocol RWRequsetDelegate <NSObject>
 
-@required
-
-/**
- *  一般网络连接失败会回调此方法
- *
- *  @param error 错误信息
- *  @param task  会话信息
- */
-- (void)requestError:(NSError *)error Task:(NSURLSessionDataTask *)task;
+@optional
 
 - (void)userLoginSuccess:(BOOL)success responseMessage:(NSString *)responseMessage;
 
 - (void)userRegisterSuccess:(BOOL)success responseMessage:(NSString *)responseMessage;
 
-@optional
-
+- (void)userReplacePasswordResponds:(BOOL)success
+                    responseMessage:(NSString *)responseMessage;
 
 @end
 

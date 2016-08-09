@@ -8,10 +8,12 @@
 
 #import "InfoViewController.h"
 #import "FELoginTableCell.h"
-@interface InfoViewController ()<UITableViewDelegate,UITableViewDataSource,FETextFiledCellDelegate,FEButtonCellDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
+#import "RWRequsetManager+UserLogin.h"
+@interface InfoViewController ()<UITableViewDelegate,UITableViewDataSource,FETextFiledCellDelegate,FEButtonCellDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,RWRequsetDelegate>
 
 @property (strong, nonatomic)UIImageView *myHeadPortrait;
 @property(nonatomic,strong)UIView *backview;
+@property(nonatomic,strong)RWRequsetManager * requestManager;
 @end
 
 static NSString * const textFieldCell=@"textFieldCell";
@@ -36,9 +38,14 @@ static NSString *const buttonCell = @"buttonCell";
     [self registerForKeyboardNotifications];
 }
 
+
 -(void)viewDidAppear:(BOOL)animated{
     
     [super viewDidAppear:animated];
+    if (_requestManager && _requestManager.delegate == nil)
+    {
+        _requestManager.delegate = self;
+    }
     
 }
 -(void)viewWillDisappear:(BOOL)animated{
@@ -48,8 +55,19 @@ static NSString *const buttonCell = @"buttonCell";
 }
 -(void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
+    _requestManager.delegate = nil;
 }
 
+- (void)obtainRequestManager
+{
+    
+    if (!_requestManager)
+    {
+        _requestManager = [[RWRequsetManager alloc]init];
+        
+        _requestManager.delegate = self;
+    }
+}
 
 
 
@@ -336,8 +354,9 @@ static NSString *const buttonCell = @"buttonCell";
 }
 -(void)jumpMain{
     
-    [self dismissToRootViewController];
-    
+    [self obtainRequestManager];
+    SHOWLOADING;
+    [_requestManager userinfoWithUsername:self.phoneNumber AndPassword:self.passWord];
     
 }
 -(void)dismissToRootViewController
@@ -388,6 +407,18 @@ static NSString *const buttonCell = @"buttonCell";
     
     
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)requestError:(NSError *)error Task:(NSURLSessionDataTask *)task{
+     [RWRequsetManager warningToViewController:self Title:@"网络异常，请检查设置" Click:nil];
+}
+
+-(void)userLoginSuccess:(BOOL)success responseMessage:(NSString *)responseMessage{
+    if (success) {
+        [self dismissToRootViewController];
+    }else{
+        [RWRequsetManager warningToViewController:self Title:responseMessage Click:nil];
+    }
 }
 
 

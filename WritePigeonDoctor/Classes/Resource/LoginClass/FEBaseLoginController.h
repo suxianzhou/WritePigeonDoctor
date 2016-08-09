@@ -12,4 +12,7 @@
 @property(nonatomic,strong)UITableView * viewList;
 @property(nonatomic,strong)UITapGestureRecognizer *tap;
 @property (nonatomic ,strong)NSString *facePlaceHolder;
+
+
+-(void)warningToViewController:(__kindof UIViewController *)viewController Title:(NSString *)title Click:(void(^)(void))click;
 @end
