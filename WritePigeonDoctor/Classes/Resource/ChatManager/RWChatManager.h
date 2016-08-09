@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <EMSDK.h>
 #import <EMSDKFull.h>
+#import "RWWeChatBar.h"
+#import "RWDataBaseManager+ChatCache.h"
 
 extern NSString *messageTextBody;
 extern NSString *messageImageName;
@@ -24,7 +26,7 @@ extern NSString *messageVideoBody;
 
 @protocol RWChatManagerDelegate <NSObject>
 
-- (void)receiveMessage:(EMMessage *)message messageType:(EMMessageBodyType)messageType;
+- (void)receiveMessage:(RWWeChatMessage *)message;
 
 @end
 
@@ -40,14 +42,17 @@ extern NSString *messageVideoBody;
 @property (nonatomic,strong,readonly)EMClient *client;
 @property (nonatomic,weak,readonly)id<IEMChatManager> chatManager;
 
-@property (nonatomic,assign)id<RWChatManagerDelegate> delegate; 
+@property (nonatomic,assign)id<RWChatManagerDelegate> delegate;
+
+@property (nonatomic,assign)EMConnectionState connectionState;
 
 @property (nonatomic,strong,readonly)EMConversation *faceSession;
 @property (nonatomic,strong,readonly)NSMutableArray *allSessions;
 
-@property (nonatomic,strong)NSOperationQueue *downloadQueue;
+@property (nonatomic,strong)RWDataBaseManager *baseManager;
 
 - (void)createConversationWithID:(NSString *)ID;
+- (void)removeFaceConversation;
 
 + (NSString *)videoName;
 + (NSString *)voiceName;

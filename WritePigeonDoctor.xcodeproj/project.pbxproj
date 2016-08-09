@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		12023E6E1D4F59680027816B /* RWConsultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12023E6D1D4F59680027816B /* RWConsultViewController.m */; };
+		120B92681D58E03C00A5285F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 120B92671D58E03C00A5285F /* WebKit.framework */; };
+		120B926B1D58E10F00A5285F /* RWCustomizeToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 120B926A1D58E10F00A5285F /* RWCustomizeToolBar.m */; };
 		123E9BB81D349FC7009B61B5 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 123E9BB71D349FC7009B61B5 /* CoreTelephony.framework */; };
 		123E9BBA1D349FDA009B61B5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 123E9BB91D349FDA009B61B5 /* SystemConfiguration.framework */; };
 		123E9BBC1D34A006009B61B5 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 123E9BBB1D34A006009B61B5 /* libc++.tbd */; };
@@ -257,6 +259,9 @@
 		06B0CD839B2FB4AEC160CE84 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		12023E6C1D4F59680027816B /* RWConsultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWConsultViewController.h; sourceTree = "<group>"; };
 		12023E6D1D4F59680027816B /* RWConsultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWConsultViewController.m; sourceTree = "<group>"; };
+		120B92671D58E03C00A5285F /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		120B92691D58E10F00A5285F /* RWCustomizeToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWCustomizeToolBar.h; sourceTree = "<group>"; };
+		120B926A1D58E10F00A5285F /* RWCustomizeToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWCustomizeToolBar.m; sourceTree = "<group>"; };
 		123E9BB71D349FC7009B61B5 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		123E9BB91D349FDA009B61B5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		123E9BBB1D34A006009B61B5 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
@@ -706,6 +711,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				120B92681D58E03C00A5285F /* WebKit.framework in Frameworks */,
 				12A26A2B1D5239EB0046E163 /* CoreData.framework in Frameworks */,
 				123E9BC01D34A030009B61B5 /* libsqlite3.tbd in Frameworks */,
 				12F1A09E1D4D8B70007B5994 /* libmp3lame.a in Frameworks */,
@@ -773,6 +779,7 @@
 				12C1AF681D4629040087ABA0 /* MainClass */,
 				12C1AF621D4629040087ABA0 /* DoctorClass */,
 				12EA06C31D5703060056A875 /* Community */,
+				1260AC001D5891B000A1EBE7 /* Settings */,
 			);
 			name = PageViews;
 			sourceTree = "<group>";
@@ -839,7 +846,6 @@
 			children = (
 				1260AC111D5891CC00A1EBE7 /* LoginClass */,
 				1236AA831D46ED1D00C65043 /* PageViews */,
-				1260AC001D5891B000A1EBE7 /* Settings */,
 				12C1AF6D1D4629040087ABA0 /* Resource */,
 				0472B7851D361F4200FE847E /* Other */,
 				0472B7861D361F7F00FE847E /* Framework */,
@@ -946,6 +952,8 @@
 			children = (
 				12C1AF691D4629040087ABA0 /* RWMainViewController.h */,
 				12C1AF6A1D4629040087ABA0 /* RWMainViewController.m */,
+				120B92691D58E10F00A5285F /* RWCustomizeToolBar.h */,
+				120B926A1D58E10F00A5285F /* RWCustomizeToolBar.m */,
 			);
 			name = MainClass;
 			path = Classes/MainClass;
@@ -1924,6 +1932,7 @@
 		442497FD92A093AD82020936 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				120B92671D58E03C00A5285F /* WebKit.framework */,
 				12A26A2A1D5239EB0046E163 /* CoreData.framework */,
 				75E7335217CD8786A2D3E4FC /* libPods.a */,
 			);
@@ -2221,6 +2230,7 @@
 				1260AC1E1D5891CC00A1EBE7 /* FELoginTableCell.m in Sources */,
 				12EA08361D5703070056A875 /* UMComSimpleHorizonMenuView.m in Sources */,
 				12C1AF741D4629040087ABA0 /* RWDoctorListController.m in Sources */,
+				120B926B1D58E10F00A5285F /* RWCustomizeToolBar.m in Sources */,
 				12EA08281D5703070056A875 /* UMComButton.m in Sources */,
 				12EA08881D5703070056A875 /* UMComFeedListDataController.m in Sources */,
 				12F1A0961D4D8B70007B5994 /* RWChatViewController.m in Sources */,

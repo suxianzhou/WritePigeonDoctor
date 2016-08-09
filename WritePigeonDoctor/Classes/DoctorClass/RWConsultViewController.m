@@ -8,6 +8,7 @@
 
 #import "RWConsultViewController.h"
 #import "RWRequsetManager+UserLogin.h"
+#import "RWDataBaseManager+ChatCache.h"
 
 @interface RWConsultViewController ()
 
@@ -16,6 +17,7 @@
 >
 
 @property (nonatomic,strong)RWChatManager *chatManager;
+@property (nonatomic,strong)RWDataBaseManager *baseManager;
 
 @end
 
@@ -23,6 +25,8 @@
 
 - (void)sendMessage:(EMMessage *)message type:(RWMessageType)type LocalResource:(id)resource
 {
+    message.to = _item.EMID;
+    
     [_chatManager.chatManager asyncSendMessage:message progress:nil completion:^(EMMessage *message, EMError *error) {
        
         if (error)
@@ -42,81 +46,53 @@
     _chatManager = [RWChatManager defaultManager];
     _chatManager.delegate = self;
     
-    RWRequsetManager *ma = [[RWRequsetManager alloc] init];
+    [_chatManager createConversationWithID:_item.EMID];
     
-    [ma userinfoWithUsername:@"iOSTest001" AndPassword:@"iOSTest001"];
+    _baseManager = [RWDataBaseManager defaultManager];
     
-    [_chatManager createConversationWithID:@"iOSTest003"];
+    self.weChat.messages = [[_baseManager getMessageWith:_item.EMID] mutableCopy];
     
-//    [_chatManager.client.callManager makeVideoCall:self.item.EMID error:nil];
+    for (int i = 0; i < self.weChat.messages.count; i++)
+    {
+        RWWeChatMessage *msg = self.weChat.messages[self.weChat.messages.count-i-1];
+        
+        if (msg.message.isRead)
+        {
+            break;
+        }
+        
+        msg.message.isRead = YES;
+        
+        [_baseManager updateCacheMessage:msg];
+    }
 }
 
-- (void)receiveMessage:(EMMessage *)message messageType:(EMMessageBodyType)messageType
+- (void)viewWillAppear:(BOOL)animated
 {
-    switch (messageType)
+    [super viewWillAppear:animated];
+    
+    if (!_chatManager.faceSession)
     {
-        case EMMessageBodyTypeText:
-        {
-            [self.weChat addMessage:
-             
-             [RWWeChatMessage message:message
-                               header:[UIImage imageNamed:@"MY"]
-                                 type:RWMessageTypeText
-                            myMessage:NO
-                          messageDate:[NSDate date]
-                             showTime:NO
-                     originalResource:nil]
-             ];
-        }
-            break;
-        case EMMessageBodyTypeImage:
-        {
-            [self.weChat addMessage:
-             
-             [RWWeChatMessage message:message
-                               header:[UIImage imageNamed:@"MY"]
-                                 type:RWMessageTypeImage
-                            myMessage:NO
-                          messageDate:[NSDate date]
-                             showTime:NO
-                     originalResource:nil]
-             ];
-        }
-            break;
-        case EMMessageBodyTypeLocation:break;
-        case EMMessageBodyTypeVoice:
-        {
-            [self.weChat addMessage:
-             
-             [RWWeChatMessage message:message
-                               header:[UIImage imageNamed:@"MY"]
-                                 type:RWMessageTypeVoice
-                            myMessage:NO
-                          messageDate:[NSDate date]
-                             showTime:NO
-                     originalResource:nil]
-             ];
-        }
-            break;
-        case EMMessageBodyTypeVideo:
-        {
-            [self.weChat addMessage:
-             
-             [RWWeChatMessage message:message
-                               header:[UIImage imageNamed:@"MY"]
-                                 type:RWMessageTypeVideo
-                            myMessage:NO
-                          messageDate:[NSDate date]
-                             showTime:NO
-                     originalResource:nil]
-             ];
-        }
-            break;
-        case EMMessageBodyTypeFile:break;
-            
-        default:
-            break;
+        [_chatManager createConversationWithID:_item.EMID];
     }
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    if (_chatManager.faceSession)
+    {
+        [_chatManager removeFaceConversation];
+    }
+}
+
+- (void)receiveMessage:(RWWeChatMessage *)message
+{
+    message.message.isRead = YES;
+    
+    
+    [self.weChat addMessage:message];
 }
 
 @end

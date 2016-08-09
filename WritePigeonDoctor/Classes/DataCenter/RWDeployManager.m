@@ -34,7 +34,6 @@
     
 }
 
-
 - (void)addLocalNotificationWithClockString:(NSString *)clockString AndName:(NSString *)name
 {
     RWClockAttribute attribute = [self clockAttributeWithString:clockString];

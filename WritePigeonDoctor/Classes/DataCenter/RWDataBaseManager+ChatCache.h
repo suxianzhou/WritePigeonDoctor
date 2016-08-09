@@ -22,6 +22,6 @@
 - (BOOL)existCacheMessage:(RWWeChatMessage *)message;
 - (BOOL)removeCacheMessage:(RWWeChatMessage *)message;
 - (BOOL)removeCacheMessageWith:(RWHistory *)history;
-- (NSArray *)getMessageWith:(RWHistory *)history;
+- (NSArray *)getMessageWith:(NSString *)emid;
 
 @end

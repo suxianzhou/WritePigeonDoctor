@@ -10,4 +10,6 @@
 
 @interface RWConsultViewController : RWChatViewController
 
+@property (nonatomic,strong)RWDoctorItem *item;
+
 @end

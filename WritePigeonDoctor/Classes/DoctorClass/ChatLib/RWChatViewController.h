@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RWWeChatBar.h"
+#import "RWChatManager.h"
 #import "XZMicroVideoView.h"
 #import "RWMakeImageController.h"
 #import <AVFoundation/AVFoundation.h>
@@ -30,9 +30,5 @@
 
 @property (nonatomic,weak,readonly)RWWeChatCell *playing;
 @property (nonatomic,strong,readonly)UIView *coverLayer;
-
-@property (nonatomic,strong)NSMutableArray *messages;
-
-@property (nonatomic,strong)RWDoctorItem *item;
 
 @end

@@ -356,11 +356,11 @@
     return [self saveContext];
 }
 
-- (NSArray *)getMessageWith:(RWHistory *)history
+- (NSArray *)getMessageWith:(NSString *)emid
 {
     NSString *name = NSStringFromClass([RWChatCache class]);
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"to = %@ || from = %@",history.doctorid,history.doctorid];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"to = %@ || from = %@",emid,emid];
     
     NSArray *result = [self searchItemWithEntityName:name
                                            predicate:predicate

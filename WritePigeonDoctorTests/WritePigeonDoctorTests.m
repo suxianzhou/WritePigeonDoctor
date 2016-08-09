@@ -49,7 +49,7 @@
     user.name = @"new";
     
     XCTAssertTrue([defaultManager addNewUesr:user]);
-    XCTAssertTrue([defaultManager existUser:user]);
+    XCTAssertTrue([defaultManager existUser:user.username]);
     
     RWUser *defaultUser = [defaultManager getDefualtUser];
     

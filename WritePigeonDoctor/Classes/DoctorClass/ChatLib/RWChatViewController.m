@@ -270,7 +270,7 @@
                                                 body:@{messageImageBody:imageData,
                                                        messageImageName:imageName}
                                            extension:nil
-                                                  to:_item.EMID]
+                                                  to:nil]
                  
                              type:RWMessageTypeImage
                     LocalResource:imageData];
@@ -299,7 +299,7 @@
                                                 body:@{messageImageBody:imageData,
                                                        messageImageName:imageName}
                                            extension:nil
-                                                  to:_item.EMID]
+                                                  to:nil]
                  
                              type:RWMessageTypeImage
                     LocalResource:imageData];
@@ -345,7 +345,7 @@
                                            messageVoiceName:[RWChatManager videoName],
                                            messageVoiceDuration:@(second)}
                                extension:nil
-                                      to:_item.EMID]
+                                      to:nil]
      
                  type:RWMessageTypeVoice
         LocalResource:voice];
@@ -374,7 +374,7 @@
                                         @{messageVideoBody:savePath,
                                           messageVideoName:[RWChatManager videoName]}
                                                    extension:nil
-                                                          to:_item.EMID];
+                                                          to:nil];
     
     [self sendMessage:message type:RWMessageTypeVideo
         LocalResource:savePath];
@@ -433,7 +433,7 @@
         make.top.equalTo(self.view.mas_top).offset(0);
         make.bottom.equalTo(_bar.mas_top).offset(0);
         
-    } messages:_messages];
+    } messages:[NSMutableArray array]];
     
     _weChat.eventSource = self;
     
@@ -446,16 +446,6 @@
     
     [_bar.purposeMenu removeFromSuperview];
     [_bar.inputView removeFromSuperview];
-}
-
-- (void)setMessages:(NSMutableArray *)messages
-{
-    _messages = messages;
-    
-    if (_weChat)
-    {
-        _weChat.messages = _messages;
-    }
 }
 
 #pragma mark - send message

@@ -44,10 +44,12 @@ const NSString *messageVideoBody = @"messageVideoBody";
 {
     _client = [EMClient sharedClient];
     _chatManager = _client.chatManager;
+    _connectionState = EMConnectionDisconnected;
     
     [_chatManager addDelegate:self delegateQueue:nil];
     
     _allSessions = [[_chatManager loadAllConversationsFromDB] mutableCopy];
+    _baseManager = [RWDataBaseManager defaultManager];
 }
 
 - (void)createConversationWithID:(NSString *)ID
@@ -57,6 +59,11 @@ const NSString *messageVideoBody = @"messageVideoBody";
                                createIfNotExist:YES];
     
     _allSessions = [[_chatManager loadAllConversationsFromDB] mutableCopy];
+}
+
+- (void)removeFaceConversation
+{
+    _faceSession = nil;
 }
 
 - (void)didReceiveMessages:(NSArray *)aMessages
@@ -77,14 +84,85 @@ const NSString *messageVideoBody = @"messageVideoBody";
                      
                      if ([NSData dataWithContentsOfFile:body.localPath])
                      {
-                        [_delegate receiveMessage:message messageType:msgBody.type];
+                         RWWeChatMessage *newMsg;
+                         
+                         switch (msgBody.type)
+                         {
+                             case EMMessageBodyTypeImage:
+                             {
+                                 newMsg =
+                                  [RWWeChatMessage message:message
+                                                    header:[UIImage imageNamed:@"MY"]
+                                                      type:RWMessageTypeImage
+                                                 myMessage:NO
+                                               messageDate:[NSDate date]
+                                                  showTime:NO
+                                          originalResource:nil];
+                                 
+                                 break;
+                             }
+                             case EMMessageBodyTypeLocation:break;
+                             case EMMessageBodyTypeVoice:
+                             {
+                                 newMsg =
+                                  [RWWeChatMessage message:message
+                                                    header:[UIImage imageNamed:@"MY"]
+                                                      type:RWMessageTypeVoice
+                                                 myMessage:NO
+                                               messageDate:[NSDate date]
+                                                  showTime:NO
+                                          originalResource:nil];
+                                 
+                                 break;
+                             }
+                             case EMMessageBodyTypeVideo:
+                             {
+                                 newMsg =
+                                  [RWWeChatMessage message:message
+                                                    header:[UIImage imageNamed:@"MY"]
+                                                      type:RWMessageTypeVideo
+                                                 myMessage:NO
+                                               messageDate:[NSDate date]
+                                                  showTime:NO
+                                          originalResource:nil];
+                                 
+                                 break;
+                             }
+                             case EMMessageBodyTypeFile:break;
+                                 
+                             default:
+                                 break;
+                         }
+
+                         if (msg)
+                         {
+                             [_baseManager cacheMessage:newMsg];
+                             
+                             if ([msg.conversationId isEqualToString:_faceSession.conversationId])
+                             {
+                                 [_delegate receiveMessage:newMsg];
+                             }
+                         }
                      }
                  }
              }];
         }
         else
         {
-            [_delegate receiveMessage:msg messageType:msgBody.type];
+            RWWeChatMessage *newMsg = [RWWeChatMessage message:msg
+                                                        header:[UIImage imageNamed:@"MY"]
+                                                          type:RWMessageTypeText
+                                                     myMessage:NO
+                                                   messageDate:[NSDate date]
+                                                      showTime:NO
+                                              originalResource:nil];
+            
+            [_baseManager cacheMessage:newMsg];
+            
+            if ([msg.conversationId isEqualToString:_faceSession.conversationId])
+            {
+                [_delegate receiveMessage:newMsg];
+            }
         }
     }
 }
@@ -97,6 +175,11 @@ const NSString *messageVideoBody = @"messageVideoBody";
 - (void)didReceiveHasDeliveredAcks:(NSArray *)aMessages
 {
     //已送达
+}
+
+- (void)didConnectionStateChanged:(EMConnectionState)aConnectionState
+{
+    _connectionState = aConnectionState;
 }
 
 #pragma other funtion

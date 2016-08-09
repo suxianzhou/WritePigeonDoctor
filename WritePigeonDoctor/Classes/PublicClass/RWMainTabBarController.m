@@ -11,6 +11,7 @@
 #import "RWOfficeListController.h"
 #import "RWCommunityController.h"
 #import "RWSettingsViewController.h"
+#import "UITabBar+badge.h"
 
 @interface RWMainTabBarController ()
 
