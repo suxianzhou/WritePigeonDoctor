@@ -28,6 +28,14 @@
     _doctorList = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     [self.view addSubview:_doctorList];
     
+    [_doctorList mas_makeConstraints:^(MASConstraintMaker *make) {
+       
+        make.left.equalTo(self.view.mas_left).offset(0);
+        make.right.equalTo(self.view.mas_right).offset(0);
+        make.top.equalTo(self.view.mas_top).offset(0);
+        make.bottom.equalTo(self.view.mas_bottom).offset(0);
+    }];
+    
     _doctorList.showsVerticalScrollIndicator = NO;
     _doctorList.showsHorizontalScrollIndicator = NO;
     

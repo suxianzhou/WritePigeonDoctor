@@ -261,15 +261,28 @@
 }
 
 - (IBAction)logout:(id)sender {
-    [[UMComSession sharedInstance] userLogout];
-    [[NSNotificationCenter defaultCenter] postNotificationName:kUserLogoutSucceedNotification object:nil];
-    if (self.navigationController.viewControllers.count > 1) {
-        [self.navigationController popToRootViewControllerAnimated:YES];
-    }else{
-        [self.navigationController dismissViewControllerAnimated:YES completion:^{
-            
-        }];
-    }
     
+    
+     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"白鸽提示" message:@"是否退出登录" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        NSLog(@"The \"Okay/Cancel\" alert's cancel action occured.");
+    }];
+    
+    UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [[UMComSession sharedInstance] userLogout];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kUserLogoutSucceedNotification object:nil];
+        if (self.navigationController.viewControllers.count > 1) {
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }else{
+            [self.navigationController dismissViewControllerAnimated:YES completion:^{
+                
+            }];
+        }
+ 
+    }];
+    [alertController addAction:cancelAction];
+    [alertController addAction:sureAction];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 @end

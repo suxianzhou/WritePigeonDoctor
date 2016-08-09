@@ -67,6 +67,21 @@
     
     return self;
 }
++ (void)warningToViewController:(__kindof UIViewController *)viewController Title:(NSString *)title Click:(void(^)(void))click{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"友情提示" message:title preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *registerAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        
+        if (click)
+        {
+            click();
+        }
+    }];
+    
+    [alert addAction:registerAction];
+    
+    [viewController presentViewController:alert animated:YES completion:nil];
 
+}
 
 @end

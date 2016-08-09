@@ -50,7 +50,7 @@
     [super viewDidLoad];
     
     [self setForumUIBackButtonWithImage:UMComSimpleImageWithImageName(@"um_forum_back_gray@2x.png")];
-    [self setForumUITitle:UMComLocalizedString(@"um_com_find", @"我的")];
+    [self setForumUITitle:UMComLocalizedString(@"um_com_find", @"我的社区")];
     
     self.tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin;
@@ -111,16 +111,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 0) {
-        return 5;
-    } else {
-        return 1;
-    }
+    return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -264,18 +260,19 @@
         } else {
             [cell setCellStyleForLine:UMComSimplicityCellLineStyleMiddle];
         }
-    } else {
-        switch (indexPath.row) {
-            case 0: {
-                cell.titleImageView.image = UMComSimpleImageWithImageName(@"shezhi");
-                cell.titleNameLabel.text = UMComLocalizedString(@"um_com_setting", @"设置");
-                [cell setCellStyleForLine:UMComSimplicityCellLineStyleTop | UMComSimplicityCellLineStyleBottom];
-            }
-                break;
-            default:
-                break;
-        }
     }
+//    else {
+//        switch (indexPath.row) {
+//            case 0: {
+//                cell.titleImageView.image = UMComSimpleImageWithImageName(@"shezhi");
+//                cell.titleNameLabel.text = UMComLocalizedString(@"um_com_setting", @"设置");
+//                [cell setCellStyleForLine:UMComSimplicityCellLineStyleTop | UMComSimplicityCellLineStyleBottom];
+//            }
+//                break;
+//            default:
+//                break;
+//        }
+//    }
     return cell;
 }
 
@@ -345,18 +342,19 @@
                     default:
                         break;
                 }
-            }else if(indexPath.section == 1){
-                switch (indexPath.row) {
-                    case 0:
-                    {
-                        [ws tranToSetting];
-                    }
-                        break;
-                        
-                    default:
-                        break;
-                }
             }
+//            else if(indexPath.section == 1){
+//                switch (indexPath.row) {
+//                    case 0:
+//                    {
+//                        [ws tranToSetting];
+//                    }
+//                        break;
+//                        
+//                    default:
+//                        break;
+//                }
+//            }
         }
     }];
 }

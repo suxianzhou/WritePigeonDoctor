@@ -11,12 +11,16 @@
 #import "RegisterViewController.h"
 #import "SXColorGradientView.h"
 #import "UIColor+Wonderful.h"
+#import "RWRequsetManager+UserLogin.h"
 #define INTERVAL_KEYBOARD 5
 @interface LoginViewController ()<UITableViewDataSource,
 UITableViewDelegate,
 FETextFiledCellDelegate,
-FEButtonCellDelegate
+FEButtonCellDelegate,
+RWRequsetDelegate
 >
+
+@property (strong, nonatomic)RWRequsetManager *requestManager;
 
 
 @end
@@ -27,7 +31,7 @@ static NSString *const buttonCell = @"buttonCell";
 @implementation LoginViewController
 
 @synthesize facePlaceHolder;
-
+@synthesize requestManager;
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -36,6 +40,11 @@ static NSString *const buttonCell = @"buttonCell";
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+    if (requestManager && requestManager.delegate == nil)
+    {
+        requestManager.delegate = self;
+    }
+
     
 }
 -(void)viewWillDisappear:(BOOL)animated{
@@ -45,6 +54,9 @@ static NSString *const buttonCell = @"buttonCell";
 }
 -(void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
+    requestManager.delegate = nil;
+    
+
 }
 - (void)viewDidLoad {
     
@@ -324,11 +336,8 @@ static NSString *const buttonCell = @"buttonCell";
 
 #pragma mark     ---登录按钮事件
 -(void)button:(UIButton *)button ClickWithTitle:(NSString *)title{
-    
-  //    [self dismissViewControllerAnimated:YES completion:^{
-//        
-//    }];
-    
+    [self userLogin];
+
 }
 
 -(void)createBottomView{
@@ -369,7 +378,97 @@ static NSString *const buttonCell = @"buttonCell";
 }
 
 -(void)jumpMain{
+    
     [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+#pragma mark 登录触发
+#pragma mark - views
+
+/**
+ *   检测网络错误
+ */
+- (void)requestError:(NSError *)error Task:(NSURLSessionDataTask *)task
+{
+    NSLog(@"%@",error.description);
+    
+    DISSMISS;
+    [RWRequsetManager warningToViewController:self Title:@"网络异常，请检查设置" Click:nil];
+}
+
+- (void)obtainRequestManager
+{
+    
+    if (!requestManager)
+    {
+        requestManager = [[RWRequsetManager alloc]init];
+        
+        requestManager.delegate = self;
+    }
+}
+
+-(void)userLogin{
+    [self obtainRequestManager];
+    __block FETextFiledCell *textCell = [self.viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    
+    NSString *phoneNumber = textCell.textField.text;
+    
+    
+    __block FETextFiledCell *verCell = [self.viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
+    
+    NSString *userPassword = verCell.textField.text;
+    
+    if ([requestManager verificationPhoneNumber:phoneNumber])
+    {
+        
+        if ([requestManager verificationPassword:userPassword])
+        
+        {
+            SHOWLOADING;
+             [requestManager userinfoWithUsername:phoneNumber AndPassword:userPassword];
+        
+        }
+        else{
+            
+            [RWRequsetManager warningToViewController:self
+                                                Title:@"密码输入错误"
+                                                Click:^
+             {
+                 
+                 textCell.textField.text = nil;
+                 
+                 [textCell.textField becomeFirstResponder];
+             }];
+
+        }
+    }else{
+        
+        [RWRequsetManager warningToViewController:self
+                                            Title:@"手机号输入错误，请重新输入"
+                                            Click:^
+         {
+             
+             verCell.textField.text = nil;
+             
+             [verCell.textField becomeFirstResponder];
+         }];
+
+    }
+    
+
+}
+-(void)userLoginSuccess:(BOOL)success responseMessage:(NSString *)responseMessage
+{
+    DISSMISS;
+    if (success) {
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+
+    }
+    else{
+        [RWRequsetManager warningToViewController:self Title:responseMessage Click:nil];
+    }
     
 }
 

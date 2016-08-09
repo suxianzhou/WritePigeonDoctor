@@ -8,12 +8,14 @@
 
 #import "RWSettingsViewController.h"
 #import "UMComSimplicityDiscoverViewController.h"
+#import "UMComLoginManager.h"
 #import "UMComSession.h"
 #import "UMComUnReadNoticeModel.h"
 #import "UMComNotificationMacro.h"
 #import "UITabBar+badge.h"
 #import "XZSettingWebViewController.h"
 #import "FeedBackViewController.h"
+#import "UMComSimpleProfileSettingController.h"
 @interface RWSettingsViewController ()
 <
 UITableViewDelegate,
@@ -80,7 +82,7 @@ static NSString *const  setListCell = @"viewListCell";
     
 
     _loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    _loginBtn.frame = CGRectMake(SCREEN_WIDTH/2-45, 80, 80, 80);
+    _loginBtn.frame = CGRectMake(SCREEN_WIDTH/2-40, 80, 80, 80);
     _loginBtn.layer.masksToBounds = YES;
     _loginBtn.layer.cornerRadius = 40;
     [_loginBtn setImage:[UIImage imageNamed:@"45195.jpg"] forState:UIControlStateNormal];
@@ -99,11 +101,11 @@ static NSString *const  setListCell = @"viewListCell";
 
 - (void)initSetDatas
 {
-    NSArray *arr1 = @[@{@"title"     :@"健康档案",
+    NSArray *arr1 = @[@{@"title"     :@"个人设置",
                        @"icon" : @""},
                       @{@"title"     :@"我的社区",
                        @"icon" : @""}];
-    NSArray *arr2 = @[@{@"title"     :@"邀请好友",
+    NSArray *arr2 = @[@{@"title"     :@"推荐我们",
                         @"icon" : @""},
                       @{@"title"     :@"帮助",
                         @"icon" : @""},
@@ -121,7 +123,7 @@ static NSString *const  setListCell = @"viewListCell";
     if (!_tableView) {
         
         _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-44) style:UITableViewStyleGrouped];
-        _tableView.backgroundColor = Wonderful_GrayColor2;
+        _tableView.backgroundColor = Wonderful_GrayColor1;
         _tableView.backgroundView.backgroundColor = [UIColor clearColor];
         _tableView.showsVerticalScrollIndicator = NO;
         _tableView.delegate = self;
@@ -207,17 +209,30 @@ static NSString *const  setListCell = @"viewListCell";
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     if (section == 0) {
-        if (row == 1) {
-        UMComSimplicityDiscoverViewController * VC = [[UMComSimplicityDiscoverViewController alloc] init];
-        [self pushNextWithViewcontroller:VC];
-       }
-     }
+        switch (row) {
+            case 0:
+            {
+                UMComSimpleProfileSettingController *SE = [[UMComSimpleProfileSettingController alloc] init];
+                [self pushNextWithViewcontroller:SE];
+
+            }
+                break;
+            case 1:
+            {
+                UMComSimplicityDiscoverViewController * UM = [[UMComSimplicityDiscoverViewController alloc] init];
+                [self pushNextWithViewcontroller:UM];
+            }
+                break;
+            default:
+                break;
+            }
+        }
     else if (section == 1)
     {
         switch (row) {
             case 0:
             {
-                
+                NSLog(@"分享");
             }
                 break;
             case 1:
@@ -231,7 +246,9 @@ static NSString *const  setListCell = @"viewListCell";
                 break;
             case 2:
             {
-            
+                FeedBackViewController * FB = [[FeedBackViewController alloc]init];
+                FB.title = @"意见建议";
+                [self pushNextWithViewcontroller:FB];
             
             }
                 break;

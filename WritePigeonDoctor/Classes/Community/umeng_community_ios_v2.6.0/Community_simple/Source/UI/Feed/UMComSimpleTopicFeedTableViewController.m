@@ -111,15 +111,11 @@
 #pragma mark - handle post Create Feed 
 - (void)handlePostFeedCompleteSucceed:(NSNotification *)notification
 {
-    
     __weak typeof(self) weakself = self;
     UMComFeed* feed =  notification.object;
-    
     if (![feed isKindOfClass:[UMComFeed class]]) {
-        
         return;
     }
-    
     //判断当前话题是否属于当前话题
     UMComTopic* tempTopic =   feed.topics.firstObject;
     if (tempTopic && [tempTopic isKindOfClass:[UMComTopic class]] && [self.topic.topicID isEqualToString:tempTopic.topicID]) {
@@ -130,7 +126,6 @@
             }
         });
     }
-    
 }
 
 #pragma mark - UMComFeedClickActionDelegate

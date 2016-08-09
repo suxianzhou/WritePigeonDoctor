@@ -11,10 +11,11 @@
 #import "YYKit.h"
 #import "InfoViewController.h"
 #import "UIColor+Wonderful.h"
+#import "RWRequsetManager+UserLogin.h"
 #define INTERVAL_KEYBOARD 130
 #define __AgreeText__ @"<<白鸽医生的条款协议>>"
 
-@interface RegisterViewController ()<UITableViewDelegate,UITableViewDataSource,FEChecButtonCellDelegate,FEButtonCellDelegate,FETextFiledCellDelegate,FEAgreementCellDelegate>
+@interface RegisterViewController ()<UITableViewDelegate,UITableViewDataSource,FEChecButtonCellDelegate,FEButtonCellDelegate,FETextFiledCellDelegate,FEAgreementCellDelegate,RWRequsetDelegate>
 {
     BOOL isAgree;//是否同意该协议
 }
@@ -22,6 +23,7 @@
 @property(nonatomic,strong)UIButton * clickBtn;
 @property (weak ,nonatomic)NSTimer *timer;
 @property(nonatomic,strong)UIView *backview;
+@property(nonatomic,strong)RWRequsetManager * requestManager;
 
 @end
 //
@@ -67,7 +69,7 @@ static NSString * const agreementCell=@"agreementCell";
 - (void)viewDidLoad {
     isAgree=YES;
     [super viewDidLoad];
-    
+    _requestManager = [[RWRequsetManager alloc] init];
     _backview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height-self.view.bounds.size.height/8)];
     _backview.backgroundColor=[UIColor clearColor];
     
@@ -77,7 +79,6 @@ static NSString * const agreementCell=@"agreementCell";
         make.center.equalTo(self.view);
         make.left.equalTo(self.view.mas_left).offset(self.view.frame.size.height/15);
         make.top.equalTo(self.view).offset(self.view.bounds.size.height/7);
-        make.bottom.equalTo(self.view.mas_bottom).offset(-self.view.bounds.size.height/5);
         
     }];
 
@@ -377,11 +378,7 @@ static NSString * const agreementCell=@"agreementCell";
 
 -(void)button:(UIButton *)button ClickWithTitle:(NSString *)title{
     
-    InfoViewController * infoVC=[[InfoViewController alloc]init];
-    FETextFiledCell * phoneCell=[self.viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    FETextFiledCell * passwordCell=[self.viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]];
-    infoVC.phoneNumber=phoneCell.textField.text;
-    infoVC.passWord=passwordCell.textField.text;
+   
     
     /**
      *  验证手机号是否合法
@@ -395,24 +392,134 @@ static NSString * const agreementCell=@"agreementCell";
         
     }else if(button.tag==99998){
         
-        /**
-         *  验证是否可以注册方法
-         */
+        [self isRegister:YES];
         
-        [self presentViewController:infoVC animated:YES completion:nil];
         
         NSLog(@"完善信息");
         
     }else{
         
         /**
-         *验证是否可以完成注册方法
+         *修改密码
          */
+        [self isRegister:NO];
         
         NSLog(@"点击了修改完成");
         
     }
     
+}
+
+/**
+ *  点击注册或者修改密码
+ *
+ *  @param isRegister YES为注册  NO为修改密码
+ */
+-(void)isRegister:(BOOL)isRegister{
+    
+    FETextFiledCell * phoneCell=[self.viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    FETextFiledCell *verificationCell=
+                                [self.viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
+    FETextFiledCell * passwordCell=
+                                [self.viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]];
+    FETextFiledCell * againCell=
+                                [self.viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:3]];
+    NSString *username=phoneCell.textField.text;
+    //验证码
+    NSString *verification = verificationCell.textField.text;
+    
+    NSString * password=passwordCell.textField.text;
+    
+    NSString *againPassWord = againCell.textField.text;
+    
+    
+    if (![_requestManager verificationPhoneNumber:username])
+    {
+        [RWRequsetManager warningToViewController:self Title:@"手机号输入有误，请重新输入" Click:^{
+            
+            phoneCell.textField.text = nil;
+            [phoneCell.textField becomeFirstResponder];
+        }];
+        
+        return;
+    }
+    if ([_requestManager verificationPassword:password]) {
+        
+        if (![password isEqualToString:againPassWord]){
+            [RWRequsetManager warningToViewController:self Title:@"密码输入不一致，请重新输入" Click:^{
+            
+            
+                passwordCell.textField.text = nil; againCell.textField.text = nil;
+                
+                [passwordCell.textField becomeFirstResponder];
+                
+                [againCell.textField becomeFirstResponder];
+            }];
+        }
+        
+    }
+    else
+    {
+        [RWRequsetManager warningToViewController:self Title:@"密码格式错误,请输入6~18位" Click:^{
+            passwordCell.textField.text = nil; againCell.textField.text = nil;
+            
+            [passwordCell.textField becomeFirstResponder];
+            
+            [againCell.textField becomeFirstResponder];
+            
+        
+        }];
+        return;
+    }
+    
+    
+    _requestManager.delegate=self;
+
+    
+    SHOWLOADING;
+    if (isRegister)
+    {
+        [_requestManager registerWithUsername:username AndPassword:password verificationCode:verification];
+    }
+    else
+    {
+//        [_requestManager replacePasswordWithUsername:username
+//                                         AndPassword:password
+//                                    verificationCode:verification];
+    }
+    
+    
+        
+    
+    
+    
+}
+-(void)userRegisterSuccess:(BOOL)success responseMessage:(NSString *)responseMessage
+{
+    
+    DISSMISS;
+    if (success)
+    {
+        [RWRequsetManager warningToViewController:self Title:@"注册成功" Click:^{
+            InfoViewController * infoVC=[[InfoViewController alloc]init];
+            
+        [self presentViewController:infoVC animated:YES completion:nil];
+            
+        }];
+    }
+    else
+    {
+        [RWRequsetManager warningToViewController:self Title:responseMessage Click:nil];
+    }
+    
+}
+
+
+
+
+
+-(void)requestError:(NSError *)error Task:(NSURLSessionDataTask *)task{
+    [RWRequsetManager warningToViewController:self Title:@"网络异常，请检查设置" Click:nil];
 }
 
 
@@ -431,10 +538,6 @@ static NSString * const agreementCell=@"agreementCell";
         
     }
 }
-
-
-
-
 - (void)timerStart
 {
     _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(renovateSecond) userInfo:nil repeats:YES];

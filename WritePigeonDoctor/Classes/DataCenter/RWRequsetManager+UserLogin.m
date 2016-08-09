@@ -121,7 +121,7 @@
                  
                  if ([[Json objectForKey:@"resultCode"] integerValue] == 200)
                  {
-                     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 1), ^{
+                     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
                          
                          EMError *error =
                                 [[EMClient sharedClient]loginWithUsername:username

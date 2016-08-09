@@ -47,7 +47,7 @@ typedef enum {//用户名长度配置策略枚举类型
 
 #define UMCom_Feed_BgColor @"#F5F6FA"
 
-#define UMCom_ForumUI_Title_Color  @"#666666"
+#define UMCom_ForumUI_Title_Color  @"#FFFFFF"
 #define UMCom_ForumUI_Title_Font  20
 
 #define TableViewCellSpace  0.3

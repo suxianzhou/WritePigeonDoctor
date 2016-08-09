@@ -10,10 +10,7 @@
 
 @interface XZSettingWebViewController : RWWPDBaseController
 
-
 @property (nonatomic,strong)NSString *url;
-
-@property (nonatomic,strong)NSString *title;
 
 
 @end

@@ -96,7 +96,6 @@ static NSString *const buttonCell = @"buttonCell";
         make.center.equalTo(self.view);
         make.left.equalTo(self.view.mas_left).offset(self.view.frame.size.height/15);
         make.top.equalTo(self.view).offset(self.view.bounds.size.height/7);
-        make.bottom.equalTo(self.view.mas_bottom).offset(-self.view.bounds.size.height/5);
         
     }];
     
