@@ -98,14 +98,14 @@
 
 - (void)consultWayAtRegisterOffice:(RWRegisterOfficeView *)registerOffice
 {
-    NSLog(@"资讯方式选择");
+    MESSAGE(@"资讯方式选择");
 }
 
 #pragma mark - event
 
 - (void)isAttentionAtDescriptionView:(RWDescriptionView *)descriptionView
 {
-    NSLog(@"点击关注");
+    MESSAGE(@"点击关注");
 }
 
 - (void)isShowDoctorDescription:(RWDescriptionView *)descriptionView

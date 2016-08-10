@@ -30,7 +30,7 @@
        
         if (error)
         {
-            NSLog(@"%@",error.errorDescription);
+            MESSAGE(@"%@",error.errorDescription);
         }
     }];
     

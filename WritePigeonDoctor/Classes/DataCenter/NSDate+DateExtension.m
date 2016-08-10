@@ -1,12 +1,12 @@
 //
-//  RWDeployManager+DateProcess.m
-//  ZhongYuSubjectHubKY
+//  NSDate+DateExtension.m
+//  WritePigeonDoctor
 //
-//  Created by zhongyu on 16/5/25.
+//  Created by zhongyu on 16/8/10.
 //  Copyright © 2016年 RyeWhiskey. All rights reserved.
 //
 
-#import "RWDeployManager+DateProcess.h"
+#import "NSDate+DateExtension.h"
 
 NSInteger Log(NSInteger number)
 {
@@ -403,17 +403,18 @@ RWClockAttribute RWClockAttributeMake(RWClockCycle  cycleType ,
     return clockAttribute;
 }
 
-@implementation RWDeployManager (DateProcess)
+@implementation NSDate (DateExtension)
 
-- (NSString *)stringClockAttribute:(RWClockAttribute)clockAttribute
++ (NSString *)stringClockAttribute:(RWClockAttribute)clockAttribute
 {
-    return [NSString stringWithFormat:@"%d%d#%d:%d",(int)clockAttribute.week,
+    return [NSString stringWithFormat:@"%d%d#%d:%d",
+            (int)clockAttribute.week,
             (int)clockAttribute.cycleType,
             (int)clockAttribute.hours,
             (int)clockAttribute.minute];
 }
 
-- (RWClockAttribute)clockAttributeWithString:(NSString *)attributeString
++ (RWClockAttribute)clockAttributeWithString:(NSString *)attributeString
 {
     NSArray *attributes = [attributeString componentsSeparatedByString:@"#"];
     
@@ -441,7 +442,7 @@ RWClockAttribute RWClockAttributeMake(RWClockCycle  cycleType ,
     return RWClockAttributeMake(type, week, hours, minutes);
 }
 
-- (NSString *)stringClockWeek:(RWClockWeek)clockWeek
++ (NSString *)stringClockWeek:(RWClockWeek)clockWeek
 {
     switch (clockWeek) {
             
@@ -463,7 +464,7 @@ RWClockAttribute RWClockAttributeMake(RWClockCycle  cycleType ,
     }
 }
 
-- (RWClockWeek)clockWeekWithString:(NSString *)weekString
++ (RWClockWeek)clockWeekWithString:(NSString *)weekString
 {
     if ([weekString isEqualToString:@"星期一"]||
         [weekString isEqualToString:@"Monday"])
@@ -504,7 +505,7 @@ RWClockAttribute RWClockAttributeMake(RWClockCycle  cycleType ,
     return RWClockWeekOfNone;
 }
 
-- (NSString *)stringClockCycle:(RWClockCycle)cycle
++ (NSString *)stringClockCycle:(RWClockCycle)cycle
 {
     switch (cycle) {
             
@@ -516,7 +517,7 @@ RWClockAttribute RWClockAttributeMake(RWClockCycle  cycleType ,
     }
 }
 
-- (RWClockCycle)cycleWithString:(NSString *)cycleString
++ (RWClockCycle)cycleWithString:(NSString *)cycleString
 {
     if ([cycleString isEqualToString:@"每天"])
     {
@@ -530,12 +531,12 @@ RWClockAttribute RWClockAttributeMake(RWClockCycle  cycleType ,
     return RWClockCycleOnce;
 }
 
-- (NSString *)stringTimeWithClockAttribute:(RWClockAttribute)attribute
++ (NSString *)stringTimeWithClockAttribute:(RWClockAttribute)attribute
 {
     return [NSString stringWithFormat:@"%d:%.2d",(int)attribute.hours,(int)attribute.minute];
 }
 
-- (NSInteger)daysFromClockTimeWithClockWeek:(RWClockWeek)week AndWeekString:(NSString *)weekString
++ (NSInteger)daysFromClockTimeWithClockWeek:(RWClockWeek)week AndWeekString:(NSString *)weekString
 {
     RWClockWeek faceWeek = [self clockWeekWithString:weekString];
     
@@ -549,7 +550,7 @@ RWClockAttribute RWClockAttributeMake(RWClockCycle  cycleType ,
     }
 }
 
-- (BOOL)isPastTime:(NSInteger)hours minute:(NSInteger)minute
++ (BOOL)isPastTime:(NSInteger)hours minute:(NSInteger)minute
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     
@@ -574,7 +575,7 @@ RWClockAttribute RWClockAttributeMake(RWClockCycle  cycleType ,
     return NO;
 }
 
-- (NSDate *)buildClockDateWithAfterDays:(NSInteger)afterDays Hours:(NSInteger)hours AndMinute:(NSInteger)minute
++ (NSDate *)buildClockDateWithAfterDays:(NSInteger)afterDays Hours:(NSInteger)hours AndMinute:(NSInteger)minute
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     
@@ -599,7 +600,7 @@ RWClockAttribute RWClockAttributeMake(RWClockCycle  cycleType ,
     return [[NSCalendar currentCalendar] dateFromComponents:comps];
 }
 
-- (NSDate *)dateWithRWMoment:(RWMoment)moment
++ (NSDate *)dateWithRWMoment:(RWMoment)moment
 {
     NSDateComponents *comps = [[NSDateComponents alloc] init];
     
@@ -613,7 +614,7 @@ RWClockAttribute RWClockAttributeMake(RWClockCycle  cycleType ,
     return [[NSCalendar currentCalendar] dateFromComponents:comps];
 }
 
-- (RWMoment)momentWithDate:(NSDate *)systemDate
++ (RWMoment)momentWithDate:(NSDate *)systemDate
 {
     RWDate date;
     
@@ -650,12 +651,12 @@ RWClockAttribute RWClockAttributeMake(RWClockCycle  cycleType ,
     RWMoment moment; moment.date = date; moment.time = time;
     
     moment.week =
-            [self clockWeekWithString:[dateFormatter stringFromDate:systemDate]];
+    [self clockWeekWithString:[dateFormatter stringFromDate:systemDate]];
     
     return moment;
 }
 
-- (NSInteger)distanceWithBeginMoments:(RWMoment)beginMoments AndEndMoments:(RWMoment)endMomends
++ (NSInteger)distanceWithBeginMoments:(RWMoment)beginMoments AndEndMoments:(RWMoment)endMomends
 {
     RWMoment exBegin = beginMoments; exBegin.time = RWTimeMake(0, 0, 0);
     
@@ -668,13 +669,13 @@ RWClockAttribute RWClockAttributeMake(RWClockCycle  cycleType ,
     return [end timeIntervalSinceDate:begin] / 60 / 60 / 24;
 }
 
-- (NSString *)stringRWTime:(RWTime)time
++ (NSString *)stringRWTime:(RWTime)time
 {
     return [NSString stringWithFormat:
-                @"%.2d:%.2d:%.2d",(int)time.hours,(int)time.minute,(int)time.second];
+            @"%.2d:%.2d:%.2d",(int)time.hours,(int)time.minute,(int)time.second];
 }
 
-- (RWTime)timeWithString:(NSString *)timeString
++ (RWTime)timeWithString:(NSString *)timeString
 {
     NSArray *times = [timeString componentsSeparatedByString:@":"];
     
@@ -694,13 +695,13 @@ RWClockAttribute RWClockAttributeMake(RWClockCycle  cycleType ,
     }
 }
 
-- (NSString *)stringRWDate:(RWDate)date
++ (NSString *)stringRWDate:(RWDate)date
 {
     return [NSString stringWithFormat:
-                            @"%d-%d-%d",(int)date.year,(int)date.month,(int)date.day];
+            @"%d-%d-%d",(int)date.year,(int)date.month,(int)date.day];
 }
 
-- (RWDate)dateWithString:(NSString *)dateString
++ (RWDate)dateWithString:(NSString *)dateString
 {
     NSArray *dates = [dateString componentsSeparatedByString:@"-"];
     
@@ -720,14 +721,14 @@ RWClockAttribute RWClockAttributeMake(RWClockCycle  cycleType ,
     }
 }
 
-- (NSString *)stringRWMoment:(RWMoment)moment
++ (NSString *)stringRWMoment:(RWMoment)moment
 {
     return [NSString stringWithFormat:@"%@$%@$%@",[self stringRWDate:moment.date],
-                                                  [self stringRWTime:moment.time],
-                                                  [self stringClockWeek:moment.week]];
+            [self stringRWTime:moment.time],
+            [self stringClockWeek:moment.week]];
 }
 
-- (RWMoment)momentWithString:(NSString *)momentString
++ (RWMoment)momentWithString:(NSString *)momentString
 {
     NSArray *moments = [momentString componentsSeparatedByString:@"$"];
     

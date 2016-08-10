@@ -72,7 +72,7 @@
     }
     else if ([message.name isEqualToString:@"MakeQuestion"])
     {
-        NSLog(@"question");
+        MESSAGE(@"question");
     }
 }
 

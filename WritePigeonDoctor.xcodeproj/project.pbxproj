@@ -15,6 +15,9 @@
 		123E9BBC1D34A006009B61B5 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 123E9BBB1D34A006009B61B5 /* libc++.tbd */; };
 		123E9BBE1D34A00F009B61B5 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 123E9BBD1D34A00F009B61B5 /* libz.tbd */; };
 		123E9BC01D34A030009B61B5 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 123E9BBF1D34A030009B61B5 /* libsqlite3.tbd */; };
+		12441EA11D5AC6F4001BA9C8 /* RWSettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 12441EA01D5AC6F4001BA9C8 /* RWSettingsManager.m */; };
+		12441EA51D5ACAE1001BA9C8 /* NSDate+DateExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 12441EA41D5ACAE1001BA9C8 /* NSDate+DateExtension.m */; };
+		12441EA91D5AF43C001BA9C8 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 12441EA81D5AF43C001BA9C8 /* NSData+Base64.m */; };
 		126095EA1D48AD1400A65AEE /* RWDoctorDescriptionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 126095E91D48AD1400A65AEE /* RWDoctorDescriptionController.m */; };
 		126095ED1D48ADD300A65AEE /* RWDescriptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 126095EC1D48ADD300A65AEE /* RWDescriptionView.m */; };
 		1262719C1D336F7F009D44A0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1262719B1D336F7F009D44A0 /* main.m */; };
@@ -232,8 +235,6 @@
 		12FA40411D46F35E0084D50A /* RWWelcomeImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA403F1D46F35E0084D50A /* RWWelcomeImageCell.m */; };
 		12FA404C1D46F56E0084D50A /* RWRequsetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA40441D46F56E0084D50A /* RWRequsetManager.m */; };
 		12FA404D1D46F56E0084D50A /* RWRequsetManager+UserLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA40461D46F56E0084D50A /* RWRequsetManager+UserLogin.m */; };
-		12FA404E1D46F56E0084D50A /* RWDeployManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA40491D46F56E0084D50A /* RWDeployManager.m */; };
-		12FA404F1D46F56E0084D50A /* RWDeployManager+DateProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA404B1D46F56E0084D50A /* RWDeployManager+DateProcess.m */; };
 		12FA40571D46FD270084D50A /* RWChatManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA40561D46FD270084D50A /* RWChatManager.m */; };
 		12FB35F41D548FE7004BB669 /* MicroVideoSource.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12FB35F31D548FE7004BB669 /* MicroVideoSource.xcassets */; };
 		12FBCE9D1D485D8300A646DB /* RWDataModels.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FBCE9C1D485D8300A646DB /* RWDataModels.m */; };
@@ -272,6 +273,13 @@
 		123E9BBB1D34A006009B61B5 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		123E9BBD1D34A00F009B61B5 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		123E9BBF1D34A030009B61B5 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		12441E9F1D5AC6F4001BA9C8 /* RWSettingsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWSettingsManager.h; sourceTree = "<group>"; };
+		12441EA01D5AC6F4001BA9C8 /* RWSettingsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWSettingsManager.m; sourceTree = "<group>"; };
+		12441EA21D5AC70C001BA9C8 /* RWSettingsIndex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWSettingsIndex.h; sourceTree = "<group>"; };
+		12441EA31D5ACAE1001BA9C8 /* NSDate+DateExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+DateExtension.h"; sourceTree = "<group>"; };
+		12441EA41D5ACAE1001BA9C8 /* NSDate+DateExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+DateExtension.m"; sourceTree = "<group>"; };
+		12441EA71D5AF43C001BA9C8 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		12441EA81D5AF43C001BA9C8 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 		126095E81D48AD1400A65AEE /* RWDoctorDescriptionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWDoctorDescriptionController.h; sourceTree = "<group>"; };
 		126095E91D48AD1400A65AEE /* RWDoctorDescriptionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWDoctorDescriptionController.m; sourceTree = "<group>"; };
 		126095EB1D48ADD300A65AEE /* RWDescriptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWDescriptionView.h; sourceTree = "<group>"; };
@@ -701,11 +709,6 @@
 		12FA40441D46F56E0084D50A /* RWRequsetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWRequsetManager.m; sourceTree = "<group>"; };
 		12FA40451D46F56E0084D50A /* RWRequsetManager+UserLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RWRequsetManager+UserLogin.h"; sourceTree = "<group>"; };
 		12FA40461D46F56E0084D50A /* RWRequsetManager+UserLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RWRequsetManager+UserLogin.m"; sourceTree = "<group>"; };
-		12FA40471D46F56E0084D50A /* RWDeployIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWDeployIndex.h; sourceTree = "<group>"; };
-		12FA40481D46F56E0084D50A /* RWDeployManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWDeployManager.h; sourceTree = "<group>"; };
-		12FA40491D46F56E0084D50A /* RWDeployManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWDeployManager.m; sourceTree = "<group>"; };
-		12FA404A1D46F56E0084D50A /* RWDeployManager+DateProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RWDeployManager+DateProcess.h"; sourceTree = "<group>"; };
-		12FA404B1D46F56E0084D50A /* RWDeployManager+DateProcess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RWDeployManager+DateProcess.m"; sourceTree = "<group>"; };
 		12FA40551D46FD270084D50A /* RWChatManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWChatManager.h; sourceTree = "<group>"; };
 		12FA40561D46FD270084D50A /* RWChatManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWChatManager.m; sourceTree = "<group>"; };
 		12FB35F31D548FE7004BB669 /* MicroVideoSource.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MicroVideoSource.xcassets; sourceTree = "<group>"; };
@@ -795,6 +798,15 @@
 			name = PageViews;
 			sourceTree = "<group>";
 		};
+		12441EA61D5AF43C001BA9C8 /* Base64 */ = {
+			isa = PBXGroup;
+			children = (
+				12441EA71D5AF43C001BA9C8 /* NSData+Base64.h */,
+				12441EA81D5AF43C001BA9C8 /* NSData+Base64.m */,
+			);
+			path = Base64;
+			sourceTree = "<group>";
+		};
 		1262718E1D336F7F009D44A0 = {
 			isa = PBXGroup;
 			children = (
@@ -855,7 +867,7 @@
 			path = WritePigeonDoctorUITests;
 			sourceTree = "<group>";
 		};
-		129400221D59D5D3001D339A /* TabBarController */ = {
+		129400221D59D5D3001D339A /* TabBarAndNavgationBar */ = {
 			isa = PBXGroup;
 			children = (
 				12EA089D1D57031A0056A875 /* UITabBar+badge.h */,
@@ -867,7 +879,7 @@
 				129400271D59D7A1001D339A /* RWCustomNavigationController.h */,
 				129400281D59D7A1001D339A /* RWCustomNavigationController.m */,
 			);
-			name = TabBarController;
+			name = TabBarAndNavgationBar;
 			sourceTree = "<group>";
 		};
 		129400231D59D657001D339A /* WelcomeView */ = {
@@ -921,17 +933,18 @@
 		12C1AF611D4629040087ABA0 /* DataCenter */ = {
 			isa = PBXGroup;
 			children = (
+				12441EA61D5AF43C001BA9C8 /* Base64 */,
 				12FA40501D46F5720084D50A /* DataBase */,
 				12FA40421D46F56E0084D50A /* RWRequestIndex.h */,
 				12FA40431D46F56E0084D50A /* RWRequsetManager.h */,
 				12FA40441D46F56E0084D50A /* RWRequsetManager.m */,
 				12FA40451D46F56E0084D50A /* RWRequsetManager+UserLogin.h */,
 				12FA40461D46F56E0084D50A /* RWRequsetManager+UserLogin.m */,
-				12FA40471D46F56E0084D50A /* RWDeployIndex.h */,
-				12FA40481D46F56E0084D50A /* RWDeployManager.h */,
-				12FA40491D46F56E0084D50A /* RWDeployManager.m */,
-				12FA404A1D46F56E0084D50A /* RWDeployManager+DateProcess.h */,
-				12FA404B1D46F56E0084D50A /* RWDeployManager+DateProcess.m */,
+				12441EA21D5AC70C001BA9C8 /* RWSettingsIndex.h */,
+				12441E9F1D5AC6F4001BA9C8 /* RWSettingsManager.h */,
+				12441EA01D5AC6F4001BA9C8 /* RWSettingsManager.m */,
+				12441EA31D5ACAE1001BA9C8 /* NSDate+DateExtension.h */,
+				12441EA41D5ACAE1001BA9C8 /* NSDate+DateExtension.m */,
 			);
 			name = DataCenter;
 			path = ../DataCenter;
@@ -991,7 +1004,7 @@
 				12A6AADF1D4A071D00A0739C /* RWWPDBaseController.m */,
 				129400231D59D657001D339A /* WelcomeView */,
 				12C1AF651D4629040087ABA0 /* Macros */,
-				129400221D59D5D3001D339A /* TabBarController */,
+				129400221D59D5D3001D339A /* TabBarAndNavgationBar */,
 			);
 			name = PublicClass;
 			path = ../PublicClass;
@@ -2287,6 +2300,7 @@
 				12D35B6F1D59B126001E4352 /* UMComProgressView.m in Sources */,
 				12D35BAD1D59B126001E4352 /* UMComLikeButtonTableViewCell.m in Sources */,
 				120B926B1D58E10F00A5285F /* RWCustomizeToolBar.m in Sources */,
+				12441EA11D5AC6F4001BA9C8 /* RWSettingsManager.m in Sources */,
 				12D35B601D59B126001E4352 /* UMComNavigationController.m in Sources */,
 				12F1A0961D4D8B70007B5994 /* RWChatViewController.m in Sources */,
 				1294003B1D59E454001D339A /* RegisterViewController.m in Sources */,
@@ -2325,6 +2339,7 @@
 				12D35B591D59B126001E4352 /* RWCommunityController.m in Sources */,
 				12D35B8B1D59B126001E4352 /* UMComShowToast.m in Sources */,
 				12D35B931D59B126001E4352 /* UMComImageView.m in Sources */,
+				12441EA51D5ACAE1001BA9C8 /* NSDate+DateExtension.m in Sources */,
 				12D35BC21D59B126001E4352 /* UMComSimplicityUserCenterViewController.m in Sources */,
 				12D35B651D59B126001E4352 /* UMComAddedImageView.m in Sources */,
 				12D35B8A1D59B126001E4352 /* UMComiToast.m in Sources */,
@@ -2382,11 +2397,10 @@
 				12D35BAB1D59B126001E4352 /* UMComLargeImageTableViewCell.m in Sources */,
 				126095ED1D48ADD300A65AEE /* RWDescriptionView.m in Sources */,
 				129400291D59D7A1001D339A /* RWCustomNavigationController.m in Sources */,
-				12FA404F1D46F56E0084D50A /* RWDeployManager+DateProcess.m in Sources */,
 				129400211D59D0B7001D339A /* UITabBarController+toLoginViewController.m in Sources */,
+				12441EA91D5AF43C001BA9C8 /* NSData+Base64.m in Sources */,
 				12D35BB41D59B126001E4352 /* UMComSimpleLikeMyFeedViewController.m in Sources */,
 				12FBCEA01D4868F100A646DB /* RWOfficeListController.m in Sources */,
-				12FA404E1D46F56E0084D50A /* RWDeployManager.m in Sources */,
 				129400361D59E454001D339A /* FEBaseLoginController.m in Sources */,
 				1262719C1D336F7F009D44A0 /* main.m in Sources */,
 				12D35BDD1D59B126001E4352 /* FeedBackViewController.m in Sources */,

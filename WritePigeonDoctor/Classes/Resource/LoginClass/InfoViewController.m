@@ -428,8 +428,8 @@ static NSString *const buttonCell = @"buttonCell";
         return;
     }
     
-    if(![_requestManager verificationAge:ageStr]){
-        
+    if(![_requestManager verificationAge:ageStr])
+    {
         [RWRequsetManager warningToViewController:self Title:@"年龄只能为数字" Click:nil];
         
         return;

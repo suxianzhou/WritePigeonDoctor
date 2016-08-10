@@ -232,7 +232,7 @@ static NSString *const  setListCell = @"viewListCell";
         switch (row) {
             case 0:
             {
-                NSLog(@"分享");
+                MESSAGE(@"分享");
             }
                 break;
             case 1:
@@ -305,7 +305,7 @@ static NSString *const  setListCell = @"viewListCell";
 
 - (void)loginBtnAction
 {
-    NSLog(@"登录");
+    MESSAGE(@"登录");
 }
 
 - (void)refreshNoticeItemViews:(NSNotification*)notification

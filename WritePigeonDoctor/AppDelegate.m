@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "RWMainTabBarController.h"
+#import "RWSettingsManager.h"
 #import "UMComSession.h"
 #import "UMCommunity.h"
 #import "RWChatManager.h"
@@ -43,8 +44,17 @@
         UIRemoteNotificationTypeAlert;
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes:notificationTypes];
     }
+    MESSAGE(@"聊天观察者初始化失败");
+    if (![RWChatManager defaultManager])
+    {
+        MESSAGE(@"聊天观察者初始化失败");
+    }
     
-    [RWChatManager defaultManager];
+    if (!__SYS_SETTINGS__)
+    {
+        MESSAGE(@"设置列表获取失败");
+    }
+    
     
     [UMComSession openLog:YES];
     [UMCommunity setAppKey:UMengCommunityAppkey withAppSecret:UMengCommunityAppSecret];

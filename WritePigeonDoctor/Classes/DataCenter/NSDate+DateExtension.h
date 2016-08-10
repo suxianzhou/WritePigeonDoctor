@@ -1,54 +1,12 @@
-
 //
-//  RWDeployIndex.h
-//  ZhongYuSubjectHubKY
+//  NSDate+DateExtension.h
+//  WritePigeonDoctor
 //
-//  Created by zhongyu on 16/5/10.
+//  Created by zhongyu on 16/8/10.
 //  Copyright © 2016年 RyeWhiskey. All rights reserved.
 //
 
-#ifndef RWDeployIndex_h
-#define RWDeployIndex_h
-
-#define FIRST_OPEN_APPILCATION @"$m@#$a#$%!UW!r@$$k33894"
-
-#define EXPERIENCE_TIMES @"iwidjkqwjinnnnbhhwwwdddwqwqexpqkmkwekk"
-
-#define TIMES_BUFFER @"timwuidqwdcd"
-
-#define USERNAME @"zyccxovvexqoisdaxawek"
-
-#define PASSWORD @"acxwefsdsdkllwxdfweiq"
-
-#define NAME @"kkduenlsjiqwjidwq323"
-
-#define LOGIN @"xiwndpsjfsdkasdklasj"
-
-#define DID_LOGIN @"ix23f3as230"
-
-#define UNLINK_LOGIN @"ix23xkas230"
-
-#define NOT_LOGIN @"ewuiweoe32x"
-
-#define EXPERIENCE_VIEW @"kwCijeiwJIddw"
-
-#define CLOCK @"xhasdjsadjl123jkjjhkj123j"
-
-#define CLOCK_ON @"s9jlklasnad"
-
-#define CLOCK_OFF @"sdn5a3dnlks"
-
-#define CLOCK_NAMES @"sxlowhbasd43j53jj"
-
-#define CLOCK_TIMES @"ewqwbtd7eq4ad8sdj"
-
-#define DEFAULT_CLOCK @"00#8:00"
-
-#define TEST_DATE @"dlwq23*&$21dkwkljdsd"
-
-#define TEST_CLOCK @"te$$k23j@@$assd(dsst"
-
-#define RWNOTFOUND @"68^&&D232(#(h(21:#"
+#import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSInteger ,RWClockCycle) {
     
@@ -147,9 +105,40 @@ RWMoment decreaseMinute(RWMoment moment,NSInteger decreaseTimes);
 
 RWMoment decreaseSecond(RWMoment moment,NSInteger decreaseTimes);
 
+@interface NSDate (DateExtension)
+
++ (NSString *)stringClockAttribute:(RWClockAttribute)clockAttribute;
++ (RWClockAttribute)clockAttributeWithString:(NSString *)attributeString;
+
++ (NSString *)stringClockWeek:(RWClockWeek)clockWeek;
++ (RWClockWeek)clockWeekWithString:(NSString *)weekString;
+
++ (NSString *)stringClockCycle:(RWClockCycle)cycle;
++ (RWClockCycle)cycleWithString:(NSString *)cycleString;
+
++ (RWMoment)momentWithDate:(NSDate *)systemDate;
++ (NSDate *)dateWithRWMoment:(RWMoment)moment;
+
++ (NSString *)stringRWTime:(RWTime)time;
++ (RWTime)timeWithString:(NSString *)timeString;
+
++ (NSString *)stringRWDate:(RWDate)date;
++ (RWDate)dateWithString:(NSString *)dateString;
+
++ (NSString *)stringRWMoment:(RWMoment)moment;
++ (RWMoment)momentWithString:(NSString *)momentString;
 
 
++ (NSString *)stringTimeWithClockAttribute:(RWClockAttribute)attribute;
++ (NSDate *)buildClockDateWithAfterDays:(NSInteger)afterDays
+                                  Hours:(NSInteger)hours
+                              AndMinute:(NSInteger)minute;
 
++ (BOOL)isPastTime:(NSInteger)hours minute:(NSInteger)minute;
 
++ (NSInteger)daysFromClockTimeWithClockWeek:(RWClockWeek)week
+                              AndWeekString:(NSString *)weekString;
++ (NSInteger)distanceWithBeginMoments:(RWMoment)beginMoments
+                        AndEndMoments:(RWMoment)endMomends;
 
-#endif /* RWDeployIndex_h */
+@end

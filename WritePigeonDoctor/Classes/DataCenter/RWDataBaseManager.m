@@ -94,7 +94,7 @@
     if (_storeCoordinator.persistentStores.count != 1 ||
         ![_storeCoordinator.persistentStores lastObject])
     {
-        NSLog(@"create Base Fail reason : %@",error.description);
+        MESSAGE(@"create Base Fail reason : %@",error.description);
     }
     
     return _storeCoordinator;
@@ -110,7 +110,7 @@
         
         if (context.hasChanges && ![context save:&error])
         {
-            NSLog(@"%@",error.description);
+            MESSAGE(@"%@",error.description);
             return NO;
         }
     }
@@ -147,7 +147,7 @@
     
     if (error)
     {
-        NSLog(@"%@",error.description);
+        MESSAGE(@"%@",error.description);
     }
     
     return nil;

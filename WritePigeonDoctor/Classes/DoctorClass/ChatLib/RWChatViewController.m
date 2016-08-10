@@ -255,8 +255,6 @@
 
 - (void)chatBar:(RWWeChatBar *)chatBar selectedFunction:(RWPurposeMenu)function
 {
-    NSLog(@"%d",(int)function);
-    
     switch (function)
     {
         case RWPurposeMenuOfPhoto:
@@ -467,7 +465,7 @@
     
     if (![_baseManager cacheMessage:chatMessage])
     {
-        NSLog(@"fa~~~");
+        MESSAGE(@"fa~~~");
     }
 }
 

@@ -11,6 +11,7 @@
 
 #import <Masonry.h>
 #import <SVProgressHUD.h>
+#import <YYKit/YYKit.h>
 #import "Macro.h"
 #import "ThirdMacros.h"
 #import "RWDataModels.h"
@@ -52,6 +53,25 @@
 
 #ifndef __SANDBOX_PATH__
 #define __SANDBOX_PATH__ [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES) lastObject]
+#endif
+
+#ifdef DEBUG
+#if DEBUG
+
+#ifndef MESSAGE
+#define MESSAGE(...) NSLog(@"\n**********************************\n\n** Class: %@\n\n** Function: %s\n\n** Line: No.%d\n\n** Message: %@\n\n**********************************",NSStringFromClass([self class]),__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
+#endif
+
+#else
+#ifndef MESSAGE
+#define MESSAGE(...)
+#endif
+#endif
+#else
+
+#ifndef MESSAGE
+#define MESSAGE(...)
+#endif
 #endif
 
 #endif /* PublicMacro_pch */
