@@ -9,6 +9,9 @@
 #import "RWMainViewController.h"
 #import "RWCustomizeToolBar.h"
 #import "RWOfficeListController.h"
+#import "UMComLoginManager.h"
+#import "UMComSelectTopicViewController.h"
+#import "UMComBriefEditViewController.h"
 #import <WebKit/WebKit.h>
 
 @interface RWMainViewController ()
@@ -72,7 +75,28 @@
     }
     else if ([message.name isEqualToString:@"MakeQuestion"])
     {
-        MESSAGE(@"question");
+        __weak typeof(self) weakself = self;
+        [UMComLoginManager performLogin:self completion:^(id responseObject, NSError *error)
+        {
+            if (!error) {
+                
+                //可变话题的选择----begin
+                UMComSelectTopicViewController*  selectTopicViewController = [[UMComSelectTopicViewController alloc] initWithNibName:@"UMComSelectTopicViewController" bundle:nil];
+                
+                UIViewController* popToViewController = weakself;
+                
+                selectTopicViewController.selectTopicViewFinishAction = ^(UMComTopic* topic){
+                    UMComBriefEditViewController* editViewController = [[UMComBriefEditViewController alloc] initModifiedTopic:topic withPopToViewController:popToViewController];
+                    [weakself.navigationController pushViewController:editViewController animated:YES];
+                };
+                
+                selectTopicViewController.closeTopicViewAction = ^(){
+                    [weakself.navigationController popViewControllerAnimated:YES];
+                };
+                [weakself.navigationController pushViewController:selectTopicViewController animated:YES];
+                //可变话题的选择----end
+            }
+        }];
     }
 }
 

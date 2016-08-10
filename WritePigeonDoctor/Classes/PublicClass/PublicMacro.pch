@@ -16,6 +16,7 @@
 #import "ThirdMacros.h"
 #import "RWDataModels.h"
 #import "RWViewsOfMacro.h"
+#import "RWSettingsManager.h"
 #import "UITabBarController+toLoginViewController.h"
 
 #ifndef __WPD_MAIN_COLOR__

@@ -11,6 +11,7 @@
 #import <EMSDKFull.h>
 #import "RWWeChatBar.h"
 #import "RWDataBaseManager+ChatCache.h"
+#import "RWRequsetManager+UserLogin.h"
 
 extern NSString *messageTextBody;
 extern NSString *messageImageName;
@@ -34,7 +35,8 @@ extern NSString *messageVideoBody;
 
 <
     EMClientDelegate,
-    EMChatManagerDelegate
+    EMChatManagerDelegate,
+    RWRequsetDelegate
 >
 
 + (instancetype)defaultManager;

@@ -7,7 +7,7 @@
 //
 
 #import "RWRequsetManager.h"
-
+typedef void (^LoginCompletion)(id responseObject, NSError *error);
 typedef NS_ENUM(long long,RWGender)
 {
     RWGenderIsMan = 1,

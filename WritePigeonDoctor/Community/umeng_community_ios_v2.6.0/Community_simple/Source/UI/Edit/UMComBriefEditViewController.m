@@ -63,7 +63,7 @@ const CGFloat g_template_TipAddImageHeight = 28.f;//添加图片控件的item的
 
 const CGFloat g_template_MaxImageCount = 9;//添加图片控件的item的相对下边距
 
-#define g_selectedTopictemplate @"发送内容到%@版块"
+#define g_selectedTopictemplate @"发送内容到%@科室"
 
 #define g_tipAddImagetemplate @"还可以上传%lu张图片"
 
@@ -412,7 +412,7 @@ typedef void (^SelectedTopicFinishedAction)(UMComTopic* topic,NSError* error);
     
     //设置中间文本
     UILabel* titleLabel = [[UILabel alloc] initWithFrame:self.navigationController.navigationBar.bounds];
-    titleLabel.text = UMComLocalizedString(@"um_com_Edit_TitleText", @"新鲜事");
+    titleLabel.text = UMComLocalizedString(@"um_com_Edit_TitleText", @"提问题");
     titleLabel.textAlignment = NSTextAlignmentCenter;
     titleLabel.font = UMComFontNotoSansLightWithSafeSize(17);
     titleLabel.textColor =  UMComColorWithColorValueString(@"FFFFFF");

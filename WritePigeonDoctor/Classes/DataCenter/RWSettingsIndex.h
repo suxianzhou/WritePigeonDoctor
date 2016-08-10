@@ -10,5 +10,6 @@
 #define RWSettingsIndex_h
 
 #define FIRST_OPEN_APPILCATION @"$m@#$a#$%!UW!r@$$k33894"
+#define __AUTO_LOGIN__ @"autoLogin"
 
 #endif /* RWSettingsIndex_h */

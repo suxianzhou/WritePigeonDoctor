@@ -163,6 +163,15 @@
     NSString *name = NSStringFromClass([RWUserInformation class]);
     NSManagedObjectContext *context = self.managedObjectContext;
     
+    NSArray *result = [self searchItemWithEntityName:name
+                                           predicate:nil
+                                     sortDescriptors:nil];
+    
+    for (RWUserInformation *userInfo in result)
+    {
+        userInfo.defaultUser = @(NO);
+    }
+    
     RWUserInformation *userInformation =
                         [NSEntityDescription insertNewObjectForEntityForName:name
                                                       inManagedObjectContext:context];
@@ -174,15 +183,6 @@
     userInformation.header = user.header;
     userInformation.umid = user.umid;
     userInformation.defaultUser = @(YES);
-    
-    NSArray *result = [self searchItemWithEntityName:name
-                                           predicate:nil
-                                     sortDescriptors:nil];
-    
-    for (RWUserInformation *userInfo in result)
-    {
-        userInfo.defaultUser = @(NO);
-    }
     
     return [self saveContext];
 }

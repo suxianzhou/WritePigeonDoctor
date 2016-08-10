@@ -9,7 +9,6 @@
 //
 
 #import "RWWeiChatView.h"
-#import "AppDelegate.h"
 
 @interface RWWeChatView ()
 
@@ -1400,8 +1399,7 @@ CGFloat getArrowheadX(RWWeChatCell *cell)
     
     if (self)
     {
-        AppDelegate *faceDelegate = [UIApplication sharedApplication].delegate;
-        UIWindow *faceWindow = faceDelegate.window;
+        UIWindow *faceWindow = [UIApplication sharedApplication].keyWindow;
         
         [faceWindow addSubview:self];
         

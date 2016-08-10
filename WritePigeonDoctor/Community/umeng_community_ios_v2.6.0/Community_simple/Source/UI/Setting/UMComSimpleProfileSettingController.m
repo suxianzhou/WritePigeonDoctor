@@ -119,7 +119,7 @@
         _nameField.text = user.name;
         _souceUidLabel.text = user.source_uid;
         _gender = [user.gender integerValue];
-        [_userPortrait setImageURL:user.icon_url.small_url_string placeHolderImage:UMComSimpleImageWithImageName(@"um_default_avatar")];
+        [_userPortrait setImageURL:user.icon_url.small_url_string placeHolderImage:[UIImage imageNamed:@"45195.jpg"]];
         [self updateGender];
     }
 }

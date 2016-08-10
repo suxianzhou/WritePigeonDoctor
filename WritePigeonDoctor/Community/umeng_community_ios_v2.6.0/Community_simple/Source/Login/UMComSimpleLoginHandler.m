@@ -12,7 +12,6 @@
 #import "LoginViewController.h"
 @interface UMComSimpleLoginHandler()
 
-
 @end
 
 @implementation UMComSimpleLoginHandler
@@ -31,21 +30,15 @@ static UMComSimpleLoginHandler *_instance = nil;
 - (void)presentLoginViewController:(UIViewController *)viewController finishResponse:(LoginCompletion)completion
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-//        UMComSimpleLoginViewController *loginViewController = [[UMComSimpleLoginViewController alloc] init];
-//        loginViewController.completion = completion;
-//        UMComNavigationController *navigationController = [[UMComNavigationController alloc] initWithRootViewController:loginViewController];
-//        [viewController presentViewController:navigationController animated:YES completion:^{
-//        }];
+
         LoginViewController * LoginVC=[[LoginViewController alloc]init];
         
-        LoginVC.completion = completion;
-        
-        [viewController presentViewController:LoginVC animated:YES completion:^{
-            
-        }];
+        [viewController presentViewController:LoginVC animated:YES completion:nil];
         
         NSLog(@"跳转登录界面 ");
     });
+    
+    
 }
 
 @end

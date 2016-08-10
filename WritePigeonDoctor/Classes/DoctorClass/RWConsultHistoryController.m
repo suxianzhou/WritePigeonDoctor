@@ -10,6 +10,8 @@
 #import "RWDoctorListCell.h"
 #import "RWDoctorDescriptionController.h"
 #import "RWDataBaseManager+ChatCache.h"
+#import "RWMainTabBarController.h"
+#import "RWChatManager.h"
 
 @interface RWConsultHistoryController ()
 
@@ -76,6 +78,17 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    
+    if ([RWChatManager defaultManager].connectionState)
+    {
+        [self.tabBarController toLoginViewController];
+        
+        RWMainTabBarController *tabBar = (RWMainTabBarController *)self.tabBarController;
+        
+        [tabBar toRootViewController];
+        
+        return;
+    }
     
     RWDataBaseManager *baseManager = [RWDataBaseManager defaultManager];
     _historys = [baseManager getConsultHistory];

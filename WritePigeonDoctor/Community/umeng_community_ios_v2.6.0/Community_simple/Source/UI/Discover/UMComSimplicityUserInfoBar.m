@@ -75,10 +75,10 @@
             if (medal && [medal isKindOfClass:[UMComMedal class]]) {
                 self.medalView.delegate = self;
                 self.medalView.isAutoStart = YES;
-                [self.medalView setImageURL:medal.icon_url placeHolderImage:UMComSimpleImageWithImageName(@"um_com_authorized_smal")];
+                [self.medalView setImageURL:medal.icon_url placeHolderImage:[UIImage imageNamed:@"45195.jpg"]];
             }
             else{
-                [self.medalView setImageURL:nil placeHolderImage:UMComSimpleImageWithImageName(@"um_com_authorized_smal")];
+                [self.medalView setImageURL:nil placeHolderImage:[UIImage imageNamed:@"45195.jpg"]];
             }
         }
         else
@@ -87,7 +87,7 @@
         }
         
         UMComColorWithColorValueString(@"34C035").CGColor;
-        [_avatar setImageURL:[user.icon_url small_url_string] placeHolderImage:UMComSimpleImageWithImageName(@"um_default_avatar")];
+        [_avatar setImageURL:[user.icon_url small_url_string] placeHolderImage:[UIImage imageNamed:@"45195.jpg"]];
         _loginTip.hidden = YES;
         _userInfoBar.hidden = NO;
     } else {

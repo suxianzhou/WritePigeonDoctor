@@ -9,7 +9,7 @@
 #import "XZMicroVideoView.h"
 #import <AVFoundation/AVFoundation.h>
 #import "SVProgressHUD.h"
-#define kScreenWidth ([UIScreen mainScreen].bounds.size.width)
+
 #define kRecordMaxTime 5.0
 #define kRefreshRate 60.0f
 //每秒刷新30次

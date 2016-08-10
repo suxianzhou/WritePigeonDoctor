@@ -59,8 +59,10 @@
     {
         NSMutableDictionary *settings = [[NSMutableDictionary alloc] init];
         
-        [settings setObject:[NSNumber numberWithBool:YES]
+        [settings setObject:@(YES)
                      forKey:FIRST_OPEN_APPILCATION];
+        [settings setObject:@(YES)
+                     forKey:__AUTO_LOGIN__];
         
         if ([settings writeToFile:__SETTINGS_PATH__ atomically:YES])
         {

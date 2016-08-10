@@ -264,11 +264,11 @@ static NSString *const buttonCell = @"buttonCell";
         
         UIButton * ForgotButton=[[UIButton alloc]init];
         [ForgotButton setTitle:@"忘记密码" forState:(UIControlStateNormal)];
-        ForgotButton.titleLabel.font=[UIFont fontWithName:@"Helvetica" size:14];
+        ForgotButton.titleLabel.font=[UIFont fontWithName:@"Helvetica" size:12];
         
         UIButton *registerButton=[[UIButton alloc]init];
         
-        registerButton.titleLabel.font=[UIFont fontWithName:@"Helvetica" size:14];
+        registerButton.titleLabel.font=[UIFont fontWithName:@"Helvetica" size:12];
         
         [registerButton setTitle:@"新用户注册" forState:(UIControlStateNormal)];
         
@@ -287,7 +287,7 @@ static NSString *const buttonCell = @"buttonCell";
             make.left.equalTo(backView).offset(10);
             make.top.equalTo(backView).offset(10);
             make.height.equalTo(@(30));
-//            make.bottom.equalTo(@(5));
+
         }];
         
         
@@ -297,7 +297,6 @@ static NSString *const buttonCell = @"buttonCell";
             make.left.equalTo(ForgotButton).offset(self.viewList.frame.size.width/1.7);
             make.top.equalTo(backView).offset(10);
             make.height.equalTo(@(30));
-//            make.bottom.equalTo(@(5));
         }];
         
         
@@ -307,9 +306,83 @@ static NSString *const buttonCell = @"buttonCell";
     
     return nil;
 }
--(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    
+
+
+
+
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    if(section==2){
+        UIView * backgroundView=[[UIView alloc]init];
+        
+        UIButton * chickButton=[[UIButton  alloc]init];
+        
+        if ([SETTINGS_VALUE(__AUTO_LOGIN__ )boolValue])
+        {
+             [chickButton setImage:[UIImage imageNamed:@"duihao"] forState:(UIControlStateNormal)];
+        }else{
+             [chickButton setImage:[UIImage imageNamed:@"duihao_nil"] forState:(UIControlStateNormal)];
+        }
+        
+        [chickButton addTarget:self action:@selector(chickAutoButton:) forControlEvents:(UIControlEventTouchUpInside)];
+        
+        [backgroundView addSubview:chickButton];
+        
+        [chickButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(backgroundView).offset(-20);
+            make.centerY.equalTo(backgroundView);
+            make.width.equalTo(@(20));
+            make.height.equalTo(@(20));
+        }];
+        
+        UILabel * label=[[UILabel alloc]init];
+        
+        label.text=@" 自动登录";
+        
+        label.textColor=[UIColor whiteSmoke];
+        
+        label.font=[UIFont systemFontOfSize:12];
+        
+        [backgroundView addSubview:label];
+        
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            
+            make.left.equalTo(chickButton.mas_right);
+            make.right.equalTo(backgroundView);
+            make.height.equalTo(@(20));
+            make.top.equalTo(chickButton);
+        }];
+        
+        
+        return backgroundView;
+    }
     return nil;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForFooterInSection:(NSInteger)section{
+    if (section==2) {
+        return self.viewList.frame.size.height/11;
+    }
+    return 0;
+}
+
+
+-(void)chickAutoButton:(UIButton *)button
+{
+    if ([SETTINGS_VALUE(__AUTO_LOGIN__) boolValue])
+    {
+        
+        [button setImage:[UIImage imageNamed:@"duihao_nil"] forState:(UIControlStateNormal)];
+        SETTINGS(__AUTO_LOGIN__, @(NO));
+    }
+    else
+    {
+        
+        [button setImage:[UIImage imageNamed:@"duihao"] forState:(UIControlStateNormal)];
+        SETTINGS(__AUTO_LOGIN__, @(YES));
+    }
+    
+    
 }
 /**
  *  跳转到忘记密码的页面
@@ -353,6 +426,8 @@ static NSString *const buttonCell = @"buttonCell";
     UIButton * bottomButton=[[UIButton alloc]init];
     
     bottomButton.backgroundColor=[UIColor clearColor];
+    
+    bottomButton.titleLabel.font=[UIFont systemFontOfSize:13];
     
     [bottomButton setTitle:@"跳过登录使用" forState:(UIControlStateNormal)];
   

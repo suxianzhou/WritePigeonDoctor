@@ -9,6 +9,8 @@
 #import "RWRequsetManager+UserLogin.h"
 #import "XZUMComPullRequest.h"
 #import "UMComUser.h"
+#import "UMComSession.h"
+#import "UMComMacroConfig.h"
 #import "RWDataBaseManager.h"
 #import <EMSDK.h>
 
@@ -37,7 +39,7 @@ RWGender getGenderIdentifier(NSString *gender)
      {
          if(!error)
          {
-             UMComUser *umuser = responseObject[@"data"];
+             UMComUser *umuser = responseObject[UMComModelDataKey];
              
              NSDictionary *body = @{@"username":username,
                                     @"password":password,
@@ -171,7 +173,7 @@ RWGender getGenderIdentifier(NSString *gender)
                                               sourceId:username
                                               icon_url:nil
                                                 gender:0
-                                                   age:20
+                                                   age:0
                                                 custom:nil
                                                  score:0
                                             levelTitle:nil
@@ -181,6 +183,8 @@ RWGender getGenderIdentifier(NSString *gender)
                                         userNameLength:userNameLengthDefault
                                             completion:^(NSDictionary *responseObject, NSError *error)
     {
+        NSDictionary *UMResponse = responseObject;
+        
         if(!error)
         {
             NSDictionary *body = @{@"username":username,
@@ -206,6 +210,16 @@ RWGender getGenderIdentifier(NSString *gender)
                          {
                              dispatch_async(dispatch_get_main_queue(), ^{
                                  
+                                 UMComUser *user = UMResponse[UMComModelDataKey];
+                                 
+                                 if (user)
+                                 {
+                                     [UMComSession sharedInstance].loginUser = user;
+                                     [UMComSession sharedInstance].token = UMResponse[UMComTokenKey];
+                                     
+                                     [[NSNotificationCenter defaultCenter] postNotificationName:kUserLoginSucceedNotification object:nil];
+                                 }
+                                 
                                  RWDataBaseManager *baseManager =
                                                     [RWDataBaseManager defaultManager];
                                  
@@ -217,7 +231,10 @@ RWGender getGenderIdentifier(NSString *gender)
                                      user.password = password;
                                      user.umid = Json[@"result"][@"umid"];
                                      
-                                     [baseManager addNewUesr:user];
+                                     if (![baseManager addNewUesr:user])
+                                     {
+                                         MESSAGE(@"用户信息储存失败");
+                                     }
                                  }
                                  else
                                  {
@@ -227,7 +244,10 @@ RWGender getGenderIdentifier(NSString *gender)
                                      {
                                          user.defaultUser = YES;
                                          
-                                         [baseManager updateUesr:user];
+                                         if (![baseManager updateUesr:user])
+                                         {
+                                             MESSAGE(@"用户信息储存失败");
+                                         }
                                      }
                                  }
                                  

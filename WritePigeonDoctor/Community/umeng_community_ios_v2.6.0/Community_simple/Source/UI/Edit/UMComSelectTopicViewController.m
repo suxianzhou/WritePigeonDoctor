@@ -58,8 +58,8 @@ NSString*  const UMComSelectTopicCollectionCellIdentifier = @"UMComSelectTopicCo
     self.imgHeader.image = UMComSimpleImageWithImageName(@"um_com_cheers");
     self.imgHeader.backgroundColor = [UIColor clearColor];
     
-    self.laberheader1.text = @"为内容选个贴切的版块";
-    self.labelheader2.text = @"会找到志同道和的人哦";
+    self.laberheader1.text = @"      白鸽医生问题咨询";
+    self.labelheader2.text = @"请为你的问题选择合适的科室";
     
     self.laberheader1.font = UMComFontNotoSansLightWithSafeSize(14);
     self.laberheader1.textColor = UMComColorWithColorValueString(@"#FFFFFF");

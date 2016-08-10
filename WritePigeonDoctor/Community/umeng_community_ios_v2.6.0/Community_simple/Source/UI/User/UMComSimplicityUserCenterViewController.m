@@ -50,6 +50,7 @@
     
     if (UMComSystem_Version_Greater_Than_Or_Equal_To(@"7.0"))
     {
+        
     }
     else
     {
@@ -176,7 +177,7 @@
 
 -(void)refreshUserInfo:(UMComUser*)user
 {
-    [self.protrainImageView setImageURL:user.icon_url.small_url_string placeHolderImage:UMComSimpleImageWithImageName(@"um_com_defaultAvatar")];
+    [self.protrainImageView setImageURL:user.icon_url.small_url_string placeHolderImage:[UIImage imageNamed:@"45195.jpg"]];
     
     if (user.feed_count > 0) {
         self.countLabel.text = [[NSString alloc] initWithFormat:g_userCenter_count_template,user.feed_count.longValue];
@@ -201,10 +202,10 @@
         if (medal && [medal isKindOfClass:[UMComMedal class]]) {
             self.medal.delegate = self;
             self.medal.isAutoStart = YES;
-            [self.medal setImageURL:medal.icon_url placeHolderImage:UMComSimpleImageWithImageName(@"um_com_authorized_smal")];
+            [self.medal setImageURL:medal.icon_url placeHolderImage:[UIImage imageNamed:@"45195.jpg"]];
         }
         else{
-            [self.medal setImageURL:nil placeHolderImage:UMComSimpleImageWithImageName(@"um_com_authorized_smal")];
+            [self.medal setImageURL:nil placeHolderImage:[UIImage imageNamed:@"45195.jpg"]];
         }
     }
     else

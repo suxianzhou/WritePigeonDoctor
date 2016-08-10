@@ -40,6 +40,16 @@ const NSString *messageVideoBody = @"messageVideoBody";
     return [RWChatManager defaultManager];
 }
 
++ (id)copyWithZone:(struct _NSZone *)zone
+{
+    return [RWSettingsManager systemSettings];
+}
+
++ (id)mutableCopyWithZone:(struct _NSZone *)zone
+{
+    return [RWSettingsManager systemSettings];
+}
+
 - (void)setDefaultSettings
 {
     _client = [EMClient sharedClient];
@@ -50,6 +60,34 @@ const NSString *messageVideoBody = @"messageVideoBody";
     
     _allSessions = [[_chatManager loadAllConversationsFromDB] mutableCopy];
     _baseManager = [RWDataBaseManager defaultManager];
+    
+    if ([SETTINGS_VALUE(__AUTO_LOGIN__) boolValue])
+    {
+        RWUser *user = [_baseManager getDefualtUser];
+        
+        if (user)
+        {
+            RWRequsetManager *request = [[RWRequsetManager alloc] init];
+            request.delegate = self;
+            
+            [request userinfoWithUsername:user.username AndPassword:user.password];
+        }
+    }
+}
+
+- (void)userLoginSuccess:(BOOL)success responseMessage:(NSString *)responseMessage
+{
+    if (!success)
+    {
+        UITabBarController *tabbar = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+        
+        [RWRequsetManager warningToViewController:tabbar
+                                            Title:[NSString stringWithFormat:@"自动登录失败\n%@",responseMessage]
+                                            Click:^{
+           
+            [tabbar toLoginViewController];
+        }];
+    }
 }
 
 - (void)createConversationWithID:(NSString *)ID

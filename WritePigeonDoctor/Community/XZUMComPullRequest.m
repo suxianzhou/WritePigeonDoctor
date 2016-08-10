@@ -31,7 +31,8 @@
                         userNameLength:(UMComUserNameLength)userNameLength
                             completion:(UMComRequestCompletion)completion
 {
-    [UMComRequestManager userCustomAccountLoginWithName:name sourceId:sourceId icon_url:icon_url gender:gender age:age custom:custom score:score levelTitle:levelTitle level:level contextDictionary:context userNameType:userNameType userNameLength:userNameLength completion:^(NSDictionary *responseObject, NSError *error) {
+    [UMComRequestManager userCustomAccountLoginWithName:name sourceId:sourceId icon_url:icon_url gender:gender age:age custom:custom score:score levelTitle:levelTitle level:level contextDictionary:context userNameType:userNameType userNameLength:userNameLength completion:^(NSDictionary *responseObject, NSError *error)
+    {
         completion(responseObject,error);
     }];
 }

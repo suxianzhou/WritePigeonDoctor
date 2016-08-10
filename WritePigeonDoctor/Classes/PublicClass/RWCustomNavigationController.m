@@ -17,8 +17,8 @@
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
     CATransition *transition = [CATransition animation];
-    transition.type = @"suckEffect";
-    transition.subtype = @"fromLeft";
+    transition.type = @"pageCurl";
+    transition.subtype = kCATransitionFromRight;
     transition.duration = 1;
     
     [self.view.layer addAnimation:transition forKey:nil];
@@ -50,6 +50,12 @@
 - (void)addAnimation
 {
     // pop 动画
+    CATransition *transition = [CATransition animation];
+    transition.type = @"pageCurl";
+    transition.subtype = kCATransitionFromLeft;
+    transition.duration = 1;
+    
+    [self.view.layer addAnimation:transition forKey:nil];
 }
 
 - (void)presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^)(void))completion
@@ -72,7 +78,7 @@
 {
     CATransition *transition = [CATransition animation];
     
-    transition.type = @"rippleEffect";
+    transition.type = @"pageCurl";
     
     transition.subtype = @"fromLeft";
     
