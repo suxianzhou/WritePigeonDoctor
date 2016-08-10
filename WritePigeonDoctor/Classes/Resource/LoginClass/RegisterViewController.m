@@ -41,7 +41,6 @@ static NSString * const agreementCell=@"agreementCell";
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     CGRect frame=_backview.frame;
-    NSLog(@"------->%f",frame.size.height);
     _backview.frame=CGRectMake(frame.origin.x
                               , -frame.size.height+frame.origin.y
                               , frame.size.width
@@ -279,6 +278,8 @@ static NSString * const agreementCell=@"agreementCell";
         
         cell.delegate = self;
         
+        cell.textField.secureTextEntry=YES;
+         
         cell.placeholder = @"请输入密码";
         return cell;
     }
@@ -287,6 +288,8 @@ static NSString * const agreementCell=@"agreementCell";
         FETextFiledCell *cell = [tableView dequeueReusableCellWithIdentifier:textFieldCell forIndexPath:indexPath];
         
         cell.delegate = self;
+        
+        cell.textField.secureTextEntry=YES;
         
         cell.placeholder = @"请确认密码";
         return cell;
@@ -343,7 +346,7 @@ static NSString * const agreementCell=@"agreementCell";
             FETextFiledCell *cell = [tableView dequeueReusableCellWithIdentifier:textFieldCell forIndexPath:indexPath];
             
             cell.delegate = self;
-            
+            cell.textField.secureTextEntry=YES;
             cell.placeholder = @"请输入新密码";
             return cell;
         }
@@ -352,7 +355,7 @@ static NSString * const agreementCell=@"agreementCell";
             FETextFiledCell *cell = [tableView dequeueReusableCellWithIdentifier:textFieldCell forIndexPath:indexPath];
             
             cell.delegate = self;
-            
+            cell.textField.secureTextEntry=YES;
             cell.placeholder = @"请确认新密码";
             return cell;
         }else if(indexPath.section==4){
@@ -383,14 +386,7 @@ static NSString * const agreementCell=@"agreementCell";
 
 -(void)button:(UIButton *)button ClickWithTitle:(NSString *)title{
     
-   
-    
-    /**
-     *  验证手机号是否合法
-     
-        验证两次密码是否相同
-     */
-    
+
     if(button.tag==99999){
         
         [self dismissViewControllerAnimated:YES completion:nil];
@@ -400,16 +396,12 @@ static NSString * const agreementCell=@"agreementCell";
         [self isRegister:YES];
         
         
-        NSLog(@"完善信息");
+//        NSLog(@"完善信息");
         
     }else{
-        
-        /**
-         *修改密码
-         */
         [self isRegister:NO];
         
-        NSLog(@"点击了修改完成");
+//        NSLog(@"点击了修改完成");
         
     }
     
@@ -488,14 +480,8 @@ static NSString * const agreementCell=@"agreementCell";
     }
     else
     {
-//        [_requestManager replacePasswordWithUsername:username
-//                                         AndPassword:password
-//                                    verificationCode:verification];
+        [_requestManager replacePasswordWithUsername:username AndPassword:password verificationCode:verification];
     }
-    
-    
-        
-    
     
     
 }
@@ -521,15 +507,21 @@ static NSString * const agreementCell=@"agreementCell";
     }
     
 }
-
-
-
-
-
--(void)requestError:(NSError *)error Task:(NSURLSessionDataTask *)task{
-    [RWRequsetManager warningToViewController:self Title:@"网络异常，请检查设置" Click:nil];
+-(void)userReplacePasswordResponds:(BOOL)success responseMessage:(NSString *)responseMessage
+{
+    DISSMISS;
+    if (success)
+    {
+        [RWRequsetManager warningToViewController:self Title:@"修改成功" Click:^{
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }];
+    }
+    else
+    {
+        [RWRequsetManager warningToViewController:self Title:responseMessage Click:nil];
+    }
+    
 }
-
 
 #pragma mark    验证码点击
 -(void)button:(UIButton *)button FEChecClickWithTitle:(NSString *)title{
@@ -541,6 +533,31 @@ static NSString * const agreementCell=@"agreementCell";
             clickBtn=button;
             [self timerStart];
             //定时器启动后的方法
+            
+            FETextFiledCell *userName = [self.viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+            if (![_requestManager verificationPhoneNumber:userName.textField.text])
+            {
+                [RWRequsetManager warningToViewController:self Title:@"手机号输入有误，请重新输入" Click:^{
+                    //13791836315
+                    userName.textField.text = nil;
+                    [userName.textField becomeFirstResponder];
+                }];
+                
+                return;
+            }
+            
+            _requestManager.delegate = self;
+            
+            [_requestManager obtainVerificationWithPhoneNunber:userName.textField.text result:^(BOOL succeed, NSString *reason)
+             {
+                 if (!succeed)
+                 {
+                     [RWRequsetManager warningToViewController:self Title:reason Click:^{
+                         
+                         [clickBtn setTitle:@"重新验证码" forState:(UIControlStateNormal)];
+                     }];
+                 }
+             }];
             
         }
         

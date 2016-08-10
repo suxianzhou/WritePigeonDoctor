@@ -32,5 +32,6 @@
 @property (nonatomic,assign,readonly)AFNetworkReachabilityStatus reachabilityStatus;
 
 @property (nonatomic,strong)NSDictionary *errorDescription;
+
 + (void)warningToViewController:(__kindof UIViewController *)viewController Title:(NSString *)title Click:(void(^)(void))click;
 @end

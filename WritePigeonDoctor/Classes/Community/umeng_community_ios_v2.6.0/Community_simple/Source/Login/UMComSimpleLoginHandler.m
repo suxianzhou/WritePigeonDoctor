@@ -18,6 +18,7 @@
 @implementation UMComSimpleLoginHandler
 
 static UMComSimpleLoginHandler *_instance = nil;
+
 + (UMComSimpleLoginHandler *)shareInstance {
     @synchronized (self) {
         if (_instance == nil) {
@@ -37,7 +38,7 @@ static UMComSimpleLoginHandler *_instance = nil;
 //        }];
         LoginViewController * LoginVC=[[LoginViewController alloc]init];
         
-//        LoginVC.completion = completion;
+        LoginVC.completion = completion;
         
         [viewController presentViewController:LoginVC animated:YES completion:^{
             

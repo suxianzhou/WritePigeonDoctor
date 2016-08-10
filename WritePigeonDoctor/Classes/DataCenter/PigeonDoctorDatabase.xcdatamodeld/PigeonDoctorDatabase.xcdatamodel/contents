@@ -24,6 +24,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="office" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="professionTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="umid" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="RWUserInformation" representedClassName="RWUserInformation" syncable="YES">
         <attribute name="age" optional="YES" attributeType="String" syncable="YES"/>
@@ -32,11 +33,12 @@
         <attribute name="header" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="umid" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="RWChatCache" positionX="250" positionY="18" width="128" height="270"/>
-        <element name="RWConsultHistory" positionX="-297" positionY="54" width="128" height="135"/>
-        <element name="RWUserInformation" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="RWConsultHistory" positionX="-297" positionY="54" width="128" height="150"/>
+        <element name="RWUserInformation" positionX="-63" positionY="-18" width="128" height="165"/>
     </elements>
 </model>

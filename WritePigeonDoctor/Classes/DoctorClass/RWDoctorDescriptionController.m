@@ -75,6 +75,15 @@
 
 - (void)startConsultAtRegisterOffice:(RWRegisterOfficeView *)registerOffice
 {
+    RWChatManager *chatManager = [RWChatManager defaultManager];
+    
+    if (chatManager.connectionState)
+    {
+        [self.tabBarController toLoginViewController];
+        
+        return;
+    }
+    
     RWConsultViewController *chatView = [[RWConsultViewController alloc] init];
     
     chatView.item = _doctorItem();

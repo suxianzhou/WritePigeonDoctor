@@ -10,6 +10,7 @@
 #import "RWMainTabBarController.h"
 #import "UMComSession.h"
 #import "UMCommunity.h"
+#import "RWChatManager.h"
 #import "EMSDK.h"
 
 @interface AppDelegate ()
@@ -42,6 +43,8 @@
         UIRemoteNotificationTypeAlert;
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes:notificationTypes];
     }
+    
+    [RWChatManager defaultManager];
     
     [UMComSession openLog:YES];
     [UMCommunity setAppKey:UMengCommunityAppkey withAppSecret:UMengCommunityAppSecret];

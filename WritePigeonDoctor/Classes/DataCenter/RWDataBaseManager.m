@@ -172,6 +172,7 @@
     userInformation.username = user.username;
     userInformation.password = user.password;
     userInformation.header = user.header;
+    userInformation.umid = user.umid;
     userInformation.defaultUser = @(YES);
     
     NSArray *result = [self searchItemWithEntityName:name
@@ -220,6 +221,7 @@
         userInfo.username = user.username;
         userInfo.password = user.password;
         userInfo.header = user.header;
+        userInfo.umid = user.umid;
         userInfo.defaultUser = @(user.defaultUser);
     }
     
@@ -287,6 +289,7 @@
             user.username = userInfo.username;
             user.password = userInfo.password;
             user.header = userInfo.header;
+            user.umid = userInfo.umid;
             user.defaultUser = userInfo.defaultUser.boolValue;
             
             return user;
@@ -316,6 +319,7 @@
             user.username = userInfo.username;
             user.password = userInfo.password;
             user.header = userInfo.header;
+            user.umid = userInfo.umid;
             user.defaultUser = userInfo.defaultUser.boolValue;
             
             return user;

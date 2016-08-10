@@ -12,6 +12,7 @@
 #import "RWCommunityController.h"
 #import "RWSettingsViewController.h"
 #import "RWConsultHistoryController.h"
+#import "RWCustomNavigationController.h"
 #import "UITabBar+badge.h"
 
 @interface RWMainTabBarController ()
@@ -83,19 +84,19 @@
     
     RWMainViewController *main = [[RWMainViewController alloc]init];
 
-    UINavigationController *mainNav = [[UINavigationController alloc]initWithRootViewController:main];
+    RWCustomNavigationController *mainNav = [[RWCustomNavigationController alloc]initWithRootViewController:main];
 
     RWConsultHistoryController *history = [[RWConsultHistoryController alloc]init];
     
-    UINavigationController *officeNav = [[UINavigationController alloc]initWithRootViewController:history];
+    RWCustomNavigationController *officeNav = [[RWCustomNavigationController alloc]initWithRootViewController:history];
     
     RWCommunityController *community = [[RWCommunityController alloc]init];
     
-    UINavigationController *communityNav = [[UINavigationController alloc]initWithRootViewController:community];
+    RWCustomNavigationController *communityNav = [[RWCustomNavigationController alloc]initWithRootViewController:community];
     
     RWSettingsViewController *settings = [[RWSettingsViewController alloc]init];
     
-    UINavigationController *settingsNav = [[UINavigationController alloc]initWithRootViewController:settings];
+    RWCustomNavigationController *settingsNav = [[RWCustomNavigationController alloc]initWithRootViewController:settings];
     
     
     self.viewControllers = @[mainNav,officeNav,communityNav,settingsNav];

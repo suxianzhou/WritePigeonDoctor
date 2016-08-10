@@ -12,6 +12,11 @@
 #import "RWDataBaseManager.h"
 #import <EMSDK.h>
 
+RWGender getGenderIdentifier(NSString *gender)
+{
+    return [gender isEqualToString:@"男"]?RWGenderIsMan:RWGenderIsWoman;
+}
+
 @implementation RWRequsetManager (UserLogin)
 
 - (void)registerWithUsername:(NSString *)username AndPassword:(NSString *)password verificationCode:(NSString *)verificationCode
@@ -54,6 +59,7 @@
                      
                      user.username = username;
                      user.password = password;
+                     user.umid = umuser.uid;
                      
                      RWDataBaseManager *baseManager =
                                                 [RWDataBaseManager defaultManager];
@@ -92,9 +98,71 @@
     }];
 }
 
-- (void)setUserHeader:(UIImage *)header name:(NSString *)name age:(NSString *)age sex:(NSString *)sex
+- (void)setUserHeader:(UIImage *)header
+                 name:(NSString *)name
+                  age:(NSString *)age
+                  sex:(NSString *)sex
+           completion:(void(^)(BOOL success,NSString *errorReason))completion
 {
+    RWDataBaseManager *baseManager = [RWDataBaseManager defaultManager];
     
+    RWUser *user = [baseManager getDefualtUser];
+    
+    user.header =   UIImagePNGRepresentation(header)?
+                    UIImagePNGRepresentation(header):
+                    UIImageJPEGRepresentation(header,1.0);
+    user.name = name;
+    user.age = age;
+    user.gender = sex;
+    
+    [XZUMComPullRequest updateProfileWithName:user.name
+                                          age:@(user.age.integerValue)
+                                       gender:@(getGenderIdentifier(user.gender))
+                                       custom:nil
+                                 userNameType:userNameDefault
+                               userNameLength:userNameLengthDefault
+                                   completion:^(NSDictionary *responseObject, NSError *error)
+     {
+         if (!error)
+         {
+             [XZUMComPullRequest userUpdateAvatarWithImage:header completion:^(NSDictionary *responseObject, NSError *error) {
+                 
+                 if (!error)
+                 {
+                     if ([baseManager updateUesr:user])
+                     {
+                         if (completion)
+                         {
+                             completion(YES,nil);
+                         }
+                     }
+                     else
+                     {
+                         if (completion)
+                         {
+                             completion(NO,@"本地保存失败");
+                         }
+                     }
+                 }
+                 else
+                 {
+                     if (completion)
+                     {
+                         completion(NO,[NSString stringWithFormat:@"上传失败!\n原因：%@",
+                                        error.description]);
+                     }
+                 }
+             }];
+         }
+         else
+         {
+             if (completion)
+             {
+                 completion(NO,[NSString stringWithFormat:@"上传失败!\n原因：%@",
+                                                            error.description]);
+             }
+         }
+     }];
 }
 
 - (void)userinfoWithUsername:(NSString *)username AndPassword:(NSString *)password
@@ -147,6 +215,7 @@
                                      
                                      user.username = username;
                                      user.password = password;
+                                     user.umid = Json[@"result"][@"umid"];
                                      
                                      [baseManager addNewUesr:user];
                                  }
@@ -288,6 +357,21 @@
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
     
     return [emailTest evaluateWithObject:Email];
+}
+
+- (BOOL)verificationAge:(NSString *)age
+{
+    for (int i = 0; i < age.length; i++)
+    {
+        unichar c = [age characterAtIndex:i];
+        
+        if (c > 57 || c < 48)
+        {
+            return NO;
+        }
+    }
+    
+    return YES;
 }
 
 @end

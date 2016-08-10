@@ -8,6 +8,14 @@
 
 #import "RWRequsetManager.h"
 
+typedef NS_ENUM(long long,RWGender)
+{
+    RWGenderIsMan = 1,
+    RWGenderIsWoman = 0
+};
+
+RWGender getGenderIdentifier(NSString *gender);
+
 /**
  *  回调 RWRequsetDelegate
  */
@@ -27,8 +35,13 @@
  *  @param name   昵称
  *  @param age    年龄
  *  @param sex    性别
+ *  @param completion  完成 返回上传和本地保存结果
  */
-- (void)setUserHeader:(UIImage *)header name:(NSString *)name age:(NSString *)age sex:(NSString *)sex;
+- (void)setUserHeader:(UIImage *)header
+                 name:(NSString *)name
+                  age:(NSString *)age
+                  sex:(NSString *)sex
+           completion:(void(^)(BOOL success,NSString *errorReason))completion;
 /**
  *  用户登录
  *
@@ -74,6 +87,8 @@
  *  @return 
  */
 - (BOOL)verificationEmail:(NSString *)Email;
+
+- (BOOL)verificationAge:(NSString *)age;
 
 @end
 

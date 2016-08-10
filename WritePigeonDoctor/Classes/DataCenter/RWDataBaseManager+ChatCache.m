@@ -32,6 +32,7 @@
     consultHistory.name = history.name;
     consultHistory.office = history.office;
     consultHistory.professionTitle = history.professionTitle;
+    consultHistory.umid = history.umid;
     
     return [self saveContext];
 }
@@ -54,6 +55,7 @@
     history.name = item.name;
     history.office = item.office;
     history.professionTitle = item.professionalTitle;
+    history.umid = item.umid;
     
     return [self addConsultHistory:history];
 }
@@ -94,6 +96,7 @@
             consultHistory.name = history.name;
             consultHistory.office = history.office;
             consultHistory.professionTitle = history.professionTitle;
+            consultHistory.umid = history.umid;
         }
         
         return [self saveContext];
@@ -147,6 +150,7 @@
             history.name = consultHistory.name;
             history.office = consultHistory.office;
             history.professionTitle = consultHistory.professionTitle;
+            history.umid = consultHistory.umid;
             
             [consultList addObject:history];
         }

@@ -16,6 +16,7 @@
 @property (nonatomic, retain) NSString *password;
 @property (nonatomic, retain) NSString *username;
 @property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) NSString *umid;
 @property (nonatomic, assign) BOOL defaultUser;
 
 @end
@@ -28,5 +29,6 @@
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *office;
 @property (nonatomic, retain) NSString *professionTitle;
+@property (nonatomic, retain) NSString *umid;
 
 @end

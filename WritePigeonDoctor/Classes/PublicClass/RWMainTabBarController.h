@@ -10,4 +10,6 @@
 
 @interface RWMainTabBarController : UITabBarController
 
+- (void)toRootViewController;
+
 @end

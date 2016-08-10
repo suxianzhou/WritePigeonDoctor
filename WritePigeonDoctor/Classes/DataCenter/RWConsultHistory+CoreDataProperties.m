@@ -19,5 +19,6 @@
 @dynamic name;
 @dynamic office;
 @dynamic professionTitle;
+@dynamic umid;
 
 @end

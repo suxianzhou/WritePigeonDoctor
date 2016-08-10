@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSString *name;
 @property (nullable, nonatomic, retain) NSString *office;
 @property (nullable, nonatomic, retain) NSString *professionTitle;
+@property (nullable, nonatomic, retain) NSString *umid;
 
 @end
 

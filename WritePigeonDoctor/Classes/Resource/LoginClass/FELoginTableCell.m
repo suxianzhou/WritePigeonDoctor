@@ -268,8 +268,8 @@
     }];
     
     [textField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(bankgroundView).offset(5);
-        make.bottom.equalTo(bankgroundView).offset(-5);
+        make.top.equalTo(bankgroundView).offset(2);
+        make.bottom.equalTo(bankgroundView).offset(-2);
         make.left.equalTo(bankgroundView).offset(10);
         make.right.equalTo(bankgroundView);
     }];

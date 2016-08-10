@@ -20,5 +20,6 @@
 @dynamic username;
 @dynamic name;
 @dynamic defaultUser;
+@dynamic umid;
 
 @end

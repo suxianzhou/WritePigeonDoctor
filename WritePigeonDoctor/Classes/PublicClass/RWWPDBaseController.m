@@ -25,28 +25,37 @@
 
 - (void)pushNextWithViewcontroller:(UIViewController *)viewController
 {
-    CATransition *transition = [CATransition animation];
-    transition.type = @"suckEffect";
-    transition.subtype = @"fromLeft";
-    transition.duration = 1;
     viewController.hidesBottomBarWhenPushed = YES;
-    [self.navigationController.view.layer addAnimation:transition forKey:nil];
     [self.navigationController pushViewController:viewController animated:NO];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^)(void))completion
+{
+    [self addWaterAnimation];
+    
+    [super presentViewController:viewControllerToPresent
+                        animated:flag
+                      completion:completion];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion
+{
+    [self addWaterAnimation];
+    
+    [super dismissViewControllerAnimated:flag completion:completion];
 }
-*/
+
+- (void)addWaterAnimation
+{
+    CATransition *transition = [CATransition animation];
+    
+    transition.type = @"rippleEffect";
+    
+    transition.subtype = @"fromLeft";
+    
+    transition.duration = 1;
+    
+    [self.view.layer addAnimation:transition forKey:nil];
+}
 
 @end

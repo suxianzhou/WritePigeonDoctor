@@ -26,7 +26,6 @@ static NSString *const buttonCell = @"buttonCell";
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     CGRect frame=_backview.frame;
-    NSLog(@"------->%f",frame.size.height);
     _backview.frame=CGRectMake(frame.origin.x
                                , -frame.size.height+frame.origin.y
                                , frame.size.width
@@ -256,6 +255,7 @@ static NSString *const buttonCell = @"buttonCell";
         FETextFiledCell *cell = [tableView dequeueReusableCellWithIdentifier:textFieldCell forIndexPath:indexPath];
         
         cell.delegate = self;
+        cell.textField.keyboardType=UIKeyboardTypeDecimalPad;
         cell.placeholder = @"请输入年龄";
         return cell;
     }else if (indexPath.section==3){
@@ -283,8 +283,7 @@ static NSString *const buttonCell = @"buttonCell";
         
         [self dismissViewControllerAnimated:YES completion:nil];
     }else{
-        [self dismissToRootViewController];
-        NSLog(@"点击了注册完成");
+        [self setinfo];
     }
     
 }
@@ -409,9 +408,41 @@ static NSString *const buttonCell = @"buttonCell";
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
--(void)requestError:(NSError *)error Task:(NSURLSessionDataTask *)task{
-     [RWRequsetManager warningToViewController:self Title:@"网络异常，请检查设置" Click:nil];
+
+
+
+
+-(void)setinfo{
+    [self obtainRequestManager];
+    FETextFiledCell * name=[self.viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    NSString * nameStr=name.textField.text;
+    FETextFiledCell * sex=[self.viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
+    NSString * sexStr=sex.textField.text;
+    FETextFiledCell * age=[self.viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]];
+    NSString * ageStr=age.textField.text;
+    
+    if ([nameStr isEqualToString:@""]||nameStr==nil) {
+        
+        [RWRequsetManager warningToViewController:self Title:@"昵称不能为空" Click:nil];
+        
+        return;
+    }
+    
+    if(![_requestManager verificationAge:ageStr]){
+        
+        [RWRequsetManager warningToViewController:self Title:@"年龄只能为数字" Click:nil];
+        
+        return;
+    }
+    
+    [_requestManager setUserHeader:_myHeadPortrait.image name:nameStr age:ageStr sex:sexStr completion:^(BOOL success, NSString *errorReason)
+    {
+        
+    }];
+    
 }
+
+
 
 -(void)userLoginSuccess:(BOOL)success responseMessage:(NSString *)responseMessage{
     if (success) {

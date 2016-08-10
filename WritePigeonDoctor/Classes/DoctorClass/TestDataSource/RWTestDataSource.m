@@ -67,6 +67,7 @@
         RWDoctorItem *item = [[RWDoctorItem alloc] init];
         
         item.header = [UIImage imageNamed:@"MY"];
+        item.umid = @"";
         item.name = @"路人甲";
         item.professionalTitle = @"青岛市 XXX医院 著名医师";
         item.office = @"测试科室";

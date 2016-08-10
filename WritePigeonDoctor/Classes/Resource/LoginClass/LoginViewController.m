@@ -184,6 +184,8 @@ static NSString *const buttonCell = @"buttonCell";
         
         cell.delegate = self;
         
+        cell.textField.keyboardType=UIKeyboardTypeDecimalPad;
+        
         cell.placeholder = @"请输入账号";
         
         return cell;
@@ -385,17 +387,6 @@ static NSString *const buttonCell = @"buttonCell";
 
 #pragma mark 登录触发
 #pragma mark - views
-
-/**
- *   检测网络错误
- */
-- (void)requestError:(NSError *)error Task:(NSURLSessionDataTask *)task
-{
-    NSLog(@"%@",error.description);
-    
-    DISSMISS;
-    [RWRequsetManager warningToViewController:self Title:@"网络异常，请检查设置" Click:nil];
-}
 
 - (void)obtainRequestManager
 {
