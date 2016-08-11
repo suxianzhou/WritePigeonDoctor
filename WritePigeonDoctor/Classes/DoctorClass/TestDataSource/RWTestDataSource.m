@@ -66,15 +66,14 @@
     {
         RWDoctorItem *item = [[RWDoctorItem alloc] init];
         
-        item.header = [UIImage imageNamed:@"MY"];
-        item.umid = @"";
+        item.umid = @"57a956b87019c94b65fc4d98";
         item.name = @"路人甲";
         item.professionalTitle = @"青岛市 XXX医院 著名医师";
         item.office = @"测试科室";
         item.announcement = @"这是一个测试公告";
         item.homeVisitList = [RWTestDataSource getHomeVisitList];
         item.expenses = @[@"￥50.00元 / 2小时"];
-        item.EMID = @"iOSTest003";
+        item.EMID = @"13792441528";
         item.doctorDescription = @"测试医生简介！！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！";
         
         [arr addObject:item];

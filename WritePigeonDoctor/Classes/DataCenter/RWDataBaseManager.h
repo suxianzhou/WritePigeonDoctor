@@ -35,4 +35,6 @@
 - (RWUser *)getDefualtUser;
 - (RWUser *)getUser:(NSString *)username;
 
++ (BOOL)perfectPersonalInformation;
+
 @end

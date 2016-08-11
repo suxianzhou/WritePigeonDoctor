@@ -102,12 +102,16 @@
     
     chatView.item = _doctorItem;
     
-    RWDataBaseManager *baseManager = [RWDataBaseManager defaultManager];
-    
-    if ([baseManager addConsultHistoryWithItem:chatView.item])
-    {
-        [self pushNextWithViewcontroller:chatView];
-    }
+    [[RWDataBaseManager defaultManager] addConsultHistoryWithItem:chatView.item
+                                                       completion:^(BOOL success)
+     {
+         [self pushNextWithViewcontroller:chatView];
+         
+         if (!success)
+         {
+             MESSAGE(@"缓存失败");
+         }
+     }];
 }
 
 - (void)consultWayAtRegisterOffice:(RWRegisterOfficeView *)registerOffice

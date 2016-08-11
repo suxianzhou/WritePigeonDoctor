@@ -25,11 +25,6 @@
     [statusManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status)
     {
         _reachabilityStatus = status;
-        
-//        NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
-        
-//        [notificationCenter postNotificationName:REACHABILITY_STATUS_MESSAGE
-//                                          object:[NSNumber numberWithInteger:status]];
     }];
 }
 
@@ -67,6 +62,7 @@
     
     return self;
 }
+
 + (void)warningToViewController:(__kindof UIViewController *)viewController Title:(NSString *)title Click:(void(^)(void))click{
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"友情提示" message:title preferredStyle:UIAlertControllerStyleAlert];
     

@@ -37,27 +37,35 @@
     return [self saveContext];
 }
 
-- (BOOL)addConsultHistoryWithItem:(RWDoctorItem *)item
+- (void)addConsultHistoryWithItem:(RWDoctorItem *)item completion:(void(^)(BOOL success))completion
 {
-    RWHistory *history = [[RWHistory alloc] init];
+    NSOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
+        
+        RWHistory *history = [[RWHistory alloc] init];
+        
+        history.doctorDescription = item.doctorDescription;
+        history.doctorid = item.EMID;
+        history.header = [NSData dataWithContentsOfURL:[NSURL URLWithString:item.header]];
+        
+        history.name = item.name;
+        history.office = item.office;
+        history.professionTitle = item.professionalTitle;
+        history.umid = item.umid;
+        
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+           
+            if ([self existConsultHistory:history])
+            {
+                completion([self updateConsultHistory:history]);
+                
+                return;
+            }
+            
+            completion([self addConsultHistory:history]);
+        }];
+    }];
     
-    if ([self existConsultHistory:history])
-    {
-        return [self updateConsultHistory:history];
-    }
-    
-    history.doctorDescription = item.doctorDescription;
-    history.doctorid = item.EMID;
-    history.header =    UIImagePNGRepresentation(item.header)?
-                        UIImagePNGRepresentation(item.header):
-                        UIImageJPEGRepresentation(item.header, 1.f);
-    
-    history.name = item.name;
-    history.office = item.office;
-    history.professionTitle = item.professionalTitle;
-    history.umid = item.umid;
-    
-    return [self addConsultHistory:history];
+    [[RWChatManager defaultManager].downLoadQueue addOperation:operation];
 }
 
 - (BOOL)existConsultHistory:(RWHistory *)history
@@ -161,6 +169,33 @@
     return nil;
 }
 
+- (RWHistory *)getConsultHistoryWithDoctorID:(NSString *)doctorID
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"doctorid = %@",doctorID];
+    NSString *name = NSStringFromClass([RWConsultHistory class]);
+    
+    NSArray *result = [self searchItemWithEntityName:name
+                                           predicate:predicate
+                                     sortDescriptors:nil];
+    
+    for (RWConsultHistory *consultHistory in result)
+    {
+        RWHistory *history = [[RWHistory alloc] init];
+        
+        history.doctorDescription = consultHistory.doctorDescription;
+        history.doctorid = consultHistory.doctorid;
+        history.header = consultHistory.header;
+        history.name = consultHistory.name;
+        history.office = consultHistory.office;
+        history.professionTitle = consultHistory.professionTitle;
+        history.umid = consultHistory.umid;
+        
+        return history;
+    }
+    
+    return nil;
+}
+
 - (BOOL)cacheMessage:(RWWeChatMessage *)message
 {
     if ([self existCacheMessage:message])
@@ -174,7 +209,7 @@
     RWChatCache *chatCache =
                     [NSEntityDescription insertNewObjectForEntityForName:name
                                                   inManagedObjectContext:context];
-    
+
     chatCache.conversationId = message.message.conversationId;
     chatCache.date = message.messageDate;
     chatCache.from = message.message.from;
@@ -482,9 +517,30 @@
             default: break;
                 
         }
+        
+        UIImage *header;
+        
+        if (chatCache.myMessage)
+        {
+            RWUser *user = [self getDefualtUser];
+            
+            if (user)
+            {
+                header = [UIImage imageWithData:user.header];
+            }
+        }
+        else
+        {
+            RWHistory *history = [self getConsultHistoryWithDoctorID:message.from];
+            
+            if (history)
+            {
+                header = [UIImage imageWithData:history.header];
+            }
+        }
 
         RWWeChatMessage *cache = [RWWeChatMessage message:message
-                                                   header:nil
+                                                   header:header
                                                      type:type
                                                 myMessage:
                                                     chatCache.myMessage.boolValue

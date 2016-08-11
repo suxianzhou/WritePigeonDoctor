@@ -329,5 +329,16 @@
     return nil;
 }
 
++ (BOOL)perfectPersonalInformation
+{
+    RWUser *user = [[RWDataBaseManager defaultManager] getDefualtUser];
+    
+    if (!user.header || !user.name || !user.age || !user.gender)
+    {
+        return YES;
+    }
+    
+    return NO;
+}
 
 @end

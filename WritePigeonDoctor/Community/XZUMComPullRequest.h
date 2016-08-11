@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "UMComDataRequestManager.h"
 
+typedef void (^UIImageCompletion)(NSString * imageStr);
+
 @interface XZUMComPullRequest : NSObject
 
 
@@ -65,7 +67,7 @@
 + (void)fecthUserProfileWithUid:(NSString *)uid
                          source:(NSString *)source
                      source_uid:(NSString *)source_uid
-                     completion:(UMComRequestCompletion)completion;
+                     completion:(UIImageCompletion)imageStr;
 
 /**
  检查用户名合法接口

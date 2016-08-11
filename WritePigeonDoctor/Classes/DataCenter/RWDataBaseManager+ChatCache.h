@@ -11,10 +11,10 @@
 @interface RWDataBaseManager (ChatCache)
 
 - (BOOL)addConsultHistory:(RWHistory *)history;
-- (BOOL)addConsultHistoryWithItem:(RWDoctorItem *)item;
+- (void)addConsultHistoryWithItem:(RWDoctorItem *)item completion:(void(^)(BOOL success))completion;
 - (BOOL)updateConsultHistory:(RWHistory *)history;
 - (BOOL)removeConsultHistory:(RWHistory *)history;
-
+- (RWHistory *)getConsultHistoryWithDoctorID:(NSString *)doctorID;
 - (NSArray *)getConsultHistory;
 
 

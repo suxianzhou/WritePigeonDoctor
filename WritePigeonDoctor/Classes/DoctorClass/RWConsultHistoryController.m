@@ -79,7 +79,6 @@
     [super viewDidLoad];
     
     self.navigationItem.title = @"咨询历史";
-    
     _baseManager = [RWDataBaseManager defaultManager];
     
     [self initViews];

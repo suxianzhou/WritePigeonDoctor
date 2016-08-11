@@ -12,4 +12,6 @@
 
 - (void)toLoginViewController;
 
+- (void)toPerfectPersonalInformation;
+
 @end

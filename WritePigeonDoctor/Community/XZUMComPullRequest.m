@@ -9,7 +9,8 @@
 #define UMComRequestManager [UMComDataRequestManager defaultManager]
 
 #import "XZUMComPullRequest.h"
-
+#import "UMComUser.h"
+#import "UMComImageUrl.h"
 @interface XZUMComPullRequest ()
 
 @end
@@ -31,8 +32,7 @@
                         userNameLength:(UMComUserNameLength)userNameLength
                             completion:(UMComRequestCompletion)completion
 {
-    [UMComRequestManager userCustomAccountLoginWithName:name sourceId:sourceId icon_url:icon_url gender:gender age:age custom:custom score:score levelTitle:levelTitle level:level contextDictionary:context userNameType:userNameType userNameLength:userNameLength completion:^(NSDictionary *responseObject, NSError *error)
-    {
+    [UMComRequestManager userCustomAccountLoginWithName:name sourceId:sourceId icon_url:icon_url gender:gender age:age custom:custom score:score levelTitle:levelTitle level:level contextDictionary:context userNameType:userNameType userNameLength:userNameLength completion:^(NSDictionary *responseObject, NSError *error) {
         completion(responseObject,error);
     }];
 }
@@ -44,11 +44,19 @@
     }];
 }
 
-+ (void)fecthUserProfileWithUid:(NSString *)uid source:(NSString *)source source_uid:(NSString *)source_uid completion:(UMComRequestCompletion)completion
++ (void)fecthUserProfileWithUid:(NSString *)uid source:(NSString *)source source_uid:(NSString *)source_uid completion:(UIImageCompletion)imageStr
 {
     [UMComRequestManager fecthUserProfileWithUid:uid source:source source_uid:source_uid completion:^(NSDictionary *responseObject, NSError *error) {
-        completion (responseObject,error);
-    }];
+        
+    if (!error) {
+        UMComUser *umuser = responseObject[@"data"];
+        if (umuser.icon_url) {
+        UMComImageUrl * imageUrl = umuser.icon_url;
+        NSString * small = imageUrl.small_url_string;
+        imageStr(small);
+        }
+      }
+     }];
 }
 
 + (void)checkUserName:(NSString *)name

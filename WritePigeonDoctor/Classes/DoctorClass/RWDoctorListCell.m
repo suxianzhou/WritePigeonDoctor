@@ -7,6 +7,7 @@
 //
 
 #import "RWDoctorListCell.h"
+#import <YYKit/UIImageView+YYWebImage.h>
 
 @interface RWDoctorListCell ()
 
@@ -124,7 +125,7 @@
 {
     _doctor = doctor;
     
-    _header.image = _doctor.header;
+    [_header setImageWithURL:[NSURL URLWithString:_doctor.header] placeholder:[UIImage imageNamed:@"user_image"]];
     _name.text = _doctor.name;
     _professionalTitle.text = _doctor.professionalTitle;
     _office.text = _doctor.office;

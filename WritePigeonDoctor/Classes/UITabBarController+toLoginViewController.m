@@ -8,6 +8,8 @@
 
 #import "UITabBarController+toLoginViewController.h"
 #import "LoginViewController.h"
+#import "InfoViewController.h"
+#import "RWDataBaseManager.h"
 
 @implementation UITabBarController (toLoginViewController)
 
@@ -16,6 +18,17 @@
     LoginViewController *loginView = [[LoginViewController alloc] init];
     
     [self presentViewController:loginView animated:YES completion:nil];
+}
+
+- (void)toPerfectPersonalInformation
+{
+    InfoViewController * ifVC=[[InfoViewController alloc]init];
+    RWUser * user=[[RWDataBaseManager defaultManager] getDefualtUser];
+    ifVC.name=user.name;
+    ifVC.age=user.age;
+    ifVC.headerImage=user.header;
+    ifVC.gender=user.gender;
+    [self presentViewController:ifVC animated:YES completion:nil];
 }
 
 - (void)addWaterAnimation

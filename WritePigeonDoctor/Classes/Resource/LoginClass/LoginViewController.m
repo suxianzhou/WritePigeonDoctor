@@ -12,6 +12,8 @@
 #import "SXColorGradientView.h"
 #import "UIColor+Wonderful.h"
 #import "RWRequsetManager+UserLogin.h"
+#import "InfoViewController.h"
+#import "RWDataBaseManager.h"
 #define INTERVAL_KEYBOARD 5
 @interface LoginViewController ()<UITableViewDataSource,
 UITableViewDelegate,
@@ -528,7 +530,19 @@ static NSString *const buttonCell = @"buttonCell";
     DISSMISS;
     if (success) {
         
-        [self dismissToRootViewController];
+        if ([RWDataBaseManager perfectPersonalInformation]) {
+            InfoViewController * ifVC=[[InfoViewController alloc]init];
+            RWUser * user=[[RWDataBaseManager defaultManager] getDefualtUser];
+            ifVC.name=user.name;
+            ifVC.age=user.age;
+            ifVC.headerImage=user.header;
+            ifVC.gender=user.gender;
+            [self presentViewController:ifVC animated:YES completion:nil];
+        }else{
+            
+            [self dismissToRootViewController];
+            
+        }
 
     }
     else{

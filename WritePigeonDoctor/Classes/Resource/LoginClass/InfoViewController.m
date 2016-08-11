@@ -179,11 +179,24 @@ static NSString *const buttonCell = @"buttonCell";
     
     [baseBackView addSubview:backView];
     
+    [backView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(baseBackView);
+        make.top.equalTo(baseBackView.mas_top).offset(10);
+        make.width.equalTo(backView.mas_height);
+    }];
+    
+    _myHeadPortrait.center=backView.center;
     _myHeadPortrait=[[UIImageView alloc]initWithFrame:CGRectMake(3, 3, self.view.frame.size.height/4-6,  self.view.frame.size.height/4-6)];
-    CGFloat with=_myHeadPortrait.frame.size.height/4;
+    CGFloat with=_myHeadPortrait.bounds.size.height/4;
+    
+    if (self.headerImage) {
+        _myHeadPortrait=[[UIImageView alloc]initWithImage:[UIImage imageWithData:self.headerImage]];
+    }else{
+        _myHeadPortrait=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"user_image"]];
+    }
+    _myHeadPortrait.backgroundColor=[UIColor whiteColor];
     _myHeadPortrait.layer.cornerRadius=with;
-    _myHeadPortrait.layer.masksToBounds=YES;
-    _myHeadPortrait.backgroundColor=__WPD_MAIN_COLOR__;
+    _myHeadPortrait.clipsToBounds = YES;
     self.myHeadPortrait.layer.borderWidth = 1.5f;
     self.myHeadPortrait.layer.borderColor = [UIColor whiteColor].CGColor;
 //
@@ -191,11 +204,7 @@ static NSString *const buttonCell = @"buttonCell";
     
     [backView addSubview:_myHeadPortrait];
     
-    [backView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(baseBackView);
-        make.top.equalTo(baseBackView.mas_top).offset(10);
-        make.width.equalTo(backView.mas_height);
-    }];
+    
     
     [_myHeadPortrait mas_makeConstraints:^(MASConstraintMaker *make) {
         
@@ -226,14 +235,18 @@ static NSString *const buttonCell = @"buttonCell";
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section==0) {
         FETextFiledCell *cell = [tableView dequeueReusableCellWithIdentifier:textFieldCell forIndexPath:indexPath];
-        
+        if (self.name) {
+            cell.textField.text=self.name;
+        }
         cell.delegate = self;
         cell.placeholder = @"请输入昵称";
         
         return cell;
     }else if (indexPath.section==1){
         FETextFiledCell *cell = [tableView dequeueReusableCellWithIdentifier:textFieldCell forIndexPath:indexPath];
-        
+        if (self.gender) {
+            cell.textField.text=self.gender;
+        }
         cell.delegate = self;
         cell.placeholder = @"请输入性别";
         UIButton * button=[[UIButton alloc]init];
@@ -242,8 +255,7 @@ static NSString *const buttonCell = @"buttonCell";
                 [button addTarget:self action:@selector(chickGender) forControlEvents:(UIControlEventTouchUpInside)];
         
                 [cell addSubview:button];
-        
-        
+
                 [button mas_makeConstraints:^(MASConstraintMaker *make) {
                     make.center.equalTo(cell);
                     make.size.equalTo(cell);
@@ -253,7 +265,9 @@ static NSString *const buttonCell = @"buttonCell";
         
     }else if (indexPath.section==2){
         FETextFiledCell *cell = [tableView dequeueReusableCellWithIdentifier:textFieldCell forIndexPath:indexPath];
-        
+        if (self.age) {
+            cell.textField.text=self.age;
+        }
         cell.delegate = self;
         cell.textField.keyboardType=UIKeyboardTypeDecimalPad;
         cell.placeholder = @"请输入年龄";
@@ -327,6 +341,8 @@ static NSString *const buttonCell = @"buttonCell";
     
     bottomButton.backgroundColor=[UIColor clearColor];
     
+    bottomButton.titleLabel.font=[UIFont systemFontOfSize:13];
+    
     [bottomButton setTitle:@"跳过完善信息" forState:(UIControlStateNormal)];
     
     [bottomButton addTarget:self action:@selector(jumpMain) forControlEvents:(UIControlEventTouchUpInside)];
@@ -338,7 +354,7 @@ static NSString *const buttonCell = @"buttonCell";
         make.centerX.equalTo(weakself.view.mas_centerX);
         make.left.equalTo(weakself.view.mas_left);
         make.height.equalTo(@(30));
-        make.bottom.equalTo(weakself.view.mas_bottom).offset(-weakself.view.frame.size.height/10);
+        make.top.equalTo(weakself.viewList.mas_bottom);
     }];
     
     [bottomButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -352,11 +368,7 @@ static NSString *const buttonCell = @"buttonCell";
     
 }
 -(void)jumpMain{
-    
-    [self obtainRequestManager];
-    SHOWLOADING;
-    [_requestManager userinfoWithUsername:self.phoneNumber AndPassword:self.passWord];
-    
+    [self dismissToRootViewController];
 }
 -(void)dismissToRootViewController
 {
@@ -434,22 +446,16 @@ static NSString *const buttonCell = @"buttonCell";
         
         return;
     }
-    
+    __weak typeof (self) weakself =self;
     [_requestManager setUserHeader:_myHeadPortrait.image name:nameStr age:ageStr sex:sexStr completion:^(BOOL success, NSString *errorReason)
     {
-        
+        if (success) {
+            [weakself jumpMain];
+        }else{
+            [RWRequsetManager warningToViewController:weakself Title:errorReason Click:nil];
+        }
     }];
     
-}
-
-
-
--(void)userLoginSuccess:(BOOL)success responseMessage:(NSString *)responseMessage{
-    if (success) {
-        [self dismissToRootViewController];
-    }else{
-        [RWRequsetManager warningToViewController:self Title:responseMessage Click:nil];
-    }
 }
 
 

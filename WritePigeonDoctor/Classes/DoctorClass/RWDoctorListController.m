@@ -25,7 +25,8 @@
 
 - (void)initViews
 {
-    _doctorList = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    _doctorList = [[UITableView alloc] initWithFrame:self.view.bounds
+                                               style:UITableViewStylePlain];
     [self.view addSubview:_doctorList];
     
     [_doctorList mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -82,6 +83,17 @@
     self.navigationItem.title = @"医生列表";
     
     [self initViews];
+    
+//    [[NSNotificationCenter defaultCenter] addObserverForName:__IMAGE_FINISH__
+//                                                      object:nil
+//                                                       queue:[NSOperationQueue mainQueue]
+//                                                  usingBlock:^(NSNotification * _Nonnull note)
+//    {
+//        if (_doctorList)
+//        {
+//            [_doctorList reloadData];
+//        }
+//    }];
 }
 
 - (void)viewDidAppear:(BOOL)animated

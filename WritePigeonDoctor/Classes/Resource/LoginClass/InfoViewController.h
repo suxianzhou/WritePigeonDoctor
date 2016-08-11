@@ -15,4 +15,12 @@
 
 @property(nonatomic,copy)NSString * passWord;
 
+@property(nonatomic,strong)NSData * headerImage;
+
+@property(nonatomic,copy)NSString * name;
+
+@property(nonatomic,copy)NSString *age;
+
+@property(nonatomic,copy)NSString * gender;
+
 @end

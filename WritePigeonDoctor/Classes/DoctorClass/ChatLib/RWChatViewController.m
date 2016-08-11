@@ -448,9 +448,12 @@
 
 - (void)sendMessage:(EMMessage *)message type:(RWMessageType)type LocalResource:(id)resource
 {
+    RWUser *user = [_baseManager getDefualtUser];
+    
+    UIImage *header = [UIImage imageWithData:user.header];
+    
     RWWeChatMessage *chatMessage = [RWWeChatMessage message:message
-                                                     header:
-                                                    [UIImage imageNamed:@"MY"]
+                                                     header:header
                                                        type:type
                                                   myMessage:YES
                                                 messageDate:[NSDate date]

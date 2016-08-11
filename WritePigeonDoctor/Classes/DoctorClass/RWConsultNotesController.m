@@ -24,7 +24,7 @@
     for (int i = 0; i < self.weChat.messages.count; i++)
     {
         RWWeChatMessage *msg = self.weChat.messages[self.weChat.messages.count-i-1];
-        MESSAGE(@"%@",msg.message.body);
+        
         if (msg.message.isRead)
         {
             break;

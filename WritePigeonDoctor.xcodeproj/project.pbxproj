@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1200B2C61D5C290C00205610 /* XZUMComPullRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1200B2C51D5C290C00205610 /* XZUMComPullRequest.m */; };
 		12023E6E1D4F59680027816B /* RWConsultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12023E6D1D4F59680027816B /* RWConsultViewController.m */; };
 		120B92681D58E03C00A5285F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 120B92671D58E03C00A5285F /* WebKit.framework */; };
 		120B926B1D58E10F00A5285F /* RWCustomizeToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 120B926A1D58E10F00A5285F /* RWCustomizeToolBar.m */; };
@@ -149,7 +150,6 @@
 		124420831D5B0F28001BA9C8 /* UMComKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 12441FFC1D5B0F28001BA9C8 /* UMComKit.m */; };
 		124420841D5B0F28001BA9C8 /* UMComResourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 12441FFF1D5B0F28001BA9C8 /* UMComResourceManager.m */; };
 		124420851D5B0F28001BA9C8 /* UMComTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 124420011D5B0F28001BA9C8 /* UMComTools.m */; };
-		124420861D5B0F28001BA9C8 /* XZUMComPullRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 124420031D5B0F28001BA9C8 /* XZUMComPullRequest.m */; };
 		126095EA1D48AD1400A65AEE /* RWDoctorDescriptionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 126095E91D48AD1400A65AEE /* RWDoctorDescriptionController.m */; };
 		126095ED1D48ADD300A65AEE /* RWDescriptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 126095EC1D48ADD300A65AEE /* RWDescriptionView.m */; };
 		1262719C1D336F7F009D44A0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1262719B1D336F7F009D44A0 /* main.m */; };
@@ -263,6 +263,8 @@
 
 /* Begin PBXFileReference section */
 		06B0CD839B2FB4AEC160CE84 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		1200B2C41D5C290C00205610 /* XZUMComPullRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZUMComPullRequest.h; sourceTree = "<group>"; };
+		1200B2C51D5C290C00205610 /* XZUMComPullRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZUMComPullRequest.m; sourceTree = "<group>"; };
 		12023E6C1D4F59680027816B /* RWConsultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWConsultViewController.h; sourceTree = "<group>"; };
 		12023E6D1D4F59680027816B /* RWConsultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWConsultViewController.m; sourceTree = "<group>"; };
 		120B92671D58E03C00A5285F /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -565,8 +567,6 @@
 		12441FFF1D5B0F28001BA9C8 /* UMComResourceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComResourceManager.m; sourceTree = "<group>"; };
 		124420001D5B0F28001BA9C8 /* UMComTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMComTools.h; sourceTree = "<group>"; };
 		124420011D5B0F28001BA9C8 /* UMComTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMComTools.m; sourceTree = "<group>"; };
-		124420021D5B0F28001BA9C8 /* XZUMComPullRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZUMComPullRequest.h; sourceTree = "<group>"; };
-		124420031D5B0F28001BA9C8 /* XZUMComPullRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZUMComPullRequest.m; sourceTree = "<group>"; };
 		126095E81D48AD1400A65AEE /* RWDoctorDescriptionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWDoctorDescriptionController.h; sourceTree = "<group>"; };
 		126095E91D48AD1400A65AEE /* RWDoctorDescriptionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWDoctorDescriptionController.m; sourceTree = "<group>"; };
 		126095EB1D48ADD300A65AEE /* RWDescriptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWDescriptionView.h; sourceTree = "<group>"; };
@@ -812,9 +812,9 @@
 			children = (
 				12441EAE1D5B0F28001BA9C8 /* RWCommunityController.h */,
 				12441EAF1D5B0F28001BA9C8 /* RWCommunityController.m */,
+				1200B2C41D5C290C00205610 /* XZUMComPullRequest.h */,
+				1200B2C51D5C290C00205610 /* XZUMComPullRequest.m */,
 				12441EB01D5B0F28001BA9C8 /* umeng_community_ios_v2.6.0 */,
-				124420021D5B0F28001BA9C8 /* XZUMComPullRequest.h */,
-				124420031D5B0F28001BA9C8 /* XZUMComPullRequest.m */,
 			);
 			path = Community;
 			sourceTree = "<group>";
@@ -2279,7 +2279,7 @@
 				124420501D5B0F28001BA9C8 /* UMComSimpleFeedTableViewController.m in Sources */,
 				12FBCEA31D486C7C00A646DB /* RWDoctorListCell.m in Sources */,
 				12F1A0A11D4D8B70007B5994 /* FEButton.m in Sources */,
-				124420861D5B0F28001BA9C8 /* XZUMComPullRequest.m in Sources */,
+				1200B2C61D5C290C00205610 /* XZUMComPullRequest.m in Sources */,
 				124420771D5B0F28001BA9C8 /* UMComListDataController.m in Sources */,
 				124420561D5B0F28001BA9C8 /* UMComLargeImageTableViewCell.m in Sources */,
 				12BFA2551D5733E1007C86DF /* RWChatCache+CoreDataProperties.m in Sources */,

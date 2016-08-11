@@ -44,7 +44,8 @@
     _chatManager.delegate = self;
     
     [_chatManager createConversationWithID:_item.EMID
-                                 extension:@{conversationTo:_item.EMID}];
+                                 extension:@{conversationTo:_item.EMID,
+                                             UMID:_item.umid}];
     
     self.weChat.messages = [[self.baseManager getMessageWith:_item.EMID] mutableCopy];
     

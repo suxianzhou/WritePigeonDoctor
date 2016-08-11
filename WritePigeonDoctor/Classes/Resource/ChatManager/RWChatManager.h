@@ -26,6 +26,9 @@ extern NSString *messageVideoName;
 extern NSString *messageVideoBody;
 
 extern NSString *conversationTo;
+extern NSString *UMID;
+
+extern NSString *QueueName;
 
 @protocol RWChatManagerDelegate <NSObject>
 
@@ -54,6 +57,7 @@ extern NSString *conversationTo;
 @property (nonatomic,strong,readonly)NSMutableArray *allSessions;
 
 @property (nonatomic,strong)RWDataBaseManager *baseManager;
+@property (nonatomic,strong)NSOperationQueue *downLoadQueue;
 
 - (void)createConversationWithID:(NSString *)ID extension:(NSDictionary *)extension;
 - (void)removeFaceConversation;

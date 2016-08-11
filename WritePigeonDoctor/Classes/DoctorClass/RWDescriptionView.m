@@ -7,6 +7,7 @@
 //
 
 #import "RWDescriptionView.h"
+#import <YYKit/UIImageView+YYWebImage.h>
 
 @interface RWDescriptionView ()
 
@@ -168,7 +169,7 @@
         [_attention setTitle:@"关注" forState:UIControlStateNormal];
     }
     
-    _header.image = _item.header;
+    [_header setImageWithURL:[NSURL URLWithString:_item.header] placeholder:[UIImage imageNamed:@"user_image"]];
     _name.text = _item.name;
     _professionalTitle.text = _item.professionalTitle;
     _office.text = _item.office;

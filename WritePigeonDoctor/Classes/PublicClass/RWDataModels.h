@@ -10,6 +10,10 @@
 #import <UIKit/UIKit.h>
 @class RWWeekHomeVisit,RWHomeVisitItem,RWDoctorItem;
 
+#ifndef __IMAGE_FINISH__
+#define __IMAGE_FINISH__ @"downloadFinish"
+#endif
+
 @interface RWOfficeItem : NSObject
 
 @property (nonatomic,strong)UIImage *image;
@@ -19,7 +23,7 @@
 
 @interface RWDoctorItem : NSObject
 
-@property (nonatomic,strong)UIImage *header;
+@property (nonatomic,strong,readonly)NSString *header;
 @property (nonatomic,strong)NSString *name;
 @property (nonatomic,strong)NSString *professionalTitle;
 @property (nonatomic,strong)NSString *office;
