@@ -24,8 +24,6 @@
 
 - (void)sendMessage:(EMMessage *)message type:(RWMessageType)type LocalResource:(id)resource
 {
-    message.to = _item.EMID;
-    
     [_chatManager.chatManager asyncSendMessage:message progress:nil completion:^(EMMessage *message, EMError *error) {
        
         if (error)
@@ -45,7 +43,8 @@
     _chatManager = [RWChatManager defaultManager];
     _chatManager.delegate = self;
     
-    [_chatManager createConversationWithID:_item.EMID];
+    [_chatManager createConversationWithID:_item.EMID
+                                 extension:@{conversationTo:_item.EMID}];
     
     self.weChat.messages = [[self.baseManager getMessageWith:_item.EMID] mutableCopy];
     
@@ -94,7 +93,8 @@
     
     if (!_chatManager.faceSession)
     {
-        [_chatManager createConversationWithID:_item.EMID];
+        [_chatManager createConversationWithID:_item.EMID
+                                     extension:@{conversationTo:_item.EMID}];
     }
 }
 

@@ -179,7 +179,7 @@
     chatCache.date = message.messageDate;
     chatCache.from = message.message.from;
     chatCache.to = message.message.to;
-    chatCache.type = @(message.message.chatType);
+    chatCache.type = @(message.message.body.type);
     chatCache.status = @(message.message.status);
     chatCache.myMessage = @(message.isMyMessage);
     chatCache.read = @(message.message.isRead);
@@ -420,7 +420,7 @@
         
         RWMessageType type;
         
-        switch (chatCache.type.integerValue)
+        switch (chatCache.type.intValue)
         {
             case EMMessageBodyTypeText:
             {

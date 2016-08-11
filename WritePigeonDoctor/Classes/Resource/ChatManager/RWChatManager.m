@@ -19,6 +19,7 @@ const NSString *messageLocationLongitude = @"messageLocationLongitude";
 const NSString *messageLocationAddress = @"messageLocationAddress";
 const NSString *messageVideoName = @"messageVideoName";
 const NSString *messageVideoBody = @"messageVideoBody";
+const NSString *conversationTo = @"onversationTo";
 
 @implementation RWChatManager
 
@@ -56,6 +57,7 @@ const NSString *messageVideoBody = @"messageVideoBody";
     _chatManager = _client.chatManager;
     _connectionState = EMConnectionDisconnected;
     
+    [_client addDelegate:self delegateQueue:nil];
     [_chatManager addDelegate:self delegateQueue:nil];
     
     _allSessions = [[_chatManager loadAllConversationsFromDB] mutableCopy];
@@ -90,11 +92,13 @@ const NSString *messageVideoBody = @"messageVideoBody";
     }
 }
 
-- (void)createConversationWithID:(NSString *)ID
+- (void)createConversationWithID:(NSString *)ID extension:(NSDictionary *)extension
 {
     _faceSession =[_chatManager getConversation:ID
                                            type:EMConversationTypeChat
                                createIfNotExist:YES];
+    
+    _faceSession.ext = extension;
     
     _allSessions = [[_chatManager loadAllConversationsFromDB] mutableCopy];
 }
@@ -174,12 +178,12 @@ const NSString *messageVideoBody = @"messageVideoBody";
 
                          if (msg)
                          {
-                             [_baseManager cacheMessage:newMsg];
-                             
                              if ([msg.conversationId isEqualToString:_faceSession.conversationId])
                              {
                                  [_delegate receiveMessage:newMsg];
                              }
+                             
+                             [_baseManager cacheMessage:newMsg];
                          }
                      }
                  }
@@ -195,12 +199,12 @@ const NSString *messageVideoBody = @"messageVideoBody";
                                                       showTime:NO
                                               originalResource:nil];
             
-            [_baseManager cacheMessage:newMsg];
-            
             if ([msg.conversationId isEqualToString:_faceSession.conversationId])
             {
                 [_delegate receiveMessage:newMsg];
             }
+            
+            [_baseManager cacheMessage:newMsg];
         }
     }
 }
@@ -218,6 +222,16 @@ const NSString *messageVideoBody = @"messageVideoBody";
 - (void)didConnectionStateChanged:(EMConnectionState)aConnectionState
 {
     _connectionState = aConnectionState;
+}
+
+- (void)didLoginFromOtherDevice
+{
+    _connectionState = EMConnectionDisconnected;
+}
+
+- (void)didRemovedFromServer
+{
+    _connectionState = EMConnectionDisconnected;
 }
 
 #pragma other funtion
@@ -259,15 +273,17 @@ const NSString *messageVideoBody = @"messageVideoBody";
 
 @implementation RWChatMessageMaker
 
-+ (EMMessage *)messageWithType:(EMMessageBodyType)type body:(NSDictionary *)body extension:(NSDictionary *)extension to:(NSString *)toChatId
++ (EMMessage *)messageWithType:(EMMessageBodyType)type body:(NSDictionary *)body extension:(NSDictionary *)extension
 {
     NSString *from = [[EMClient sharedClient] currentUsername];
     RWChatManager *defaultManager = [RWChatManager defaultManager];
     NSString *conversationID = defaultManager.faceSession.conversationId;
+    
+    NSString *to = defaultManager.faceSession.ext[conversationTo];
 
     EMMessage *message = [[EMMessage alloc] initWithConversationID:conversationID
                                                               from:from
-                                                                to:toChatId
+                                                                to:to
                                                               body:nil
                                                                ext:extension];
     message.chatType = EMChatTypeChat;

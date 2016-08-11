@@ -25,6 +25,8 @@ extern NSString *messageLocationAddress;
 extern NSString *messageVideoName;
 extern NSString *messageVideoBody;
 
+extern NSString *conversationTo;
+
 @protocol RWChatManagerDelegate <NSObject>
 
 - (void)receiveMessage:(RWWeChatMessage *)message;
@@ -53,7 +55,7 @@ extern NSString *messageVideoBody;
 
 @property (nonatomic,strong)RWDataBaseManager *baseManager;
 
-- (void)createConversationWithID:(NSString *)ID;
+- (void)createConversationWithID:(NSString *)ID extension:(NSDictionary *)extension;
 - (void)removeFaceConversation;
 
 + (NSString *)videoName;
@@ -64,6 +66,6 @@ extern NSString *messageVideoBody;
 
 @interface RWChatMessageMaker : NSObject
 
-+ (EMMessage *)messageWithType:(EMMessageBodyType)type body:(NSDictionary *)body extension:(NSDictionary *)extension to:(NSString *)toChatId;
++ (EMMessage *)messageWithType:(EMMessageBodyType)type body:(NSDictionary *)body extension:(NSDictionary *)extension;
 
 @end

@@ -19,13 +19,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.weChat.messages =
-                    [[self.baseManager getMessageWith:_history.doctorid] mutableCopy];
+    self.weChat.messages = [[self.baseManager getMessageWith:_history.doctorid] mutableCopy];
     
     for (int i = 0; i < self.weChat.messages.count; i++)
     {
         RWWeChatMessage *msg = self.weChat.messages[self.weChat.messages.count-i-1];
-        
+        MESSAGE(@"%@",msg.message.body);
         if (msg.message.isRead)
         {
             break;
@@ -35,6 +34,13 @@
         
         [self.baseManager updateCacheMessage:msg];
     }
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self.weChat reloadData];
 }
 
 - (void)didReceiveMemoryWarning {

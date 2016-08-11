@@ -164,8 +164,7 @@
              
              [RWChatMessageMaker messageWithType:EMMessageBodyTypeText
                                             body:@{messageTextBody:textView.text}
-                                       extension:nil
-                                              to:nil]
+                                       extension:nil]
              
                               type:RWMessageTypeText
                      LocalResource:nil];
@@ -238,8 +237,7 @@
          [RWChatMessageMaker messageWithType:EMMessageBodyTypeText
                                         body:
                                     @{messageTextBody:_makeTextMessage.textView.text}
-                                   extension:nil
-                                          to:nil]
+                                   extension:nil]
          
                           type:RWMessageTypeText
                  LocalResource:nil];

@@ -469,7 +469,6 @@ static NSString *const buttonCell = @"buttonCell";
     if (!requestManager)
     {
         requestManager = [[RWRequsetManager alloc]init];
-        
         requestManager.delegate = self;
     }
 }

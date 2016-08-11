@@ -10,6 +10,8 @@
 
 @interface RWDoctorDescriptionController : RWWPDBaseController
 
-+ (instancetype)doctorDescroptionWith:(RWDoctorItem *(^)())doctorItem;
++ (instancetype)doctorDescroptionWith:(RWDoctorItem *)doctorItem;
+
+@property (nonatomic,strong)RWDoctorItem *doctorItem;
 
 @end

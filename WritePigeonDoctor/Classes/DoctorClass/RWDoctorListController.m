@@ -67,9 +67,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RWDoctorDescriptionController *doctor = [RWDoctorDescriptionController doctorDescroptionWith:^RWDoctorItem *{
-       return _doctorResource[indexPath.row];
-    }];
+    RWDoctorDescriptionController *doctor = [RWDoctorDescriptionController doctorDescroptionWith:_doctorResource[indexPath.row]];
     
     [self pushNextWithViewcontroller:doctor];
 }

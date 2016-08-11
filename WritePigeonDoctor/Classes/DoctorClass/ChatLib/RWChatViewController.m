@@ -267,8 +267,7 @@
                  [RWChatMessageMaker messageWithType:EMMessageBodyTypeImage
                                                 body:@{messageImageBody:imageData,
                                                        messageImageName:imageName}
-                                           extension:nil
-                                                  to:nil]
+                                           extension:nil]
                  
                              type:RWMessageTypeImage
                     LocalResource:imageData];
@@ -296,8 +295,7 @@
                  [RWChatMessageMaker messageWithType:EMMessageBodyTypeImage
                                                 body:@{messageImageBody:imageData,
                                                        messageImageName:imageName}
-                                           extension:nil
-                                                  to:nil]
+                                           extension:nil]
                  
                              type:RWMessageTypeImage
                     LocalResource:imageData];
@@ -342,8 +340,7 @@
                                     body:@{messageVoiceBody:voice,
                                            messageVoiceName:[RWChatManager videoName],
                                            messageVoiceDuration:@(second)}
-                               extension:nil
-                                      to:nil]
+                               extension:nil]
      
                  type:RWMessageTypeVoice
         LocalResource:voice];
@@ -371,8 +368,7 @@
                                                         body:
                                         @{messageVideoBody:savePath,
                                           messageVideoName:[RWChatManager videoName]}
-                                                   extension:nil
-                                                          to:nil];
+                                                   extension:nil];
     
     [self sendMessage:message type:RWMessageTypeVideo
         LocalResource:savePath];
@@ -465,7 +461,7 @@
     
     if (![_baseManager cacheMessage:chatMessage])
     {
-        MESSAGE(@"fa~~~");
+        MESSAGE(@"消息缓存失败");
     }
 }
 

@@ -40,6 +40,8 @@
 
 - (void)setDefaultSettings
 {
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     _name.font = __RWGET_SYSFONT(16.f);
     _professionalTitle.font = __RWGET_SYSFONT(14.f);
     _professionalTitle.textColor = [UIColor grayColor];

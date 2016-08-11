@@ -11,6 +11,7 @@
 #import "RWDoctorDescriptionController.h"
 #import "RWDataBaseManager+ChatCache.h"
 #import "RWMainTabBarController.h"
+#import "RWConsultNotesController.h"
 #import "RWChatManager.h"
 
 @interface RWConsultHistoryController ()
@@ -22,6 +23,8 @@
 
 @property (nonatomic,strong)UITableView *historyList;
 @property (nonatomic,strong)NSArray *historys;
+
+@property (nonatomic,strong)RWDataBaseManager *baseManager;
 
 @end
 
@@ -64,7 +67,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    RWConsultNotesController *notesController = [[RWConsultNotesController alloc] init];
     
+    notesController.history = _historys[indexPath.row];
+    
+    [self pushNextWithViewcontroller:notesController];
 }
 
 - (void)viewDidLoad
@@ -72,6 +79,9 @@
     [super viewDidLoad];
     
     self.navigationItem.title = @"咨询历史";
+    
+    _baseManager = [RWDataBaseManager defaultManager];
+    
     [self initViews];
 }
 
@@ -90,8 +100,7 @@
         return;
     }
     
-    RWDataBaseManager *baseManager = [RWDataBaseManager defaultManager];
-    _historys = [baseManager getConsultHistory];
+    _historys = [_baseManager getConsultHistory];
     
     [_historyList reloadData];
 }

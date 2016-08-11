@@ -21,13 +21,12 @@
 
 @property (nonatomic,strong)RWDescriptionView *descriptionView;
 @property (nonatomic,strong)RWRegisterOfficeView *officeView;
-@property (nonatomic,copy)RWDoctorItem *(^doctorItem)();
 
 @end
 
 @implementation RWDoctorDescriptionController
 
-+ (instancetype)doctorDescroptionWith:(RWDoctorItem *(^)())doctorItem
++ (instancetype)doctorDescroptionWith:(RWDoctorItem *)doctorItem
 {
     RWDoctorDescriptionController *doctordes =
                                         [[RWDoctorDescriptionController alloc] init];
@@ -47,9 +46,9 @@
     
     _descriptionView = [[RWDescriptionView alloc] initWithFrame:frame];
     [self.view addSubview:_descriptionView];
-    
-    _descriptionView.item = _doctorItem();
+
     _descriptionView.eventSource = self;
+    _descriptionView.item = _doctorItem;
     
     frame.origin.y = frame.size.height - 40;
     frame.size.height = 40;
@@ -68,7 +67,22 @@
 {
     [super viewDidAppear:animated];
     
-    [_descriptionView reloadData];
+    if (_descriptionView.item)
+    {
+        [_descriptionView reloadData];
+    }
+}
+
+- (void)setDoctorItem:(RWDoctorItem *)doctorItem
+{
+    _doctorItem = doctorItem;
+    
+    _descriptionView.item = doctorItem;
+    
+    if (_descriptionView.item)
+    {
+        [_descriptionView reloadData];
+    }
 }
 
 #pragma mark - delegate
@@ -86,7 +100,7 @@
     
     RWConsultViewController *chatView = [[RWConsultViewController alloc] init];
     
-    chatView.item = _doctorItem();
+    chatView.item = _doctorItem;
     
     RWDataBaseManager *baseManager = [RWDataBaseManager defaultManager];
     
