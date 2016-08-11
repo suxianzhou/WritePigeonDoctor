@@ -89,8 +89,8 @@
     UILabel* titleLabel = [[UILabel alloc] initWithFrame:self.navigationController.navigationBar.bounds];
     titleLabel.text = self.topic.name;
     titleLabel.textAlignment = NSTextAlignmentCenter;
-    titleLabel.font = UMComFontNotoSansLightWithSafeSize(17);
-    titleLabel.textColor =  UMComColorWithColorValueString(@"000000");
+    titleLabel.font = UMComFontNotoSansLightWithSafeSize(16);
+    titleLabel.textColor =  UMComColorWithColorValueString(@"FFFFFF");
     titleLabel.backgroundColor = [UIColor clearColor];
     [self.navigationItem setTitleView:titleLabel];
 }

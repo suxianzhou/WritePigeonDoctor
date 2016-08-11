@@ -30,7 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     if (self.doNotShowBackButton == NO) {
-        [self setForumUIBackButton];
+        self.navigationItem.hidesBackButton = NO;
     }
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
         [self setEdgesForExtendedLayout:UIRectEdgeNone];

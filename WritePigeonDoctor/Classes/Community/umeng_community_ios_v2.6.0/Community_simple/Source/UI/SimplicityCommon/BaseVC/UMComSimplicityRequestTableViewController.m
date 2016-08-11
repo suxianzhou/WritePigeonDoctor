@@ -102,7 +102,7 @@ typedef NS_ENUM(NSInteger, UMComVisitType){
     }
     self.scrollViewDelegate = self;
     
-    [self setForumUIBackButtonWithImage:UMComSimpleImageWithImageName(@"um_forum_back_gray")];
+    self.navigationItem.hidesBackButton = NO;
     [self setForumUITitle:self.title];
     
     [self updateTableviewConstraints];

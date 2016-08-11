@@ -12,7 +12,6 @@
 #import "RWDataBaseManager+ChatCache.h"
 #import "RWMainTabBarController.h"
 #import "RWConsultNotesController.h"
-#import "RWChatManager.h"
 
 @interface RWConsultHistoryController ()
 

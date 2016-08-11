@@ -8,6 +8,7 @@
 
 #import "RWRequsetManager.h"
 #import "RWRequsetManager+UserLogin.h"
+#import "RWDataModels.h"
 
 @interface RWRequsetManager ()
 
@@ -15,18 +16,6 @@
 @end
 
 @implementation RWRequsetManager
-
-- (void)addNetworkStatusObserver
-{
-    AFNetworkReachabilityManager *statusManager = [AFNetworkReachabilityManager sharedManager];
-    
-    [statusManager startMonitoring];
-    
-    [statusManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status)
-    {
-        _reachabilityStatus = status;
-    }];
-}
 
 #pragma mark - init
 
@@ -61,6 +50,84 @@
     }
     
     return self;
+}
+
+- (void)obtainOfficeList
+{
+    [_requestManager GET:__OFFICE_LIST__ parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSArray *JsonArr = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+        
+        if (JsonArr)
+        {
+            NSMutableArray *offices = [[NSMutableArray alloc] init];
+            
+            for (NSDictionary *item in JsonArr)
+            {
+                RWOfficeItem *office = [[RWOfficeItem alloc] init];
+                
+                office.image = item[@"officeimage"];
+                office.doctorList = item[@"doctorlist"];
+                
+                [offices addObject:office];
+            }
+            
+            if (_delegate && [_delegate respondsToSelector:@selector(requsetOfficeList:responseMessage:)])
+            {
+                [_delegate requsetOfficeList:offices responseMessage:nil];
+            }
+        }
+        else
+        {
+            if (_delegate && [_delegate respondsToSelector:@selector(requsetOfficeList:responseMessage:)])
+            {
+                [_delegate requsetOfficeList:nil responseMessage:@"服务器信息获取失败"];
+            }
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        if (!__NET_STATUS__)
+        {
+            if (_delegate && [_delegate respondsToSelector:@selector(requsetOfficeList:responseMessage:)])
+            {
+                [_delegate requsetOfficeList:nil responseMessage:@"网络连接失败，请检查网络"];
+            }
+        }
+        else
+        {
+            if (_delegate && [_delegate respondsToSelector:@selector(requsetOfficeList:responseMessage:)])
+            {
+                [_delegate requsetOfficeList:nil responseMessage:@"服务器连接失败"];
+            }
+        }
+    }];
+}
+
+- (void)obtainOfficeDoctorListWithURL:(NSString *)url
+{
+    [_requestManager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        if (!__NET_STATUS__)
+        {
+            if (_delegate && [_delegate respondsToSelector:@selector(requsetOfficeDoctorList:responseMessage:)])
+            {
+                [_delegate requsetOfficeList:nil
+                             responseMessage:@"网络连接失败，请检查网络"];
+            }
+        }
+        else
+        {
+            if (_delegate && [_delegate respondsToSelector:@selector(requsetOfficeDoctorList:responseMessage:)])
+            {
+                [_delegate requsetOfficeList:nil responseMessage:@"服务器连接失败"];
+            }
+        }
+    }];
 }
 
 + (void)warningToViewController:(__kindof UIViewController *)viewController Title:(NSString *)title Click:(void(^)(void))click{

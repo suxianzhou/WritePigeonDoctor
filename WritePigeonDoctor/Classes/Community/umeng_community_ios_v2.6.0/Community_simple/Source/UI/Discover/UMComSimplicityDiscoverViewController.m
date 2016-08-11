@@ -49,7 +49,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setForumUIBackButtonWithImage:UMComSimpleImageWithImageName(@"um_forum_back_gray@2x.png")];
+    self.navigationItem.hidesBackButton = NO;
     [self setForumUITitle:UMComLocalizedString(@"um_com_find", @"我的社区")];
     
     self.tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];

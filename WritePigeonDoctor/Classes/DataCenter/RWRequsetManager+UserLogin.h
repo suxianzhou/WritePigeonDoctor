@@ -7,7 +7,8 @@
 //
 
 #import "RWRequsetManager.h"
-typedef void (^LoginCompletion)(id responseObject, NSError *error);
+
+//typedef void (^LoginCompletion)(id responseObject, NSError *error);
 typedef NS_ENUM(long long,RWGender)
 {
     RWGenderIsMan = 1,
@@ -49,6 +50,12 @@ RWGender getGenderIdentifier(NSString *gender);
  *  @param password 密码
  */
 - (void)userinfoWithUsername:(NSString *)username AndPassword:(NSString *)password;
+/**
+ *  退出登录
+ *
+ *  @param complete 
+ */
++ (void)userLogout:(void(^)(BOOL success))complete;
 /**
  *  重置密码
  *

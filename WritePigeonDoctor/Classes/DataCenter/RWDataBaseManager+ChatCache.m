@@ -7,7 +7,6 @@
 //
 
 #import "RWDataBaseManager+ChatCache.h"
-#import "RWChatManager.h"
 #import "RWDataModels.h"
 
 @implementation RWDataBaseManager (ChatCache)

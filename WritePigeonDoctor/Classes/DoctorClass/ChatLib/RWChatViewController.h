@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RWChatManager.h"
 #import "XZMicroVideoView.h"
 #import "RWMakeImageController.h"
 #import <AVFoundation/AVFoundation.h>

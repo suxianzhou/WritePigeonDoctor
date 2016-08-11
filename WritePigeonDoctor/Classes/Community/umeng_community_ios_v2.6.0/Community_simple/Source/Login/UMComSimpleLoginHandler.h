@@ -11,6 +11,5 @@
 
 @interface UMComSimpleLoginHandler : NSObject<UMComLoginDelegate>
 
-@property (nonatomic,copy)LoginCompletion completion;
 
 @end

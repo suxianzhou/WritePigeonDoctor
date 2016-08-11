@@ -14,9 +14,17 @@
 
 @optional
 
-- (void)userLoginSuccess:(BOOL)success responseMessage:(NSString *)responseMessage;
+- (void)requsetOfficeList:(NSArray *)officeList
+          responseMessage:(NSString *)responseMessage;
 
-- (void)userRegisterSuccess:(BOOL)success responseMessage:(NSString *)responseMessage;
+- (void)requsetOfficeDoctorList:(NSArray *)officeDoctorList
+                responseMessage:(NSString *)responseMessage;
+
+- (void)userLoginSuccess:(BOOL)success
+         responseMessage:(NSString *)responseMessage;
+
+- (void)userRegisterSuccess:(BOOL)success
+            responseMessage:(NSString *)responseMessage;
 
 - (void)userReplacePasswordResponds:(BOOL)success
                     responseMessage:(NSString *)responseMessage;
@@ -29,9 +37,9 @@
 
 @property (nonatomic,strong)AFHTTPSessionManager *requestManager;
 
-@property (nonatomic,assign,readonly)AFNetworkReachabilityStatus reachabilityStatus;
-
 @property (nonatomic,strong)NSDictionary *errorDescription;
+
+- (void)obtainOfficeList;
 
 + (void)warningToViewController:(__kindof UIViewController *)viewController Title:(NSString *)title Click:(void(^)(void))click;
 @end

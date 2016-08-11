@@ -10,7 +10,6 @@
 #import "RWMainTabBarController.h"
 #import "UMComSession.h"
 #import "UMCommunity.h"
-#import "RWChatManager.h"
 #import "EMSDK.h"
 
 @interface AppDelegate ()

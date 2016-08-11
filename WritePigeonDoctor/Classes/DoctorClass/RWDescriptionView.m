@@ -7,7 +7,6 @@
 //
 
 #import "RWDescriptionView.h"
-#import <YYKit/UIImageView+YYWebImage.h>
 
 @interface RWDescriptionView ()
 

@@ -1,3 +1,4 @@
+
 //
 //  RWRequsetManager+UserLogin.m
 //  ZhongYuSubjectHubKY
@@ -12,7 +13,7 @@
 #import "UMComSession.h"
 #import "UMComMacroConfig.h"
 #import "RWDataBaseManager.h"
-#import <EMSDK.h>
+#import "RWChatManager.h"
 
 RWGender getGenderIdentifier(NSString *gender)
 {
@@ -51,42 +52,42 @@ RWGender getGenderIdentifier(NSString *gender)
                             parameters:body
                               progress:nil
                                success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
-             {
-                 
-                 NSDictionary *Json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
-                 
-                 if ([[Json objectForKey:@"resultCode"] integerValue] == 200)
-                 {
-                     RWUser *user = [[RWUser alloc] init];
-                     
-                     user.username = username;
-                     user.password = password;
-                     user.umid = umuser.uid;
-                     
-                     RWDataBaseManager *baseManager =
-                                                [RWDataBaseManager defaultManager];
-                     
-                     [baseManager addNewUesr:user];
-                     
-                     [self.delegate userRegisterSuccess:YES
-                                        responseMessage:nil];
-                 }
-                 else
-                 {
-                     if ([Json objectForKey:@"result"])
-                     {
-                         [self.delegate userRegisterSuccess:NO
-                                            responseMessage:
-                                                    [Json objectForKey:@"result"]];
-                     }
-                     else
-                     {
-                         [self.delegate userRegisterSuccess:NO
-                                            responseMessage:@"注册失败"];
-                     }
-                 }
-                 
-             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
+              {
+                  
+                  NSDictionary *Json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+                  
+                  if ([[Json objectForKey:@"resultCode"] integerValue] == 200)
+                  {
+                      RWUser *user = [[RWUser alloc] init];
+                      
+                      user.username = username;
+                      user.password = password;
+                      user.umid = umuser.uid;
+                      
+                      RWDataBaseManager *baseManager =
+                      [RWDataBaseManager defaultManager];
+                      
+                      [baseManager addNewUesr:user];
+                      
+                      [self.delegate userRegisterSuccess:YES
+                                         responseMessage:nil];
+                  }
+                  else
+                  {
+                      if ([Json objectForKey:@"result"])
+                      {
+                          [self.delegate userRegisterSuccess:NO
+                                             responseMessage:
+                           [Json objectForKey:@"result"]];
+                      }
+                      else
+                      {
+                          [self.delegate userRegisterSuccess:NO
+                                             responseMessage:@"注册失败"];
+                      }
+                  }
+                  
+              } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
               {
                   [self.delegate userRegisterSuccess:NO
                                      responseMessage:error.description];
@@ -97,7 +98,7 @@ RWGender getGenderIdentifier(NSString *gender)
              [self.delegate userRegisterSuccess:NO
                                 responseMessage:error.description];
          }
-    }];
+     }];
 }
 
 - (void)setUserHeader:(UIImage *)header
@@ -111,8 +112,8 @@ RWGender getGenderIdentifier(NSString *gender)
     RWUser *user = [baseManager getDefualtUser];
     
     user.header =   UIImagePNGRepresentation(header)?
-                    UIImagePNGRepresentation(header):
-                    UIImageJPEGRepresentation(header,1.0);
+    UIImagePNGRepresentation(header):
+    UIImageJPEGRepresentation(header,1.0);
     user.name = name;
     user.age = age;
     user.gender = sex;
@@ -161,7 +162,7 @@ RWGender getGenderIdentifier(NSString *gender)
              if (completion)
              {
                  completion(NO,[NSString stringWithFormat:@"上传失败!\n原因：%@",
-                                                            error.description]);
+                                error.description]);
              }
          }
      }];
@@ -182,110 +183,110 @@ RWGender getGenderIdentifier(NSString *gender)
                                           userNameType:userNameDefault
                                         userNameLength:userNameLengthDefault
                                             completion:^(NSDictionary *responseObject, NSError *error)
-    {
-        NSDictionary *UMResponse = responseObject;
-        
-        if(!error)
-        {
-            NSDictionary *body = @{@"username":username,
-                                   @"password":password,
-                                   @"udid":__TOKEN_KEY__};
-            
-            [self.requestManager POST:__USER_LOGIN__
-                           parameters:body
-                             progress:nil
-                              success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
-             {
-                 NSDictionary *Json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
-                 
-                 if ([[Json objectForKey:@"resultCode"] integerValue] == 200)
-                 {
-                     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-                         
-                         EMError *error =
-                                [[EMClient sharedClient]loginWithUsername:username
-                                                                 password:password];
-                         
-                         if (!error)
-                         {
-                             dispatch_async(dispatch_get_main_queue(), ^{
-                                 
-                                 UMComUser *user = UMResponse[UMComModelDataKey];
-                                 
-                                 if (user)
-                                 {
-                                     [UMComSession sharedInstance].loginUser = user;
-                                     [UMComSession sharedInstance].token = UMResponse[UMComTokenKey];
-                                     
-                                     [[NSNotificationCenter defaultCenter] postNotificationName:kUserLoginSucceedNotification object:nil];
-                                 }
-                                 
-                                 RWDataBaseManager *baseManager =
-                                                    [RWDataBaseManager defaultManager];
-                                 
-                                 if (![baseManager existUser:username])
-                                 {
-                                     RWUser *user = [[RWUser alloc] init];
-                                     
-                                     user.username = username;
-                                     user.password = password;
-                                     user.umid = Json[@"result"][@"umid"];
-                                     
-                                     if (![baseManager addNewUesr:user])
-                                     {
-                                         MESSAGE(@"用户信息储存失败");
-                                     }
-                                 }
-                                 else
-                                 {
-                                     RWUser *user = [baseManager getUser:username];
-                                     
-                                     if (!user.defaultUser)
-                                     {
-                                         user.defaultUser = YES;
-                                         
-                                         if (![baseManager updateUesr:user])
-                                         {
-                                             MESSAGE(@"用户信息储存失败");
-                                         }
-                                     }
-                                 }
-                                 
-                                 [self.delegate userLoginSuccess:YES
-                                                 responseMessage:nil];
-                             });
-                         }
-                     });
-                 }
-                 else
-                 {
-                     if ([Json objectForKey:@"result"])
-                     {
-                         [self.delegate userLoginSuccess:NO
-                                         responseMessage:
-                                                [Json objectForKey:@"result"]];
-                     }
-                     else
-                     {
-                         [self.delegate userLoginSuccess:NO
-                                         responseMessage:
-                                                    [Json objectForKey:@"登录失败"]];
-                     }
-                 }
-                 
-             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
-             {
-                 [self.delegate userLoginSuccess:NO
-                                 responseMessage:error.description];
-             }];
-        }
-        else
-        {
-            
-            [self.delegate userLoginSuccess:NO
-                            responseMessage:error.description];
-        }
-    }];
+     {
+         NSDictionary *UMResponse = responseObject;
+         
+         if(!error)
+         {
+             NSDictionary *body = @{@"username":username,
+                                    @"password":password,
+                                    @"udid":__TOKEN_KEY__};
+             
+             [self.requestManager POST:__USER_LOGIN__
+                            parameters:body
+                              progress:nil
+                               success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
+              {
+                  NSDictionary *Json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+                  
+                  if ([[Json objectForKey:@"resultCode"] integerValue] == 200)
+                  {
+                      dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+                          
+                          EMError *error =
+                          [[EMClient sharedClient]loginWithUsername:username
+                                                           password:password];
+                          
+                          if (!error)
+                          {
+                              dispatch_async(dispatch_get_main_queue(), ^{
+                                  
+                                  UMComUser *user = UMResponse[UMComModelDataKey];
+                                  
+                                  if (user)
+                                  {
+                                      [UMComSession sharedInstance].loginUser = user;
+                                      [UMComSession sharedInstance].token = UMResponse[UMComTokenKey];
+                                      
+                                      [[NSNotificationCenter defaultCenter] postNotificationName:kUserLoginSucceedNotification object:nil];
+                                  }
+                                  
+                                  RWDataBaseManager *baseManager =
+                                  [RWDataBaseManager defaultManager];
+                                  
+                                  if (![baseManager existUser:username])
+                                  {
+                                      RWUser *user = [[RWUser alloc] init];
+                                      
+                                      user.username = username;
+                                      user.password = password;
+                                      user.umid = Json[@"result"][@"umid"];
+                                      
+                                      if (![baseManager addNewUesr:user])
+                                      {
+                                          MESSAGE(@"用户信息储存失败");
+                                      }
+                                  }
+                                  else
+                                  {
+                                      RWUser *user = [baseManager getUser:username];
+                                      
+                                      if (!user.defaultUser)
+                                      {
+                                          user.defaultUser = YES;
+                                          
+                                          if (![baseManager updateUesr:user])
+                                          {
+                                              MESSAGE(@"用户信息储存失败");
+                                          }
+                                      }
+                                  }
+                                  
+                                  [self.delegate userLoginSuccess:YES
+                                                  responseMessage:nil];
+                              });
+                          }
+                      });
+                  }
+                  else
+                  {
+                      if ([Json objectForKey:@"result"])
+                      {
+                          [self.delegate userLoginSuccess:NO
+                                          responseMessage:
+                           [Json objectForKey:@"result"]];
+                      }
+                      else
+                      {
+                          [self.delegate userLoginSuccess:NO
+                                          responseMessage:
+                           [Json objectForKey:@"登录失败"]];
+                      }
+                  }
+                  
+              } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
+              {
+                  [self.delegate userLoginSuccess:NO
+                                  responseMessage:error.description];
+              }];
+         }
+         else
+         {
+             
+             [self.delegate userLoginSuccess:NO
+                             responseMessage:error.description];
+         }
+     }];
 }
 
 - (void)replacePasswordWithUsername:(NSString *)username AndPassword:(NSString *)password verificationCode:(NSString *)verificationCode
@@ -298,25 +299,25 @@ RWGender getGenderIdentifier(NSString *gender)
                    parameters:body
                      progress:nil
                       success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        NSDictionary *Json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
-        
-        if ([[Json objectForKey:@"resultCode"] integerValue] == 200)
-        {
-            [self.delegate userReplacePasswordResponds:YES
-                                       responseMessage:@"密码重置成功"];
-        }
-        else
-        {
-            [self.delegate userReplacePasswordResponds:NO
-                                       responseMessage:[Json objectForKey:@"result"]];
-        }
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-        [self.delegate userReplacePasswordResponds:NO
-                                   responseMessage:error.description];
-    }];
+                          
+                          NSDictionary *Json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+                          
+                          if ([[Json objectForKey:@"resultCode"] integerValue] == 200)
+                          {
+                              [self.delegate userReplacePasswordResponds:YES
+                                                         responseMessage:@"密码重置成功"];
+                          }
+                          else
+                          {
+                              [self.delegate userReplacePasswordResponds:NO
+                                                         responseMessage:[Json objectForKey:@"result"]];
+                          }
+                          
+                      } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                          
+                          [self.delegate userReplacePasswordResponds:NO
+                                                     responseMessage:error.description];
+                      }];
 }
 
 - (void)obtainVerificationWithPhoneNunber:(NSString *)phoneNumber result:(void(^)(BOOL succeed,NSString *reason))result
@@ -325,34 +326,34 @@ RWGender getGenderIdentifier(NSString *gender)
                    parameters:@{@"username":phoneNumber,@"did":__TOKEN_KEY__}
                      progress:nil
                       success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-         
-        NSDictionary *Json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
-        
-        if ([[Json objectForKey:@"code"] integerValue] == 200)
-        {
-            result(YES,nil);
-        }
-        else
-        {
-            NSString *errorCode =
-                        [NSString stringWithFormat:@"%@",[Json objectForKey:@"code"]];
-            
-            NSString *description = [self.errorDescription objectForKey:errorCode];
-            
-            if (description)
-            {
-                result(NO,description);
-            }
-            else
-            {
-                result(NO,@"验证码获取失败");
-            }
-        }
-        
-     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-         
-         result(NO,error.description);
-     }];
+                          
+                          NSDictionary *Json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+                          
+                          if ([[Json objectForKey:@"code"] integerValue] == 200)
+                          {
+                              result(YES,nil);
+                          }
+                          else
+                          {
+                              NSString *errorCode =
+                              [NSString stringWithFormat:@"%@",[Json objectForKey:@"code"]];
+                              
+                              NSString *description = [self.errorDescription objectForKey:errorCode];
+                              
+                              if (description)
+                              {
+                                  result(NO,description);
+                              }
+                              else
+                              {
+                                  result(NO,@"验证码获取失败");
+                              }
+                          }
+                          
+                      } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                          
+                          result(NO,error.description);
+                      }];
 }
 
 - (BOOL)verificationPhoneNumber:(NSString *)phoneNumber
@@ -360,7 +361,7 @@ RWGender getGenderIdentifier(NSString *gender)
     NSString *mobile = @"^1[3|4|5|7|8][0-9]\\d{8}$";
     
     NSPredicate *regexTestMobile =
-                        [NSPredicate predicateWithFormat:@"SELF MATCHES %@",mobile];
+    [NSPredicate predicateWithFormat:@"SELF MATCHES %@",mobile];
     
     return [regexTestMobile evaluateWithObject:phoneNumber];
 }
@@ -392,6 +393,37 @@ RWGender getGenderIdentifier(NSString *gender)
     }
     
     return YES;
+}
+
++ (void)userLogout:(void(^)(BOOL success))complete
+{
+    NSOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
+        
+        EMError *error = [[EMClient sharedClient] logout:YES];
+        
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+           
+            if (!error)
+            {
+                [RWChatManager defaultManager].connectionState=EMConnectionDisconnected;
+                
+                [[UMComSession sharedInstance] userLogout];
+                
+                if (complete)
+                {
+                    complete(YES);
+                    return;
+                }
+            }
+            
+            if (complete)
+            {
+                complete(NO);
+            }
+        }];
+    }];
+    
+    [[RWChatManager defaultManager].downLoadQueue addOperation:operation];
 }
 
 @end

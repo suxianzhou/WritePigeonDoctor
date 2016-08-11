@@ -47,8 +47,8 @@
 + (void)fecthUserProfileWithUid:(NSString *)uid source:(NSString *)source source_uid:(NSString *)source_uid completion:(UIImageCompletion)imageStr
 {
     [UMComRequestManager fecthUserProfileWithUid:uid source:source source_uid:source_uid completion:^(NSDictionary *responseObject, NSError *error) {
-        
-    if (!error) {
+        NSLog(@"res = %@",responseObject);
+        if (!error) {
         UMComUser *umuser = responseObject[@"data"];
         if (umuser.icon_url) {
         UMComImageUrl * imageUrl = umuser.icon_url;

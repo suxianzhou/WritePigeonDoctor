@@ -18,7 +18,7 @@
 #import "UMComKit+Image.h"
 #import "UMComUser.h"
 #import "UMComTools.h"
-
+#define INTERVAL_KEYBOARD 5
 #define NoticeLabelTag 10001
 
 @interface UMComSimpleProfileSettingController ()
@@ -48,6 +48,40 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self registerForKeyboardNotifications];
+}
+- (void)registerForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardWillShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter]  addObserver:self selector:@selector(keyboardWasHidden:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)keyboardWasShown:(NSNotification *) notif
+{
+//    NSDictionary *info = [notif userInfo];
+//    
+//    NSValue *value = [info objectForKey:UIKeyboardFrameBeginUserInfoKey];
+//    
+//    CGSize keyboardSize = [value CGRectValue].size;
+    
+    CGFloat offset = 50;
+    
+    if(offset > 0) {
+        [UIView animateWithDuration:0.3 animations:^{
+            self.view.frame = CGRectMake(0.0f, -offset, self.view.frame.size.width, self.view.frame.size.height);
+        }];
+    }
+    
+}
+
+- (void) keyboardWasHidden:(NSNotification *) notif
+{
+    
+    //视图下沉恢复原状
+    [UIView animateWithDuration:0.3 animations:^{
+        self.view.frame = CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height);
+    }];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -95,6 +129,7 @@
 - (void)onClickChangeUserImage
 {
     [_nameField resignFirstResponder];
+    [_ageField resignFirstResponder];
     __weak typeof(self) ws = self;
     [[UMComKit sharedInstance] fetchImageFromAlbum:self completion:^(UIImagePickerController *picker, NSDictionary *info) {
         
@@ -117,6 +152,7 @@
     UMComUser *user = [UMComSession sharedInstance].loginUser;
     if ([user isKindOfClass:[UMComUser class]]) {
         _nameField.text = user.name;
+        _ageField.text = [NSString stringWithFormat:@"%@",user.age];
         _souceUidLabel.text = user.source_uid;
         _gender = [user.gender integerValue];
         [_userPortrait setImageURL:user.icon_url.small_url_string placeHolderImage:[UIImage imageNamed:@"45195.jpg"]];
@@ -140,11 +176,13 @@
 - (void)hideKeyboard
 {
     [_nameField resignFirstResponder];
+    [_ageField resignFirstResponder];
 }
 
 -(void)onClickSave
 {
     [self.nameField resignFirstResponder];
+    [self.ageField resignFirstResponder];
     if (self.nameField.text.length < 2) {
         [[[UIAlertView alloc]initWithTitle:UMComLocalizedString(@"um_com_sorry", @"抱歉") message:UMComLocalizedString(@"um_com_userNicknameTooShort", @"用户昵称太短了") delegate:nil cancelButtonTitle:UMComLocalizedString(@"um_com_ok", @"好的") otherButtonTitles:nil, nil] show];
         return;
@@ -157,9 +195,17 @@
         [[[UIAlertView alloc]initWithTitle:UMComLocalizedString(@"um_com_sorry", @"抱歉")  message:UMComLocalizedString(@"um_com_inputCharacterDoesNotConformRequirements", @"昵称只能包含中文、中英文字母、数字和下划线") delegate:nil cancelButtonTitle:UMComLocalizedString(@"um_com_ok", @"好的") otherButtonTitles:nil, nil] show];
         return;
     }
-    
+    if (self.ageField.text) {
+     if (![self verificationAge:self.ageField.text]){
+         [[[UIAlertView alloc]initWithTitle:UMComLocalizedString(@"um_com_sorry", @"抱歉")  message:UMComLocalizedString(@"um_com_userNicknameTooLong", @"请输入正确的年龄") delegate:nil cancelButtonTitle:UMComLocalizedString(@"um_com_ok", @"好的") otherButtonTitles:nil, nil] show];
+         return;
+       }
+    }else
+    {
+      self.ageField.text = @"0";
+    }
     __weak typeof(self) ws = self;
-    [_dataController updateProfileWithName:_nameField.text age:nil gender:[NSNumber numberWithInteger:_gender] custom:nil userNameType:userNameDefault userNameLength:userNameLengthDefault completion:^(id responseObject, NSError *error) {
+    [_dataController updateProfileWithName:_nameField.text age:[NSNumber numberWithInteger:[self.ageField.text intValue]] gender:[NSNumber numberWithInteger:_gender] custom:nil userNameType:userNameDefault userNameLength:userNameLengthDefault completion:^(id responseObject, NSError *error) {
         if (error) {
             [UMComShowToast showFetchResultTipWithError:error];
         } else {
@@ -170,7 +216,20 @@
         }
     }];
 }
-
+- (BOOL)verificationAge:(NSString *)age
+{
+    for (int i = 0; i < age.length; i++)
+    {
+        unichar c = [age characterAtIndex:i];
+        
+        if (c > 57 || c < 48)
+        {
+            return NO;
+        }
+    }
+    
+    return YES;
+}
 #pragma mark - UITextFieldDelegate
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
@@ -263,23 +322,29 @@
 - (IBAction)logout:(id)sender {
     
     
-     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"白鸽提示" message:@"是否退出登录" preferredStyle:UIAlertControllerStyleAlert];
+     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"白鸽提示" message:@"是否退出登录？" preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
         NSLog(@"The \"Okay/Cancel\" alert's cancel action occured.");
     }];
     
     UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        [[UMComSession sharedInstance] userLogout];
-        [[NSNotificationCenter defaultCenter] postNotificationName:kUserLogoutSucceedNotification object:nil];
-        if (self.navigationController.viewControllers.count > 1) {
-            [self.navigationController popToRootViewControllerAnimated:YES];
-        }else{
-            [self.navigationController dismissViewControllerAnimated:YES completion:^{
-                
-            }];
-        }
- 
+        
+        [RWRequsetManager userLogout:^(BOOL success) {
+           
+            if (success)
+            {
+                [[NSNotificationCenter defaultCenter] postNotificationName:kUserLogoutSucceedNotification object:nil];
+                if (self.navigationController.viewControllers.count > 1) {
+                    [self.navigationController popToRootViewControllerAnimated:YES];
+                }else{
+                    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+                        
+                    }];
+                }
+            }
+        }];
+        
     }];
     [alertController addAction:cancelAction];
     [alertController addAction:sureAction];

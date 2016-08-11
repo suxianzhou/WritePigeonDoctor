@@ -8,6 +8,7 @@
 
 #import "RWOfficeListController.h"
 #import "RWDoctorListController.h"
+#import "RWRequsetManager.h"
 #import "RWTestDataSource.h"
 
 @interface RWOfficesCell : UICollectionViewCell
@@ -39,11 +40,13 @@
 <
     UICollectionViewDelegate,
     UICollectionViewDataSource,
-    UICollectionViewDelegateFlowLayout
+    UICollectionViewDelegateFlowLayout,
+    RWRequsetDelegate
 >
 
 @property (nonatomic,strong)UICollectionView *offices;
 @property (nonatomic,strong)NSArray *officeList;
+@property (nonatomic,strong)RWRequsetManager *requestManager;
 
 @end
 
@@ -93,6 +96,9 @@
     
     cell.imageView.image = item.image;
     
+//    [cell.imageView setImageWithURL:[NSURL URLWithString:item.image]
+//                        placeholder:[UIImage imageNamed:@"image-placeholder"]];
+    
     return cell;
 }
 
@@ -121,7 +127,28 @@
     self.navigationItem.title = @"找医生";
     _officeList = [RWTestDataSource getResource];
     
+    _requestManager = [[RWRequsetManager alloc] init];
+    _requestManager.delegate = self;
+    
+//    [_requestManager obtainOfficeList];
+    
     [self initViews];
+}
+
+- (void)requsetOfficeList:(NSArray *)officeList responseMessage:(NSString *)responseMessage
+{
+    if (officeList)
+    {
+        _officeList = officeList;
+        [_offices reloadData];
+    }
+    else
+    {
+        [RWRequsetManager warningToViewController:self
+                                            Title:responseMessage
+                                            Click:nil];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {

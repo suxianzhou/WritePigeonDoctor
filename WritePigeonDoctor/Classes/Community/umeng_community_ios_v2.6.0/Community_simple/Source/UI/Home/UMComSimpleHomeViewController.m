@@ -89,10 +89,11 @@
     UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
     //    如果当前NavigationViewController是跟视图， 则不需要显示返回按钮
     if ((rootViewController == self.navigationController && rootViewController.childViewControllers.count == 1) || rootViewController == self) {
-        self.navigationItem.leftBarButtonItem = nil;
-        self.navigationItem.leftBarButtonItems = nil;
+//        self.navigationItem.leftBarButtonItem = nil;
+//        self.navigationItem.leftBarButtonItems = nil;
+        self.navigationItem.hidesBackButton = YES;
     }else{
-        [self setForumUIBackButton];
+        self.navigationItem.hidesBackButton = NO;
     }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshNoticeItemViews:) name:kUMComUnreadNotificationRefreshNotification object:nil];

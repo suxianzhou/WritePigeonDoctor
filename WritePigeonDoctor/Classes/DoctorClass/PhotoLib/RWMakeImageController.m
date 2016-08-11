@@ -7,7 +7,6 @@
 //
 
 #import "RWMakeImageController.h"
-#import "RWChatManager.h"
 
 @interface RWMakeImageController ()
 

@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *souceUidLabel;
 @property (nonatomic, weak) IBOutlet UITextField * nameField;
 @property (nonatomic, strong) IBOutlet UMComImageView *userPortrait;
+@property (strong, nonatomic) IBOutlet UITextField *ageField;
 
 
 @property (nonatomic, strong) NSError *registerError;

@@ -17,6 +17,10 @@
 #define __USER_REGISTER__ __SERVER_INDEX__@"register.php"
 #endif
 
+#ifndef __OFFICE_LIST__
+#define __OFFICE_LIST__ __SERVER_INDEX__@"ks_list.php"
+#endif
+
 #ifndef __USER_LOGIN__
 #define __USER_LOGIN__ __SERVER_INDEX__@"login.php"
 #endif

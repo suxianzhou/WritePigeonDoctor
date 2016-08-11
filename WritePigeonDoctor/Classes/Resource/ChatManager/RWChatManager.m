@@ -8,6 +8,7 @@
 
 #import "RWChatManager.h"
 #import "XZUMComPullRequest.h"
+#import <AFNetworking.h>
 #import <YYKit/MKAnnotationView+YYWebImage.h>
 
 NSString *QueueName = @"DownLoadQueue";
@@ -64,6 +65,7 @@ const NSString *UMID = @"UMID";
     
     [_client addDelegate:self delegateQueue:nil];
     [_chatManager addDelegate:self delegateQueue:nil];
+    [self addNetworkStatusObserver];
     
     _allSessions = [[_chatManager loadAllConversationsFromDB] mutableCopy];
     _baseManager = [RWDataBaseManager defaultManager];
@@ -84,6 +86,18 @@ const NSString *UMID = @"UMID";
     _downLoadQueue = [[NSOperationQueue alloc] init];
     _downLoadQueue.name = QueueName;
     _downLoadQueue.maxConcurrentOperationCount = 5;
+}
+
+- (void)addNetworkStatusObserver
+{
+    AFNetworkReachabilityManager *statusManager = [AFNetworkReachabilityManager sharedManager];
+    
+    [statusManager startMonitoring];
+    
+    [statusManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status)
+     {
+         _reachabilityStatus = status;
+     }];
 }
 
 - (void)userLoginSuccess:(BOOL)success responseMessage:(NSString *)responseMessage

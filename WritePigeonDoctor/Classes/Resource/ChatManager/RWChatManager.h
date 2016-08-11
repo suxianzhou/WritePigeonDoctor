@@ -13,6 +13,10 @@
 #import "RWDataBaseManager+ChatCache.h"
 #import "RWRequsetManager+UserLogin.h"
 
+#ifndef __NET_STATUS__
+#define __NET_STATUS__ [RWChatManager defaultManager].reachabilityStatus
+#endif
+
 extern NSString *messageTextBody;
 extern NSString *messageImageName;
 extern NSString *messageImageBody;
@@ -52,6 +56,7 @@ extern NSString *QueueName;
 @property (nonatomic,assign)id<RWChatManagerDelegate> delegate;
 
 @property (nonatomic,assign)EMConnectionState connectionState;
+@property (nonatomic,assign,readonly)AFNetworkReachabilityStatus reachabilityStatus;
 
 @property (nonatomic,strong,readonly)EMConversation *faceSession;
 @property (nonatomic,strong,readonly)NSMutableArray *allSessions;

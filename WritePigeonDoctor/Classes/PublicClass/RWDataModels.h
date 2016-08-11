@@ -16,8 +16,12 @@
 
 @interface RWOfficeItem : NSObject
 
+//@property (nonatomic,strong)NSString *image;
+//@property (nonatomic,strong)NSString *doctorList;
+
 @property (nonatomic,strong)UIImage *image;
 @property (nonatomic,strong)NSArray *doctorList;
+
 
 @end
 

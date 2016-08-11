@@ -7,7 +7,6 @@
 //
 
 #import "RWDoctorListCell.h"
-#import <YYKit/UIImageView+YYWebImage.h>
 
 @interface RWDoctorListCell ()
 

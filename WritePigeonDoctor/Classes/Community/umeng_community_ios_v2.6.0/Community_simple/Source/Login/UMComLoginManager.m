@@ -37,7 +37,6 @@
 
 static UMComLoginManager *_instance = nil;
 + (UMComLoginManager *)shareInstance {
-    
     @synchronized (self) {
         if (_instance == nil) {
             _instance = [[UMComLoginManager alloc] init];
@@ -77,27 +76,16 @@ static UMComLoginManager *_instance = nil;
 
 + (void)performLogin:(UIViewController *)viewController completion:(void (^)(id responseObject, NSError *error))completion
 {
-    NSLog(@"%d",[UMComSession sharedInstance].isLogin);
-    
-    if ([UMComSession sharedInstance].isLogin)
-    {
-        if (completion)
-        {
+    if ([UMComSession sharedInstance].isLogin) {
+        if (completion) {
             completion([UMComSession sharedInstance].uid,nil);
         }
-    }
-    else if (([self shareInstance].loginHandler))
-    {
-        if ([[self shareInstance].loginHandler respondsToSelector:@selector(presentLoginViewController:finishResponse:)])
-        {
-            [[self shareInstance].loginHandler presentLoginViewController:viewController finishResponse:^(id responseObject, NSError *error)
-            {
-                if ([responseObject isKindOfClass:[NSDictionary class]])
-                {
+    } else if (([self shareInstance].loginHandler)){
+        if ([[self shareInstance].loginHandler respondsToSelector:@selector(presentLoginViewController:finishResponse:)]) {
+            [[self shareInstance].loginHandler presentLoginViewController:viewController finishResponse:^(id responseObject, NSError *error) {
+                if ([responseObject isKindOfClass:[NSDictionary class]]) {
                     UMComUser *user = responseObject[UMComModelDataKey];
-                    
-                    if (user)
-                    {
+                    if (user) {
                         [UMComSession sharedInstance].loginUser = user;
                         [[UMComDataBaseManager shareManager] saveRelatedIDTableWithType:UMComRelatedRegisterUserID withUsers:@[user]];
                         
@@ -107,7 +95,6 @@ static UMComLoginManager *_instance = nil;
                     }
                     
                     BOOL newUser = [responseObject[@"new_user"] boolValue];
-                    
                     if (newUser)
                     {
                         [self switchToSettingWithVC:viewController completion:^(id responseObject, NSError *error) {

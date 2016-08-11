@@ -18,9 +18,9 @@
 #import "UMComSimpleProfileSettingController.h"
 @interface RWSettingsViewController ()
 <
-UITableViewDelegate,
-UITableViewDataSource,
-UIScrollViewDelegate
+    UITableViewDelegate,
+    UITableViewDataSource,
+    UIScrollViewDelegate
 >
 
 @property (nonatomic, strong) UITableView * tableView;
@@ -49,7 +49,7 @@ static NSString *const  setListCell = @"viewListCell";
     if ([UMComSession sharedInstance].unReadNoticeModel.totalNotiCount > 0) {
         
         self.userMessageView.hidden = NO;
-        [self.tabBarController.tabBar setBadgeStyle:1 value:12 atIndex:3];
+        [self.tabBarController.tabBar setBadgeStyle:0 value:0 atIndex:3];
     }
     else
     {
@@ -105,9 +105,9 @@ static NSString *const  setListCell = @"viewListCell";
                        @"icon" : @""},
                       @{@"title"     :@"我的社区",
                        @"icon" : @""}];
-    NSArray *arr2 = @[@{@"title"     :@"推荐我们",
+    NSArray *arr2 = @[@{@"title"     :@"帮助",
                         @"icon" : @""},
-                      @{@"title"     :@"帮助",
+                      @{@"title"     :@"白鸽客服",
                         @"icon" : @""},
                       @{@"title"     :@"意见建议",
                         @"icon" : @""},
@@ -177,6 +177,9 @@ static NSString *const  setListCell = @"viewListCell";
         cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     }
     if (section == 0) {
+        
+        cell.textLabel.text = dataSource[0][row][@"title"];
+        
         if (row == 1) {
             CGFloat padding = 2;
             CGFloat defaultNoticeViewOriginX = 115;
@@ -193,7 +196,6 @@ static NSString *const  setListCell = @"viewListCell";
             self.userMessageView.center = CGPointMake(self.userMessageView.center.x+11, cell.textLabel.frame.origin.y+11);
             [cell.contentView addSubview:self.userMessageView];
         }
-        cell.textLabel.text = dataSource[0][row][@"title"];
     }else
     {
         cell.textLabel.text = dataSource[1][row][@"title"];
@@ -232,16 +234,29 @@ static NSString *const  setListCell = @"viewListCell";
         switch (row) {
             case 0:
             {
-                MESSAGE(@"分享");
-            }
-                break;
-            case 1:
-            {
                 XZSettingWebViewController * WB = [[XZSettingWebViewController alloc]init];
                 WB.url = @"http://www.zhongyuedu.com/api/tk_aboutUs.htm";
                 WB.title = @"帮助";
                 [self pushNextWithViewcontroller:WB];
-  
+            }
+                break;
+            case 1:
+            {
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"白鸽提示" message:@"你确定拨打:110?" preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+                   
+                }];
+                
+                UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                  
+                NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",@"400-110-888"];
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+                }];
+                [alertController addAction:cancelAction];
+                [alertController addAction:sureAction];
+                [self presentViewController:alertController animated:YES completion:nil];
+
             }
                 break;
             case 2:
@@ -305,7 +320,7 @@ static NSString *const  setListCell = @"viewListCell";
 
 - (void)loginBtnAction
 {
-    MESSAGE(@"登录");
+    NSLog(@"登录");
 }
 
 - (void)refreshNoticeItemViews:(NSNotification*)notification

@@ -10,13 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WritePigeonDoctor/Classes/DataCenter/RWRequsetManager+UserLogin.m"
-            timestampString = "492578481.045696"
+            timestampString = "492622962.308644"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "285"
-            endingLineNumber = "285"
-            landmarkName = "-userinfoWithUsername:AndPassword:"
-            landmarkType = "5">
+            startingLineNumber = "705"
+            endingLineNumber = "705">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
