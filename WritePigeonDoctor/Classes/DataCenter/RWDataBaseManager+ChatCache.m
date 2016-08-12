@@ -232,8 +232,10 @@
         case RWMessageTypeVoice:
         {
             EMVoiceMessageBody *body = (EMVoiceMessageBody *)message.message.body;
-            
-            chatCache.content = [NSData dataWithContentsOfFile:body.localPath];
+            MESSAGE(@"%d",body.duration);
+            chatCache.content = message.originalResource?
+                                message.originalResource:
+                                [NSData dataWithContentsOfFile:body.localPath];
             chatCache.duration = @(body.duration);
             chatCache.localPath = body.localPath;
             chatCache.remotePath = body.remotePath;
@@ -245,7 +247,9 @@
         {
             EMImageMessageBody *body = (EMImageMessageBody *)message.message.body;
             
-            chatCache.content = [NSData dataWithContentsOfFile:body.localPath];
+            chatCache.content = message.originalResource?
+                                message.originalResource:
+                                [NSData dataWithContentsOfFile:body.localPath];
             chatCache.localPath = body.localPath;
             chatCache.remotePath = body.remotePath;
             chatCache.secretKey = body.secretKey;
@@ -256,7 +260,9 @@
         {
             EMVideoMessageBody *body = (EMVideoMessageBody *)message.message.body;
             
-            chatCache.content = [NSData dataWithContentsOfFile:body.localPath];
+            chatCache.content = message.originalResource?
+                                message.originalResource:
+                                [NSData dataWithContentsOfFile:body.localPath];
             chatCache.localPath = body.localPath;
             chatCache.remotePath = body.remotePath;
             chatCache.secretKey = body.secretKey;
