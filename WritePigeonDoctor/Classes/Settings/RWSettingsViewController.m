@@ -16,6 +16,7 @@
 #import "XZSettingWebViewController.h"
 #import "FeedBackViewController.h"
 #import "UMComSimpleProfileSettingController.h"
+#import "RWDataBaseManager.h"
 @interface RWSettingsViewController ()
 <
     UITableViewDelegate,
@@ -29,6 +30,8 @@
 @property (nonatomic, strong) UIButton *loginBtn;
 @property (nonatomic, strong) UILabel * nameLab;
 @property (nonatomic,strong) NSArray *dataSource;
+
+@property (nonatomic,strong)RWUser *faceUser;
 
 @end
 
@@ -56,6 +59,17 @@ static NSString *const  setListCell = @"viewListCell";
         self.userMessageView.hidden = YES;
         [self.tabBarController.tabBar setBadgeStyle:2 value:0 atIndex:3];
     }
+    
+    if (![RWChatManager defaultManager].connectionState)
+    {
+        RWUser *user = [[RWDataBaseManager defaultManager] getDefualtUser];
+        
+        [_loginBtn setImage:[UIImage imageWithData:user.header]
+                   forState:UIControlStateNormal];
+        
+        _nameLab.text = user.name?user.name:user.username;
+    }
+    
 
 }
 - (void)viewWillDisappear:(BOOL)animated
@@ -85,13 +99,12 @@ static NSString *const  setListCell = @"viewListCell";
     _loginBtn.frame = CGRectMake(SCREEN_WIDTH/2-40, 80, 80, 80);
     _loginBtn.layer.masksToBounds = YES;
     _loginBtn.layer.cornerRadius = 40;
-    [_loginBtn setImage:[UIImage imageNamed:@"45195.jpg"] forState:UIControlStateNormal];
+    
     _loginBtn.contentHorizontalAlignment =UIControlContentHorizontalAlignmentCenter;
     [ _loginBtn addTarget:self action:@selector(loginBtnAction) forControlEvents:UIControlEventTouchUpInside];
     
     _nameLab = [[UILabel alloc]initWithFrame:CGRectMake(0, _loginBtn.bottom+10, SCREEN_WIDTH, 30)];
     _nameLab.textAlignment = NSTextAlignmentCenter;
-    _nameLab.text = @"未登录";
     _nameLab.textColor = Wonderful_WhiteColor1;
     
     [self.scrollView addSubview:_loginBtn];

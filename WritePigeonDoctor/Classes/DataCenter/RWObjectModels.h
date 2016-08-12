@@ -10,13 +10,13 @@
 
 @interface RWUser : NSObject
 
-@property (nonatomic, retain) NSString *age;
-@property (nonatomic, retain) NSString *gender;
+@property (nonatomic, copy) NSString *age;
+@property (nonatomic, copy) NSString *gender;
 @property (nonatomic, retain) NSData *header;
-@property (nonatomic, retain) NSString *password;
-@property (nonatomic, retain) NSString *username;
-@property (nonatomic, retain) NSString *name;
-@property (nonatomic, retain) NSString *umid;
+@property (nonatomic, copy) NSString *password;
+@property (nonatomic, copy) NSString *username;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *umid;
 @property (nonatomic, assign) BOOL defaultUser;
 
 @end

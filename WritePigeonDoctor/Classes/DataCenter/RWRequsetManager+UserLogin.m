@@ -11,6 +11,7 @@
 #import "XZUMComPullRequest.h"
 #import "UMComUser.h"
 #import "UMComSession.h"
+#import "UMComImageUrl.h"
 #import "UMComMacroConfig.h"
 #import "RWDataBaseManager.h"
 #import "RWChatManager.h"
@@ -18,6 +19,11 @@
 RWGender getGenderIdentifier(NSString *gender)
 {
     return [gender isEqualToString:@"男"]?RWGenderIsMan:RWGenderIsWoman;
+}
+
+NSString *getGender(RWGender gender)
+{
+    return gender?@"男":@"女";
 }
 
 @implementation RWRequsetManager (UserLogin)
@@ -53,7 +59,6 @@ RWGender getGenderIdentifier(NSString *gender)
                               progress:nil
                                success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
               {
-                  
                   NSDictionary *Json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
                   
                   if ([[Json objectForKey:@"resultCode"] integerValue] == 200)
@@ -112,14 +117,14 @@ RWGender getGenderIdentifier(NSString *gender)
     RWUser *user = [baseManager getDefualtUser];
     
     user.header =   UIImagePNGRepresentation(header)?
-    UIImagePNGRepresentation(header):
-    UIImageJPEGRepresentation(header,1.0);
+                    UIImagePNGRepresentation(header):
+                    UIImageJPEGRepresentation(header,1.0);
     user.name = name;
     user.age = age;
     user.gender = sex;
     
     [XZUMComPullRequest updateProfileWithName:user.name
-                                          age:@(user.age.integerValue)
+                                          age:@(age.integerValue)
                                        gender:@(getGenderIdentifier(user.gender))
                                        custom:nil
                                  userNameType:userNameDefault
@@ -209,51 +214,73 @@ RWGender getGenderIdentifier(NSString *gender)
                           
                           if (!error)
                           {
+                              UMComUser *user = UMResponse[UMComModelDataKey];
+                              
+                              if (user)
+                              {
+                                  [UMComSession sharedInstance].loginUser = user;
+                                  [UMComSession sharedInstance].token = UMResponse[UMComTokenKey];
+                                  
+                                  [[NSNotificationCenter defaultCenter] postNotificationName:kUserLoginSucceedNotification object:nil];
+                              }
+                              
+                              UMComImageUrl * imageUrl = (UMComImageUrl *)user.icon_url;
+                              
+                              NSString * small = imageUrl.small_url_string;
+                              NSURL *imageURL = [NSURL URLWithString:small];
+                              
+                              NSData *imageData=[NSData dataWithContentsOfURL:imageURL];
+                              
+                              RWDataBaseManager *baseManager =
+                                                    [RWDataBaseManager defaultManager];
+                              
+                              if (![baseManager existUser:username])
+                              {
+                                  RWUser *us = [[RWUser alloc] init];
+                                  
+                                  us.username = username;
+                                  us.password = password;
+                                  us.umid = Json[@"result"][@"umid"];
+                                  us.age = user.age.stringValue;
+                                  MESSAGE(@"%@-%@",user.age,us.age);
+                                  us.name = user.name;
+                                  us.gender = getGender(user.gender.integerValue);
+                                  us.header = imageData;
+                                  
+                                  if (![baseManager addNewUesr:us])
+                                  {
+                                      MESSAGE(@"用户信息储存失败");
+                                  }
+                              }
+                              else
+                              {
+                                  RWUser *us = [baseManager getUser:username];
+                                  
+                                  if (!us.defaultUser)
+                                  {
+                                      us.defaultUser = YES;
+                                  }
+                                  
+                                  us.username = username;
+                                  us.password = password;
+                                  us.umid = Json[@"result"][@"umid"];
+                                  us.age = user.age.stringValue;
+                                  MESSAGE(@"%@-%@",user.age,us.age);
+                                  us.name = user.name;
+                                  us.gender = getGender(user.gender.integerValue);
+                                  us.header = imageData;
+ 
+                                  if (![baseManager updateUesr:us])
+                                  {
+                                      MESSAGE(@"用户信息储存失败");
+                                  }
+                              }
+
                               dispatch_async(dispatch_get_main_queue(), ^{
-                                  
-                                  UMComUser *user = UMResponse[UMComModelDataKey];
-                                  
-                                  if (user)
-                                  {
-                                      [UMComSession sharedInstance].loginUser = user;
-                                      [UMComSession sharedInstance].token = UMResponse[UMComTokenKey];
-                                      
-                                      [[NSNotificationCenter defaultCenter] postNotificationName:kUserLoginSucceedNotification object:nil];
-                                  }
-                                  
-                                  RWDataBaseManager *baseManager =
-                                  [RWDataBaseManager defaultManager];
-                                  
-                                  if (![baseManager existUser:username])
-                                  {
-                                      RWUser *user = [[RWUser alloc] init];
-                                      
-                                      user.username = username;
-                                      user.password = password;
-                                      user.umid = Json[@"result"][@"umid"];
-                                      
-                                      if (![baseManager addNewUesr:user])
-                                      {
-                                          MESSAGE(@"用户信息储存失败");
-                                      }
-                                  }
-                                  else
-                                  {
-                                      RWUser *user = [baseManager getUser:username];
-                                      
-                                      if (!user.defaultUser)
-                                      {
-                                          user.defaultUser = YES;
-                                          
-                                          if (![baseManager updateUesr:user])
-                                          {
-                                              MESSAGE(@"用户信息储存失败");
-                                          }
-                                      }
-                                  }
                                   
                                   [self.delegate userLoginSuccess:YES
                                                   responseMessage:nil];
+                                  
                               });
                           }
                       });

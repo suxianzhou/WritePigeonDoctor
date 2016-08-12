@@ -61,13 +61,20 @@ typedef void (^UIImageCompletion)(NSString * imageStr);
 
 @param uid 友盟账号系统的用户ID,对应的是`UMComUser`的属性uid
 @param sourceUids  @"source":@"self_account" @"source_uid":自己平台UID;self_account自己的平台，source_uid自己平台UID
-@returns 获取用户详细信息请求对象
+@returns 获取用户头像
  
 */
 + (void)fecthUserProfileWithUid:(NSString *)uid
                          source:(NSString *)source
                      source_uid:(NSString *)source_uid
                      completion:(UIImageCompletion)imageStr;
+
+//获取某个用户的详细信息
++ (void)fecthUserMessageWithUid:(NSString *)uid
+                         source:(NSString *)source
+                     source_uid:(NSString *)source_uid
+                     completion:(UMComRequestCompletion)completion;
+
 
 /**
  检查用户名合法接口

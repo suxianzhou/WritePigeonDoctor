@@ -214,7 +214,7 @@
                 userInfo.defaultUser = @(NO);
             }
         }
-        
+
         userInfo.name = user.name;
         userInfo.age = user.age;
         userInfo.gender = user.gender;

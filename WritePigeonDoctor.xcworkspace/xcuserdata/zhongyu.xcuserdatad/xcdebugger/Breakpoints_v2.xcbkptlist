@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WritePigeonDoctor/Classes/DataCenter/RWRequsetManager+UserLogin.m"
-            timestampString = "492622962.308644"
+            timestampString = "492675842.771246"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "705"
-            endingLineNumber = "705">
+            startingLineNumber = "732"
+            endingLineNumber = "732">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -110,6 +110,22 @@
             startingLineNumber = "244"
             endingLineNumber = "244"
             landmarkName = "-cacheMessage:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WritePigeonDoctor/Classes/DataCenter/RWRequsetManager+UserLogin.m"
+            timestampString = "492675837.336716"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "269"
+            endingLineNumber = "269"
+            landmarkName = "-userinfoWithUsername:AndPassword:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -59,6 +59,16 @@
      }];
 }
 
++ (void)fecthUserMessageWithUid:(NSString *)uid
+                         source:(NSString *)source
+                     source_uid:(NSString *)source_uid
+                     completion:(UMComRequestCompletion)completion
+{
+   [UMComRequestManager fecthUserProfileWithUid:uid source:source source_uid:source_uid completion:^(NSDictionary *responseObject, NSError *error) {
+      completion (responseObject,error);
+   }];
+}
+
 + (void)checkUserName:(NSString *)name
          userNameType:(UMComUserNameType)userNameType
        userNameLength:(UMComUserNameLength)userNameLength
