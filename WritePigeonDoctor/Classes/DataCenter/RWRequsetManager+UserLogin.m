@@ -137,20 +137,40 @@ NSString *getGender(RWGender gender)
                  
                  if (!error)
                  {
-                     if ([baseManager updateUesr:user])
-                     {
-                         if (completion)
+                     [self.requestManager POST:__USER_INFORMATION__
+                                    parameters:@{@"username":user.username,@"age":age}
+                                      progress:nil
+                                       success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
+                      {
+                          
+                          NSDictionary *Json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+                          
+                          if (Json)
+                          {
+                              MESSAGE(@"%@",Json);
+                          }
+                                           
+                         
+                         if ([baseManager updateUesr:user])
                          {
-                             completion(YES,nil);
+                             if (completion)
+                             {
+                                 completion(YES,nil);
+                             }
                          }
-                     }
-                     else
-                     {
-                         if (completion)
+                         else
                          {
-                             completion(NO,@"本地保存失败");
+                             if (completion)
+                             {
+                                 completion(NO,@"本地保存失败");
+                             }
                          }
-                     }
+                         
+                     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                        
+                         completion(NO,[NSString stringWithFormat:@"上传失败!\n原因：%@",
+                                        error.description]);
+                     }];
                  }
                  else
                  {
@@ -242,7 +262,6 @@ NSString *getGender(RWGender gender)
                                   us.password = password;
                                   us.umid = Json[@"result"][@"umid"];
                                   us.age = user.age.stringValue;
-                                  MESSAGE(@"%@-%@",user.age,us.age);
                                   us.name = user.name;
                                   us.gender = getGender(user.gender.integerValue);
                                   us.header = imageData;
@@ -265,7 +284,6 @@ NSString *getGender(RWGender gender)
                                   us.password = password;
                                   us.umid = Json[@"result"][@"umid"];
                                   us.age = user.age.stringValue;
-                                  MESSAGE(@"%@-%@",user.age,us.age);
                                   us.name = user.name;
                                   us.gender = getGender(user.gender.integerValue);
                                   us.header = imageData;

@@ -33,9 +33,9 @@
     if (!_TV) {
         _TV = [[YYTextView alloc]initWithFrame:CGRectMake(10, 10, SCREEN_WIDTH-20, 200)];
         _TV.layer.backgroundColor = [[UIColor clearColor] CGColor];
-        _TV.layer.borderColor = [[UIColor redColor]CGColor];
+        _TV.layer.borderColor = [[UIColor blueColor]CGColor];
         _TV.delegate = self;
-        _TV.layer.borderWidth = 3.0;
+        _TV.layer.borderWidth = 2.0;
         _TV.layer.cornerRadius = 8.0f;
         [_TV.layer setMasksToBounds:YES];
         _TV.placeholderText = @"您在使用中有遇到什么问题?可以向我们及时反馈噢!";

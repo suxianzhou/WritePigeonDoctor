@@ -530,7 +530,8 @@ static NSString *const buttonCell = @"buttonCell";
     DISSMISS;
     if (success) {
         
-        if ([RWDataBaseManager perfectPersonalInformation]) {
+        if ([RWDataBaseManager perfectPersonalInformation])
+        {
             InfoViewController * ifVC=[[InfoViewController alloc]init];
             RWUser * user=[[RWDataBaseManager defaultManager] getDefualtUser];
             ifVC.name=user.name;
@@ -538,9 +539,11 @@ static NSString *const buttonCell = @"buttonCell";
             ifVC.headerImage=user.header;
             ifVC.gender=user.gender;
             [self presentViewController:ifVC animated:YES completion:nil];
-        }else{
+        }
+        else
+        {
             
-            [self dismissToRootViewController];
+            [self dismissViewControllerAnimated:YES completion:nil];
             
         }
 

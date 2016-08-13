@@ -12,6 +12,9 @@
 #import "InfoViewController.h"
 #import "UIColor+Wonderful.h"
 #import "RWRequsetManager+UserLogin.h"
+#import "XZSettingWebViewController.h"
+
+
 #define INTERVAL_KEYBOARD 130
 #define __AgreeText__ @"<<白鸽医生的条款协议>>"
 
@@ -262,6 +265,7 @@ static NSString * const agreementCell=@"agreementCell";
     } else if (indexPath.section == 1){
         FEChecButtonCell *cell=[tableView dequeueReusableCellWithIdentifier:chickCell forIndexPath:indexPath];
         cell.delegate=self;
+        cell.textField.keyboardType=UIKeyboardTypeDecimalPad;
         cell.placeholder=@"输入验证码";
         cell.button.tag=99997;
         
@@ -429,14 +433,15 @@ static NSString * const agreementCell=@"agreementCell";
     
     NSString *againPassWord = againCell.textField.text;
     
-    
     if (![_requestManager verificationPhoneNumber:username])
     {
         [RWRequsetManager warningToViewController:self Title:@"手机号输入有误，请重新输入" Click:^{
-            
             phoneCell.textField.text = nil;
             [phoneCell.textField becomeFirstResponder];
+            
         }];
+        
+        
         
         return;
     }
@@ -487,18 +492,12 @@ static NSString * const agreementCell=@"agreementCell";
 }
 -(void)userRegisterSuccess:(BOOL)success responseMessage:(NSString *)responseMessage
 {
-    FETextFiledCell * phoneCell=[self.viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    FETextFiledCell * passwordCell=[self.viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:3]];
     DISSMISS;
     if (success)
     {
         [RWRequsetManager warningToViewController:self Title:@"注册成功" Click:^{
-            InfoViewController * infoVC=[[InfoViewController alloc]init];
-            infoVC.phoneNumber=phoneCell.textField.text;
-            infoVC.passWord=passwordCell.textField.text;
-            
-        [self presentViewController:infoVC animated:YES completion:nil];
-            
+           
+            [self dismissViewControllerAnimated:YES completion:nil];
         }];
     }
     else
@@ -531,7 +530,8 @@ static NSString * const agreementCell=@"agreementCell";
         {
             countDown= 60;
             clickBtn=button;
-            [self timerStart];
+            
+          
             //定时器启动后的方法
             
             FETextFiledCell *userName = [self.viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
@@ -545,7 +545,7 @@ static NSString * const agreementCell=@"agreementCell";
                 
                 return;
             }
-            
+              [self timerStart];
             _requestManager.delegate = self;
             
             [_requestManager obtainVerificationWithPhoneNunber:userName.textField.text result:^(BOOL succeed, NSString *reason)
@@ -602,16 +602,21 @@ static NSString * const agreementCell=@"agreementCell";
 
 #pragma mark 条款协议
 
-- (void)button:(UIButton *)button ClickWithImage:(UIImage *)image{
+- (void)button:(UIButton *)button ClickWithImage:(UIImage *)image
+{
     UIButton * overButton=[self.view viewWithTag:99998];
-    if (isAgree) {
+    
+    if (isAgree)
+    {
         [button setImage:[UIImage imageNamed:@"duihao_nil"] forState:(UIControlStateNormal)];
         isAgree=NO;
         overButton.backgroundColor=[UIColor lightGrayColor];
         [overButton setTitle:@"请阅读协议" forState:(UIControlStateNormal)];
         overButton.userInteractionEnabled=NO;
         
-    }else{
+    }
+    else
+    {
         [button setImage:[UIImage imageNamed:@"duihao"] forState:(UIControlStateNormal)];
         isAgree=YES;
         overButton.backgroundColor=__WPD_MAIN_COLOR__;
@@ -621,9 +626,40 @@ static NSString * const agreementCell=@"agreementCell";
 }
 
 #pragma mark  点击条约
--(void)Agreement{
-    NSLog(@"点击条约");
+-(void)Agreement
+{
+
+    XZSettingWebViewController * web=[[XZSettingWebViewController alloc]init];
     
+    web.url=@"http://www.zhongyuedu.com/tgm/test/test19/";
+    
+    UINavigationController *navigation = [[UINavigationController alloc]initWithRootViewController:web];
+
+    [navigation.navigationBar setBackgroundImage:[UIImage imageNamed:@"渐变"] forBarMetrics:UIBarMetricsDefault];
+    
+    UILabel *title = [[UILabel alloc] initWithFrame:navigation.navigationBar.bounds];
+    title.textAlignment = NSTextAlignmentCenter;
+    title.text = @"白鸽医生用户协议";
+    [navigation.navigationBar addSubview:title];
+    title.font = [UIFont boldSystemFontOfSize:17];
+    title.textColor = [UIColor whiteColor];
+   
+    navigation.navigationBar.barTintColor = [UIColor whiteColor];
+    navigation.navigationBar.translucent = NO;
+    navigation.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
+    navigation.navigationBar.tintColor = [UIColor whiteColor];
+    
+    [self presentViewController:navigation animated:YES completion:^{
+       
+        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(returnSelf)];
+        
+        web.navigationItem.leftBarButtonItem = item;
+    }];
+}
+
+- (void)returnSelf
+{
+    [self.presentedViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

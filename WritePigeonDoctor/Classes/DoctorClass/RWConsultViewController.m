@@ -99,22 +99,20 @@
     }
 }
 
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    
-    if (_chatManager.faceSession)
-    {
-        [_chatManager removeFaceConversation];
-    }
-}
-
 - (void)receiveMessage:(RWWeChatMessage *)message
 {
     message.message.isRead = YES;
     
     
     [self.weChat addMessage:message];
+}
+
+- (void)dealloc
+{
+    if (_chatManager.faceSession)
+    {
+        [_chatManager removeFaceConversation];
+    }
 }
 
 @end

@@ -276,12 +276,12 @@ const NSString *UMID = @"UMID";
 
 - (void)didLoginFromOtherDevice
 {
-    _connectionState = EMConnectionDisconnected;
+//    _connectionState = EMConnectionDisconnected;
 }
 
 - (void)didRemovedFromServer
 {
-    _connectionState = EMConnectionDisconnected;
+//    _connectionState = EMConnectionDisconnected;
 }
 
 #pragma other funtion

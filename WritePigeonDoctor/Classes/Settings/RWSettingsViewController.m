@@ -17,6 +17,7 @@
 #import "FeedBackViewController.h"
 #import "UMComSimpleProfileSettingController.h"
 #import "RWDataBaseManager.h"
+#import "RWMainTabBarController.h"
 @interface RWSettingsViewController ()
 <
     UITableViewDelegate,
@@ -43,9 +44,28 @@ static NSString *const  setListCell = @"viewListCell";
 
 #pragma --- life cycle
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewDidAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
+    [super viewDidAppear:animated];
+    
+    if ([RWChatManager defaultManager].connectionState)
+    {
+        RWMainTabBarController *tabBar = (RWMainTabBarController *)self.tabBarController;
+        
+        [tabBar toRootViewController];
+        
+        [self.tabBarController toLoginViewController];
+        
+        return;
+    }
+    
+    RWUser *user = [[RWDataBaseManager defaultManager] getDefualtUser];
+    
+    [_loginBtn setImage:[UIImage imageWithData:user.header]
+               forState:UIControlStateNormal];
+    
+    _nameLab.text = user.name?user.name:user.username;
+    
     self.navigationController.navigationBarHidden = YES;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshNoticeItemViews:) name:kUMComUnreadNotificationRefreshNotification object:nil];
     
@@ -59,19 +79,8 @@ static NSString *const  setListCell = @"viewListCell";
         self.userMessageView.hidden = YES;
         [self.tabBarController.tabBar setBadgeStyle:2 value:0 atIndex:3];
     }
-    
-    if (![RWChatManager defaultManager].connectionState)
-    {
-        RWUser *user = [[RWDataBaseManager defaultManager] getDefualtUser];
-        
-        [_loginBtn setImage:[UIImage imageWithData:user.header]
-                   forState:UIControlStateNormal];
-        
-        _nameLab.text = user.name?user.name:user.username;
-    }
-    
-
 }
+
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
@@ -227,6 +236,12 @@ static NSString *const  setListCell = @"viewListCell";
         switch (row) {
             case 0:
             {
+                if([RWChatManager defaultManager].connectionState)
+                {
+                    [self.tabBarController toLoginViewController];
+                    
+                    return;
+                }
                 UMComSimpleProfileSettingController *SE = [[UMComSimpleProfileSettingController alloc] init];
                 [self pushNextWithViewcontroller:SE];
 
@@ -274,6 +289,13 @@ static NSString *const  setListCell = @"viewListCell";
                 break;
             case 2:
             {
+                if([RWChatManager defaultManager].connectionState)
+                {
+                    [self.tabBarController toLoginViewController];
+                    
+                    return;
+                }
+
                 FeedBackViewController * FB = [[FeedBackViewController alloc]init];
                 FB.title = @"意见建议";
                 [self pushNextWithViewcontroller:FB];

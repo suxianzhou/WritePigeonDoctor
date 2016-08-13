@@ -25,6 +25,10 @@
 #define __USER_LOGIN__ __SERVER_INDEX__@"login.php"
 #endif
 
+#ifndef __USER_INFORMATION__
+#define __USER_INFORMATION__ __SERVER_INDEX__@"age.php"
+#endif
+
 
 
 #endif /* RWRequestIndex_h */

@@ -250,6 +250,8 @@
             chatCache.content = message.originalResource?
                                 message.originalResource:
                                 [NSData dataWithContentsOfFile:body.localPath];
+            
+            MESSAGE(@"%@",message.originalResource);
             chatCache.localPath = body.localPath;
             chatCache.remotePath = body.remotePath;
             chatCache.secretKey = body.secretKey;
@@ -477,7 +479,11 @@
             }
             case EMMessageBodyTypeImage:
             {
-                EMImageMessageBody *body = [[EMImageMessageBody alloc] init];
+                NSData *imageData = chatCache.content?chatCache.content:[NSData dataWithContentsOfFile:chatCache.localPath];
+                
+                NSString *name = chatCache.localPath?[[chatCache.localPath componentsSeparatedByString:@"/"] lastObject]:nil;
+                
+                EMImageMessageBody *body = [[EMImageMessageBody alloc] initWithData:imageData displayName:name];
                 
                 body.localPath = chatCache.localPath;
                 body.remotePath = chatCache.remotePath;
@@ -491,7 +497,11 @@
             }
             case EMMessageBodyTypeVoice:
             {
-                EMVoiceMessageBody *voiceBody = [[EMVoiceMessageBody alloc] init];
+                NSData *voiceData = chatCache.content?chatCache.content:[NSData dataWithContentsOfFile:chatCache.localPath];
+                
+                NSString *name = chatCache.localPath?[[chatCache.localPath componentsSeparatedByString:@"/"] lastObject]:nil;
+                
+                EMVoiceMessageBody *voiceBody = [[EMVoiceMessageBody alloc] initWithData:voiceData displayName:name];
                 
                 voiceBody.duration = chatCache.duration.intValue;
                 voiceBody.localPath = chatCache.localPath;
@@ -506,7 +516,9 @@
             }
             case EMMessageBodyTypeVideo:
             {
-                EMVideoMessageBody *body = [[EMVideoMessageBody alloc] init];
+                NSString *name = chatCache.localPath?[[chatCache.localPath componentsSeparatedByString:@"/"] lastObject]:nil;
+                
+                EMVideoMessageBody *body = [[EMVideoMessageBody alloc] initWithLocalPath:chatCache.localPath displayName:name];
                 
                 body.localPath = chatCache.localPath;
                 body.remotePath = chatCache.remotePath;

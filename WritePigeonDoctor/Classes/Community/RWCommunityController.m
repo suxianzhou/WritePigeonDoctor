@@ -67,7 +67,6 @@
 
 - (void)creatSubViewControllers
 {
-    
     UMComSimpleFeedTableViewController *hotFeedVc = [[UMComSimpleFeedTableViewController alloc] init];
     hotFeedVc.isShowEditButton = YES;
     hotFeedVc.isAutoStartLoadData = NO;
