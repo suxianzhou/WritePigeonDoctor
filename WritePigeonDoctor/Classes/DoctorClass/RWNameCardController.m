@@ -86,6 +86,8 @@ CGPoint offsetWithIndexPath(NSIndexPath *indexPath)
 {
     RWDescriptionCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([RWDescriptionCell class]) forIndexPath:indexPath];
     
+    cell.attention.hidden = YES;
+    
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     RWCard *card = _cardSource[indexPath.section];

@@ -323,7 +323,7 @@
         case RWPurposeMenuOfSmallVideo: [self makeSmallVideo]; break;
         case RWPurposeMenuOfMyCard: [self openMyNameCard]; break;
         case RWPurposeMenuOfCollect: [self collectDoctorCard]; break;
-        case RWPurposeMenuOfUploadMessageCache:break;
+        case RWPurposeMenuOfUploadMessageCache: [self uploadMessageCache]; break;
         default: break;
     }
     
@@ -331,6 +331,11 @@
     chatBar.purposeMenu.frame = __KEYBOARD_FRAME__;
     
     [chatBar.purposeMenu removeFromSuperview];
+}
+
+- (void)uploadMessageCache
+{
+    [MBProgressHUD Message:@"暂不支持聊天缓存" For:self.view];
 }
 
 - (void)collectDoctorCard

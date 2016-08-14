@@ -30,6 +30,8 @@
 
 @interface RWDescriptionCell : UITableViewCell
 
+@property (nonatomic,strong)UIButton *attention;
+
 @property (nonatomic,assign)BOOL isAttention;
 @property (nonatomic,assign)BOOL isOpen;
 

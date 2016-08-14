@@ -141,7 +141,6 @@
 
 @property (nonatomic,strong)UIImageView *header;
 @property (nonatomic,strong)UILabel *name;
-@property (nonatomic,strong)UIButton *attention;
 @property (nonatomic,strong)UILabel *professionalTitle;
 @property (nonatomic,strong)UILabel *office;
 @property (nonatomic,strong)UITextView *descriptionView;
@@ -192,7 +191,7 @@
     _header.image = [UIImage imageWithData:_card.header];
     _name.text = _card.name;
     _professionalTitle.text = _card.professionTitle;
-    _office.text = _item.office;
+    _office.text = _card.office;
     _descriptionView.text = _card.doctorDescription;
 }
 

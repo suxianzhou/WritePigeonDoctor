@@ -812,7 +812,7 @@ BOOL isContainsEmoji(NSString *string)
                     [UIImage imageNamed:@"小视频"],
                     [UIImage imageNamed:@"收藏"],
                     [UIImage imageNamed:@"个人名片"],
-                    [UIImage imageNamed:@"上传聊天消息"]]];
+                    [UIImage imageNamed:@"上传记录"]]];
     
     self.pageView.numberOfPages = _resource.count;
     
