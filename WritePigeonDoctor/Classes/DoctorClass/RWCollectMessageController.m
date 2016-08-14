@@ -1,19 +1,20 @@
 //
-//  RWConsultNotesController.m
+//  RWCollectMessageController.m
 //  WritePigeonDoctor
 //
-//  Created by zhongyu on 16/8/9.
+//  Created by zhongyu on 16/8/14.
 //  Copyright © 2016年 RyeWhiskey. All rights reserved.
 //
 
-#import "RWConsultNotesController.h"
+#import "RWCollectMessageController.h"
 #import "RWDoctorDescriptionController.h"
+#import "RWDataBaseManager+NameCardCollectMessage.h"
 
-@interface RWConsultNotesController ()
+@interface RWCollectMessageController ()
 
 @end
 
-@implementation RWConsultNotesController
+@implementation RWCollectMessageController
 
 - (void)viewDidLoad
 {
@@ -22,21 +23,7 @@
     
     [self compositionConsultAgain];
     
-    self.weChat.messages = [[self.baseManager getMessageWith:_history.doctorid] mutableCopy];
-    
-    for (int i = 0; i < self.weChat.messages.count; i++)
-    {
-        RWWeChatMessage *msg = self.weChat.messages[self.weChat.messages.count-i-1];
-        
-        if (msg.message.isRead)
-        {
-            break;
-        }
-        
-        msg.message.isRead = YES;
-        
-        [self.baseManager updateCacheMessage:msg];
-    }
+    self.weChat.messages = [[self.baseManager getCollectMessageWith:_card.doctorid] mutableCopy];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -127,11 +114,6 @@
 - (void)chatView:(RWWeChatView *)chatView selectMessage:(RWWeChatMessage *)message textMeunType:(RWTextMenuType)type
 {
     
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 /*

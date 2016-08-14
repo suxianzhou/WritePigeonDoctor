@@ -124,9 +124,16 @@
 
 - (void)isAttentionAtDescriptionView:(RWDescriptionView *)descriptionView
 {
+    if ([RWChatManager defaultManager].connectionState)
+    {
+        [self.tabBarController toLoginViewController];
+        
+        return;
+    }
+    
     if (_doctorItem.relation)
     {
-        [XZUMComPullRequest userFollowWithUserID:_doctorItem.EMID isFollow:NO completion:^(NSDictionary *responseObject, NSError *error) {
+        [XZUMComPullRequest userFollowWithUserID:_doctorItem.umid isFollow:NO completion:^(NSDictionary *responseObject, NSError *error) {
             
             if (!error)
             {
@@ -138,11 +145,14 @@
     }
     else
     {
-        [XZUMComPullRequest userFollowWithUserID:_doctorItem.EMID isFollow:YES completion:^(NSDictionary *responseObject, NSError *error) {
+        [XZUMComPullRequest userFollowWithUserID:_doctorItem.umid isFollow:YES completion:^(NSDictionary *responseObject, NSError *error) {
             
-            _doctorItem.relation = YES;
-            _descriptionView.item = _doctorItem;
-            [_descriptionView reloadData];
+            if (!error || error.code == 10007)
+            {
+                _doctorItem.relation = YES;
+                _descriptionView.item = _doctorItem;
+                [_descriptionView reloadData];
+            }
         }];
     }
 }

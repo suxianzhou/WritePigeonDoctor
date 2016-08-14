@@ -43,11 +43,11 @@
     _chatManager = [RWChatManager defaultManager];
     _chatManager.delegate = self;
     
-    [_chatManager createConversationWithID:_item.EMID
-                                 extension:@{conversationTo:_item.EMID,
-                                             UMID:_item.umid}];
+    [_chatManager createConversationWithID:self.item.EMID
+                                 extension:@{conversationTo:self.item.EMID,
+                                             UMID:self.item.umid}];
     
-    self.weChat.messages = [[self.baseManager getMessageWith:_item.EMID] mutableCopy];
+    self.weChat.messages = [[self.baseManager getMessageWith:self.item.EMID] mutableCopy];
     
     if (!self.weChat.messages.count)
     {
@@ -94,8 +94,8 @@
     
     if (!_chatManager.faceSession)
     {
-        [_chatManager createConversationWithID:_item.EMID
-                                     extension:@{conversationTo:_item.EMID}];
+        [_chatManager createConversationWithID:self.item.EMID
+                                     extension:@{conversationTo:self.item.EMID}];
     }
 }
 

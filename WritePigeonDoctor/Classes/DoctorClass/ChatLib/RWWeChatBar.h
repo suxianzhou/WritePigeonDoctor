@@ -78,10 +78,9 @@ typedef NS_ENUM(NSInteger,RWPurposeMenu)
     RWPurposeMenuOfPhoto = 0,
     RWPurposeMenuOfCamera,
     RWPurposeMenuOfSmallVideo,
-    RWPurposeMenuOfVideoCall,
-    RWPurposeMenuOfLocation,
     RWPurposeMenuOfCollect,
-    RWPurposeMenuOfMyCard
+    RWPurposeMenuOfMyCard,
+    RWPurposeMenuOfUploadMessageCache
 };
 
 @protocol RWAccessoryDelegate <NSObject>

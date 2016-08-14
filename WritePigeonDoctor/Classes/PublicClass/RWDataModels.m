@@ -48,7 +48,7 @@
             
             _header = small;
             
-            _relation = (umuser.relation.integerValue == 1 || umuser.relation.integerValue == 3)?YES:NO;
+            _relation = umuser.has_followed.integerValue;
         }
     }];
 }

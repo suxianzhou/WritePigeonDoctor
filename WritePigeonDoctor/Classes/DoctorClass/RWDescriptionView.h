@@ -34,8 +34,11 @@
 @property (nonatomic,assign)BOOL isOpen;
 
 @property (nonatomic,weak,readonly)RWDoctorItem *item;
+@property (nonatomic,strong,readonly)RWCard *card;
 
 - (void)setItem:(RWDoctorItem *)item attentionResponce:(void(^)(BOOL isAttention))attentionResponce isAttention:(BOOL)isAttention isOpen:(void(^)(BOOL isOpen))isOpen;
+
+- (void)setCard:(RWCard *)card attentionResponce:(void(^)(BOOL isAttention))attentionResponce isAttention:(BOOL)isAttention isOpen:(void(^)(BOOL isOpen))isOpen;
 
 @end
 

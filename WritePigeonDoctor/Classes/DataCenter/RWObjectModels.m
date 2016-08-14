@@ -10,3 +10,4 @@
 
 @implementation RWUser @end
 @implementation RWHistory @end
+@implementation RWCard @end

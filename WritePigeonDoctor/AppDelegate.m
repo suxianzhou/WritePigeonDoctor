@@ -51,6 +51,11 @@
         MESSAGE(@"聊天观察者初始化失败");
     }
     
+    if (!__SYS_SETTINGS__)
+    {
+        MESSAGE(@"配置列表加载失败");
+    }
+    
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -70,7 +75,7 @@
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
 {
-    NSLog(@"error -- %@",error);
+    MESSAGE(@"error -- %@",error);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

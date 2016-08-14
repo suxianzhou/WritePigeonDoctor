@@ -32,3 +32,15 @@
 @property (nonatomic, retain) NSString *umid;
 
 @end
+
+@interface RWCard : NSObject
+
+@property (nonatomic, retain) NSString *doctorDescription;
+@property (nonatomic, retain) NSString *doctorid;
+@property (nonatomic, retain) NSData *header;
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) NSString *office;
+@property (nonatomic, retain) NSString *professionTitle;
+@property (nonatomic, retain) NSString *umid;
+
+@end

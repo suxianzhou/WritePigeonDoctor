@@ -13,6 +13,8 @@
 #import "RWUserInformation+CoreDataProperties.h"
 #import "RWChatCache+CoreDataProperties.h"
 #import "RWConsultHistory+CoreDataProperties.h"
+#import "RWCollectMessage+CoreDataProperties.h"
+#import "RWNameCard+CoreDataProperties.h"
 
 @interface RWDataBaseManager : NSObject
 

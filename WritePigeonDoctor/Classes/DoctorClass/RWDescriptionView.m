@@ -175,6 +175,27 @@
     _descriptionView.text = _item.doctorDescription;
 }
 
+- (void)setCard:(RWCard *)card attentionResponce:(void (^)(BOOL))attentionResponce isAttention:(BOOL)isAttention isOpen:(void (^)(BOOL))isOpen
+{
+    _card = card; _attentionResponce = attentionResponce; _isAttention = isAttention;
+    _openControl = isOpen;
+    
+    if (_isAttention)
+    {
+        [_attention setTitle:@"已关注" forState:UIControlStateNormal];
+    }
+    else
+    {
+        [_attention setTitle:@"关注" forState:UIControlStateNormal];
+    }
+    
+    _header.image = [UIImage imageWithData:_card.header];
+    _name.text = _card.name;
+    _professionalTitle.text = _card.professionTitle;
+    _office.text = _item.office;
+    _descriptionView.text = _card.doctorDescription;
+}
+
 - (void)initViews
 {
     _header = [[UIImageView alloc] init];
@@ -396,13 +417,13 @@
     if (_isOpen)
     {
         _isOpen = NO;
-        _arrowhead.image = [UIImage imageNamed:@"opendescription"];
+        _arrowhead.image = [UIImage imageNamed:@"closedescription"];
         _switchControl(_isOpen);
     }
     else
     {
         _isOpen = YES;
-        _arrowhead.image = [UIImage imageNamed:@"closedescription"];
+        _arrowhead.image = [UIImage imageNamed:@"opendescription"];
         _switchControl(_isOpen );
     }
 }

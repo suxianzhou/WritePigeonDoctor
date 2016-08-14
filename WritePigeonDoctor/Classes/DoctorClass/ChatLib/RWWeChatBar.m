@@ -810,10 +810,9 @@ BOOL isContainsEmoji(NSString *string)
     _resource = @[@[[UIImage imageNamed:@"照片"],
                     [UIImage imageNamed:@"拍摄"],
                     [UIImage imageNamed:@"小视频"],
-                    [UIImage imageNamed:@"语音聊天"],
-                    [UIImage imageNamed:@"位置"],
                     [UIImage imageNamed:@"收藏"],
-                    [UIImage imageNamed:@"个人名片"]]];
+                    [UIImage imageNamed:@"个人名片"],
+                    [UIImage imageNamed:@"上传聊天消息"]]];
     
     self.pageView.numberOfPages = _resource.count;
     

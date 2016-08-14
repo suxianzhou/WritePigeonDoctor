@@ -17,7 +17,33 @@
         <attribute name="to" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
+    <entity name="RWCollectMessage" representedClassName="RWCollectMessage" syncable="YES">
+        <attribute name="content" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="conversationId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="duration" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="from" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="localPath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="messageid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="myMessage" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="read" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="remotePath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="secretKey" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="showTime" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="to" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
     <entity name="RWConsultHistory" representedClassName="RWConsultHistory" syncable="YES">
+        <attribute name="doctorDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="doctorid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="header" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="office" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="professionTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="umid" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="RWNameCard" representedClassName="RWNameCard" syncable="YES">
         <attribute name="doctorDescription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="doctorid" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="header" optional="YES" attributeType="Binary" syncable="YES"/>
@@ -40,5 +66,7 @@
         <element name="RWChatCache" positionX="250" positionY="18" width="128" height="270"/>
         <element name="RWConsultHistory" positionX="-297" positionY="54" width="128" height="150"/>
         <element name="RWUserInformation" positionX="-63" positionY="-18" width="128" height="165"/>
+        <element name="RWNameCard" positionX="-90" positionY="117" width="128" height="150"/>
+        <element name="RWCollectMessage" positionX="-81" positionY="126" width="128" height="270"/>
     </elements>
 </model>

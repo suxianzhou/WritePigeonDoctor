@@ -28,6 +28,13 @@
 		126271A71D336F7F009D44A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 126271A61D336F7F009D44A0 /* Assets.xcassets */; };
 		126271B51D336F7F009D44A0 /* WritePigeonDoctorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 126271B41D336F7F009D44A0 /* WritePigeonDoctorTests.m */; };
 		126271C01D336F7F009D44A0 /* WritePigeonDoctorUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 126271BF1D336F7F009D44A0 /* WritePigeonDoctorUITests.m */; };
+		126D81401D6046780040CC26 /* RWNameCard+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 126D81391D6046780040CC26 /* RWNameCard+CoreDataProperties.m */; };
+		126D81411D6046780040CC26 /* RWNameCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 126D813B1D6046780040CC26 /* RWNameCard.m */; };
+		126D81421D6046780040CC26 /* RWCollectMessage+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 126D813D1D6046780040CC26 /* RWCollectMessage+CoreDataProperties.m */; };
+		126D81431D6046780040CC26 /* RWCollectMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 126D813F1D6046780040CC26 /* RWCollectMessage.m */; };
+		126D81461D6047180040CC26 /* RWDataBaseManager+NameCardCollectMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 126D81451D6047180040CC26 /* RWDataBaseManager+NameCardCollectMessage.m */; };
+		126D81491D60593E0040CC26 /* RWNameCardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 126D81481D60593E0040CC26 /* RWNameCardController.m */; };
+		126D814D1D6060E70040CC26 /* RWCollectMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 126D814C1D6060E70040CC26 /* RWCollectMessageController.m */; };
 		129400211D59D0B7001D339A /* UITabBarController+toLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 129400201D59D0B7001D339A /* UITabBarController+toLoginViewController.m */; };
 		129400361D59E454001D339A /* FEBaseLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1294002C1D59E454001D339A /* FEBaseLoginController.m */; };
 		129400371D59E454001D339A /* FELoginTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1294002E1D59E454001D339A /* FELoginTableCell.m */; };
@@ -302,6 +309,20 @@
 		126271BB1D336F7F009D44A0 /* WritePigeonDoctorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WritePigeonDoctorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		126271BF1D336F7F009D44A0 /* WritePigeonDoctorUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WritePigeonDoctorUITests.m; sourceTree = "<group>"; };
 		126271C11D336F7F009D44A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		126D81381D6046780040CC26 /* RWNameCard+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RWNameCard+CoreDataProperties.h"; sourceTree = "<group>"; };
+		126D81391D6046780040CC26 /* RWNameCard+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RWNameCard+CoreDataProperties.m"; sourceTree = "<group>"; };
+		126D813A1D6046780040CC26 /* RWNameCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWNameCard.h; sourceTree = "<group>"; };
+		126D813B1D6046780040CC26 /* RWNameCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWNameCard.m; sourceTree = "<group>"; };
+		126D813C1D6046780040CC26 /* RWCollectMessage+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RWCollectMessage+CoreDataProperties.h"; sourceTree = "<group>"; };
+		126D813D1D6046780040CC26 /* RWCollectMessage+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RWCollectMessage+CoreDataProperties.m"; sourceTree = "<group>"; };
+		126D813E1D6046780040CC26 /* RWCollectMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWCollectMessage.h; sourceTree = "<group>"; };
+		126D813F1D6046780040CC26 /* RWCollectMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWCollectMessage.m; sourceTree = "<group>"; };
+		126D81441D6047180040CC26 /* RWDataBaseManager+NameCardCollectMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RWDataBaseManager+NameCardCollectMessage.h"; sourceTree = "<group>"; };
+		126D81451D6047180040CC26 /* RWDataBaseManager+NameCardCollectMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RWDataBaseManager+NameCardCollectMessage.m"; sourceTree = "<group>"; };
+		126D81471D60593E0040CC26 /* RWNameCardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWNameCardController.h; sourceTree = "<group>"; };
+		126D81481D60593E0040CC26 /* RWNameCardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWNameCardController.m; sourceTree = "<group>"; };
+		126D814B1D6060E70040CC26 /* RWCollectMessageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWCollectMessageController.h; sourceTree = "<group>"; };
+		126D814C1D6060E70040CC26 /* RWCollectMessageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWCollectMessageController.m; sourceTree = "<group>"; };
 		1294001F1D59D0B7001D339A /* UITabBarController+toLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITabBarController+toLoginViewController.h"; path = "../UITabBarController+toLoginViewController.h"; sourceTree = "<group>"; };
 		129400201D59D0B7001D339A /* UITabBarController+toLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITabBarController+toLoginViewController.m"; path = "../UITabBarController+toLoginViewController.m"; sourceTree = "<group>"; };
 		1294002B1D59E454001D339A /* FEBaseLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FEBaseLoginController.h; sourceTree = "<group>"; };
@@ -870,6 +891,17 @@
 			path = WritePigeonDoctorUITests;
 			sourceTree = "<group>";
 		};
+		126D814A1D6060B90040CC26 /* NameCard */ = {
+			isa = PBXGroup;
+			children = (
+				126D81471D60593E0040CC26 /* RWNameCardController.h */,
+				126D81481D60593E0040CC26 /* RWNameCardController.m */,
+				126D814B1D6060E70040CC26 /* RWCollectMessageController.h */,
+				126D814C1D6060E70040CC26 /* RWCollectMessageController.m */,
+			);
+			name = NameCard;
+			sourceTree = "<group>";
+		};
 		129400221D59D5D3001D339A /* TabBarAndNavgationBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -929,6 +961,14 @@
 				12BFA24E1D5733E1007C86DF /* RWChatCache+CoreDataProperties.m */,
 				12BFA24F1D5733E1007C86DF /* RWChatCache.h */,
 				12BFA2501D5733E1007C86DF /* RWChatCache.m */,
+				126D81381D6046780040CC26 /* RWNameCard+CoreDataProperties.h */,
+				126D81391D6046780040CC26 /* RWNameCard+CoreDataProperties.m */,
+				126D813A1D6046780040CC26 /* RWNameCard.h */,
+				126D813B1D6046780040CC26 /* RWNameCard.m */,
+				126D813C1D6046780040CC26 /* RWCollectMessage+CoreDataProperties.h */,
+				126D813D1D6046780040CC26 /* RWCollectMessage+CoreDataProperties.m */,
+				126D813E1D6046780040CC26 /* RWCollectMessage.h */,
+				126D813F1D6046780040CC26 /* RWCollectMessage.m */,
 			);
 			name = BaseModels;
 			sourceTree = "<group>";
@@ -958,6 +998,7 @@
 			isa = PBXGroup;
 			children = (
 				12E93D8D1D4DAC8700F55FD5 /* TestDataSource */,
+				126D814A1D6060B90040CC26 /* NameCard */,
 				12F880D51D5990AD00B7D87F /* ConsultHistory */,
 				12FBCE9E1D4868F100A646DB /* RWOfficeListController.h */,
 				12FBCE9F1D4868F100A646DB /* RWOfficeListController.m */,
@@ -1235,6 +1276,8 @@
 				12EA06BE1D56D7D40056A875 /* RWDataBaseManager.m */,
 				12FCF2B51D580E6100BFD0FA /* RWDataBaseManager+ChatCache.h */,
 				12FCF2B61D580E6100BFD0FA /* RWDataBaseManager+ChatCache.m */,
+				126D81441D6047180040CC26 /* RWDataBaseManager+NameCardCollectMessage.h */,
+				126D81451D6047180040CC26 /* RWDataBaseManager+NameCardCollectMessage.m */,
 			);
 			name = DataBase;
 			sourceTree = "<group>";
@@ -2254,6 +2297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				12FF96391D5CCC2B00AB2664 /* UMComMutiTextRun.m in Sources */,
+				126D814D1D6060E70040CC26 /* RWCollectMessageController.m in Sources */,
 				12FF96841D5CCC2B00AB2664 /* UMComFeedEditDataController.m in Sources */,
 				12FF96421D5CCC2B00AB2664 /* UMImagePickerThumbnailView.m in Sources */,
 				12FF96831D5CCC2B00AB2664 /* UMComCommentListDataController.m in Sources */,
@@ -2270,14 +2314,18 @@
 				12FF96761D5CCC2B00AB2664 /* UMComSimpleSubCommentViewController.m in Sources */,
 				12FF966B1D5CCC2B00AB2664 /* UMComLikeButtonTableViewCell.m in Sources */,
 				12BFA2531D5733E1007C86DF /* RWConsultHistory+CoreDataProperties.m in Sources */,
+				126D81421D6046780040CC26 /* RWCollectMessage+CoreDataProperties.m in Sources */,
 				12FA404C1D46F56E0084D50A /* RWRequsetManager.m in Sources */,
 				12F880D41D59634000B7D87F /* RWCustomizeNavigationBar.m in Sources */,
+				126D81431D6046780040CC26 /* RWCollectMessage.m in Sources */,
 				12FBCEA31D486C7C00A646DB /* RWDoctorListCell.m in Sources */,
 				12FF96911D5CCC2B00AB2664 /* UMComErrorCode.m in Sources */,
 				12FF963C1D5CCC2B00AB2664 /* UMAssetsCollectionCheckMarkView.m in Sources */,
+				126D81491D60593E0040CC26 /* RWNameCardController.m in Sources */,
 				12FF96711D5CCC2B00AB2664 /* UMComSimpleCommentViewController.m in Sources */,
 				12FF966D1D5CCC2B00AB2664 /* UMComSimpleFeedDetailViewController.m in Sources */,
 				12F1A0A11D4D8B70007B5994 /* FEButton.m in Sources */,
+				126D81401D6046780040CC26 /* RWNameCard+CoreDataProperties.m in Sources */,
 				12FF96511D5CCC2B00AB2664 /* UMComImageView.m in Sources */,
 				12BFA2551D5733E1007C86DF /* RWChatCache+CoreDataProperties.m in Sources */,
 				12EA08A21D57039D0056A875 /* XZMicroVideoPlayerView.m in Sources */,
@@ -2305,6 +2353,7 @@
 				12FF96901D5CCC2B00AB2664 /* UMComConstraintCache.m in Sources */,
 				12FCF2B71D580E6100BFD0FA /* RWDataBaseManager+ChatCache.m in Sources */,
 				12FF96241D5CCC2B00AB2664 /* UMComBarButtonItem.m in Sources */,
+				126D81461D6047180040CC26 /* RWDataBaseManager+NameCardCollectMessage.m in Sources */,
 				12FF96501D5CCC2B00AB2664 /* UMComAvatarImageView.m in Sources */,
 				12FF96531D5CCC2B00AB2664 /* UMComSimplicityFindTableViewCell.m in Sources */,
 				12FF96571D5CCC2B00AB2664 /* UINavigationBar+ChangeBackgroundColor.m in Sources */,
@@ -2341,6 +2390,7 @@
 				12FF96581D5CCC2B00AB2664 /* UMComBriefEditView.m in Sources */,
 				12FF96261D5CCC2B00AB2664 /* UMComCommentEditView.m in Sources */,
 				12F1A09F1D4D8B70007B5994 /* Mp3Recorder.m in Sources */,
+				126D81411D6046780040CC26 /* RWNameCard.m in Sources */,
 				12441EA51D5ACAE1001BA9C8 /* NSDate+DateExtension.m in Sources */,
 				12426C3A1D5F7194003D6808 /* MBProgressHUD.m in Sources */,
 				12FF96401D5CCC2B00AB2664 /* UMImagePickerController.m in Sources */,

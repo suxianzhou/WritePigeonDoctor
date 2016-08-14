@@ -7,6 +7,8 @@
 //
 
 #import "RWChatViewController.h"
+#import "RWDataBaseManager+NameCardCollectMessage.h"
+#import "RWNameCardController.h"
 
 @implementation RWChatViewController
 
@@ -318,20 +320,41 @@
             
             break;
         }
-        case RWPurposeMenuOfMyCard:break;
-        case RWPurposeMenuOfCollect:break;
-        case RWPurposeMenuOfLocation:break;
-        case RWPurposeMenuOfVideoCall:break;
         case RWPurposeMenuOfSmallVideo: [self makeSmallVideo]; break;
-            
-        default:
-            break;
+        case RWPurposeMenuOfMyCard: [self openMyNameCard]; break;
+        case RWPurposeMenuOfCollect: [self collectDoctorCard]; break;
+        case RWPurposeMenuOfUploadMessageCache:break;
+        default: break;
     }
     
     self.view.center = _viewCenter;
     chatBar.purposeMenu.frame = __KEYBOARD_FRAME__;
     
     [chatBar.purposeMenu removeFromSuperview];
+}
+
+- (void)collectDoctorCard
+{
+    RWChatViewController *weakSelf = self;
+    
+    [_baseManager addNameCardWithItem:_item completion:^(BOOL success)
+    {
+        if (success)
+        {
+            [MBProgressHUD Message:@"收藏成功" For:weakSelf.view];
+        }
+        else
+        {
+            [MBProgressHUD Message:@"收藏失败" For:weakSelf.view];
+        }
+    }];
+}
+
+- (void)openMyNameCard
+{
+    RWNameCardController *card = [[RWNameCardController alloc] init];
+    
+    [self.navigationController pushViewController:card animated:YES];
 }
 
 #pragma mark voice
@@ -388,13 +411,60 @@
     switch (type)
     {
         case RWTextMenuTypeOfRelay:
-            
-
+        {
+            // ------
+        }
             break;
         case RWTextMenuTypeOfCollect:
-            
-
+        {
+            if ([self.baseManager hasNameCard:message])
+            {
+                if ([self.baseManager collectMessage:message])
+                {
+                    [MBProgressHUD Message:@"已收藏" For:self.view];
+                }
+                else
+                {
+                    [MBProgressHUD Message:@"收藏失败" For:self.view];
+                }
+            }
+            else
+            {
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"友情提示" message:@"未收藏医生名片\n\n收藏消息需要先收藏医生名片。" preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction *resetPasswordAction = [UIAlertAction actionWithTitle:@"收藏" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+                    
+                    RWChatViewController *weakSelf = self;
+                    
+                    [_baseManager addNameCardWithItem:_item completion:^(BOOL success)
+                     {
+                         if (success)
+                         {
+                             if ([weakSelf.baseManager collectMessage:message])
+                             {
+                                 [MBProgressHUD Message:@"已收藏" For:weakSelf.view];
+                             }
+                             else
+                             {
+                                 [MBProgressHUD Message:@"收藏失败" For:weakSelf.view];
+                             }
+                         }
+                         else
+                         {
+                             [MBProgressHUD Message:@"收藏失败" For:weakSelf.view];
+                         }
+                     }];
+                }];
+                
+                UIAlertAction *reLoginAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) { [MBProgressHUD Message:@"收藏失败" For:self.view]; }];
+                
+                [alert addAction:resetPasswordAction];
+                [alert addAction:reLoginAction];
+                
+                [self presentViewController:alert animated:YES completion:nil];
+            }
             break;
+        }
         case RWTextMenuTypeOfDelete:
         {
             if (![self.baseManager removeCacheMessage:message])

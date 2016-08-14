@@ -32,4 +32,6 @@
 
 @property (nonatomic,strong)RWDataBaseManager *baseManager;
 
+@property (nonatomic,strong)RWDoctorItem *item;
+
 @end
