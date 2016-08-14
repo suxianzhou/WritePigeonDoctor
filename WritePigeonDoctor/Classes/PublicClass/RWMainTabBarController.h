@@ -12,4 +12,6 @@
 
 - (void)toRootViewController;
 
+- (void)updateUnreadNumber;
+
 @end

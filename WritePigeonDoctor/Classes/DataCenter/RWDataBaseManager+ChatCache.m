@@ -232,7 +232,7 @@
         case RWMessageTypeVoice:
         {
             EMVoiceMessageBody *body = (EMVoiceMessageBody *)message.message.body;
-            MESSAGE(@"%d",body.duration);
+            
             chatCache.content = message.originalResource?
                                 message.originalResource:
                                 [NSData dataWithContentsOfFile:body.localPath];
@@ -571,5 +571,17 @@
     return messages;
 }
 
+- (NSInteger)getUnreadNumber
+{
+    NSString *name = NSStringFromClass([RWChatCache class]);
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"read = 0"];
+    
+    NSArray *result = [self searchItemWithEntityName:name
+                                           predicate:predicate
+                                     sortDescriptors:nil];
+
+    return result.count;
+}
 
 @end

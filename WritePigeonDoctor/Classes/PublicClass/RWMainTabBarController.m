@@ -13,6 +13,7 @@
 #import "RWSettingsViewController.h"
 #import "RWConsultHistoryController.h"
 #import "RWCustomNavigationController.h"
+#import "RWDataBaseManager+ChatCache.h"
 #import "UITabBar+badge.h"
 
 @interface RWMainTabBarController ()
@@ -43,6 +44,30 @@
     self.selectedIndex = 0;
 }
 
+- (void)addMessageObserver
+{
+    notification(RWNewMessageNotification,^(NSNotification * _Nonnull note) {
+        
+        [self updateUnreadNumber];
+    });
+}
+
+- (void)updateUnreadNumber
+{
+    NSInteger number = [[RWDataBaseManager defaultManager] getUnreadNumber];
+    
+    if (number)
+    {
+        [self.tabBar setBadgeStyle:kCustomBadgeStyleNumber value:number atIndex:1];
+    }
+    else
+    {
+        [self.tabBar setBadgeStyle:kCustomBadgeStyleNone value:number atIndex:1];
+    }
+    
+    
+}
+
 #pragma mark - Life Cycle
 
 - (void)viewDidLoad {
@@ -53,6 +78,7 @@
     [self compositonViewControllers];
     [self compositionCoverLayer];
     [self compositionButton];
+    [self addMessageObserver];
 }
 
 - (void)initResource

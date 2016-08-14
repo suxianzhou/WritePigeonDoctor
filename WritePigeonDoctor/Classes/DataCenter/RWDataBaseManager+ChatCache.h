@@ -25,4 +25,6 @@
 - (BOOL)removeCacheMessageWith:(RWHistory *)history;
 - (NSArray *)getMessageWith:(NSString *)emid;
 
+- (NSInteger)getUnreadNumber;
+
 @end

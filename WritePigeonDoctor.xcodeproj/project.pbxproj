@@ -15,6 +15,7 @@
 		123E9BBC1D34A006009B61B5 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 123E9BBB1D34A006009B61B5 /* libc++.tbd */; };
 		123E9BBE1D34A00F009B61B5 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 123E9BBD1D34A00F009B61B5 /* libz.tbd */; };
 		123E9BC01D34A030009B61B5 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 123E9BBF1D34A030009B61B5 /* libsqlite3.tbd */; };
+		12426C3A1D5F7194003D6808 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 12426C391D5F7194003D6808 /* MBProgressHUD.m */; };
 		12441EA11D5AC6F4001BA9C8 /* RWSettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 12441EA01D5AC6F4001BA9C8 /* RWSettingsManager.m */; };
 		12441EA51D5ACAE1001BA9C8 /* NSDate+DateExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 12441EA41D5ACAE1001BA9C8 /* NSDate+DateExtension.m */; };
 		12441EA91D5AF43C001BA9C8 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 12441EA81D5AF43C001BA9C8 /* NSData+Base64.m */; };
@@ -273,6 +274,8 @@
 		123E9BBB1D34A006009B61B5 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		123E9BBD1D34A00F009B61B5 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		123E9BBF1D34A030009B61B5 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		12426C381D5F7194003D6808 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		12426C391D5F7194003D6808 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		12441E9F1D5AC6F4001BA9C8 /* RWSettingsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWSettingsManager.h; sourceTree = "<group>"; };
 		12441EA01D5AC6F4001BA9C8 /* RWSettingsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWSettingsManager.m; sourceTree = "<group>"; };
 		12441EA21D5AC70C001BA9C8 /* RWSettingsIndex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWSettingsIndex.h; sourceTree = "<group>"; };
@@ -999,6 +1002,8 @@
 		12C1AF6B1D4629040087ABA0 /* PublicClass */ = {
 			isa = PBXGroup;
 			children = (
+				12426C381D5F7194003D6808 /* MBProgressHUD.h */,
+				12426C391D5F7194003D6808 /* MBProgressHUD.m */,
 				12FBCE9B1D485D8300A646DB /* RWDataModels.h */,
 				12FBCE9C1D485D8300A646DB /* RWDataModels.m */,
 				12A6AADE1D4A071D00A0739C /* RWWPDBaseController.h */,
@@ -2337,6 +2342,7 @@
 				12FF96261D5CCC2B00AB2664 /* UMComCommentEditView.m in Sources */,
 				12F1A09F1D4D8B70007B5994 /* Mp3Recorder.m in Sources */,
 				12441EA51D5ACAE1001BA9C8 /* NSDate+DateExtension.m in Sources */,
+				12426C3A1D5F7194003D6808 /* MBProgressHUD.m in Sources */,
 				12FF96401D5CCC2B00AB2664 /* UMImagePickerController.m in Sources */,
 				12FF961B1D5CCC2B00AB2664 /* UMComLoginManager.m in Sources */,
 				12FF963E1D5CCC2B00AB2664 /* UMAssetsCollectionGrid.m in Sources */,

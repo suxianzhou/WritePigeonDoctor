@@ -393,7 +393,11 @@ static NSString * const agreementCell=@"agreementCell";
 
     if(button.tag==99999){
         
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [self dismissViewControllerAnimated:NO completion:nil];
+        
+        UITabBarController *tabBar = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+        
+        [tabBar toLoginViewController];
         
     }else if(button.tag==99998){
         
@@ -497,7 +501,11 @@ static NSString * const agreementCell=@"agreementCell";
     {
         [RWRequsetManager warningToViewController:self Title:@"注册成功" Click:^{
            
-            [self dismissViewControllerAnimated:YES completion:nil];
+            [self dismissViewControllerAnimated:NO completion:nil];
+            
+            UITabBarController *tabBar = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+            
+            [tabBar toLoginViewController];
         }];
     }
     else
@@ -512,7 +520,11 @@ static NSString * const agreementCell=@"agreementCell";
     if (success)
     {
         [RWRequsetManager warningToViewController:self Title:@"修改成功" Click:^{
-            [self dismissViewControllerAnimated:YES completion:nil];
+            [self dismissViewControllerAnimated:NO completion:nil];
+            
+            UITabBarController *tabBar = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+            
+            [tabBar toLoginViewController];
         }];
     }
     else

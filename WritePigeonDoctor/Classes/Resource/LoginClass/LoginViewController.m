@@ -15,11 +15,14 @@
 #import "InfoViewController.h"
 #import "RWDataBaseManager.h"
 #define INTERVAL_KEYBOARD 5
-@interface LoginViewController ()<UITableViewDataSource,
-UITableViewDelegate,
-FETextFiledCellDelegate,
-FEButtonCellDelegate,
-RWRequsetDelegate
+
+@interface LoginViewController ()
+<
+    UITableViewDataSource,
+    UITableViewDelegate,
+    FETextFiledCellDelegate,
+    FEButtonCellDelegate,
+    RWRequsetDelegate
 >
 
 @property (strong, nonatomic)RWRequsetManager *requestManager;
@@ -105,7 +108,8 @@ static NSString *const buttonCell = @"buttonCell";
 
 
 #pragma mark    创建整体UI设计
--(void)initWithViewList{
+-(void)initWithViewList
+{
     UIView *backview=[[UIView alloc]init];
     backview.backgroundColor=[UIColor clearColor];
     [self.view addSubview:backview];
@@ -182,16 +186,19 @@ static NSString *const buttonCell = @"buttonCell";
 {
     if (indexPath.section == 0)
     {
+        RWUser *user = [[RWDataBaseManager defaultManager] getDefualtUser];
+        
         FETextFiledCell *cell = [tableView dequeueReusableCellWithIdentifier:textFieldCell forIndexPath:indexPath];
         
         cell.delegate = self;
-        
         cell.textField.keyboardType=UIKeyboardTypeDecimalPad;
-        
         cell.placeholder = @"请输入账号";
         
+        cell.textField.text = user?user.username:nil;
+        
         return cell;
-    } else if (indexPath.section == 1)
+    }
+    else if (indexPath.section == 1)
     {
         FETextFiledCell *cell = [tableView dequeueReusableCellWithIdentifier:textFieldCell forIndexPath:indexPath];
         
@@ -199,9 +206,16 @@ static NSString *const buttonCell = @"buttonCell";
         cell.placeholder = @" 请输入密码";
         cell.textField.secureTextEntry=YES;
         
+        if (SETTINGS_VALUE(__AUTO_LOGIN__))
+        {
+            RWUser *user = [[RWDataBaseManager defaultManager] getDefualtUser];
+            cell.textField.text = user?user.password:nil;
+        }
+        
         return cell;
     }
-    else{
+    else
+    {
         FEButtonCell * cell=[tableView dequeueReusableCellWithIdentifier:buttonCell forIndexPath:indexPath];
         cell.delegate=self;
         [cell setTitle:@"登录"];
@@ -393,18 +407,27 @@ static NSString *const buttonCell = @"buttonCell";
     
     RegisterViewController * registerVC=[[RegisterViewController alloc]init];
     registerVC.typePassWord=TypeForgetPassWord;
-    [self presentViewController:registerVC animated:NO completion:^{
-
-    }];
+    
+    [self dismissViewControllerAnimated:NO completion:nil];
+    
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    
+    [window.rootViewController presentViewController:registerVC
+                                            animated:NO
+                                          completion:nil];
     
 }
 
 -(void)jumpRegisterController{
     RegisterViewController * registerVC=[[RegisterViewController alloc]init];
     registerVC.typePassWord=TypeRegisterPassWord;
-    [self presentViewController:registerVC animated:NO completion:^{
-        
-    }];
+    [self dismissViewControllerAnimated:NO completion:nil];
+    
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    
+    [window.rootViewController presentViewController:registerVC
+                                            animated:NO
+                                          completion:nil];
 }
 
 -(void)textFiledCell:(FETextFiledCell *)cell DidBeginEditing:(NSString *)placeholder{
@@ -552,14 +575,6 @@ static NSString *const buttonCell = @"buttonCell";
         [RWRequsetManager warningToViewController:self Title:responseMessage Click:nil];
     }
     
-}
--(void)dismissToRootViewController
-{
-    UIViewController *vc = self;
-    while (vc.presentingViewController) {
-        vc = vc.presentingViewController;
-    }
-    [vc dismissViewControllerAnimated:YES completion:nil];
 }
 
 

@@ -8,8 +8,8 @@
 
 #import "FEBaseLoginController.h"
 #import "FELoginTableCell.h"
-#import "YYKit.h"
 #import "UIColor+Wonderful.h"
+
 @interface FEBaseLoginController ()
 @property(nonatomic,strong)UIImageView * backImageView;
 

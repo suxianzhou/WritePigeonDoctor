@@ -301,10 +301,19 @@ NSString *getGender(RWGender gender)
                                   
                               });
                           }
+                          else
+                          {
+                              [RWRequsetManager userLogout:nil];
+                              
+                              [self.delegate userLoginSuccess:NO
+                                              responseMessage:@"登录失败"];
+                          }
                       });
                   }
                   else
                   {
+                      [RWRequsetManager userLogout:nil];
+                      
                       if ([Json objectForKey:@"result"])
                       {
                           [self.delegate userLoginSuccess:NO
@@ -314,8 +323,7 @@ NSString *getGender(RWGender gender)
                       else
                       {
                           [self.delegate userLoginSuccess:NO
-                                          responseMessage:
-                           [Json objectForKey:@"登录失败"]];
+                                          responseMessage:@"登录失败"];
                       }
                   }
                   

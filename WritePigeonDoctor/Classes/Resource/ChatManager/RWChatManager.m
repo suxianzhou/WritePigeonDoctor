@@ -8,8 +8,8 @@
 
 #import "RWChatManager.h"
 #import "XZUMComPullRequest.h"
+#import "RegisterViewController.h"
 #import <AFNetworking.h>
-#import <YYKit/MKAnnotationView+YYWebImage.h>
 
 NSString *QueueName = @"DownLoadQueue";
 
@@ -26,8 +26,27 @@ const NSString *messageVideoName = @"messageVideoName";
 const NSString *messageVideoBody = @"messageVideoBody";
 const NSString *conversationTo = @"onversationTo";
 const NSString *UMID = @"UMID";
+const NSString *RWNewMessageNotification = @"RWNewMessageNotification";
+const NSString *RWDroppedNotification = @"RWDroppedNotification";
+const NSString *RWRemovedFromServerNotification = @"RWRemovedFromServerNotification";
+const NSString *RWLoginFinishNotification = @"RWLoginFinishNotification";
+const NSString *RWAutoLoginNotification = @"RWAutoLoginNotification";
+const NSString *RWNetworkReachabilityNotification = @"RWNetworkReachabilityNotification";
+const NSString *RWConnectionStateNotification = @"RWConnectionStateNotification";
+const NSString *RWLoginFromOtherDeviceNotification =
+                                                @"RWLoginFromOtherDeviceNotification";
 
 @implementation RWChatManager
+
+void _send_notification(const NSString *name,id message)
+{
+    [RWChatManager sendNotificationWithName:name message:message];
+}
+
+void _notification(const NSString *name,void(^block)(NSNotification * _Nonnull note))
+{
+    [RWChatManager observeNotification:name usingblock:block];
+}
 
 + (instancetype)defaultManager
 {
@@ -59,13 +78,15 @@ const NSString *UMID = @"UMID";
 
 - (void)setDefaultSettings
 {
+    [self addNetworkStatusObserver];
+    
     _client = [EMClient sharedClient];
     _chatManager = _client.chatManager;
     _connectionState = EMConnectionDisconnected;
+    _statusForLink = RWLinkStateOfUnLink;
     
     [_client addDelegate:self delegateQueue:nil];
     [_chatManager addDelegate:self delegateQueue:nil];
-    [self addNetworkStatusObserver];
     
     _allSessions = [[_chatManager loadAllConversationsFromDB] mutableCopy];
     _baseManager = [RWDataBaseManager defaultManager];
@@ -76,6 +97,9 @@ const NSString *UMID = @"UMID";
         
         if (user)
         {
+            _statusForLink = RWLinkStateOfAutoLogin;
+            send_notification(RWAutoLoginNotification,nil);
+            
             RWRequsetManager *request = [[RWRequsetManager alloc] init];
             request.delegate = self;
             
@@ -88,6 +112,47 @@ const NSString *UMID = @"UMID";
     _downLoadQueue.maxConcurrentOperationCount = 5;
 }
 
+- (void)userLoginSuccess:(BOOL)success responseMessage:(NSString *)responseMessage
+{
+    if (!success)
+    {
+        send_notification(RWLoginFinishNotification,@(NO));
+        _statusForLink = RWLinkStateOfUnLink;
+        
+        UITabBarController *tabbar = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+        
+        if (!_reachabilityStatus)
+        {
+            [RWRequsetManager warningToViewController:tabbar
+                                                Title:@"当前无网络，请检查网络"
+                                                Click:nil];
+            
+            return;
+        }
+        
+        [RWRequsetManager warningToViewController:tabbar
+                                            Title:
+                [NSString stringWithFormat:@"自动登录失败\nreason：%@",responseMessage]
+                                            Click:^{
+           
+            [tabbar toLoginViewController];
+        }];
+        
+        return;
+    }
+    
+     _statusForLink = RWLinkStateOfLoginFinish;
+    send_notification(RWLoginFinishNotification,@(YES));
+    
+    if ([RWDataBaseManager perfectPersonalInformation])
+    {
+        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+        UITabBarController *tab = (UITabBarController *)window.rootViewController;
+        
+        [tab toPerfectPersonalInformation];
+    }
+}
+
 - (void)addNetworkStatusObserver
 {
     AFNetworkReachabilityManager *statusManager = [AFNetworkReachabilityManager sharedManager];
@@ -97,32 +162,10 @@ const NSString *UMID = @"UMID";
     [statusManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status)
      {
          _reachabilityStatus = status;
+         _statusForLink = status?_statusForLink:RWLinkStateOfDropped;
+         
+         send_notification(RWNetworkReachabilityNotification,@(status));
      }];
-}
-
-- (void)userLoginSuccess:(BOOL)success responseMessage:(NSString *)responseMessage
-{
-    if (!success)
-    {
-        UITabBarController *tabbar = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
-        
-        [RWRequsetManager warningToViewController:tabbar
-                                            Title:[NSString stringWithFormat:@"自动登录失败\n%@",responseMessage]
-                                            Click:^{
-           
-            [tabbar toLoginViewController];
-        }];
-        
-        return;
-    }
-    
-    if ([RWDataBaseManager perfectPersonalInformation])
-    {
-        UIWindow *window = [UIApplication sharedApplication].keyWindow;
-        UITabBarController *tab = (UITabBarController *)window.rootViewController;
-        
-        [tab toPerfectPersonalInformation];
-    }
 }
 
 - (void)createConversationWithID:(NSString *)ID extension:(NSDictionary *)extension
@@ -145,6 +188,8 @@ const NSString *UMID = @"UMID";
 {
     for (EMMessage *msg in aMessages)
     {
+        send_notification(RWNewMessageNotification,nil);
+        
         [XZUMComPullRequest fecthUserProfileWithUid:_faceSession.ext[UMID]
                                              source:nil
                                          source_uid:_faceSession.ext[conversationTo]
@@ -259,29 +304,56 @@ const NSString *UMID = @"UMID";
     }
 }
 
-- (void)didReceiveHasReadAcks:(NSArray *)aMessages
-{
-    //已读
-}
-
-- (void)didReceiveHasDeliveredAcks:(NSArray *)aMessages
-{
-    //已送达
-}
-
 - (void)didConnectionStateChanged:(EMConnectionState)aConnectionState
 {
     _connectionState = aConnectionState;
+    send_notification(RWConnectionStateNotification,@(_connectionState));
+    
+    _statusForLink = _connectionState?_statusForLink:RWLinkStateOfLoginFinish;
+    
+    if (!_connectionState) send_notification(RWDroppedNotification,nil);
 }
 
 - (void)didLoginFromOtherDevice
 {
-//    _connectionState = EMConnectionDisconnected;
+    _statusForLink = RWLinkStateOfLoginFromOtherDevice;
+    _connectionState = EMConnectionDisconnected;
+    send_notification(RWLoginFromOtherDeviceNotification,nil);
+    send_notification(RWDroppedNotification,nil);
+    
+    [RWRequsetManager userLogout:nil];
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"友情提示" message:@"您的账号已在别处登录，如果非本人操作请及时修改密码。" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    UITabBarController *tabBar = (UITabBarController *)window.rootViewController;
+    
+    UIAlertAction *resetPasswordAction = [UIAlertAction actionWithTitle:@"重置密码" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        
+        RegisterViewController * registerVC=[[RegisterViewController alloc]init];
+        registerVC.typePassWord=TypeForgetPassWord;
+        [tabBar presentViewController:registerVC animated:YES completion:nil];
+    }];
+    
+    UIAlertAction *reLoginAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action)
+    {
+        [tabBar toLoginViewController];
+    }];
+    
+    [alert addAction:resetPasswordAction];
+    [alert addAction:reLoginAction];
+    
+    [tabBar presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)didRemovedFromServer
 {
-//    _connectionState = EMConnectionDisconnected;
+    [RWRequsetManager userLogout:nil];
+    
+    _statusForLink = RWLinkStateOfRemovedFromServer;
+    _connectionState = EMConnectionDisconnected;
+    send_notification(RWRemovedFromServerNotification,nil);
+    send_notification(RWDroppedNotification,nil);
 }
 
 #pragma other funtion
@@ -317,6 +389,32 @@ const NSString *UMID = @"UMID";
     NSString *timeString= [formatter stringFromDate:[NSDate date]];
     
     return [NSString stringWithFormat:@"image@%@&%@.%@",defaultManager.faceSession.conversationId,timeString,suffix];
+}
+
++ (void)sendNotificationWithName:(const NSString *)name message:(id)message
+{
+    NSString *messageName = [NSString stringWithFormat:@"%@",name];
+    NSDictionary *userInfo = message?@{name:message}:nil;
+    
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:messageName
+                                                        object:nil
+                                                      userInfo:userInfo];
+}
+
++ (void)observeNotification:(const NSString *)name usingblock:(void(^)(NSNotification * _Nonnull note))block
+{
+    NSString *messageName = [NSString stringWithFormat:@"%@",name];
+    [[NSNotificationCenter defaultCenter] addObserverForName:messageName
+                                                      object:nil
+                                                       queue:[NSOperationQueue mainQueue]
+                                                  usingBlock:^(NSNotification * _Nonnull note)
+    {
+        if (block)
+        {
+            block(note);
+        }
+    }];
 }
 
 @end

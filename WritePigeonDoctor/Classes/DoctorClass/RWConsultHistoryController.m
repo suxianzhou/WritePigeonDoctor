@@ -12,6 +12,7 @@
 #import "RWDataBaseManager+ChatCache.h"
 #import "RWMainTabBarController.h"
 #import "RWConsultNotesController.h"
+#import "RWMainTabBarController.h"
 
 @interface RWConsultHistoryController ()
 
@@ -70,7 +71,33 @@
     
     notesController.history = _historys[indexPath.row];
     
+    RWMainTabBarController *tabBar = (RWMainTabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+    
+    [tabBar updateUnreadNumber];
+    
     [self pushNextWithViewcontroller:notesController];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return @"删除";
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([_baseManager removeCacheMessageWith:_historys[indexPath.row]])
+    {
+        if ([_baseManager removeConsultHistory:_historys[indexPath.row]])
+        {
+            _historys = [_baseManager getConsultHistory];
+            
+            [_historyList reloadData];
+        }
+        else
+        {
+            MESSAGE(@"删除历史咨询失败");
+        }
+    }
 }
 
 - (void)viewDidLoad

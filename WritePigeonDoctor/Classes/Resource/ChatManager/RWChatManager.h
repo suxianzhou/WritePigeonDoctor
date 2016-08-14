@@ -34,6 +34,26 @@ extern NSString *UMID;
 
 extern NSString *QueueName;
 
+typedef NS_ENUM(NSInteger,RWLinkState)
+{
+    RWLinkStateOfAutoLogin = 2,
+    RWLinkStateOfLoginFinish = 1,
+    RWLinkStateOfDropped = -1,
+    RWLinkStateOfLoginFromOtherDevice = -2,
+    RWLinkStateOfRemovedFromServer = -3,
+    
+    RWLinkStateOfUnLink = 0
+};
+
+extern NSString *RWNewMessageNotification;
+extern NSString *RWDroppedNotification;
+extern NSString *RWLoginFromOtherDeviceNotification;
+extern NSString *RWRemovedFromServerNotification;
+extern NSString *RWLoginFinishNotification;
+extern NSString *RWAutoLoginNotification;
+extern NSString *RWNetworkReachabilityNotification;
+extern NSString *RWConnectionStateNotification;
+
 @protocol RWChatManagerDelegate <NSObject>
 
 - (void)receiveMessage:(RWWeChatMessage *)message;
@@ -57,6 +77,7 @@ extern NSString *QueueName;
 
 @property (nonatomic,assign)EMConnectionState connectionState;
 @property (nonatomic,assign,readonly)AFNetworkReachabilityStatus reachabilityStatus;
+@property (nonatomic,assign,readonly)RWLinkState statusForLink;
 
 @property (nonatomic,strong,readonly)EMConversation *faceSession;
 @property (nonatomic,strong,readonly)NSMutableArray *allSessions;
@@ -70,6 +91,15 @@ extern NSString *QueueName;
 + (NSString *)videoName;
 + (NSString *)voiceName;
 + (NSString *)imageNameSuffix:(NSString *)suffix;
+
+void _send_notification(const NSString *name,id message);
+void _notification(const NSString *name,void(^block)(NSNotification * _Nonnull note));
+
+#define send_notification _send_notification
+#define notification _notification
+
++ (void)sendNotificationWithName:(const NSString *)name message:(id)message;
++ (void)observeNotification:(const NSString *)name usingblock:(void(^)(NSNotification * _Nonnull note))block;
 
 @end
 
