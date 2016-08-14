@@ -439,26 +439,24 @@ static NSString * const agreementCell=@"agreementCell";
     
     if (![_requestManager verificationPhoneNumber:username])
     {
-        [RWRequsetManager warningToViewController:self Title:@"手机号输入有误，请重新输入" Click:^{
+        [RWSettingsManager promptToViewController:self Title:@"手机号输入有误，请重新输入"  response:^{
+            
             phoneCell.textField.text = nil;
             [phoneCell.textField becomeFirstResponder];
-            
         }];
-        
-        
         
         return;
     }
     if ([_requestManager verificationPassword:password]) {
         
-        if (![password isEqualToString:againPassWord]){
-            [RWRequsetManager warningToViewController:self Title:@"密码输入不一致，请重新输入" Click:^{
-            
-            
+        if (![password isEqualToString:againPassWord])
+        {
+            [RWSettingsManager promptToViewController:self
+                                                Title:@"密码输入不一致，请重新输入"
+                                             response:^{
+                
                 passwordCell.textField.text = nil; againCell.textField.text = nil;
-                
                 [passwordCell.textField becomeFirstResponder];
-                
                 [againCell.textField becomeFirstResponder];
             }];
         }
@@ -466,15 +464,15 @@ static NSString * const agreementCell=@"agreementCell";
     }
     else
     {
-        [RWRequsetManager warningToViewController:self Title:@"密码格式错误,请输入6~18位" Click:^{
+        [RWSettingsManager promptToViewController:self
+                                            Title:@"密码格式错误,请输入6~18位"
+                                         response:^
+        {
             passwordCell.textField.text = nil; againCell.textField.text = nil;
-            
             [passwordCell.textField becomeFirstResponder];
-            
             [againCell.textField becomeFirstResponder];
-            
-        
         }];
+        
         return;
     }
     
@@ -499,18 +497,22 @@ static NSString * const agreementCell=@"agreementCell";
     DISSMISS;
     if (success)
     {
-        [RWRequsetManager warningToViewController:self Title:@"注册成功" Click:^{
-           
-            [self dismissViewControllerAnimated:NO completion:nil];
-            
-            UITabBarController *tabBar = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
-            
-            [tabBar toLoginViewController];
-        }];
+        [RWSettingsManager promptToViewController:self
+                                            Title:@"注册成功"
+                                         response:^
+         {
+             [self dismissViewControllerAnimated:NO completion:nil];
+             
+             UITabBarController *tabBar = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+             
+             [tabBar toLoginViewController];
+         }];
     }
     else
     {
-        [RWRequsetManager warningToViewController:self Title:responseMessage Click:nil];
+        [RWSettingsManager promptToViewController:self
+                                            Title:responseMessage
+                                         response:nil];
     }
     
 }
@@ -519,9 +521,10 @@ static NSString * const agreementCell=@"agreementCell";
     DISSMISS;
     if (success)
     {
-        [RWRequsetManager warningToViewController:self Title:@"修改成功" Click:^{
-            [self dismissViewControllerAnimated:NO completion:nil];
-            
+        [RWSettingsManager promptToViewController:self
+                                            Title:@"修改成功"
+                                         response:^
+        {
             UITabBarController *tabBar = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
             
             [tabBar toLoginViewController];
@@ -529,7 +532,9 @@ static NSString * const agreementCell=@"agreementCell";
     }
     else
     {
-        [RWRequsetManager warningToViewController:self Title:responseMessage Click:nil];
+        [RWSettingsManager promptToViewController:self
+                                            Title:responseMessage
+                                         response:nil];
     }
     
 }
@@ -549,8 +554,8 @@ static NSString * const agreementCell=@"agreementCell";
             FETextFiledCell *userName = [self.viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
             if (![_requestManager verificationPhoneNumber:userName.textField.text])
             {
-                [RWRequsetManager warningToViewController:self Title:@"手机号输入有误，请重新输入" Click:^{
-                    //13791836315
+                [RWSettingsManager promptToViewController:self Title:@"手机号输入有误，请重新输入" response:^{
+                    
                     userName.textField.text = nil;
                     [userName.textField becomeFirstResponder];
                 }];
@@ -564,9 +569,11 @@ static NSString * const agreementCell=@"agreementCell";
              {
                  if (!succeed)
                  {
-                     [RWRequsetManager warningToViewController:self Title:reason Click:^{
+                     
+                     [RWSettingsManager promptToViewController:self Title:reason response:^{
                          
-                         [clickBtn setTitle:@"重新验证码" forState:(UIControlStateNormal)];
+                         [clickBtn setTitle:@"重新验证码"
+                                   forState:(UIControlStateNormal)];
                      }];
                  }
              }];

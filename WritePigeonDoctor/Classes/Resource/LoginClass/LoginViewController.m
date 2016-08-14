@@ -521,32 +521,22 @@ static NSString *const buttonCell = @"buttonCell";
         }
         else{
             
-            [RWRequsetManager warningToViewController:self
-                                                Title:@"密码输入错误"
-                                                Click:^
-             {
-                 
-                 textCell.textField.text = nil;
-                 
-                 [textCell.textField becomeFirstResponder];
-             }];
-
+            [RWSettingsManager promptToViewController:self Title:@"密码输入错误" response:^{
+                
+                textCell.textField.text = nil;
+                [textCell.textField becomeFirstResponder];
+            }];
         }
     }else{
         
-        [RWRequsetManager warningToViewController:self
+        [RWSettingsManager promptToViewController:self
                                             Title:@"手机号输入错误，请重新输入"
-                                            Click:^
-         {
-             
-             verCell.textField.text = nil;
-             
-             [verCell.textField becomeFirstResponder];
-         }];
-
+                                         response:^{
+            
+            verCell.textField.text = nil;
+            [verCell.textField becomeFirstResponder];
+        }];
     }
-    
-
 }
 -(void)userLoginSuccess:(BOOL)success responseMessage:(NSString *)responseMessage
 {
@@ -571,8 +561,11 @@ static NSString *const buttonCell = @"buttonCell";
         }
 
     }
-    else{
-        [RWRequsetManager warningToViewController:self Title:responseMessage Click:nil];
+    else
+    {
+        [RWSettingsManager promptToViewController:self
+                                            Title:responseMessage
+                                         response:nil];
     }
     
 }

@@ -110,6 +110,8 @@ typedef void (^MBProgressHUDCompletionBlock)();
  */
 @interface MBProgressHUD : UIView
 
++ (void)Message:(NSString *)message For:(__kindof UIView *)view;
+
 /**
  * Creates a new HUD, adds it to provided view and shows it. The counterpart to this method is hideHUDForView:animated:.
  *

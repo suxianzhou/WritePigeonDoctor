@@ -107,6 +107,16 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 
 #pragma mark - Class methods
 
++ (void)Message:(NSString *)message For:(__kindof UIView *)view
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    hud.mode = MBProgressHUDModeText;
+    hud.labelText = message;
+    hud.labelColor = [UIColor whiteColor];
+    [hud show:YES];
+    [hud hide:YES afterDelay:2];
+}
+
 + (MB_INSTANCETYPE)showHUDAddedTo:(UIView *)view animated:(BOOL)animated {
 	MBProgressHUD *hud = [[self alloc] initWithView:view];
 	hud.removeFromSuperViewOnHide = YES;

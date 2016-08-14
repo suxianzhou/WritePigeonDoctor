@@ -52,7 +52,14 @@
  *  @return
  */
 - (BOOL)removeSettingsValueForKey:(NSString *)key;
-
+/**
+ *  提示Alert框
+ *
+ *  @param viewController 控制器
+ *  @param title          内容
+ *  @param response       点击确定后的响应
+ */
++ (void)promptToViewController:(__kindof UIViewController *)viewController Title:(NSString *)title response:(void(^)(void))response;
 /**
  *  AddLocalNotification
  *

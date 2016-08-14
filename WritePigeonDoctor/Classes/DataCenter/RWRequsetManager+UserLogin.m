@@ -145,27 +145,24 @@ NSString *getGender(RWGender gender)
                           
                           NSDictionary *Json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
                           
-                          if (Json)
+                          if ([Json[@"resultCode"] integerValue] == 200)
                           {
-                              MESSAGE(@"%@",Json);
+                              if ([baseManager updateUesr:user])
+                              {
+                                  if (completion)
+                                  {
+                                      completion(YES,nil);
+                                  }
+                              }
+                              else
+                              {
+                                  if (completion)
+                                  {
+                                      completion(NO,@"本地保存失败");
+                                  }
+                              }
                           }
-                                           
-                         
-                         if ([baseManager updateUesr:user])
-                         {
-                             if (completion)
-                             {
-                                 completion(YES,nil);
-                             }
-                         }
-                         else
-                         {
-                             if (completion)
-                             {
-                                 completion(NO,@"本地保存失败");
-                             }
-                         }
-                         
+
                      } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                         
                          completion(NO,[NSString stringWithFormat:@"上传失败!\n原因：%@",
@@ -261,7 +258,7 @@ NSString *getGender(RWGender gender)
                                   us.username = username;
                                   us.password = password;
                                   us.umid = Json[@"result"][@"umid"];
-                                  us.age = user.age.stringValue;
+                                  us.age = Json[@"result"][@"age"];
                                   us.name = user.name;
                                   us.gender = getGender(user.gender.integerValue);
                                   us.header = imageData;
@@ -283,7 +280,7 @@ NSString *getGender(RWGender gender)
                                   us.username = username;
                                   us.password = password;
                                   us.umid = Json[@"result"][@"umid"];
-                                  us.age = user.age.stringValue;
+                                  us.age = Json[@"result"][@"age"];
                                   us.name = user.name;
                                   us.gender = getGender(user.gender.integerValue);
                                   us.header = imageData;

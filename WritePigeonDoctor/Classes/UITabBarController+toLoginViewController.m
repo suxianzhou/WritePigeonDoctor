@@ -17,7 +17,8 @@
 {
     if ([RWChatManager defaultManager].statusForLink == RWLinkStateOfAutoLogin)
     {
-        MESSAGE(@"auto");
+        [MBProgressHUD Message:@"自动登录中请稍后..." For:self.view];
+        
         return;
     }
     

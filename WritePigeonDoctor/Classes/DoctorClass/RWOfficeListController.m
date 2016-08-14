@@ -144,9 +144,9 @@
     }
     else
     {
-        [RWRequsetManager warningToViewController:self
+        [RWSettingsManager promptToViewController:self
                                             Title:responseMessage
-                                            Click:nil];
+                                         response:nil];
     }
     
 }

@@ -123,21 +123,22 @@ void _notification(const NSString *name,void(^block)(NSNotification * _Nonnull n
         
         if (!_reachabilityStatus)
         {
-            [RWRequsetManager warningToViewController:tabbar
+            [RWSettingsManager promptToViewController:tabbar
                                                 Title:@"当前无网络，请检查网络"
-                                                Click:nil];
+                                             response:nil];
             
             return;
         }
         
-        [RWRequsetManager warningToViewController:tabbar
-                                            Title:
-                [NSString stringWithFormat:@"自动登录失败\nreason：%@",responseMessage]
-                                            Click:^{
-           
-            [tabbar toLoginViewController];
-        }];
+        NSString *title = responseMessage?
+                          [NSString stringWithFormat:@"自动登录失败\nreason：%@",responseMessage]:@"自动登录失败";
         
+        [RWSettingsManager promptToViewController:tabbar
+                                            Title:title
+                                         response:^{
+                                             
+                                             [tabbar toLoginViewController];
+                                         }];
         return;
     }
     
@@ -323,7 +324,7 @@ void _notification(const NSString *name,void(^block)(NSNotification * _Nonnull n
     
     [RWRequsetManager userLogout:nil];
     
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"友情提示" message:@"您的账号已在别处登录，如果非本人操作请及时修改密码。" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"友情提示" message:@"您的账号已在其他设备上登录登录，如果非本人操作请及时修改密码。" preferredStyle:UIAlertControllerStyleAlert];
     
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     UITabBarController *tabBar = (UITabBarController *)window.rootViewController;

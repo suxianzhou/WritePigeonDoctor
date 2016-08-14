@@ -433,17 +433,20 @@ static NSString *const buttonCell = @"buttonCell";
     FETextFiledCell * age=[self.viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]];
     NSString * ageStr=age.textField.text;
     
-    if ([nameStr isEqualToString:@""]||nameStr==nil) {
-        
-        [RWRequsetManager warningToViewController:self Title:@"昵称不能为空" Click:nil];
+    if ([nameStr isEqualToString:@""]||nameStr==nil)
+    {
+        [RWSettingsManager promptToViewController:self
+                                            Title:@"昵称不能为空"
+                                         response:nil];
         
         return;
     }
     
     if(![_requestManager verificationAge:ageStr])
     {
-        [RWRequsetManager warningToViewController:self Title:@"年龄只能为数字" Click:nil];
-        
+        [RWSettingsManager promptToViewController:self
+                                            Title:@"年龄只能为数字"
+                                         response:nil];
         return;
     }
     __weak typeof (self) weakself =self;
@@ -452,7 +455,9 @@ static NSString *const buttonCell = @"buttonCell";
         if (success) {
             [weakself jumpMain];
         }else{
-            [RWRequsetManager warningToViewController:weakself Title:errorReason Click:nil];
+            [RWSettingsManager promptToViewController:weakself
+                                                Title:errorReason
+                                             response:nil];
         }
     }];
     

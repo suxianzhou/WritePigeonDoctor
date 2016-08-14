@@ -133,6 +133,21 @@
     return [[NSString alloc] initWithData:stringData encoding:NSUTF8StringEncoding];
 }
 
++ (void)promptToViewController:(__kindof UIViewController *)viewController Title:(NSString *)title response:(void(^)(void))response
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"友情提示" message:title preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *registerAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        
+        if (response) response();
+    }];
+    
+    [alert addAction:registerAction];
+    
+    [viewController presentViewController:alert animated:YES completion:nil];
+    
+}
+
 - (void)addLocalNotificationWithClockString:(NSString *)clockString AndName:(NSString *)name content:(NSString *)content
 {
     RWClockAttribute attribute = [NSDate clockAttributeWithString:clockString];
