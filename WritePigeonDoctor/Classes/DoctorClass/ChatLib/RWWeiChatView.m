@@ -216,19 +216,31 @@ CGRect getTopRestrain(RWWeChatCell * cell)
                 
                 paste.string = body.text;
                 
+                [_eventSource chatView:self
+                         selectMessage:wechat.message
+                          textMeunType:RWTextMenuTypeOfCopy];
+                
                 break;
 
             }
             case RWTextMenuTypeOfRelay:
-                //转发
+                [_eventSource chatView:self
+                         selectMessage:wechat.message
+                          textMeunType:RWTextMenuTypeOfRelay];
                 break;
             case RWTextMenuTypeOfCollect:
-                //收藏
+                [_eventSource chatView:self
+                         selectMessage:wechat.message
+                          textMeunType:RWTextMenuTypeOfCollect];
                 break;
             case RWTextMenuTypeOfDelete:
             {
                 [_messages removeObject:wechat.message];
                 [self reloadData];
+                
+                [_eventSource chatView:self
+                         selectMessage:wechat.message
+                          textMeunType:RWTextMenuTypeOfDelete];
                 break;
             }
             default:break;
@@ -1499,14 +1511,6 @@ CGFloat getArrowheadX(RWWeChatCell *cell)
         _imageView = [[UIImageView alloc] init];
         [_photoView addSubview:_imageView];
         _imageView.userInteractionEnabled = YES;
-        
-        UITapGestureRecognizer *changeSize = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(changeSize)];
-        changeSize.numberOfTapsRequired = 2;
-        [_imageView addGestureRecognizer:changeSize];
-        
-        UITapGestureRecognizer *wait = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(waitFor)];
-        wait.numberOfTapsRequired = 1;
-        [_imageView addGestureRecognizer:wait];
     }
     
     return self;
@@ -1515,18 +1519,6 @@ CGFloat getArrowheadX(RWWeChatCell *cell)
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
 {
     return _imageView;
-}
-
-- (void)changeSize
-{
-    if (_photoView.zoomScale == 1.0f)
-    {
-        _photoView.zoomScale = 2.0f;
-    }
-    else
-    {
-        _photoView.zoomScale = 1.0f;
-    }
 }
 
 - (void)scrollViewDidZoom:(UIScrollView *)scrollView
@@ -1548,8 +1540,6 @@ CGFloat getArrowheadX(RWWeChatCell *cell)
         [_delegate closeFaceView];
     }
 }
-
-- (void)waitFor{}
 
 - (void)setImage:(UIImage *)image
 {

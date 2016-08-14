@@ -74,7 +74,7 @@
                 _isAttention = isAttention;
                 [_eventSource isAttentionAtDescriptionView:self];
                 
-            } isAttention:NO isOpen:^(BOOL isOpen) {
+            } isAttention:_item.relation isOpen:^(BOOL isOpen) {
                 
                 _isOpenDescription = isOpen;
                 [_eventSource isShowDoctorDescription:self];
@@ -235,16 +235,7 @@
 
 - (void)addAndRemoveAttention
 {
-    if (_isAttention)
-    {
-        _isAttention = NO;
-        _attentionResponce(_isAttention);
-    }
-    else
-    {
-        _isAttention = YES;
-        _attentionResponce(_isAttention);
-    }
+    _attentionResponce(_isAttention);
 }
 
 - (void)autoLayoutViews

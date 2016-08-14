@@ -300,10 +300,13 @@ NSString *getGender(RWGender gender)
                           }
                           else
                           {
-                              [RWRequsetManager userLogout:nil];
-                              
-                              [self.delegate userLoginSuccess:NO
-                                              responseMessage:@"登录失败"];
+                              dispatch_async(dispatch_get_main_queue(), ^{
+                                 
+                                  [RWRequsetManager userLogout:nil];
+                                  
+                                  [self.delegate userLoginSuccess:NO
+                                                  responseMessage:@"登录失败"];
+                              });
                           }
                       });
                   }
@@ -326,13 +329,13 @@ NSString *getGender(RWGender gender)
                   
               } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
               {
+                  [RWRequsetManager userLogout:nil];
                   [self.delegate userLoginSuccess:NO
                                   responseMessage:error.description];
               }];
          }
          else
          {
-             
              [self.delegate userLoginSuccess:NO
                              responseMessage:error.description];
          }

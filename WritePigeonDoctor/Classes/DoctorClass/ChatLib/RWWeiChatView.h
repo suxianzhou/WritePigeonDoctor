@@ -44,6 +44,7 @@ CGRect getFitVideoSize(CGSize originalSize,BOOL isMyMessage);
 - (void)wechatCell:(RWWeChatCell *)wechat event:(RWMessageEvent)event;
 
 - (void)touchSpaceAtwechatView:(RWWeChatView *)wechatView;
+- (void)chatView:(RWWeChatView *)chatView selectMessage:(RWWeChatMessage *)message textMeunType:(RWTextMenuType)type;
 
 @end
 

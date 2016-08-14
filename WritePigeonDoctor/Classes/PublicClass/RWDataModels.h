@@ -37,6 +37,7 @@
 @property (nonatomic,strong)NSString *EMID;
 @property (nonatomic,strong)NSString *umid;
 @property (nonatomic,strong)NSString *doctorDescription;
+@property (nonatomic,assign)BOOL relation;
 
 @end
 

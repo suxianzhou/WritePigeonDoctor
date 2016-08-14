@@ -279,7 +279,9 @@
             }
             else
             {
-                // alert
+                [RWSettingsManager promptToViewController:self
+                                                    Title:@"相册打开失败"
+                                                 response:nil];
             }
             
             break;
@@ -309,7 +311,9 @@
             }
             else
             {
-                // alert
+                [RWSettingsManager promptToViewController:self
+                                                    Title:@"相机打开失败"
+                                                 response:nil];
             }
             
             break;
@@ -377,6 +381,31 @@
 - (void)videoViewWillRemoveFromSuperView
 {
     [_coverLayer removeFromSuperview];
+}
+
+- (void)chatView:(RWWeChatView *)chatView selectMessage:(RWWeChatMessage *)message textMeunType:(RWTextMenuType)type
+{
+    switch (type)
+    {
+        case RWTextMenuTypeOfRelay:
+            
+
+            break;
+        case RWTextMenuTypeOfCollect:
+            
+
+            break;
+        case RWTextMenuTypeOfDelete:
+        {
+            if (![self.baseManager removeCacheMessage:message])
+            {
+                MESSAGE(@"删除失败");
+            }
+            
+            break;
+        }
+        default:break;
+    }
 }
 
 #pragma mark - Life Cycle

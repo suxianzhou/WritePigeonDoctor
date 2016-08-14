@@ -11,6 +11,7 @@
 #import "RWDescriptionView.h"
 #import "RWDataModels.h"
 #import "RWDataBaseManager+ChatCache.h"
+#import "XZUMComPullRequest.h"
 
 @interface RWDoctorDescriptionController ()
 
@@ -77,7 +78,7 @@
 {
     _doctorItem = doctorItem;
     
-    _descriptionView.item = doctorItem;
+    _descriptionView.item = _doctorItem;
     
     if (_descriptionView.item)
     {
@@ -123,7 +124,27 @@
 
 - (void)isAttentionAtDescriptionView:(RWDescriptionView *)descriptionView
 {
-    MESSAGE(@"点击关注");
+    if (_doctorItem.relation)
+    {
+        [XZUMComPullRequest userFollowWithUserID:_doctorItem.EMID isFollow:NO completion:^(NSDictionary *responseObject, NSError *error) {
+            
+            if (!error)
+            {
+                _doctorItem.relation = NO;
+                _descriptionView.item = _doctorItem;
+                [_descriptionView reloadData];
+            }
+        }];
+    }
+    else
+    {
+        [XZUMComPullRequest userFollowWithUserID:_doctorItem.EMID isFollow:YES completion:^(NSDictionary *responseObject, NSError *error) {
+            
+            _doctorItem.relation = YES;
+            _descriptionView.item = _doctorItem;
+            [_descriptionView reloadData];
+        }];
+    }
 }
 
 - (void)isShowDoctorDescription:(RWDescriptionView *)descriptionView

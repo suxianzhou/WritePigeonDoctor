@@ -8,6 +8,9 @@
 
 #import "RWDataModels.h"
 #import "XZUMComPullRequest.h"
+#import "UMComUser.h"
+#import "UMComMacroConfig.h"
+#import "UMComImageUrl.h"
 
 @implementation RWOfficeItem @end
 @implementation RWDoctorItem
@@ -18,7 +21,7 @@
     
     if (_EMID && _umid && !_header)
     {
-        [self requestImage];
+        [self requestInformation];
     }
 }
 
@@ -28,19 +31,26 @@
     
     if (_EMID && _umid && !_header)
     {
-        [self requestImage];
+        [self requestInformation];
     }
 }
 
-- (void)requestImage
+- (void)requestInformation
 {
-    [XZUMComPullRequest fecthUserProfileWithUid:_umid
-                                         source:nil
-                                     source_uid:_EMID
-                                     completion:^(NSString *imageStr)
-     {
-         _header = imageStr;
-     }];
+    [XZUMComPullRequest fecthUserMessageWithUid:_umid source:nil source_uid:_EMID completion:^(NSDictionary *responseObject, NSError *error) {
+        
+        UMComUser *umuser = responseObject[UMComModelDataKey];
+        
+        if (umuser.icon_url)
+        {
+            UMComImageUrl * imageUrl = umuser.icon_url;
+            NSString * small = imageUrl.small_url_string;
+            
+            _header = small;
+            
+            _relation = (umuser.relation.integerValue == 1 || umuser.relation.integerValue == 3)?YES:NO;
+        }
+    }];
 }
 
 @end
