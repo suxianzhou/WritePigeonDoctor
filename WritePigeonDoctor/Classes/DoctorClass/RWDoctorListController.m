@@ -9,15 +9,20 @@
 #import "RWDoctorListController.h"
 #import "RWDoctorListCell.h"
 #import "RWDoctorDescriptionController.h"
+#import "RWRequsetManager.h"
+#import <MJRefresh.h>
 
 @interface RWDoctorListController ()
 
 <
     UITableViewDelegate,
-    UITableViewDataSource
+    UITableViewDataSource,
+    RWRequsetDelegate
 >
 
 @property (nonatomic,strong)UITableView *doctorList;
+@property (nonatomic,strong)RWRequsetManager *requestManager;
+@property (nonatomic,assign)NSInteger page;
 
 @end
 
@@ -45,6 +50,27 @@
     
     [_doctorList registerClass:[RWDoctorListCell class]
         forCellReuseIdentifier:NSStringFromClass([RWDoctorListCell class])];
+    
+    
+    _doctorList.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self
+                                                            refreshingAction:@selector(refreshHeaderAction:)];
+    _doctorList.mj_header.tintColor=[UIColor blueColor];
+    
+    _doctorList.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self
+                                                               refreshingAction:@selector(refreshFooterAction:)];
+}
+
+
+-(void)refreshHeaderAction:(MJRefreshHeader *) header
+{
+    _page = 1;
+    
+    [_requestManager obtainOfficeDoctorListWithURL:_doctorListUrl page:_page];
+}
+
+-(void)refreshFooterAction:(MJRefreshFooter *) footer
+{
+    [_requestManager obtainOfficeDoctorListWithURL:_doctorListUrl page:_page];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -81,20 +107,49 @@
     // Do any additional setup after loading the view.
     
     self.navigationItem.title = @"医生列表";
+    _page = 1;
     
     [self initViews];
+
+    _requestManager = [[RWRequsetManager alloc] init];
+    _requestManager.delegate = self;
     
-//    [[NSNotificationCenter defaultCenter] addObserverForName:__IMAGE_FINISH__
-//                                                      object:nil
-//                                                       queue:[NSOperationQueue mainQueue]
-//                                                  usingBlock:^(NSNotification * _Nonnull note)
-//    {
-//        if (_doctorList)
-//        {
-//            [_doctorList reloadData];
-//        }
-//    }];
+    [_requestManager obtainOfficeDoctorListWithURL:_doctorListUrl page:_page];
 }
+
+- (void)requsetOfficeDoctorList:(NSArray *)officeDoctorList responseMessage:(NSString *)responseMessage
+{
+    [_doctorList.mj_header endRefreshing];
+    [_doctorList.mj_footer endRefreshing];
+    
+    if (officeDoctorList)
+    {
+        if (_page == 1)
+        {
+            _doctorResource = officeDoctorList;
+        }
+        else
+        {
+            NSMutableArray *resource = [_doctorResource mutableCopy];
+            
+            for (int i = 0; i < officeDoctorList.count; i++)
+            {
+                [resource addObject:officeDoctorList[i]];
+            }
+            
+            _doctorResource = [resource copy];
+        }
+        
+        _page++;
+        
+        [_doctorList reloadData];
+    }
+    else
+    {
+        [MBProgressHUD Message:responseMessage For:self.view];
+    }
+}
+
 
 - (void)viewDidAppear:(BOOL)animated
 {

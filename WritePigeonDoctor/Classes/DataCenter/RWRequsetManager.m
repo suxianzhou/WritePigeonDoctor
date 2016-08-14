@@ -9,6 +9,7 @@
 #import "RWRequsetManager.h"
 #import "RWRequsetManager+UserLogin.h"
 #import "RWDataModels.h"
+#import <objc/runtime.h>
 
 @interface RWRequsetManager ()
 
@@ -104,10 +105,82 @@
     }];
 }
 
-- (void)obtainOfficeDoctorListWithURL:(NSString *)url
+- (void)obtainOfficeDoctorListWithURL:(NSString *)url page:(NSInteger)page
 {
-    [_requestManager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [_requestManager POST:url parameters:@{@"udid":__TOKEN_KEY__,@"page":@(page)} progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
+        NSDictionary *Json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+        
+        if ([Json[@"resultcode"] integerValue] == 200)
+        {
+            NSArray *doctors = Json[@"result"];
+            
+            NSMutableArray *doctorItem = [[NSMutableArray alloc] init];
+            
+            for (NSDictionary *doctor in doctors)
+            {
+                RWDoctorItem *item = [[RWDoctorItem alloc] init];
+                
+                item.name = @"";
+                item.doctorDescription = doctor[@"docdp"];
+                item.expenses = [doctor[@"expenses"] isKindOfClass:[NSArray class]]?
+                                doctor[@"expenses"]:
+                                @[@"￥0.00元/小时"];
+                item.EMID = doctor[@"username"];
+                item.office = doctor[@"grouptitle"];
+                item.umid = @"";
+                item.professionalTitle = [NSString stringWithFormat:@"%@  %@",doctor[@"hos"],doctor[@"title"]];
+                item.announcement = doctor[@"notice"];
+                
+                if (doctor[@"homevisitlist"] && [doctor[@"homevisitlist"] length] != 0)
+                {
+                    RWWeekHomeVisit *home = [[RWWeekHomeVisit alloc] init];
+                    
+                    NSArray *homeKeys = [RWSettingsManager obtainAllKeysWithObjectClass:[RWWeekHomeVisit class]];
+                    
+                    for (NSString *homeKey in homeKeys)
+                    {
+                        if (doctor[@"homevisitlist"][homeKey])
+                        {
+                            RWHomeVisitItem *visitItem;
+                            
+                            NSArray *itemKeys = [RWSettingsManager obtainAllKeysWithObjectClass:[RWWeekHomeVisit class]];
+                            
+                            for (NSString *itemKey in itemKeys)
+                            {
+                                if (doctor[@"homevisitlist"][homeKey][itemKey])
+                                {
+                                    visitItem = visitItem?visitItem:[[RWHomeVisitItem alloc] init];
+                                    
+                                    [visitItem setValue:doctor[@"homevisitlist"][homeKey][itemKey] forKey:itemKey];
+                                }
+                                
+                                if (visitItem)
+                                {
+                                    [home setValue:visitItem forKey:homeKey];
+                                }
+                            }
+                        }
+                    }
+                    
+                    item.homeVisitList = home;
+                }
+                
+                [doctorItem addObject:item];
+            }
+            
+            if (_delegate && [_delegate respondsToSelector:@selector(requsetOfficeDoctorList:responseMessage:)])
+            {
+                [_delegate requsetOfficeDoctorList:doctorItem responseMessage:nil];
+            }
+        }
+        else
+        {
+            if (_delegate && [_delegate respondsToSelector:@selector(requsetOfficeDoctorList:responseMessage:)])
+            {
+                [_delegate requsetOfficeDoctorList:nil responseMessage:Json[@"result"]];
+            }
+        }
         
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -116,15 +189,113 @@
         {
             if (_delegate && [_delegate respondsToSelector:@selector(requsetOfficeDoctorList:responseMessage:)])
             {
-                [_delegate requsetOfficeList:nil
-                             responseMessage:@"网络连接失败，请检查网络"];
+                [_delegate requsetOfficeDoctorList:nil
+                                   responseMessage:@"网络连接失败，请检查网络"];
             }
         }
         else
         {
             if (_delegate && [_delegate respondsToSelector:@selector(requsetOfficeDoctorList:responseMessage:)])
             {
-                [_delegate requsetOfficeList:nil responseMessage:@"服务器连接失败"];
+                [_delegate requsetOfficeDoctorList:nil
+                                   responseMessage:@"服务器连接失败"];
+            }
+        }
+
+    }];
+}
+
+- (void)obtainDoctorWithDoctorID:(NSString *)doctorID
+{
+    [_requestManager POST:__SEARCH_DOCTOR__
+               parameters:@{@"username":doctorID}
+                 progress:nil
+                  success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
+    {
+        NSDictionary *Json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+        
+        if ([Json[@"resultcode"] integerValue] == 200)
+        {
+            NSDictionary *doctor = Json[@"result"];
+            
+            RWDoctorItem *item = [[RWDoctorItem alloc] init];
+            
+            item.name = @"";
+            item.doctorDescription = doctor[@"docdp"];
+            item.expenses = [doctor[@"expenses"] isKindOfClass:[NSArray class]]?
+            doctor[@"expenses"]:
+            @[@"￥0.00元/小时"];
+            item.EMID = doctor[@"username"];
+            item.office = doctor[@"grouptitle"];
+            item.umid = @"";
+            item.professionalTitle = [NSString stringWithFormat:@"%@  %@",doctor[@"hos"],doctor[@"title"]];
+            item.announcement = doctor[@"notice"];
+            
+            if (doctor[@"homevisitlist"] && [doctor[@"homevisitlist"] length] != 0)
+            {
+                RWWeekHomeVisit *home = [[RWWeekHomeVisit alloc] init];
+                
+                NSArray *homeKeys = [RWSettingsManager obtainAllKeysWithObjectClass:[RWWeekHomeVisit class]];
+                
+                for (NSString *homeKey in homeKeys)
+                {
+                    if (doctor[@"homevisitlist"][homeKey])
+                    {
+                        RWHomeVisitItem *visitItem;
+                        
+                        NSArray *itemKeys = [RWSettingsManager obtainAllKeysWithObjectClass:[RWWeekHomeVisit class]];
+                        
+                        for (NSString *itemKey in itemKeys)
+                        {
+                            if (doctor[@"homevisitlist"][homeKey][itemKey])
+                            {
+                                visitItem = visitItem?visitItem:[[RWHomeVisitItem alloc] init];
+                                
+                                [visitItem setValue:doctor[@"homevisitlist"][homeKey][itemKey] forKey:itemKey];
+                            }
+                            
+                            if (visitItem)
+                            {
+                                [home setValue:visitItem forKey:homeKey];
+                            }
+                        }
+                    }
+                }
+                
+                item.homeVisitList = home;
+            }
+            
+            if (_delegate && [_delegate respondsToSelector:@selector(requsetOfficeDoctor:responseMessage:)])
+            {
+                [_delegate requsetOfficeDoctor:item
+                                responseMessage:nil];
+            }
+        }
+        else
+        {
+            if (_delegate && [_delegate respondsToSelector:@selector(requsetOfficeDoctor:responseMessage:)])
+            {
+                [_delegate requsetOfficeDoctor:nil
+                               responseMessage:Json[@"result"]];
+            }
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        if (!__NET_STATUS__)
+        {
+            if (_delegate && [_delegate respondsToSelector:@selector(requsetOfficeDoctor:responseMessage:)])
+            {
+                [_delegate requsetOfficeDoctor:nil
+                               responseMessage:@"网络连接失败，请检查网络"];
+            }
+        }
+        else
+        {
+            if (_delegate && [_delegate respondsToSelector:@selector(requsetOfficeDoctor:responseMessage:)])
+            {
+                [_delegate requsetOfficeDoctor:nil
+                               responseMessage:@"服务器连接失败"];
             }
         }
     }];

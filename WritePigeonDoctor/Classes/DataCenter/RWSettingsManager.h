@@ -61,6 +61,14 @@
  */
 + (void)promptToViewController:(__kindof UIViewController *)viewController Title:(NSString *)title response:(void(^)(void))response;
 /**
+ *  获取全部对象
+ *
+ *  @param objectClass
+ *
+ *  @return
+ */
++ (NSArray *)obtainAllKeysWithObjectClass:(Class)objectClass;
+/**
  *  AddLocalNotification
  *
  *  @param clockString time string

@@ -20,6 +20,9 @@
 - (void)requsetOfficeDoctorList:(NSArray *)officeDoctorList
                 responseMessage:(NSString *)responseMessage;
 
+- (void)requsetOfficeDoctor:(RWDoctorItem *)doctor
+            responseMessage:(NSString *)responseMessage;
+
 - (void)userLoginSuccess:(BOOL)success
          responseMessage:(NSString *)responseMessage;
 
@@ -40,5 +43,7 @@
 @property (nonatomic,strong)NSDictionary *errorDescription;
 
 - (void)obtainOfficeList;
+- (void)obtainOfficeDoctorListWithURL:(NSString *)url page:(NSInteger)page;
+- (void)obtainDoctorWithDoctorID:(NSString *)doctorID;
 
 @end

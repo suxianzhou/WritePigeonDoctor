@@ -29,6 +29,9 @@
 #define __USER_INFORMATION__ __SERVER_INDEX__@"age.php"
 #endif
 
+#ifndef __SEARCH_DOCTOR__
+#define __SEARCH_DOCTOR__ __SERVER_INDEX__@"find_doc.php"
+#endif
 
 
 #endif /* RWRequestIndex_h */

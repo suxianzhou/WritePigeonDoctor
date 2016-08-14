@@ -254,4 +254,41 @@
     }
 }
 
+#pragma mark - runtime
+
++ (NSArray *)obtainAllKeysWithObjectClass:(Class)objectClass
+{
+    unsigned int ivarCut = 0;
+    
+    Ivar *ivars = class_copyIvarList(objectClass, &ivarCut);
+    
+    NSMutableArray *nameArr = [[NSMutableArray alloc]init];
+    
+    for (const Ivar *p = ivars; p < ivars + ivarCut; p++) {
+        
+        Ivar const ivar = *p;
+        
+        NSString *name = [NSString stringWithUTF8String:ivar_getName(ivar)];
+        
+        [nameArr addObject:name];
+    }
+    
+    return [RWSettingsManager clearFirstString:nameArr];
+}
+
++ (NSArray *)clearFirstString:(NSArray *)arr {
+    
+    NSMutableArray *mArr = [[NSMutableArray alloc]init];
+    
+    for (int i = 0; i < arr.count; i++) {
+        NSMutableString *str = [[NSMutableString alloc]initWithString:arr[i]];
+        
+        [str deleteCharactersInRange:NSMakeRange(0, 1)];
+        
+        [mArr addObject:str];
+    }
+    
+    return mArr;
+}
+
 @end

@@ -94,10 +94,10 @@
     
     RWOfficeItem *item = _officeList[indexPath.row];
     
-    cell.imageView.image = item.image;
+//    cell.imageView.image = item.image;
     
-//    [cell.imageView setImageWithURL:[NSURL URLWithString:item.image]
-//                        placeholder:[UIImage imageNamed:@"image-placeholder"]];
+    [cell.imageView setImageWithURL:[NSURL URLWithString:item.image]
+                        placeholder:[UIImage imageNamed:@"image-placeholder"]];
     
     return cell;
 }
@@ -113,7 +113,8 @@
     
     RWDoctorListController *doctorList = [[RWDoctorListController alloc] init];
     
-    doctorList.doctorResource = item.doctorList;
+//    doctorList.doctorResource = item.doctorList;
+    doctorList.doctorListUrl = item.doctorList;
     
     [self pushNextWithViewcontroller:doctorList];
 }
@@ -125,12 +126,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"找医生";
-    _officeList = [RWTestDataSource getResource];
+//    _officeList = [RWTestDataSource getResource];
     
     _requestManager = [[RWRequsetManager alloc] init];
     _requestManager.delegate = self;
     
-//    [_requestManager obtainOfficeList];
+    [_requestManager obtainOfficeList];
     
     [self initViews];
 }

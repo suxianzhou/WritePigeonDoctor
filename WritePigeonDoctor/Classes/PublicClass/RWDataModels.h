@@ -10,17 +10,13 @@
 #import <UIKit/UIKit.h>
 @class RWWeekHomeVisit,RWHomeVisitItem,RWDoctorItem;
 
-#ifndef __IMAGE_FINISH__
-#define __IMAGE_FINISH__ @"downloadFinish"
-#endif
-
 @interface RWOfficeItem : NSObject
 
-//@property (nonatomic,strong)NSString *image;
-//@property (nonatomic,strong)NSString *doctorList;
+@property (nonatomic,strong)NSString *image;
+@property (nonatomic,strong)NSString *doctorList;
 
-@property (nonatomic,strong)UIImage *image;
-@property (nonatomic,strong)NSArray *doctorList;
+//@property (nonatomic,strong)UIImage *image;
+//@property (nonatomic,strong)NSArray *doctorList;
 
 
 @end

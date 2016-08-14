@@ -12,4 +12,6 @@
 
 @property (nonatomic,copy)NSArray *doctorResource;
 
+@property (nonatomic,copy)NSString *doctorListUrl;
+
 @end

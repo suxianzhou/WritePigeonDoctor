@@ -11,6 +11,12 @@
 
 @interface RWConsultNotesController ()
 
+<
+    RWRequsetDelegate
+>
+
+@property (nonatomic,strong)RWRequsetManager *requestManager;
+
 @end
 
 @implementation RWConsultNotesController
@@ -19,6 +25,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    _requestManager = [[RWRequsetManager alloc] init];
+    _requestManager.delegate = self;
     
     [self compositionConsultAgain];
     
@@ -91,37 +100,21 @@
 
 - (void)toConsultAgain
 {
-    RWWeekHomeVisit *visit = [[RWWeekHomeVisit alloc] init];
+    [_requestManager obtainDoctorWithDoctorID:_history.doctorid];
+}
+
+- (void)requsetOfficeDoctor:(RWDoctorItem *)doctor responseMessage:(NSString *)responseMessage
+{
+    if (doctor)
+    {
+        RWDoctorDescriptionController *doctorView = [RWDoctorDescriptionController doctorDescroptionWith:doctor];
+        
+        [self.navigationController pushViewController:doctorView animated:YES];
+        
+        return;
+    }
     
-    RWHomeVisitItem *visititem = [[RWHomeVisitItem alloc] init];
-    
-    visititem.morning = @"在 XXXX 路 XX 号 XXXXXX 坐诊";
-    visititem.afternoon = @"在 XXXX 路 XX 号 XXXXXX 坐诊";
-    visititem.night = @"在 XXXX 路 XX 号 XXXXXX 坐诊";
-    
-    visit.Monday = visititem;
-    visit.Tuesday = visititem;
-    visit.Wednesday = nil;
-    visit.Thursday = nil;
-    visit.Friday = nil;
-    visit.Saturday = visititem;
-    visit.Sunday = visititem;
-    
-    RWDoctorItem *item = [[RWDoctorItem alloc] init];
-    
-    item.umid = @"57a956b87019c94b65fc4d98";
-    item.name = @"路人甲";
-    item.professionalTitle = @"青岛市 XXX医院 著名医师";
-    item.office = @"测试科室";
-    item.announcement = @"这是一个测试公告";
-    item.homeVisitList = visit;
-    item.expenses = @[@"￥50.00元 / 2小时"];
-    item.EMID = @"13792441528";
-    item.doctorDescription = @"测试医生简介！！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！测试医生简介！";
-    
-    RWDoctorDescriptionController *doctor = [RWDoctorDescriptionController doctorDescroptionWith:item];
-    
-    [self.navigationController pushViewController:doctor animated:YES];
+    [RWSettingsManager promptToViewController:self Title:responseMessage response:nil];
 }
 
 - (void)chatView:(RWWeChatView *)chatView selectMessage:(RWWeChatMessage *)message textMeunType:(RWTextMenuType)type
