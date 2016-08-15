@@ -12,6 +12,7 @@
 #import "UMComLoginManager.h"
 #import "UMComSelectTopicViewController.h"
 #import "UMComBriefEditViewController.h"
+#import "RWWelcomeController.h"
 #import <WebKit/WebKit.h>
 
 @interface RWMainViewController ()
@@ -62,6 +63,12 @@
     
     _informationView.UIDelegate = self;
     _informationView.navigationDelegate = self;
+    
+    if ([SETTINGS_VALUE(FIRST_OPEN_APPILCATION) boolValue])
+    {
+        RWWelcomeController *welcome = [[RWWelcomeController alloc] init];
+        [self presentViewController:welcome animated:YES completion:nil];
+    }
 }
 
 - (void)userContentController:(WKUserContentController *)userContentController
@@ -121,23 +128,15 @@
 }
 
 - (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(null_unspecified WKNavigation *)navigation;
-{
-//    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
-//    
-//    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeGradient];
-//    
-//    [SVProgressHUD setFont:[UIFont systemFontOfSize:14]];
-//    
-//    [SVProgressHUD showWithStatus:@"正在加载..."];
-    
-//    if ([webView.URL.absoluteString isEqualToString:MAIN_INDEX.absoluteString])
-//    {
-//        [self removeWebToolBar];
-//    }
-//    else
-//    {
-//        [self addWebToolBar];
-//    }
+{    
+    if ([webView.URL.absoluteString isEqualToString:__MAIN_INDEX_URL__.absoluteString])
+    {
+        [self removeWebToolBar];
+    }
+    else
+    {
+        [self addWebToolBar];
+    }
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
@@ -146,6 +145,24 @@
             [SVProgressHUD dismiss];
         }
     });
+}
+
+- (void)addWebToolBar
+{
+    if ([self.tabBarController.tabBar viewWithTag:160701])
+    {
+        return;
+    }
+    
+    CGFloat w = self.tabBarController.tabBar.frame.size.width;
+    CGFloat h = self.tabBarController.tabBar.frame.size.height;
+    CGRect frame = CGRectMake(0, 0, w, h);
+    
+    RWCustomizeWebToolBar *bar = [RWCustomizeWebToolBar webBarWithFrame:frame];
+    bar.delegate = self;
+    bar.tag = 160701;
+    
+    [self.tabBarController.tabBar addSubview:bar];
 }
 
 - (void)removeWebToolBar
@@ -170,9 +187,9 @@
         }
         case RWWebToolBarTypeOfIndex:
         {
-//            NSURLRequest *requset = [NSURLRequest requestWithURL:MAIN_INDEX];
-//            
-//            [_informationView loadRequest:requset];
+            NSURLRequest *requset = [NSURLRequest requestWithURL:__MAIN_INDEX_URL__];
+            
+            [_informationView loadRequest:requset];
             
             break;
         }

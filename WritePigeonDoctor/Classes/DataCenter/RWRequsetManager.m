@@ -121,14 +121,14 @@
             {
                 RWDoctorItem *item = [[RWDoctorItem alloc] init];
                 
-//                item.name = doctor[@"nickname"];
+                item.name = doctor[@"nickname"];
                 item.doctorDescription = doctor[@"docdp"];
                 item.expenses = [doctor[@"expenses"] isKindOfClass:[NSArray class]]?
                                 doctor[@"expenses"]:
                                 @[@"￥0.00元/小时"];
                 item.EMID = doctor[@"username"];
                 item.office = doctor[@"grouptitle"];
-//                item.umid = doctor[@"umid"];
+                item.umid = doctor[@"umid"];
                 item.professionalTitle = [NSString stringWithFormat:@"%@  %@",doctor[@"hos"],doctor[@"title"]];
                 item.announcement = doctor[@"notice"];
                 

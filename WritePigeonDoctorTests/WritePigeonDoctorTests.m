@@ -109,12 +109,12 @@
     AFHTTPSessionManager *requestManager = [AFHTTPSessionManager manager];
     requestManager.responseSerializer = [AFHTTPResponseSerializer serializer];
     
-    NSString *username = @"18561599339";
+    NSString *username = @"18562599335";
     NSString *password = @"qwertyu";
 //    NSString *yzm = @"";
     NSString *nickname = @"RyeWhiskey";
     NSString *hos = @"新潮未来科技医院";
-    NSString *groupid = @"15";
+    NSString *groupid = @"27";
     NSString *notice = @"暂无";
     NSString *title = @"主任医师";
     

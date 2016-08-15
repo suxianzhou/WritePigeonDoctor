@@ -8,19 +8,14 @@
 
 #import "FEBaseLoginController.h"
 
+@interface RWHeaderView : UIView
+
+@property (nonatomic,strong,readonly)UIImageView *imageView;
+
+@property (nonatomic,strong)UIImage *image;
+
+@end
+
 @interface InfoViewController : FEBaseLoginController
-
-
-@property(nonatomic,copy)NSString * phoneNumber;
-
-@property(nonatomic,copy)NSString * passWord;
-
-@property(nonatomic,strong)NSData * headerImage;
-
-@property(nonatomic,copy)NSString * name;
-
-@property(nonatomic,copy)NSString *age;
-
-@property(nonatomic,copy)NSString * gender;
 
 @end

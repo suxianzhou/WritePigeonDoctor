@@ -39,11 +39,11 @@ static NSString *const welcomeCell = @"welcomeCell";
 
 - (void)initDataSource
 {
-    imageSource = @[[UIImage imageNamed:@"welcome1e"],
-                    [UIImage imageNamed:@"welcome2e"],
-                    [UIImage imageNamed:@"welcome3e"],
-                    [UIImage imageNamed:@"welcome4e"],
-                    [UIImage imageNamed:@"welcome5e"]];
+    imageSource = @[[UIImage imageNamed:@"welcome1"],
+                    [UIImage imageNamed:@"welcome2"],
+                    [UIImage imageNamed:@"welcome3"],
+                    [UIImage imageNamed:@"welcome4"],
+                    [UIImage imageNamed:@"welcome5"]];
 }
 
 - (void)initLoginButton
@@ -52,21 +52,15 @@ static NSString *const welcomeCell = @"welcomeCell";
     
     [toLogin setTitle:@"立即体验" forState:UIControlStateNormal];
     
-    [toLogin setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    
-    toLogin.layer.borderColor = [[UIColor whiteColor] CGColor];
-    
+    [toLogin setTitleColor:__WPD_MAIN_COLOR__ forState:UIControlStateNormal];
+    toLogin.layer.borderColor = [__WPD_MAIN_COLOR__ CGColor];
     toLogin.layer.borderWidth = 1;
-    
     toLogin.layer.cornerRadius = 5;
-    
     toLogin.backgroundColor = [UIColor clearColor];
-    
     toLogin.titleLabel.font = [UIFont systemFontOfSize:17];
-    
-//    [toLogin addTarget:self
-//                action:@selector(toRegisterView)
-//      forControlEvents:UIControlEventTouchUpInside];
+    [toLogin addTarget:self
+                action:@selector(dismiss)
+      forControlEvents:UIControlEventTouchUpInside];
     
     if (imageSource.count == 1)
     {
@@ -74,12 +68,19 @@ static NSString *const welcomeCell = @"welcomeCell";
         
         [toLogin mas_makeConstraints:^(MASConstraintMaker *make) {
             
-            make.width.equalTo(@(120));
-            make.height.equalTo(@(50));
+            make.width.equalTo(@(100));
+            make.height.equalTo(@(45));
             make.centerX.equalTo(self.view.mas_centerX).offset(0);
             make.bottom.equalTo(imagePage.mas_top).offset(-50);
         }];
     }
+}
+
+- (void)dismiss
+{
+    SETTINGS(FIRST_OPEN_APPILCATION,@(NO));
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)initImagePage
@@ -95,16 +96,16 @@ static NSString *const welcomeCell = @"welcomeCell";
         make.width.equalTo([NSNumber numberWithInteger:30 * imageSource.count]);
         make.height.equalTo(@(20));
         make.centerX.equalTo(self.view.mas_centerX).offset(0);
-        make.bottom.equalTo(self.view.mas_bottom).offset(-10);
+        make.bottom.equalTo(self.view.mas_bottom).offset(-40);
     }];
     
     imagePage.currentPage = 0;
     imagePage.numberOfPages = imageSource.count;
-    imagePage.pageIndicatorTintColor = [UIColor whiteColor];
+    imagePage.pageIndicatorTintColor = [UIColor darkSlateGray];
     
     if (imageSource.count > 1)
     {
-        imagePage.currentPageIndicatorTintColor = [UIColor lightGrayColor];
+        imagePage.currentPageIndicatorTintColor = __WPD_MAIN_COLOR__;
     }
 }
 
@@ -164,10 +165,10 @@ static NSString *const welcomeCell = @"welcomeCell";
         
         [toLogin mas_makeConstraints:^(MASConstraintMaker *make) {
            
-            make.width.equalTo(@(90));
-            make.height.equalTo(@(35));
+            make.width.equalTo(@(100));
+            make.height.equalTo(@(45));
             make.centerX.equalTo(self.view.mas_centerX).offset(0);
-            make.bottom.equalTo(imagePage.mas_top).offset(0);
+            make.bottom.equalTo(imagePage.mas_top).offset(-30);
         }];
     }
     else

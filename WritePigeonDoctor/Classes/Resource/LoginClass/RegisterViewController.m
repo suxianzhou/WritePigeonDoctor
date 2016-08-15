@@ -9,7 +9,6 @@
 #import "RegisterViewController.h"
 #import "FELoginTableCell.h"
 #import "YYKit.h"
-#import "InfoViewController.h"
 #import "UIColor+Wonderful.h"
 #import "RWRequsetManager+UserLogin.h"
 #import "XZSettingWebViewController.h"
@@ -643,7 +642,7 @@ static NSString * const agreementCell=@"agreementCell";
         [button setImage:[UIImage imageNamed:@"duihao"] forState:(UIControlStateNormal)];
         isAgree=YES;
         overButton.backgroundColor=__WPD_MAIN_COLOR__;
-        [overButton setTitle:@"完善信息" forState:(UIControlStateNormal)];
+        [overButton setTitle:@"注册" forState:(UIControlStateNormal)];
         overButton.userInteractionEnabled=YES;
     }
 }

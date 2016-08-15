@@ -323,9 +323,6 @@ static NSString *const buttonCell = @"buttonCell";
     return nil;
 }
 
-
-
-
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
     if(section==2){
@@ -556,19 +553,17 @@ static NSString *const buttonCell = @"buttonCell";
         
         if ([RWDataBaseManager perfectPersonalInformation])
         {
+            [self dismissViewControllerAnimated:NO completion:nil];
+            
             InfoViewController * ifVC=[[InfoViewController alloc]init];
-            RWUser * user=[[RWDataBaseManager defaultManager] getDefualtUser];
-            ifVC.name=user.name;
-            ifVC.age=user.age;
-            ifVC.headerImage=user.header;
-            ifVC.gender=user.gender;
-            [self presentViewController:ifVC animated:YES completion:nil];
+            
+            UIViewController *root = [UIApplication sharedApplication].keyWindow.rootViewController;
+            
+            [root presentViewController:ifVC animated:YES completion:nil];
         }
         else
         {
-            
             [self dismissViewControllerAnimated:YES completion:nil];
-            
         }
 
     }

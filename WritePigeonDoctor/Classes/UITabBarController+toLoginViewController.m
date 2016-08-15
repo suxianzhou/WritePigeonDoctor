@@ -30,11 +30,7 @@
 - (void)toPerfectPersonalInformation
 {
     InfoViewController * ifVC=[[InfoViewController alloc]init];
-    RWUser * user=[[RWDataBaseManager defaultManager] getDefualtUser];
-    ifVC.name=user.name;
-    ifVC.age=user.age;
-    ifVC.headerImage=user.header;
-    ifVC.gender=user.gender;
+
     [self presentViewController:ifVC animated:YES completion:nil];
 }
 

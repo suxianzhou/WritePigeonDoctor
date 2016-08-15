@@ -205,7 +205,6 @@
 		129400211D59D0B7001D339A /* UITabBarController+toLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 129400201D59D0B7001D339A /* UITabBarController+toLoginViewController.m */; };
 		129400361D59E454001D339A /* FEBaseLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1294002C1D59E454001D339A /* FEBaseLoginController.m */; };
 		129400371D59E454001D339A /* FELoginTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1294002E1D59E454001D339A /* FELoginTableCell.m */; };
-		129400381D59E454001D339A /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 129400301D59E454001D339A /* InfoViewController.m */; };
 		129400391D59E454001D339A /* Login.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 129400311D59E454001D339A /* Login.xcassets */; };
 		1294003A1D59E454001D339A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 129400331D59E454001D339A /* LoginViewController.m */; };
 		1294003B1D59E454001D339A /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 129400351D59E454001D339A /* RegisterViewController.m */; };
@@ -223,6 +222,7 @@
 		12C1AF741D4629040087ABA0 /* RWDoctorListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C1AF641D4629040087ABA0 /* RWDoctorListController.m */; };
 		12C1AF751D4629040087ABA0 /* RWMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C1AF6A1D4629040087ABA0 /* RWMainViewController.m */; };
 		12C1AF7A1D4629D10087ABA0 /* RWMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C1AF791D4629D10087ABA0 /* RWMainTabBarController.m */; };
+		12C8F6B61D61FF750053D08E /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C8F6B51D61FF750053D08E /* InfoViewController.m */; };
 		12EA06BF1D56D7D40056A875 /* RWDataBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 12EA06BE1D56D7D40056A875 /* RWDataBaseManager.m */; };
 		12EA089F1D57031A0056A875 /* UITabBar+badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 12EA089E1D57031A0056A875 /* UITabBar+badge.m */; };
 		12EA08A21D57039D0056A875 /* XZMicroVideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12EA08A11D57039D0056A875 /* XZMicroVideoPlayerView.m */; };
@@ -693,8 +693,6 @@
 		1294002C1D59E454001D339A /* FEBaseLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FEBaseLoginController.m; sourceTree = "<group>"; };
 		1294002D1D59E454001D339A /* FELoginTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FELoginTableCell.h; sourceTree = "<group>"; };
 		1294002E1D59E454001D339A /* FELoginTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FELoginTableCell.m; sourceTree = "<group>"; };
-		1294002F1D59E454001D339A /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
-		129400301D59E454001D339A /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		129400311D59E454001D339A /* Login.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Login.xcassets; sourceTree = "<group>"; };
 		129400321D59E454001D339A /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		129400331D59E454001D339A /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -728,6 +726,8 @@
 		12C1AF6C1D4629040087ABA0 /* PublicMacro.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PublicMacro.pch; path = ../PublicClass/PublicMacro.pch; sourceTree = "<group>"; };
 		12C1AF781D4629D10087ABA0 /* RWMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWMainTabBarController.h; sourceTree = "<group>"; };
 		12C1AF791D4629D10087ABA0 /* RWMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWMainTabBarController.m; sourceTree = "<group>"; };
+		12C8F6B41D61FF750053D08E /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		12C8F6B51D61FF750053D08E /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		12EA06BD1D56D7D40056A875 /* RWDataBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWDataBaseManager.h; sourceTree = "<group>"; };
 		12EA06BE1D56D7D40056A875 /* RWDataBaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWDataBaseManager.m; sourceTree = "<group>"; };
 		12EA089D1D57031A0056A875 /* UITabBar+badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITabBar+badge.h"; path = "../UITabBar+badge.h"; sourceTree = "<group>"; };
@@ -869,10 +869,10 @@
 		1236AA831D46ED1D00C65043 /* PageViews */ = {
 			isa = PBXGroup;
 			children = (
-				12635C1E1D61AB1400E2D78E /* Community */,
 				12C1AF681D4629040087ABA0 /* MainClass */,
 				12C1AF621D4629040087ABA0 /* DoctorClass */,
 				12587B301D60A13F00EC33D5 /* Settings */,
+				12635C1E1D61AB1400E2D78E /* Community */,
 			);
 			name = PageViews;
 			sourceTree = "<group>";
@@ -1868,8 +1868,8 @@
 				1294002C1D59E454001D339A /* FEBaseLoginController.m */,
 				1294002D1D59E454001D339A /* FELoginTableCell.h */,
 				1294002E1D59E454001D339A /* FELoginTableCell.m */,
-				1294002F1D59E454001D339A /* InfoViewController.h */,
-				129400301D59E454001D339A /* InfoViewController.m */,
+				12C8F6B41D61FF750053D08E /* InfoViewController.h */,
+				12C8F6B51D61FF750053D08E /* InfoViewController.m */,
 				129400311D59E454001D339A /* Login.xcassets */,
 				129400321D59E454001D339A /* LoginViewController.h */,
 				129400331D59E454001D339A /* LoginViewController.m */,
@@ -2514,6 +2514,7 @@
 				12635DD11D61AB1400E2D78E /* UMComSimpleNoticeTableViewController.m in Sources */,
 				12BFA25A1D573508007C86DF /* RWObjectModels.m in Sources */,
 				12635D7F1D61AB1400E2D78E /* UMComActionPickerAddView.m in Sources */,
+				12C8F6B61D61FF750053D08E /* InfoViewController.m in Sources */,
 				12BFA2511D5733E1007C86DF /* RWUserInformation+CoreDataProperties.m in Sources */,
 				12587B461D60A13F00EC33D5 /* RWSettingsViewController.m in Sources */,
 				12FA40411D46F35E0084D50A /* RWWelcomeImageCell.m in Sources */,
@@ -2540,7 +2541,6 @@
 				12C1AF751D4629040087ABA0 /* RWMainViewController.m in Sources */,
 				12587B481D60A13F00EC33D5 /* WPD_SVProgressHUD.m in Sources */,
 				12F1A09D1D4D8B70007B5994 /* FEProgressHUD.m in Sources */,
-				129400381D59E454001D339A /* InfoViewController.m in Sources */,
 				12635D8D1D61AB1400E2D78E /* UMComSimpleGridViewerController.m in Sources */,
 				12635DE81D61AB1400E2D78E /* UMComListDataController.m in Sources */,
 				12635D7C1D61AB1400E2D78E /* UMComNavigationController.m in Sources */,

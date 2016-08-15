@@ -33,13 +33,11 @@
 #define __EMSDK_KEY__ @"zhongyujiaoyu#writepigeondoctor"
 #endif
 
-#ifndef __VERIFICATION_CODE__
-#define __VERIFICATION_CODE__ @"http://api.zhongyuedu.com/comm/code.php"
+#ifndef __MAIN_INDEX__
+#define __MAIN_INDEX__ @"http://www.zhongyuedu.com/tgm/test/test18"
 #endif
 
-#ifndef __REPLACE_PASSWORD__
-#define __REPLACE_PASSWORD__ @"http://api.zhongyuedu.com/bg/change_pwd.php"
-#endif
+#define __MAIN_INDEX_URL__ [NSURL URLWithString:__MAIN_INDEX__]
 
 #ifndef __DEFAULT_NAVIGATION_BAR__
 #define __DEFAULT_NAVIGATION_BAR__ [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"渐变"] forBarMetrics:UIBarMetricsDefault]

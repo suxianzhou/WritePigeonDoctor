@@ -9,11 +9,42 @@
 #import "InfoViewController.h"
 #import "FELoginTableCell.h"
 #import "RWRequsetManager+UserLogin.h"
+
+@implementation RWHeaderView
+
+- (void)didMoveToWindow
+{
+    if (!_imageView)
+    {
+        _imageView = [[UIImageView alloc] init];
+        [self addSubview:_imageView];
+        
+        _imageView.backgroundColor=[UIColor whiteColor];
+        _imageView.layer.cornerRadius=(self.bounds.size.height - 30) / 2;
+        _imageView.clipsToBounds = YES;
+        _imageView.layer.borderWidth = 1.5f;
+        _imageView.layer.borderColor = [UIColor whiteColor].CGColor;
+        _imageView.userInteractionEnabled = YES;
+        _imageView.image = _image?_image:[UIImage imageNamed:@"user_image"];
+    }
+    
+    [_imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+       
+        make.height.equalTo(@(self.bounds.size.height-30));
+        make.width.equalTo(@(self.bounds.size.height-30));
+        make.centerX.equalTo(self.mas_centerX).offset(0);
+        make.centerY.equalTo(self.mas_centerY).offset(0);
+    }];
+}
+
+@end
+
 @interface InfoViewController ()<UITableViewDelegate,UITableViewDataSource,FETextFiledCellDelegate,FEButtonCellDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,RWRequsetDelegate>
 
-@property (strong, nonatomic)UIImageView *myHeadPortrait;
 @property(nonatomic,strong)UIView *backview;
 @property(nonatomic,strong)RWRequsetManager * requestManager;
+@property (nonatomic,strong)RWUser *user;
+
 @end
 
 static NSString * const textFieldCell=@"textFieldCell";
@@ -23,8 +54,10 @@ static NSString *const buttonCell = @"buttonCell";
 
 @synthesize facePlaceHolder;
 
--(void)viewWillAppear:(BOOL)animated{
+- (void)viewWillAppear:(BOOL)animated
+{
     [super viewWillAppear:animated];
+    
     CGRect frame=_backview.frame;
     _backview.frame=CGRectMake(frame.origin.x
                                , -frame.size.height+frame.origin.y
@@ -33,42 +66,26 @@ static NSString *const buttonCell = @"buttonCell";
     [UIView animateWithDuration:1.5 animations:^{
         _backview.frame=frame;
     }];
-
-    [self registerForKeyboardNotifications];
 }
-
 
 -(void)viewDidAppear:(BOOL)animated{
     
     [super viewDidAppear:animated];
-    if (_requestManager && _requestManager.delegate == nil)
-    {
-        _requestManager.delegate = self;
-    }
     
+    if (!_user)
+    {
+        _user = [[RWDataBaseManager defaultManager] getDefualtUser];
+        [self.viewList reloadData];
+    }
 }
--(void)viewWillDisappear:(BOOL)animated{
+
+-(void)viewWillDisappear:(BOOL)animated
+{
     [super viewWillDisappear:animated];
+    
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
--(void)viewDidDisappear:(BOOL)animated{
-    [super viewDidDisappear:animated];
-    _requestManager.delegate = nil;
-}
-
-- (void)obtainRequestManager
-{
-    
-    if (!_requestManager)
-    {
-        _requestManager = [[RWRequsetManager alloc]init];
-        
-        _requestManager.delegate = self;
-    }
-}
-
-
 
 - (void)registerForKeyboardNotifications
 {
@@ -79,8 +96,6 @@ static NSString *const buttonCell = @"buttonCell";
 
 - (void)keyboardWasShown:(NSNotification *) notif
 {
-    
-    
     if ([facePlaceHolder isEqualToString:@"请输入年龄"]) {
         [UIView animateWithDuration:0.3 animations:^{
             self.view.frame=CGRectMake(0,-self.viewList.frame.size.height/5, self.view.frame.size.width, self.view.frame.size.height);
@@ -101,8 +116,14 @@ static NSString *const buttonCell = @"buttonCell";
 
 
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
+    
+    _requestManager = [[RWRequsetManager alloc]init];
+    _requestManager.delegate = self;
+    
+    [self registerForKeyboardNotifications];
     
     _backview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height-self.view.bounds.size.height/8)];
     _backview.backgroundColor=[UIColor clearColor];
@@ -116,14 +137,13 @@ static NSString *const buttonCell = @"buttonCell";
         
     }];
     
-
-    
     [self initWithViewList];
     [self createBottomView];
     [self.viewList addGestureRecognizer:self.tap];
 }
 #pragma mark    创建整体UI设计
--(void)initWithViewList{
+-(void)initWithViewList
+{
     [self.backView removeFromSuperview];
     
     //  创建需要的毛玻璃特效类型
@@ -167,62 +187,26 @@ static NSString *const buttonCell = @"buttonCell";
     }
     return 0;
 }
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    
-    UIView *baseBackView = [[UIView alloc]init];
-    
-    baseBackView.backgroundColor = [UIColor clearColor];
-    
-    
-    UIView * backView=[[UIView alloc]init];
-    
-    
-    [baseBackView addSubview:backView];
-    
-    CGFloat h = self.viewList.frame.size.height/4 - 20;
-    
-    [backView mas_makeConstraints:^(MASConstraintMaker *make)
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    if (section==0)
     {
-        make.center.equalTo(baseBackView);
-        make.top.equalTo(baseBackView.mas_top).offset(10);
-        make.height.equalTo(@(h));
-        make.width.equalTo(backView.mas_height);
-    }];
-    
-    _myHeadPortrait.center=backView.center;
-    _myHeadPortrait=[[UIImageView alloc]initWithFrame:CGRectMake(3, 3, self.view.frame.size.height/4-6,  self.view.frame.size.height/4-6)];
-    CGFloat with=_myHeadPortrait.bounds.size.height/4;
-    
-    if (self.headerImage) {
-        _myHeadPortrait=[[UIImageView alloc]initWithImage:[UIImage imageWithData:self.headerImage]];
-    }else{
-        _myHeadPortrait=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"user_image"]];
+        RWHeaderView *view = [[RWHeaderView alloc] init];
+        view.userInteractionEnabled = YES;
+        
+        if (_user.header)
+        {
+            view.image = [UIImage imageWithData:_user.header];
+        }
+        
+        UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(alterHeadPortrait:)];
+        singleTap.numberOfTapsRequired = 1;
+        [view addGestureRecognizer:singleTap];
+        
+        return view;
     }
-    _myHeadPortrait.backgroundColor=[UIColor whiteColor];
-    _myHeadPortrait.layer.cornerRadius=with;
-    _myHeadPortrait.clipsToBounds = YES;
-    self.myHeadPortrait.layer.borderWidth = 1.5f;
-    self.myHeadPortrait.layer.borderColor = [UIColor whiteColor].CGColor;
-//
-    _myHeadPortrait.userInteractionEnabled = YES;
-    
-    [backView addSubview:_myHeadPortrait];
-    
-    
-    
-    [_myHeadPortrait mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.center.equalTo(backView);
-        make.top.equalTo(backView.mas_top).offset(3);
-        make.width.equalTo(_myHeadPortrait.mas_height);
-        
-    }];
-    //初始化一个手势
-    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc]initWithTarget:self
-                                                                               action:@selector(alterHeadPortrait:)];
-    //给imageView添加手势
-    [_myHeadPortrait addGestureRecognizer:singleTap];
-    return baseBackView;
+    return nil;
 }
 
 
@@ -236,23 +220,29 @@ static NSString *const buttonCell = @"buttonCell";
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return self.viewList.frame.size.height/7;
 }
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     if (indexPath.section==0) {
         FETextFiledCell *cell = [tableView dequeueReusableCellWithIdentifier:textFieldCell forIndexPath:indexPath];
-        if (self.name) {
-            cell.textField.text=self.name;
+        
+        if (_user.name)
+        {
+            cell.textField.text = _user.name;
         }
         cell.delegate = self;
         cell.placeholder = @"请输入昵称";
         
         return cell;
-    }else if (indexPath.section==1){
+    }
+    else if (indexPath.section==1)
+    {
         FETextFiledCell *cell = [tableView dequeueReusableCellWithIdentifier:textFieldCell forIndexPath:indexPath];
-        if (self.gender) {
-            cell.textField.text=self.gender;
+        
+        if (_user.gender)
+        {
+            cell.textField.text = _user.gender;
         }
         cell.delegate = self;
-        cell.textField.text=@"男";
         cell.placeholder = @"请输入性别";
         UIButton * button=[[UIButton alloc]init];
         
@@ -268,26 +258,34 @@ static NSString *const buttonCell = @"buttonCell";
 
         return cell;
         
-    }else if (indexPath.section==2){
+    }
+    else if (indexPath.section==2)
+    {
         FETextFiledCell *cell = [tableView dequeueReusableCellWithIdentifier:textFieldCell forIndexPath:indexPath];
-        if (self.age) {
-            cell.textField.text=self.age;
+        if (_user.age)
+        {
+            cell.textField.text = _user.age;
         }
         cell.delegate = self;
         cell.textField.keyboardType=UIKeyboardTypeDecimalPad;
         cell.placeholder = @"请输入年龄";
+        
         return cell;
-    }else if (indexPath.section==3){
+    }
+    else if (indexPath.section==3)
+    {
         FEButtonCell *cell=[tableView dequeueReusableCellWithIdentifier:buttonCell forIndexPath:indexPath];
         cell.delegate=self;
         cell.button.tag=99999;
         [cell setTitle:@"上一步"];
         return cell;
-    }else if(indexPath.section==4){
+    }
+    else if(indexPath.section==4)
+    {
         FEButtonCell *cell=[tableView dequeueReusableCellWithIdentifier:buttonCell forIndexPath:indexPath];
         cell.delegate=self;
         cell.tag=100000;
-        [cell setTitle:@"注册完成"];
+        [cell setTitle:@"完成"];
         return cell;
     }
     return nil;
@@ -307,7 +305,8 @@ static NSString *const buttonCell = @"buttonCell";
     
 }
 //选择性别
--(void)chickGender{
+-(void)chickGender
+{
     FETextFiledCell * cell=[self.viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"性别选择" message:nil preferredStyle:  UIAlertControllerStyleActionSheet];
     [alert addAction:[UIAlertAction actionWithTitle:@"男" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -325,14 +324,10 @@ static NSString *const buttonCell = @"buttonCell";
     
 }
 
--(void)textFiledCell:(FETextFiledCell *)cell DidBeginEditing:(NSString *)placeholder{
+-(void)textFiledCell:(FETextFiledCell *)cell DidBeginEditing:(NSString *)placeholder
+{
     facePlaceHolder = placeholder;
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    
-}
-
 
 -(void)createBottomView{
     
@@ -359,7 +354,7 @@ static NSString *const buttonCell = @"buttonCell";
         make.centerX.equalTo(weakself.view.mas_centerX);
         make.left.equalTo(weakself.view.mas_left);
         make.height.equalTo(@(30));
-        make.top.equalTo(weakself.viewList.mas_bottom).offset(20);
+        make.top.equalTo(weakself.viewList.mas_bottom);
     }];
     
     [bottomButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -372,21 +367,16 @@ static NSString *const buttonCell = @"buttonCell";
     
     
 }
--(void)jumpMain{
-    [self dismissToRootViewController];
-}
--(void)dismissToRootViewController
+
+- (void)jumpMain
 {
-    UIViewController *vc = self;
-    while (vc.presentingViewController) {
-        vc = vc.presentingViewController;
-    }
-    [vc dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark alterHeadPortrait
 
--(void)alterHeadPortrait:(UITapGestureRecognizer *)gesture{
+-(void)alterHeadPortrait:(UITapGestureRecognizer *)gesture
+{
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     [alert addAction:[UIAlertAction actionWithTitle:@"从相册选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
@@ -401,9 +391,7 @@ static NSString *const buttonCell = @"buttonCell";
         [self presentViewController:PickerImage animated:YES completion:nil];
     }]];
     
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
-    {
-        
+    
     [alert addAction:[UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action){
        
         UIImagePickerController *PickerImage = [[UIImagePickerController alloc]init];
@@ -414,39 +402,49 @@ static NSString *const buttonCell = @"buttonCell";
         [self presentViewController:PickerImage animated:YES completion:nil];
     }]];
     
-    }
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
     [self presentViewController:alert animated:YES completion:nil];
 
 }
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
     
     UIImage *newPhoto = [info objectForKey:@"UIImagePickerControllerEditedImage"];
-    _myHeadPortrait.image = newPhoto;
     
+    _user.header = UIImagePNGRepresentation(newPhoto)?
+                   UIImagePNGRepresentation(newPhoto):
+                   UIImageJPEGRepresentation(newPhoto, 0.9);
     
     [self dismissViewControllerAnimated:YES completion:nil];
+    
+    [self.viewList reloadData];
 }
-
-
-
-
 
 -(void)setinfo
 {
-    SHOWLOADING;
-    [self obtainRequestManager];
-    FETextFiledCell * name=[self.viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    FETextFiledCell *name=[self.viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    
     NSString * nameStr=name.textField.text;
-    FETextFiledCell * sex=[self.viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
+    FETextFiledCell *sex=[self.viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
+    
     NSString * sexStr=sex.textField.text;
-    FETextFiledCell * age=[self.viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]];
+    FETextFiledCell *age=[self.viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]];
+    
     NSString * ageStr=age.textField.text;
     
-    if ([nameStr isEqualToString:@""]||nameStr==nil)
+    if ([nameStr isEqualToString:@""]||nameStr == nil)
     {
         [RWSettingsManager promptToViewController:self
                                             Title:@"昵称不能为空"
+                                         response:nil];
+        
+        return;
+    }
+    
+    if (ageStr.length == 0 || [ageStr isEqualToString:@""]||ageStr == nil)
+    {
+        [RWSettingsManager promptToViewController:self
+                                            Title:@"年龄不能为空"
                                          response:nil];
         
         return;
@@ -461,13 +459,18 @@ static NSString *const buttonCell = @"buttonCell";
     }
     
     __weak typeof (self) weakself =self;
-    [_requestManager setUserHeader:_myHeadPortrait.image name:nameStr age:ageStr sex:sexStr completion:^(BOOL success, NSString *errorReason)
+    __block RWUser *weakUser = _user;
+    
+    [_requestManager setUserHeader:[UIImage imageWithData:_user.header] name:nameStr age:ageStr sex:sexStr completion:^(BOOL success, NSString *errorReason)
     {
-         DISSMISS;
-        if (success) {
-           
-            [weakself jumpMain];
-        }else{
+        if (success)
+        {
+            [[RWDataBaseManager defaultManager] updateUesr:weakUser];
+            
+            [weakself dismissViewControllerAnimated:YES completion:nil];
+        }
+        else
+        {
             [RWSettingsManager promptToViewController:weakself
                                                 Title:errorReason
                                              response:nil];

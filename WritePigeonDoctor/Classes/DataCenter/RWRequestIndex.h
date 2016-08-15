@@ -33,5 +33,13 @@
 #define __SEARCH_DOCTOR__ __SERVER_INDEX__@"find_doc.php"
 #endif
 
+#ifndef __REPLACE_PASSWORD__
+#define __REPLACE_PASSWORD__ __SERVER_INDEX__@"change_pwd.php"
+#endif
+
+
+#ifndef __VERIFICATION_CODE__
+#define __VERIFICATION_CODE__ @"http://api.zhongyuedu.com/comm/code.php"
+#endif
 
 #endif /* RWRequestIndex_h */
