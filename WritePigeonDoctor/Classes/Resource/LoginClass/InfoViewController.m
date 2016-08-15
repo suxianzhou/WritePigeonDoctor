@@ -248,6 +248,7 @@ static NSString *const buttonCell = @"buttonCell";
             cell.textField.text=self.gender;
         }
         cell.delegate = self;
+        cell.textField.text=@"男";
         cell.placeholder = @"请输入性别";
         UIButton * button=[[UIButton alloc]init];
         
@@ -354,7 +355,7 @@ static NSString *const buttonCell = @"buttonCell";
         make.centerX.equalTo(weakself.view.mas_centerX);
         make.left.equalTo(weakself.view.mas_left);
         make.height.equalTo(@(30));
-        make.top.equalTo(weakself.viewList.mas_bottom);
+        make.top.equalTo(weakself.viewList.mas_bottom).offset(20);
     }];
     
     [bottomButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -425,6 +426,7 @@ static NSString *const buttonCell = @"buttonCell";
 
 
 -(void)setinfo{
+    SHOWLOADING;
     [self obtainRequestManager];
     FETextFiledCell * name=[self.viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     NSString * nameStr=name.textField.text;
@@ -449,15 +451,19 @@ static NSString *const buttonCell = @"buttonCell";
                                          response:nil];
         return;
     }
+    
     __weak typeof (self) weakself =self;
     [_requestManager setUserHeader:_myHeadPortrait.image name:nameStr age:ageStr sex:sexStr completion:^(BOOL success, NSString *errorReason)
     {
         if (success) {
+            DISSMISS;
             [weakself jumpMain];
         }else{
             [RWSettingsManager promptToViewController:weakself
                                                 Title:errorReason
-                                             response:nil];
+                                             response:^{
+                                                 DISSMISS;
+                                             }];
         }
     }];
     

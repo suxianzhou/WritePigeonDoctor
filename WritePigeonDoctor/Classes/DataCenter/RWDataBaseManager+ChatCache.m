@@ -262,9 +262,6 @@
         {
             EMVideoMessageBody *body = (EMVideoMessageBody *)message.message.body;
             
-            chatCache.content = message.originalResource?
-                                message.originalResource:
-                                [NSData dataWithContentsOfFile:body.localPath];
             chatCache.localPath = body.localPath;
             chatCache.remotePath = body.remotePath;
             chatCache.secretKey = body.secretKey;

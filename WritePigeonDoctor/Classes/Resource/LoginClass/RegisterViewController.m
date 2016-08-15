@@ -494,14 +494,15 @@ static NSString * const agreementCell=@"agreementCell";
 }
 -(void)userRegisterSuccess:(BOOL)success responseMessage:(NSString *)responseMessage
 {
-    DISSMISS;
+    
     if (success)
     {
+        DISSMISS;
         [RWSettingsManager promptToViewController:self
                                             Title:@"注册成功"
                                          response:^
          {
-             [self dismissViewControllerAnimated:NO completion:nil];
+             [self dismissViewControllerAnimated:YES completion:nil];
              
              UITabBarController *tabBar = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
              
@@ -512,29 +513,37 @@ static NSString * const agreementCell=@"agreementCell";
     {
         [RWSettingsManager promptToViewController:self
                                             Title:responseMessage
-                                         response:nil];
+                                         response:^{
+                                             DISSMISS;
+                                             
+                                         }];
     }
     
 }
 -(void)userReplacePasswordResponds:(BOOL)success responseMessage:(NSString *)responseMessage
 {
-    DISSMISS;
+   
     if (success)
     {
+        
         [RWSettingsManager promptToViewController:self
                                             Title:@"修改成功"
                                          response:^
         {
+             DISSMISS;
             UITabBarController *tabBar = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
             
             [tabBar toLoginViewController];
+            
         }];
     }
     else
     {
         [RWSettingsManager promptToViewController:self
                                             Title:responseMessage
-                                         response:nil];
+                                         response:^{
+                                              DISSMISS;
+                                         }];
     }
     
 }

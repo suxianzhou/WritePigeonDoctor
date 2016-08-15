@@ -9,7 +9,7 @@
 #import "RWOfficeListController.h"
 #import "RWDoctorListController.h"
 #import "RWRequsetManager.h"
-#import "RWTestDataSource.h"
+
 
 @interface RWOfficesCell : UICollectionViewCell
 
@@ -113,7 +113,6 @@
     
     RWDoctorListController *doctorList = [[RWDoctorListController alloc] init];
     
-//    doctorList.doctorResource = item.doctorList;
     doctorList.doctorListUrl = item.doctorList;
     
     [self pushNextWithViewcontroller:doctorList];
@@ -126,7 +125,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"找医生";
-//    _officeList = [RWTestDataSource getResource];
     
     _requestManager = [[RWRequsetManager alloc] init];
     _requestManager.delegate = self;

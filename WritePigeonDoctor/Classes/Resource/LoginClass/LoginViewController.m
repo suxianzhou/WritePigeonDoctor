@@ -206,7 +206,7 @@ static NSString *const buttonCell = @"buttonCell";
         cell.placeholder = @" 请输入密码";
         cell.textField.secureTextEntry=YES;
         
-        if (SETTINGS_VALUE(__AUTO_LOGIN__))
+        if ([SETTINGS_VALUE(__AUTO_LOGIN__) boolValue])
         {
             RWUser *user = [[RWDataBaseManager defaultManager] getDefualtUser];
             cell.textField.text = user?user.password:nil;
@@ -387,18 +387,28 @@ static NSString *const buttonCell = @"buttonCell";
 {
     if ([SETTINGS_VALUE(__AUTO_LOGIN__) boolValue])
     {
-        
-        [button setImage:[UIImage imageNamed:@"duihao_nil"] forState:(UIControlStateNormal)];
-        SETTINGS(__AUTO_LOGIN__, @(NO));
+        if (SETTINGS(__AUTO_LOGIN__, @(NO)))
+        {
+            [button setImage:[UIImage imageNamed:@"duihao_nil"]
+                    forState:(UIControlStateNormal)];
+        }
+        else
+        {
+            MESSAGE(@"变更失败");
+        }
     }
     else
     {
-        
-        [button setImage:[UIImage imageNamed:@"duihao"] forState:(UIControlStateNormal)];
-        SETTINGS(__AUTO_LOGIN__, @(YES));
+        if (SETTINGS(__AUTO_LOGIN__, @(YES)))
+        {
+            [button setImage:[UIImage imageNamed:@"duihao"]
+                    forState:(UIControlStateNormal)];
+        }
+        else
+        {
+            MESSAGE(@"变更失败");
+        }
     }
-    
-    
 }
 /**
  *  跳转到忘记密码的页面
@@ -542,7 +552,7 @@ static NSString *const buttonCell = @"buttonCell";
 {
     DISSMISS;
     if (success) {
-        
+         DISSMISS;
         if ([RWDataBaseManager perfectPersonalInformation])
         {
             InfoViewController * ifVC=[[InfoViewController alloc]init];
@@ -565,7 +575,9 @@ static NSString *const buttonCell = @"buttonCell";
     {
         [RWSettingsManager promptToViewController:self
                                             Title:responseMessage
-                                         response:nil];
+                                         response:^{
+                                        DISSMISS;      
+                                         }];
     }
     
 }

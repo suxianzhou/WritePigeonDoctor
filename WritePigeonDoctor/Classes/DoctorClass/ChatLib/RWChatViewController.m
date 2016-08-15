@@ -9,7 +9,7 @@
 #import "RWChatViewController.h"
 #import "RWDataBaseManager+NameCardCollectMessage.h"
 #import "RWNameCardController.h"
-
+#import "FEShareViewController.h"
 @implementation RWChatViewController
 
 #pragma mark - chatView - delegate
@@ -413,11 +413,57 @@
 
 - (void)chatView:(RWWeChatView *)chatView selectMessage:(RWWeChatMessage *)message textMeunType:(RWTextMenuType)type
 {
+      FEShareViewController * FEvc=[[FEShareViewController alloc]init];
     switch (type)
     {
         case RWTextMenuTypeOfRelay:
         {
-            // ------
+            if (message.messageType == RWMessageTypeText)
+            {
+                EMTextMessageBody *body = (EMTextMessageBody *)message.message.body;
+                
+                [FEvc shareAppParamsByContentText:body.text
+                                            title:@"来自白鸽医生的分享"
+                                           images:nil
+                                         ShareUrl:nil
+                                      urlResource:(UMSocialUrlResourceTypeDefault)];
+            }
+            else if (message.messageType == RWMessageTypeImage)
+            {
+                EMImageMessageBody *body = (EMImageMessageBody *)message.message.body;
+                
+                NSData *imageData = message.originalResource?message.originalResource:[NSData dataWithContentsOfFile:body.localPath];
+                
+                [FEvc shareAppParamsByContentText:body.displayName
+                                            title:@"来自白鸽医生的分享"
+                                           images:imageData
+                                         ShareUrl:body.localPath
+                                      urlResource:(UMSocialUrlResourceTypeImage)];
+                
+            }
+            else if (message.messageType == RWMessageTypeVoice)
+            {
+                EMVoiceMessageBody *body = (EMVoiceMessageBody *)message.message.body;
+                
+                NSData *voiceData = message.originalResource?message.originalResource:[NSData dataWithContentsOfFile:body.localPath];
+                
+                [FEvc shareAppParamsByContentText:body.displayName
+                                            title:@"来自白鸽医生的分享"
+                                           images:voiceData
+                                         ShareUrl:body.localPath
+                                      urlResource:(UMSocialUrlResourceTypeMusic)];
+            }
+            else if (message.messageType == RWMessageTypeVideo)
+            {
+                EMVideoMessageBody *body = (EMVideoMessageBody *)message.message.body;
+                [FEvc shareAppParamsByContentText:body.displayName
+                                            title:@"来自白鸽医生的分享"
+                                           images:nil
+                                         ShareUrl:body.localPath
+                                      urlResource:(UMSocialUrlResourceTypeVideo)];
+            }
+            
+            [self presentViewController:FEvc animated:YES completion:nil];
         }
             break;
         case RWTextMenuTypeOfCollect:
