@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <AFNetworking.h>
 #import "RWRequestIndex.h"
+#import "RWDataModels.h"
 
 @protocol RWRequsetDelegate <NSObject>
 

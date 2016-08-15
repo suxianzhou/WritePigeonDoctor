@@ -26,6 +26,11 @@
     [UMSocialData setAppKey:UmengAppkey];
     [UMSocialData openLog:YES];
     
+    if (![UIApplication sharedApplication].applicationIconBadgeNumber)
+    {
+        [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    }
+    
     EMOptions *options = [EMOptions optionsWithAppkey:__EMSDK_KEY__];
     options.apnsCertName = @"Dev_WPD";
     [[EMClient sharedClient] initializeSDKWithOptions:options];

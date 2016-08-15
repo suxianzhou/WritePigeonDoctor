@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <EMSDK.h>
 #import "XZMicroVideoPlayerView.h"
+#import <Masonry.h>
 
 @class RWWeChatMessage ,RWWeChatView,RWWeChatCell;
 typedef NS_ENUM(NSInteger,RWTextMenuType);

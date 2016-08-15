@@ -94,8 +94,6 @@
     
     RWOfficeItem *item = _officeList[indexPath.row];
     
-//    cell.imageView.image = item.image;
-    
     [cell.imageView setImageWithURL:[NSURL URLWithString:item.image]
                         placeholder:[UIImage imageNamed:@"image-placeholder"]];
     

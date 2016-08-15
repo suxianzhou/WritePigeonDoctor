@@ -9,6 +9,12 @@
 #import <XCTest/XCTest.h>
 #import "RWRequsetManager+UserLogin.h"
 #import "RWDataBaseManager+ChatCache.h"
+#import "XZUMComPullRequest.h"
+#import "UMComUser.h"
+#import "UMComSession.h"
+#import "UMComImageUrl.h"
+#import "UMComMacroConfig.h"
+#import "RWDataBaseManager.h"
 
 @interface WritePigeonDoctorTests : XCTestCase
 
@@ -96,6 +102,84 @@
     RWUser *defaultUser = [defaultManager getDefualtUser];
     
     XCTAssertNil(defaultUser);
+}
+
+- (void)testDoctorRegister
+{
+    AFHTTPSessionManager *requestManager = [AFHTTPSessionManager manager];
+    requestManager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    NSString *username = @"18561599339";
+    NSString *password = @"qwertyu";
+//    NSString *yzm = @"";
+    NSString *nickname = @"RyeWhiskey";
+    NSString *hos = @"新潮未来科技医院";
+    NSString *groupid = @"15";
+    NSString *notice = @"暂无";
+    NSString *title = @"主任医师";
+    
+    [XZUMComPullRequest userCustomAccountLoginWithName:username
+                                              sourceId:password
+                                              icon_url:nil
+                                                gender:0
+                                                   age:0
+                                                custom:nil
+                                                 score:0
+                                            levelTitle:nil
+                                                 level:0
+                                     contextDictionary:nil
+                                          userNameType:userNameDefault
+                                        userNameLength:userNameLengthDefault
+                                            completion:^(NSDictionary *responseObject, NSError *error)
+     {
+         XCTAssertNil(error);
+         
+         if(!error)
+         {
+             UMComUser *umuser = responseObject[UMComModelDataKey];
+             
+             NSDictionary *body = @{@"username":username,
+                                    @"password":password,
+                                    @"udid":[UIDevice currentDevice].identifierForVendor.UUIDString,
+//                                    @"yzm":yzm,
+                                    @"umid":umuser.uid,
+                                    @"nickname":nickname,
+                                    @"hos":hos,
+                                    @"groupid":groupid,
+                                    @"notice":notice,
+                                    @"title":title};
+             
+             [requestManager POST:@"http://api.zhongyuedu.com/bg/register_doc.php"
+                            parameters:body
+                              progress:nil
+                               success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
+              {
+                  NSDictionary *Json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+                  
+                  NSLog(@"%@",Json);
+                  
+                  XCTAssertTrue([[Json objectForKey:@"resultCode"] integerValue] == 200);
+                  
+                  
+                  
+                  CFRunLoopRef ref = CFRunLoopGetCurrent();
+                  CFRunLoopStop(ref);
+                  
+              } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
+              {
+                  XCTAssertThrows(error.description);
+                  CFRunLoopRef ref = CFRunLoopGetCurrent();
+                  CFRunLoopStop(ref);
+              }];
+         }
+         else
+         {
+             CFRunLoopRef ref = CFRunLoopGetCurrent();
+             CFRunLoopStop(ref);
+         }
+     }];
+    
+    CFRunLoopRun();
 }
 
 - (void)tearDown {
