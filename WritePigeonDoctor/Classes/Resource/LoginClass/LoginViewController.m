@@ -551,8 +551,9 @@ static NSString *const buttonCell = @"buttonCell";
 -(void)userLoginSuccess:(BOOL)success responseMessage:(NSString *)responseMessage
 {
     DISSMISS;
+    
     if (success) {
-         DISSMISS;
+        
         if ([RWDataBaseManager perfectPersonalInformation])
         {
             InfoViewController * ifVC=[[InfoViewController alloc]init];
@@ -575,9 +576,7 @@ static NSString *const buttonCell = @"buttonCell";
     {
         [RWSettingsManager promptToViewController:self
                                             Title:responseMessage
-                                         response:^{
-                                        DISSMISS;      
-                                         }];
+                                         response:nil];
     }
     
 }

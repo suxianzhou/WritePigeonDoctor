@@ -121,14 +121,14 @@
             {
                 RWDoctorItem *item = [[RWDoctorItem alloc] init];
                 
-                item.name = @"";
+//                item.name = doctor[@"nickname"];
                 item.doctorDescription = doctor[@"docdp"];
                 item.expenses = [doctor[@"expenses"] isKindOfClass:[NSArray class]]?
                                 doctor[@"expenses"]:
                                 @[@"￥0.00元/小时"];
                 item.EMID = doctor[@"username"];
                 item.office = doctor[@"grouptitle"];
-                item.umid = @"";
+//                item.umid = doctor[@"umid"];
                 item.professionalTitle = [NSString stringWithFormat:@"%@  %@",doctor[@"hos"],doctor[@"title"]];
                 item.announcement = doctor[@"notice"];
                 
@@ -220,14 +220,25 @@
             
             RWDoctorItem *item = [[RWDoctorItem alloc] init];
             
-            item.name = @"";
+            if (!doctor)
+            {
+                if (_delegate && [_delegate respondsToSelector:@selector(requsetOfficeDoctor:responseMessage:)])
+                {
+                    [_delegate requsetOfficeDoctor:nil
+                                   responseMessage:@"返回数据异常，请稍后重试"];
+                }
+                
+                return;
+            }
+            
+            item.name = doctor[@"nickname"];
             item.doctorDescription = doctor[@"docdp"];
             item.expenses = [doctor[@"expenses"] isKindOfClass:[NSArray class]]?
             doctor[@"expenses"]:
             @[@"￥0.00元/小时"];
             item.EMID = doctor[@"username"];
             item.office = doctor[@"grouptitle"];
-            item.umid = @"";
+            item.umid = doctor[@"umid"];
             item.professionalTitle = [NSString stringWithFormat:@"%@  %@",doctor[@"hos"],doctor[@"title"]];
             item.announcement = doctor[@"notice"];
             

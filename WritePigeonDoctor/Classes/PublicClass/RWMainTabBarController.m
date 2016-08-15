@@ -24,6 +24,8 @@
 
 @property (nonatomic,strong)NSArray *selectImages;
 
+@property (nonatomic,strong)NSArray *views;
+
 @end
 
 @implementation RWMainTabBarController
@@ -34,14 +36,12 @@
 {
     for (int i = 0; i < _images.count; i++)
     {
-        UIImageView *imageItem = (UIImageView *)[self.view viewWithTag:(i + 1)*10];
+        UIImageView *imageItem = _views[i];
         
         imageItem.image = _images[i];
     }
     
-    [self selectWithTag:1];
-    
-    self.selectedIndex = 0;
+    [self selectWithIndex:0];
 }
 
 - (void)addMessageObserver
@@ -134,12 +134,18 @@
     
     CGFloat h = self.tabBar.frame.size.height;
     
+    NSMutableArray *views = [[NSMutableArray alloc] init];
+    
     for (int i = 0; i < _images.count; i++)
     {
-        [self tabBarButtonWithFrame:CGRectMake(w * i, 0, w, h) AndTag:i+1];
+        [views addObject:
+        
+                [self tabBarButtonWithFrame:CGRectMake(w * i, 0, w, h) AndTag:i+1]];
     }
     
-    [self selectWithTag:1];
+    _views = [views copy];
+    
+    [self selectWithIndex:0];
 }
 
 - (UIView *)tabBarButtonWithFrame:(CGRect)frame AndTag:(NSInteger)tag
@@ -167,7 +173,7 @@
     
     [self addGestureRecognizerToView:view];
     
-    return view;
+    return imageView;
 }
 
 - (void)addGestureRecognizerToView:(UIView *)view
@@ -181,23 +187,23 @@
 
 - (void)cutViewControllerWithGesture:(UITapGestureRecognizer *)tapGesture
 {
-    for (int i = 0; i < _images.count; i++)
+    for (int i = 0; i < _views.count; i++)
     {
-        UIImageView *imageItem = (UIImageView *)[self.view viewWithTag:(i + 1)*10];
+        UIImageView *imageItem = _views[i];
         
         imageItem.image = _images[i];
     }
     
-    [self selectWithTag:tapGesture.view.tag];
+    [self selectWithIndex:tapGesture.view.tag - 1];
 }
 
-- (void)selectWithTag:(NSInteger)tag
+- (void)selectWithIndex:(NSInteger)index
 {
-    UIImageView *imageItem = (UIImageView *)[self.view viewWithTag:tag * 10];
+    UIImageView *imageItem = _views[index];
     
-    imageItem.image = _selectImages[tag - 1];
+    imageItem.image = _selectImages[index];
     
-    self.selectedIndex = tag - 1;
+    self.selectedIndex = index;
 }
 
 

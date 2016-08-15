@@ -177,7 +177,7 @@
 
 -(void)refreshUserInfo:(UMComUser*)user
 {
-    [self.protrainImageView setImageURL:user.icon_url.small_url_string placeHolderImage:[UIImage imageNamed:@"45195.jpg"]];
+    [self.protrainImageView setImageURL:user.icon_url.small_url_string placeHolderImage:[UIImage imageNamed:@"user_image"]];
     
     if (user.feed_count > 0) {
         self.countLabel.text = [[NSString alloc] initWithFormat:g_userCenter_count_template,user.feed_count.longValue];
@@ -202,10 +202,10 @@
         if (medal && [medal isKindOfClass:[UMComMedal class]]) {
             self.medal.delegate = self;
             self.medal.isAutoStart = YES;
-            [self.medal setImageURL:medal.icon_url placeHolderImage:[UIImage imageNamed:@"45195.jpg"]];
+            [self.medal setImageURL:medal.icon_url placeHolderImage:[UIImage imageNamed:@"user_image"]];
         }
         else{
-            [self.medal setImageURL:nil placeHolderImage:[UIImage imageNamed:@"45195.jpg"]];
+            [self.medal setImageURL:nil placeHolderImage:[UIImage imageNamed:@"user_image"]];
         }
     }
     else

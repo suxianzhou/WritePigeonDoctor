@@ -8,6 +8,7 @@
 
 #import "RWConsultNotesController.h"
 #import "RWDoctorDescriptionController.h"
+#import "RWDataBaseManager.h"
 
 @interface RWConsultNotesController ()
 
@@ -105,6 +106,14 @@
 
 - (void)requsetOfficeDoctor:(RWDoctorItem *)doctor responseMessage:(NSString *)responseMessage
 {
+    [[RWDataBaseManager defaultManager] addConsultHistoryWithItem:doctor completion:^(BOOL success)
+    {
+        if (!success)
+        {
+            [MBProgressHUD Message:@"医生信息更新失败" For:self.tabBarController.view];
+        }
+    }];
+    
     if (doctor)
     {
         RWDoctorDescriptionController *doctorView = [RWDoctorDescriptionController doctorDescroptionWith:doctor];
@@ -115,11 +124,6 @@
     }
     
     [RWSettingsManager promptToViewController:self Title:responseMessage response:nil];
-}
-
-- (void)chatView:(RWWeChatView *)chatView selectMessage:(RWWeChatMessage *)message textMeunType:(RWTextMenuType)type
-{
-    
 }
 
 - (void)didReceiveMemoryWarning {

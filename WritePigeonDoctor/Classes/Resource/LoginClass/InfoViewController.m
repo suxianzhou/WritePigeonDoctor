@@ -179,9 +179,13 @@ static NSString *const buttonCell = @"buttonCell";
     
     [baseBackView addSubview:backView];
     
-    [backView mas_makeConstraints:^(MASConstraintMaker *make) {
+    CGFloat h = self.viewList.frame.size.height/4 - 20;
+    
+    [backView mas_makeConstraints:^(MASConstraintMaker *make)
+    {
         make.center.equalTo(baseBackView);
         make.top.equalTo(baseBackView.mas_top).offset(10);
+        make.height.equalTo(@(h));
         make.width.equalTo(backView.mas_height);
     }];
     
@@ -397,7 +401,9 @@ static NSString *const buttonCell = @"buttonCell";
         [self presentViewController:PickerImage animated:YES completion:nil];
     }]];
     
-    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
+        
     [alert addAction:[UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action){
        
         UIImagePickerController *PickerImage = [[UIImagePickerController alloc]init];
@@ -408,6 +414,7 @@ static NSString *const buttonCell = @"buttonCell";
         [self presentViewController:PickerImage animated:YES completion:nil];
     }]];
     
+    }
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
     [self presentViewController:alert animated:YES completion:nil];
 
@@ -425,7 +432,8 @@ static NSString *const buttonCell = @"buttonCell";
 
 
 
--(void)setinfo{
+-(void)setinfo
+{
     SHOWLOADING;
     [self obtainRequestManager];
     FETextFiledCell * name=[self.viewList cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
@@ -455,15 +463,14 @@ static NSString *const buttonCell = @"buttonCell";
     __weak typeof (self) weakself =self;
     [_requestManager setUserHeader:_myHeadPortrait.image name:nameStr age:ageStr sex:sexStr completion:^(BOOL success, NSString *errorReason)
     {
+         DISSMISS;
         if (success) {
-            DISSMISS;
+           
             [weakself jumpMain];
         }else{
             [RWSettingsManager promptToViewController:weakself
                                                 Title:errorReason
-                                             response:^{
-                                                 DISSMISS;
-                                             }];
+                                             response:nil];
         }
     }];
     

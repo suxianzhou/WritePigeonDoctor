@@ -150,11 +150,9 @@
         _nameField.text = user.name;
         _ageField.text = [NSString stringWithFormat:@"%@",user.age];
         _souceUidLabel.text = user.username;
-        if ([user.gender isEqualToString:@"女"])
-        {
+        if ([user.gender isEqualToString:@"女"]) {
             _gender = 0;
-        }
-        else
+        }else
         {
             _gender = 1;
         }
@@ -354,17 +352,19 @@
             if (success)
             {
                 [[NSNotificationCenter defaultCenter] postNotificationName:kUserLogoutSucceedNotification object:nil];
-                if (self.navigationController.viewControllers.count > 1) {
+                if (self.navigationController.viewControllers.count > 1)
+                {
                     [self.navigationController popToRootViewControllerAnimated:YES];
-                }else{
-                    [self.navigationController dismissViewControllerAnimated:YES completion:^{
-                        
-                    }];
+                }
+                else
+                {
+                    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
                 }
             }
         }];
         
     }];
+    
     [alertController addAction:cancelAction];
     [alertController addAction:sureAction];
     [self presentViewController:alertController animated:YES completion:nil];

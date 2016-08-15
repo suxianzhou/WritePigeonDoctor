@@ -91,6 +91,15 @@
 {
     if (doctor)
     {
+        [[RWDataBaseManager defaultManager] addNameCardWithItem:doctor
+                                                     completion:^(BOOL success)
+        {
+            if (!success)
+            {
+                [MBProgressHUD Message:@"名片更新失败" For:self.tabBarController.view];
+            }
+        }];
+        
         RWDoctorDescriptionController *doctorView = [RWDoctorDescriptionController doctorDescroptionWith:doctor];
         
         [self.navigationController pushViewController:doctorView animated:YES];
@@ -99,11 +108,6 @@
     }
     
     [RWSettingsManager promptToViewController:self Title:responseMessage response:nil];
-}
-
-- (void)chatView:(RWWeChatView *)chatView selectMessage:(RWWeChatMessage *)message textMeunType:(RWTextMenuType)type
-{
-    
 }
 
 /*

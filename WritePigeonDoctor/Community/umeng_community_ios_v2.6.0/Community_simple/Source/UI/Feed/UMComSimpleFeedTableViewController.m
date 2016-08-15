@@ -268,7 +268,7 @@
             selectTopicViewController.closeTopicViewAction = ^(){
                 [weakself.navigationController popViewControllerAnimated:YES];
             };
-            [weakself.navigationController pushViewController:selectTopicViewController animated:YES];
+           [weakself.navigationController pushViewController:selectTopicViewController animated:YES];
             //可变话题的选择----end
         }
     }];

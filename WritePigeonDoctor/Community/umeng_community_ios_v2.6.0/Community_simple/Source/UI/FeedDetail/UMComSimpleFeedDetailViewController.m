@@ -92,7 +92,7 @@ static NSString *kUMComFeedLikeButtonCellIdentifier = @"UMComLikeButtonTableView
     self = [super init];
     if (self) {
         
-        self.placeHolderImageForIMGCell = [UIImage imageNamed:@"45195.jpg"];
+        self.placeHolderImageForIMGCell = [UIImage imageNamed:@"placeholder.png"];
         
         [self createTopBarItems];
         self.commentHeightInfo = [NSMutableDictionary dictionary];

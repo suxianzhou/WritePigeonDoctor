@@ -20,6 +20,7 @@
 #import "RWMainTabBarController.h"
 #import "FollowingTableViewController.h"
 #import "RWNameCardController.h"
+
 @interface RWSettingsViewController ()
 <
     UITableViewDelegate,
@@ -55,7 +56,6 @@ static NSString *const  setListCell = @"viewListCell";
         RWMainTabBarController *tabBar = (RWMainTabBarController *)self.tabBarController;
         
         [tabBar toRootViewController];
-        
         [self.tabBarController toLoginViewController];
         
         return;

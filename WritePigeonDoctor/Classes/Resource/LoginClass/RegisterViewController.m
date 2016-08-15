@@ -494,10 +494,10 @@ static NSString * const agreementCell=@"agreementCell";
 }
 -(void)userRegisterSuccess:(BOOL)success responseMessage:(NSString *)responseMessage
 {
-    
+    DISSMISS;
     if (success)
     {
-        DISSMISS;
+        
         [RWSettingsManager promptToViewController:self
                                             Title:@"注册成功"
                                          response:^
@@ -513,16 +513,13 @@ static NSString * const agreementCell=@"agreementCell";
     {
         [RWSettingsManager promptToViewController:self
                                             Title:responseMessage
-                                         response:^{
-                                             DISSMISS;
-                                             
-                                         }];
+                                         response:nil];
     }
     
 }
 -(void)userReplacePasswordResponds:(BOOL)success responseMessage:(NSString *)responseMessage
 {
-   
+   DISSMISS;
     if (success)
     {
         
@@ -530,7 +527,7 @@ static NSString * const agreementCell=@"agreementCell";
                                             Title:@"修改成功"
                                          response:^
         {
-             DISSMISS;
+            
             UITabBarController *tabBar = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
             
             [tabBar toLoginViewController];
@@ -541,9 +538,7 @@ static NSString * const agreementCell=@"agreementCell";
     {
         [RWSettingsManager promptToViewController:self
                                             Title:responseMessage
-                                         response:^{
-                                              DISSMISS;
-                                         }];
+                                         response:nil];
     }
     
 }
